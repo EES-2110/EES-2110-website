@@ -1,0 +1,206 @@
+baseurl = "https://ees5891.jgilligan.org"
+languageCode = "en-us"
+defaultContentLanguage = "en-us"
+title = "EES 5891-03"
+theme = "hugo-syllabus"
+# disqusShortname = ""
+enableRobotsTXT = true
+# googleAnalytics = "UA-101117636-3"
+paginate = 10
+relativeurls = true
+publishDir = "public"
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "_scripts$", "_data$", "\\.gitkeep"]
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.blackFriday]
+    angledQuotes = false
+    footnoteAnchorPrefix = ""
+    footnoteReturnLinkContents = ""
+    fractions = true
+    hrefTargetBlank = true
+    latexDashes = true
+    nofollowLinks = false
+    noreferrerLinks = false
+    plainIDAnchors = true
+    skipHTML = false
+    smartDashes = true
+    smartypants = true
+    smartypantsQuotesNBSP = false
+    taskLists = true
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.parser]
+      attribute = true
+      autoHeadingID = true
+    [markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = true
+      xHTML = false
+  [markup.highlight]
+    codeFences = true
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "monokai"
+    tabWidth = 4
+  [markup.tableOfContents]
+    endLevel = 3
+    startLevel = 2
+
+[permalinks]
+  post = "/:year/:month/:slug/"
+  reading = "/reading/:slug"
+  assignment = "/assignment/:slug"
+  lab = "/lab/:slug"
+  lab_docs = "/lab_docs/:slug"
+  lab_solutions = "/lab_solutions/:slug"
+  homework_solutions = "/homework_solutions/:slug"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  archive = "archives"
+
+[author]
+  name = "Jonathan Gilligan"
+  bio = ""
+  job = "Associate Professor"
+  location = "Vanderbilt University"
+  gravatarEmail = "jonathan.gilligan@gmail.com"
+  # Your profile picture
+#  picture = ""
+  homepage = "https://www.jonathangilligan.org"
+  twitter = "jg_environ"
+  youtube = "UCh3zZ5uI7oZBtpO6kflg_dg"
+
+# Menu Configuration
+[[menu.main]]
+  weight = 1
+  identifier = "home"
+  name = "Home"
+  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-home\"></i> "
+  url = "/"
+[[menu.main]]
+  weight = 2
+  identifier = "overview"
+  name = "Overview"
+  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-globe\"></i> "
+  url = "/overview"
+[[menu.main]]
+  weight = 3
+  identifier = "schedule"
+  name = "Schedule"
+  pre = "<i class=\"sidebar-button-icon fal fa-lg fa-calendar-alt\"></i> "
+  url = "/schedule"
+[[menu.main]]
+  weight = -4
+  identifier = "labs"
+  name = "Labs"
+  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-flask\"></i> "
+  url = "/labs"
+[[menu.main]]
+  weight = -5
+  identifier = "exams"
+  name = "Exams"
+  pre = "<i class=\"sidebar-button-icon far fa-lg fa-pencil\"></i> "
+  url = "/exams"
+[[menu.main]]
+  weight = 6
+  identifier = "policies"
+  name = "Policies"
+  pre = "<i class=\"material-icons\">gavel</i> "
+  url = "/policies"
+[[menu.main]]
+  weight = -7
+  identifier = "downloads"
+  name = "Downloads"
+  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-download\"></i> "
+  url = "/downloads"
+[[menu.main]]
+  weight = 8
+  identifier = "tools"
+  name = "Tools"
+  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-wrench\"></i> "
+  url = "/tools"
+
+[[menu.footer]]
+  weight = 2
+  identifier = "GitHub"
+  name = "Class Repos"
+  pre = "<i class=\"button-icon fab fa-2x fa-github\"></i>"
+  url = "https://github.com/gilligan-ees-3310-2022"
+
+[params]
+  profname = "Jonathan Gilligan"
+  dateFormat = "January 2, 2006"
+  projectPresentDate = "2022-xx-xx"
+  background = "img/stan-corrplot.png"
+  backgroundCredit = ""
+  math = "true"
+  backgroundColor = "white"
+  backgroundSize = "cover"
+  backgroundBlendMode = "multiply"
+  backgroundRepeat = "repeat-y"
+  shortCourseName = "EES 5891-03"
+  fullCourseName = "EES 5891-03: Bayesian Statistical Methods"
+  semester = "Fall 2022"
+  courseCatalogEntry = "An introduction to Bayesian statistics, with a focus on both practical application of Bayesian regression methods to data as well as philosophical background on statistical inference and interpretation of statistical analyses. Bayes's theorem and tools for applying it, including quadratic approximations, Hamiltonian Monte Carlo sampling, and Integrated Nested Laplace Approximation (INLA). Advanced methods, including multilevel regression methods and geospatial analysis."
+  fontAwesomePro = "sha384-POYwD7xcktv3gUeZO5s/9nUbRJG/WOmV6jfEGikMJu77LGYO8Rfs2X7URG822aum"
+  siteGitHub = "https://github.com/gilligan-ees-5891/EES-5891-website.git"
+
+  [params.lectures]
+    times = "TR 11:00--12:15"
+    classroom = "SC 6740"
+
+  [params.prof]
+    name = "Jonathan Gilligan"
+    lastname = "Gilligan"
+    title = "Prof."
+    email = "jonathan.gilligan@vanderbilt.edu"
+    url = "https://www.jonathangilligan.org"
+    office = "SC 5735 (7th floor of Stevenson 5)"
+    officeHours = "Monday 2:00--3:00 pm, Tuesday 4:00--5:00, or by appointment."
+
+  [params.assignments]
+    labs = false
+    homework = true
+    reading = true
+
+  [params.ip]
+    copyright = "Copyright 2022, <a href=\"https://www.jonathangilligan.org\" target=\"_blank\">Jonathan Gilligan</a>."
+    licenseIcon = "/img/cc-by.svg"
+    licenseURL = "https://creativecommons.org/licenses/by/4.0/"
+    licenseTitle = "Creative Commons Attribution License"
+
+  [params.mathjax]
+    extensions = [ "color.js", "mhchem.js" ]
+    sansserif = false
+
+    [params.mathjax.macros]
+      permil = "\\unicode{x2030}"
+      pH = "p\\ce{H}"
+      CaSi = "\\ce{CaSiO3}"
+      silicate = "\\ce{SiO3^2-}"
+      Caplus = "\\ce{Ca^2+}"
+      calcite = "\\ce{CaCO3}"
+      silica = "\\ce{SiO2}"
+      OH = "\\ce{OH-}"
+      Hplus = "\\ce{H+}"
+      carbonic = "\\ce{H2CO3}"
+      bicarb = "\\ce{HCO3-}"
+      carb = "\\ce{CO3^2-}"
+      water = "\\mathrm{H_2O}"
+      degF = "^\\circ \\mathrm{F}"
+      degC = "^\\circ \\mathrm{C}"
+      methane = "\\ce{CH4}"
+      COO = "\\ce{CO2}"

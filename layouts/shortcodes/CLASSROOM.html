@@ -1,0 +1,3 @@
+{{ if isset .Site.Params "lectures" -}}
+{{ .Site.Params.lectures.classroom | markdownify }}
+{{- end }}

@@ -1,0 +1,3 @@
+{{ if isset .Site.Params.prof "office" -}}
+{{ .Site.Params.prof.office | markdownify }}
+{{- end }}

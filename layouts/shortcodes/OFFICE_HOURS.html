@@ -1,0 +1,3 @@
+{{ if isset .Site.Params.prof "officeHours" -}}
+{{ .Site.Params.prof.officeHours | markdownify }}
+{{- end }}

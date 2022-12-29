@@ -1,0 +1,57 @@
+[build]
+  publish = "public/"
+  command = "hugo"
+[build.environment]
+  HUGO_VERSION = "0.80.0"
+[context.production]
+  branch = "master"
+[build.processing]
+  skip_processing = false
+[build.processing.css]
+  bundle = true
+  minify = true
+[build.processing.js]
+  bundle = true
+  minify = true
+[build.processing.html]
+  prettify_urls = true
+[build.processing.images]
+  compress = true
+
+
+[Settings]
+  ID = "ees5891"
+
+[[redirects]]
+  from = "https://www.ees5891.jgilligan.org/*"
+  to   = "https://ees5891.jgilligan.org/:splat"
+  force = true
+  status = 301
+
+[[redirects]]
+  from = "http://www.ees5891.jgilligan.org/*"
+  to   = "https://ees5891.jgilligan.org/:splat"
+  force = true
+  status = 301
+
+[[redirects]]
+  from = "https://ees5891.netlify.com/*"
+  to   = "https://ees5891.jgilligan.org/:splat"
+  force = true
+  status = 301
+
+[[redirects]]
+  from = "http://ees5891.netlify.com/*"
+  to   = "https://ees5891.jgilligan.org/:splat"
+  force = true
+  status = 301
+
+[[redirects]]
+  from = "/static/*"
+  to = "https://static.jgilligan.org/ees5891/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
