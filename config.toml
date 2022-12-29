@@ -1,7 +1,7 @@
-baseurl = "https://ees5891.jgilligan.org"
+baseurl = "https://ees2110.jgilligan.org"
 languageCode = "en-us"
 defaultContentLanguage = "en-us"
-title = "EES 5891-03"
+title = "EES 2110"
 theme = "hugo-syllabus"
 # disqusShortname = ""
 enableRobotsTXT = true
@@ -80,7 +80,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "_scripts$", "_
   # Your profile picture
 #  picture = ""
   homepage = "https://www.jonathangilligan.org"
-  twitter = "jg_environ"
+#  twitter = "jg_environ"
   youtube = "UCh3zZ5uI7oZBtpO6kflg_dg"
 
 # Menu Configuration
@@ -126,24 +126,17 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "_scripts$", "_
   name = "Downloads"
   pre = "<i class=\"sidebar-button-icon fas fa-lg fa-download\"></i> "
   url = "/downloads"
-[[menu.main]]
-  weight = 8
-  identifier = "tools"
-  name = "Tools"
-  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-wrench\"></i> "
-  url = "/tools"
 
 [[menu.footer]]
   weight = 2
   identifier = "GitHub"
   name = "Class Repos"
   pre = "<i class=\"button-icon fab fa-2x fa-github\"></i>"
-  url = "https://github.com/gilligan-ees-3310-2022"
+  url = "https://github.com/gilligan-EES-2110/EES-2110-website"
 
 [params]
   profname = "Jonathan Gilligan"
   dateFormat = "January 2, 2006"
-  projectPresentDate = "2022-xx-xx"
   background = "img/stan-corrplot.png"
   backgroundCredit = ""
   math = "true"
@@ -151,15 +144,15 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "_scripts$", "_
   backgroundSize = "cover"
   backgroundBlendMode = "multiply"
   backgroundRepeat = "repeat-y"
-  shortCourseName = "EES 5891-03"
-  fullCourseName = "EES 5891-03: Bayesian Statistical Methods"
-  semester = "Fall 2022"
-  courseCatalogEntry = "An introduction to Bayesian statistics, with a focus on both practical application of Bayesian regression methods to data as well as philosophical background on statistical inference and interpretation of statistical analyses. Bayes's theorem and tools for applying it, including quadratic approximations, Hamiltonian Monte Carlo sampling, and Integrated Nested Laplace Approximation (INLA). Advanced methods, including multilevel regression methods and geospatial analysis."
+  shortCourseName = "EES 2110"
+  fullCourseName = "EES 2110: Introduction to Climate Change"
+  semester = "Spring 2023"
+  courseCatalogEntry = "Science, policy, history, and causes of climate change on Earth in the last 2 million years; evidence of human impacts on climate since 1850; future climate change and its economic, social, and ecological consequences; economic, technological, and public policy responses. Not open to students who have earned credit for EES 3310 without permission. [3] (MNS)"
   fontAwesomePro = "sha384-POYwD7xcktv3gUeZO5s/9nUbRJG/WOmV6jfEGikMJu77LGYO8Rfs2X7URG822aum"
-  siteGitHub = "https://github.com/gilligan-ees-5891/EES-5891-website.git"
+  siteGitHub = "https://github.com/gilligan-EES-2110/EES-2110-website.git"
 
   [params.lectures]
-    times = "TR 11:00--12:15"
+    times = "MWF 9:05--9:55"
     classroom = "SC 6740"
 
   [params.prof]
@@ -169,7 +162,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "_scripts$", "_
     email = "jonathan.gilligan@vanderbilt.edu"
     url = "https://www.jonathangilligan.org"
     office = "SC 5735 (7th floor of Stevenson 5)"
-    officeHours = "Monday 2:00--3:00 pm, Tuesday 4:00--5:00, or by appointment."
+    officeHours = "TBA, or by appointment"
 
   [params.assignments]
     labs = false
@@ -177,7 +170,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "_scripts$", "_
     reading = true
 
   [params.ip]
-    copyright = "Copyright 2022, <a href=\"https://www.jonathangilligan.org\" target=\"_blank\">Jonathan Gilligan</a>."
+    copyright = "Copyright 2023, <a href=\"https://www.jonathangilligan.org\" target=\"_blank\">Jonathan Gilligan</a>."
     licenseIcon = "/img/cc-by.svg"
     licenseURL = "https://creativecommons.org/licenses/by/4.0/"
     licenseTitle = "Creative Commons Attribution License"

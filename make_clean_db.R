@@ -1,11 +1,10 @@
-library(pacman)
 p_load(RSQLite)
 p_load(tidyverse, magrittr, lubridate, rlang)
 p_load(janitor)
 p_load(here)
 
-database <- "new_EES_3310_5310.sqlite3"
-new_database <- "alt_EES_3310_5310.sqlite"
+database <- "new_EES_2110.sqlite3"
+new_database <- "alt_EES_2110.sqlite"
 
 root_dir <- here::here()
 planning_dir <- here::here("planning")

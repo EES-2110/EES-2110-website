@@ -2,9 +2,9 @@
   publish = "public/"
   command = "hugo"
 [build.environment]
-  HUGO_VERSION = "0.80.0"
+  HUGO_VERSION = "0.109.0"
 [context.production]
-  branch = "master"
+  branch = "main"
 [build.processing]
   skip_processing = false
 [build.processing.css]
@@ -20,35 +20,35 @@
 
 
 [Settings]
-  ID = "ees5891"
+  ID = "ees2110"
 
 [[redirects]]
-  from = "https://www.ees5891.jgilligan.org/*"
-  to   = "https://ees5891.jgilligan.org/:splat"
+  from = "https://www.ees2110.jgilligan.org/*"
+  to   = "https://ees2110.jgilligan.org/:splat"
   force = true
   status = 301
 
 [[redirects]]
-  from = "http://www.ees5891.jgilligan.org/*"
-  to   = "https://ees5891.jgilligan.org/:splat"
+  from = "http://www.ees2110.jgilligan.org/*"
+  to   = "https://ees2110.jgilligan.org/:splat"
   force = true
   status = 301
 
 [[redirects]]
-  from = "https://ees5891.netlify.com/*"
-  to   = "https://ees5891.jgilligan.org/:splat"
+  from = "https://ees2110.netlify.com/*"
+  to   = "https://ees2110.jgilligan.org/:splat"
   force = true
   status = 301
 
 [[redirects]]
-  from = "http://ees5891.netlify.com/*"
-  to   = "https://ees5891.jgilligan.org/:splat"
+  from = "http://ees2110.netlify.com/*"
+  to   = "https://ees2110.jgilligan.org/:splat"
   force = true
   status = 301
 
 [[redirects]]
   from = "/static/*"
-  to = "https://static.jgilligan.org/ees5891/:splat"
+  to = "https://static.jgilligan.org/ees2110/:splat"
   status = 200
 
 [[redirects]]
