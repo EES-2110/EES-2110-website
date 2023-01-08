@@ -1,0 +1,20 @@
+---
+title: Policy Myths
+class_date: '2023-03-29'
+class_number: 31
+weight: 31
+slug: reading_31
+pubdate: '2022-12-31'
+date: '2023-03-29'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+pdf_url: /files/reading_asgts/reading_31.pdf
+---
+## Reading:
+
+### Required Reading (everyone):
+
+* The Climate Fix, 2.
+* Climate Casino, 25.
+

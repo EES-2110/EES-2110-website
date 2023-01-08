@@ -1,0 +1,131 @@
+lessons:
+- date: '2023-01-09'
+  title: Introduction
+- date: '2023-01-11'
+  title: What is Climate Change?
+  reading: /reading/reading_02
+- date: '2023-01-13'
+  title: Energy Balance and Climate
+  reading: /reading/reading_03
+- date: '2023-01-16'
+  title: Martin Luther King, Jr. Day
+- date: '2023-01-18'
+  title: Greenhouse Effect
+  reading: /reading/reading_04
+- date: '2023-01-20'
+  title: Greenhouse Gases
+  reading: /reading/reading_05
+- date: '2023-01-23'
+  title: Spectrum of Atmospheric Radiation
+  reading: /reading/reading_06
+- date: '2023-01-25'
+  title: Vertical Structure of the Atmosphere
+  reading: /reading/reading_07
+- date: '2023-01-27'
+  title: Atmospheric Convection
+  reading: /reading/reading_08
+- date: '2023-01-30'
+  title: Review of Greenhouse Effect
+  reading: /reading/reading_09
+- date: '2023-02-01'
+  title: Weather and Climate
+  reading: /reading/reading_10
+- date: '2023-02-03'
+  title: Feedbacks
+  reading: /reading/reading_11
+- date: '2023-02-06'
+  title: Ocean and Biosphere Feedbacks
+  reading: /reading/reading_12
+- date: '2023-02-08'
+  title: 'Test #1'
+  reading: /reading/reading_13
+- date: '2023-02-10'
+  title: 'The Carbon Cycle: Ocean and Biosphere'
+  reading: /reading/reading_14
+- date: '2023-02-13'
+  title: 'The Carbon Cycle: Mineral Weathering'
+  reading: /reading/reading_15
+- date: '2023-02-15'
+  title: Perturbing the Carbon Cycle
+  reading: /reading/reading_16
+- date: '2023-02-17'
+  title: Ocean Acidification
+  reading: /reading/reading_17
+- date: '2023-02-20'
+  title: Isotopes
+  reading: /reading/reading_18
+- date: '2023-02-22'
+  title: Climates of the Past
+  reading: /reading/reading_19
+- date: '2023-02-24'
+  title: The Pleistocene Ice Ages
+  reading: /reading/reading_20
+- date: '2023-02-27'
+  title: 'Human Impact on Climate: The Evidence'
+  reading: /reading/reading_21
+- date: '2023-03-01'
+  title: Review of Carbon Cycle and Paleoclimates
+- date: '2023-03-03'
+  title: Identifying Fallacies about Climate Change
+  reading: /reading/reading_23
+- date: '2023-03-06'
+  title: Climate Fallacies Game
+  reading: /reading/reading_24
+- date: '2023-03-08'
+  title: 'Test #2'
+  reading: /reading/reading_25
+- date: '2023-03-10'
+  title: Climate Models
+  reading: /reading/reading_26
+- date: '2023-03-13'
+  title: Spring Break
+- date: '2023-03-15'
+  title: Spring Break
+- date: '2023-03-17'
+  title: Spring Break
+- date: '2023-03-20'
+  title: Future Climate Change
+  reading: /reading/reading_27
+- date: '2023-03-22'
+  title: The Kaya Identity
+  reading: /reading/reading_28
+- date: '2023-03-24'
+  title: Future Emission Scenarios
+  reading: /reading/reading_29
+- date: '2023-03-27'
+  title: Uncertainty about Future Climates
+  reading: /reading/reading_30
+- date: '2023-03-29'
+  title: Policy Myths
+  reading: /reading/reading_31
+- date: '2023-03-31'
+  title: Renewable Energy
+  reading: /reading/reading_32
+- date: '2023-04-03'
+  title: Nuclear Energy
+  reading: /reading/reading_33
+- date: '2023-04-05'
+  title: 'Geoengineering: Solar Radiation Management'
+  reading: /reading/reading_34
+- date: '2023-04-07'
+  title: 'Geoengineering: Carbon Dioxide Management'
+  reading: /reading/reading_35
+- date: '2023-04-10'
+  title: Review of Impacts and Responses to Climate Change
+- date: '2023-04-12'
+  title: 'Test #3'
+  reading: /reading/reading_37
+- date: '2023-04-14'
+  title: Climate Change, Agriculture, and Health
+  reading: /reading/reading_38
+- date: '2023-04-17'
+  title: 'Climate and Oceans: Hurricanes, Sea-level, etc.'
+  reading: /reading/reading_39
+- date: '2023-04-19'
+  title: Assessing Climate Damage
+- date: '2023-04-21'
+  title: History of Climate Policy
+- date: '2023-04-24'
+  title: Future Possibilities
+- date: '2023-05-04'
+  title: Take-home final exam due

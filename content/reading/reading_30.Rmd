@@ -1,0 +1,21 @@
+---
+title: Uncertainty about Future Climates
+class_date: '2023-03-27'
+class_number: 30
+weight: 30
+slug: reading_30
+pubdate: '2022-12-31'
+date: '2023-03-27'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+pdf_url: /files/reading_asgts/reading_30.pdf
+---
+## Reading:
+
+### Required Reading (everyone):
+
+* Understanding the Forecast, 12, pp. 164--166.
+* Climate Casino, 24.
+* The Climate Fix, 1, pp. 1--24.
+

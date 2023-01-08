@@ -1,0 +1,19 @@
+---
+title: Climate Models
+class_date: '2023-03-10'
+class_number: 26
+weight: 26
+slug: reading_26
+pubdate: '2022-12-31'
+date: '2023-03-10'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+pdf_url: /files/reading_asgts/reading_26.pdf
+---
+## Reading:
+
+### Required Reading (everyone):
+
+* Climate Casino, 3--4.
+

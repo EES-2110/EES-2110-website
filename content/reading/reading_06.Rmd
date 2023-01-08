@@ -1,0 +1,103 @@
+---
+title: Spectrum of Atmospheric Radiation
+class_date: '2023-01-23'
+class_number: 6
+weight: 6
+slug: reading_06
+pubdate: '2022-12-31'
+date: '2023-01-23'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+pdf_url: /files/reading_asgts/reading_06.pdf
+---
+## Notice:
+
+If you have a laptop or tablet that you can bring to class and connect to the internet, I recommend you do so today so you can work along with me in using the MODTRAN model.
+
+## Reading:
+
+### Required Reading (everyone):
+
+* Understanding the Forecast, Ch. 4, pp. 34-40.
+
+### Reading Notes:
+
+### Band saturation
+
+You only need to understand **band saturation** qualitatively
+(i.e., you don't need to worry about equations 4.1--4.3).
+
+**This is important for understanding why some greenhouse gases are more
+powerful than others** 
+
+* What is **band saturation**? 
+* Why does increasing CO~2~
+from 10 to 100 parts per million or from 100 to 1000 parts per million have much
+less effect than increasing it from 0 to 10 parts per million? 
+
+Think by analogy.
+Suppose you smear a tablespoon of black ink all over a white piece of
+paper. How much will that affect its brightness? Now suppose you smear four
+more tablespoons of ink on the stained paper. Which has the bigger effect on
+the whiteness of the paper: the first spill of ink, or the second (much bigger)
+one?
+
+Now, looking at the atmosphere with the current amount of greenhouse gases,
+can you speculate why adding a million molecules of methane to the atmosphere
+will produce 20 times more warming than adding a million molecules of CO~2~?
+
+Examine figure 4-5 closely. What does it show you about the saturation of 
+absorption by carbon dioxide? How does this figure relate to Figure 4-6?
+
+### Greenhouse Gases in the Atmosphere
+
+A crucial piece of this chapter is understanding why adding more greenhouse 
+gases makes the Earth warmer. Figure 4-8 shows this. 
+
+* If we add greenhouse gases, they absorb outgoing longwave radiation. 
+* When greenhouse gases absorb outgoing radiation, that means less radiation 
+  is going out to space, so \(F_{\text{out}} < F_{\text{in}}\).
+* What happens to the temperature of the earth and its atmosphere when 
+  \(F_{\text{out}} < F_{\text{in}}\)?
+* What happens to outgoing radiation when the earth and its atmosphere heat
+  when the temperature rises?
+* Eventually, the temperature rises enough that 
+  \(F_{\text{out}} = F_{\text{in}}\)
+  with the higher concentrations of greenhouse gases.
+* This temperature change is **global warming** due to adding greenhouse gases.
+
+You should understand **climate sensitivity**: Every time you double the 
+amount of CO~2~ in the atmosphere, the temperature rises by the 
+**climate sensitivity**.
+
+**Important:** I don't ask you to memorize many numbers but I want you to 
+know by heart that the earth's climate sensitivity is roughly 
+\(3.0\degC\) and that the concentration of CO~2~ in the atmosphere today
+is a bit more than 400 parts per million (as of January 2023, it's 419 ppm,
+but you don't need to memorize that detail).
+
+### Review Questions
+
+Think about these questions to check whether you understand the important 
+points in this chapter. You do not have to write them up and turn them in.
+
+* What makes some greenhouse gases more powerful than others?
+* How does band saturation work? How can you recognize saturation in spectra 
+  like Fig. 4-5?
+* Look at Fig. 4-6. What does band saturation have to do with the shapes of the 
+  curves showing the relationship between temperature and CO~2~ concentration?
+  Why are they curved instead of straight lines?
+
+Go to <https://climatemodels.jgilligan.org/modtran/> or <http://climatemodels.uchicago.edu/modtran/> and play with the 
+MODTRAN computer model, which calculates the outgoing radiation from the top
+of the atmosphere for different concentrations of greenhouse gases.
+
+For now, leave all of the settings at their default values and try changing
+the "CO~2~ (ppm)" value and observing what happens to the outgoing longwave
+radiation ("Upward IR Heat Flux", near the bottom left).
+The default value of CO~2~ is 400 ppm (parts per million). What happens to 
+the outgoing heat flux if you cut this in half or double it?
+
+I will explain this model in a lot more detail in class on 
+2.

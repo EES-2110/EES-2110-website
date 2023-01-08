@@ -1,0 +1,16 @@
+---
+title: 'Test #3'
+class_date: '2023-04-12'
+class_number: 37
+weight: 37
+slug: reading_37
+pubdate: '2022-12-31'
+date: '2023-04-12'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+pdf_url: /files/reading_asgts/reading_37.pdf
+---
+## Reading:
+
+No new reading for today.

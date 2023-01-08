@@ -1,0 +1,39 @@
+---
+title: Feedbacks
+class_date: '2023-02-03'
+class_number: 11
+weight: 11
+slug: reading_11
+pubdate: '2022-12-31'
+date: '2023-02-03'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+pdf_url: /files/reading_asgts/reading_11.pdf
+---
+## Reading:
+
+### Required Reading (everyone):
+
+* Understanding the Forecast, 7, pp. 73--81.
+
+### Reading Notes:
+
+The central concept of this chapter is **feedback** loops. 
+This will be very important as we go forward through the semester.
+So far we have looked at systems where a change (a **forcing**) produces an 
+**effect** (adding CO~2~ to the atmosphere causes the temperature to rise).
+A **feedback** happens when the **effect** becomes a new **forcing** that 
+produces additional **effects** in a cycle.
+
+Feedbacks can either **amplify** or **diminish** the effects of an initial 
+**forcing**, depending whether the feedback is **positive** or **negative**.
+
+* Understand the concept of positive and negative feedbacks.
+* Understand how the following feedbacks work and whether each is positive or 
+  negative:
+  * Stefan-Boltzmann feedback
+  * Ice-albedo feedback
+  * Water vapor feedback
+* What is a **runaway greenhouse effect**? What prevents Earth from having a 
+  runaway greenhouse?

@@ -1,0 +1,16 @@
+---
+title: The Kaya Identity
+class_date: '2023-03-22'
+class_number: 28
+weight: 28
+slug: reading_28
+pubdate: '2022-12-31'
+date: '2023-03-22'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+pdf_url: /files/reading_asgts/reading_28.pdf
+---
+## Reading:
+
+No new reading for today.

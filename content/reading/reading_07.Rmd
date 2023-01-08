@@ -1,0 +1,62 @@
+---
+title: Vertical Structure of the Atmosphere
+class_date: '2023-01-25'
+class_number: 7
+weight: 7
+slug: reading_07
+pubdate: '2022-12-31'
+date: '2023-01-25'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+pdf_url: /files/reading_asgts/reading_07.pdf
+---
+## Reading:
+
+### Required Reading (everyone):
+
+* Understanding the Forecast, Ch. 5, Read the whole chapter, but focus on pp. 43-50.
+
+### Reading Notes:
+
+### Convection
+
+This chapter focuses on atmospheric convection, which is a fancy way of 
+describing the fact that warm air rises and cool air sinks. 
+
+Figure 5-1 shows the role of convection in moving heat around the atmosphere.
+A layer model or purely radiative calculateion like we did with the 
+MODTRAN model will predict a surface temperature that's higher than the
+actual surface temperature. This is because these models ignore the way that
+warm air near the surface rises and moves heat from the surface to higher
+altitudes, while cool air from higher up sinks down to the surface.
+This cools the surface and warms the higher altitudes, and accounting for this
+produces much better predictions of the surface temperature and the 
+greenhouse effect.
+
+The chapter begins by describing the way temperature and air pressure change
+as you rise up from sea level to high altitudes. You should understand why 
+both pressure and temperature change with altitude. 
+
+A key concept is the **dry adiabat**, which is introudced on p. 50.
+
+
+
+As you prepare for class, think about:
+
+* Figure 5-2 (the part on the right) shows how atmospheric pressure changes 
+  with altitude above sea-level and Figure 5-4 shows how the pressure of water
+  in the ocean changes with depth below sea-level.
+  Why does water pressure follow a straight line as depth changes, but 
+  air pressure follow a bending curve?
+* If the left side of Fig. 5-2 didn't have labels showing **troposphere**, 
+  **tropopause** and **stratosphere**, how would you know where to put the labels
+  from the curve showing the temperature at different altitudes?
+* What are the important differences between the layer-model approach to 
+  calculating the greenhouse effect and the skin-model on pp. 45--46 and 
+  Fig. 5-3?
+* What does **adiabatic** mean?
+* If you raise a **parcel** of air (a parcel is a bunch of air that moves 
+  together as though it were in an imaginary bag that keeps it together),
+  it will cool off, and if you lower a parcel, it will get warmer. 
+  Why?

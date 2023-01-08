@@ -1,0 +1,16 @@
+---
+title: Climate Change, Agriculture, and Health
+class_date: '2023-04-14'
+class_number: 38
+weight: 38
+slug: reading_38
+pubdate: '2022-12-31'
+date: '2023-04-14'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+pdf_url: /files/reading_asgts/reading_38.pdf
+---
+## Reading:
+
+No new reading for today.

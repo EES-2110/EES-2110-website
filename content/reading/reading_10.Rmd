@@ -1,0 +1,93 @@
+---
+title: Weather and Climate
+class_date: '2023-02-01'
+class_number: 10
+weight: 10
+slug: reading_10
+pubdate: '2022-12-31'
+date: '2023-02-01'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+pdf_url: /files/reading_asgts/reading_10.pdf
+---
+## Reading:
+
+### Required Reading (everyone):
+
+* Understanding the Forecast, 6.
+
+### Reading Notes:
+
+### Chaos
+
+The layer model calculates the average surface temperature for the whole 
+planet, but the MODTRAN radiative model and the RRTM full-spectrum
+radiative-convective model calculate the temperature only at a single 
+location. Climate models do a much better job at calculating the average
+climate for the whole planet, but people live in different places, and their
+lives are affected by the details of how climate and weather change where they
+live.
+
+We've also looked at the question of why scientists are confident that they
+can predict the climate 100 years in the future, even though weather forecasters
+can't predict what the weather will be a month from now with any confidence.
+
+Both of these issues (predicting global averages versus local climate and
+predicting climate versus weather) have to do with the **chaotic** nature of the
+atmosphere.
+
+Systems that obey **linear equations**, where the outcome is always proportional
+to the inputs, are easy to predict, but **nonlinear equations** can become 
+difficult to predict and even **chaotic** (the behavior of chaotic systems 
+cannot be predicted with any reasonable precision more than a short time into
+the future).  
+
+## Temporal Patterns of Weather and Climate
+
+Some things that contribute to the behavior of the weather have to do with the
+way that sunlight changes both during the day, and from season to season during
+the year.  MODTRAN and RRTM models assume an average value of sunlight, 
+but if the sunlight is changing during the day or from season to season, the
+temperature will also change.
+
+### Spatial Patterns of Weather and Climate
+
+In Chapter 5, we looked at convection, which moves heat vertically, but 
+winds and ocean currents that move heat horizontally are also important.
+Meteorologists use the term **convection** to refer to vertical transport of
+air and heat, and **advection** to refer to horizontal transport.
+
+A very important aspect of winds and ocean currents is the **Coriolis effect**,
+which causes winds and currents to bend and follow somewhat circular paths
+instead of straight lines. The **Coriolis effect** is caused by the rotation of
+the Earth, and it's responsible for storm systems called **cyclones** that 
+develop circular shapes.
+
+### Viscosity
+
+If there were no friction in the air, winds would always follow perfectly 
+circular paths, but friction (also called **viscosity**) interferes with the 
+Coriolis effect and cause winds (and ocean current) to deviate from circular
+paths.
+
+### Big picture
+
+The big picture of this chapter is to show us patterns in space and time of the
+way heat flows in the Earth system, and to introduce the idea of **chaos** to 
+explain the difficulty of accurately predicting weather and the fine points of
+climate. 
+
+Climate models use the basic equations of physics (Newton's equations of motion
+and the thermodynamic equations of heat flow) to predict how the air and heat
+will move around the Earth system. 
+
+To make accurate predictions, we can't just average over the Earth
+because the equations are nonlinear. This means that to make accurate 
+predictions, we have to calculate the equations at billions, even trillions
+of points all around the world. The more points we include in our models, the
+better their predictions, but the more computer power they need.
+
+Right now, the most powerful supercomputers in the world are used to make
+weather and climate predictions, but even they are not powerful enough to answer
+a lot of questions scientists want to ask.

@@ -1,0 +1,26 @@
+---
+title: Ocean and Biosphere Feedbacks
+class_date: '2023-02-06'
+class_number: 12
+weight: 12
+slug: reading_12
+pubdate: '2022-12-31'
+date: '2023-02-06'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+pdf_url: /files/reading_asgts/reading_12.pdf
+---
+## Reading:
+
+### Required Reading (everyone):
+
+* Understanding the Forecast, 7, 81--84.
+
+### Reading Notes:
+
+* Why are cloud feedbacks more complicated and uncertain than other feedbacks?
+* What is El Ni&ntilde;o and how do feedbacks in the ocean-atmosphere system 
+  create the El Ni&ntilde;o/La Ni&ntilde;a cycle? How does this cycle affect 
+  the global climate?
+* How do feedbacks between climate and the biosphere work?

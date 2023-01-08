@@ -1,0 +1,16 @@
+---
+title: 'Test #2'
+class_date: '2023-03-08'
+class_number: 25
+weight: 25
+slug: reading_25
+pubdate: '2022-12-31'
+date: '2023-03-08'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+pdf_url: /files/reading_asgts/reading_25.pdf
+---
+## Reading:
+
+No new reading for today.

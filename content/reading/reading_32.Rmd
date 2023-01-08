@@ -1,0 +1,16 @@
+---
+title: Renewable Energy
+class_date: '2023-03-31'
+class_number: 32
+weight: 32
+slug: reading_32
+pubdate: '2022-12-31'
+date: '2023-03-31'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+pdf_url: /files/reading_asgts/reading_32.pdf
+---
+## Reading:
+
+No new reading for today.

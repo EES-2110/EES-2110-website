@@ -1,0 +1,47 @@
+---
+title: Greenhouse Effect
+class_date: '2023-01-18'
+class_number: 4
+weight: 4
+slug: reading_04
+pubdate: '2022-12-31'
+date: '2023-01-18'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+pdf_url: /files/reading_asgts/reading_04.pdf
+---
+## Reading:
+
+### Required Reading (everyone):
+
+* Understanding the Forecast, Ch. 3, pp. 23--26.
+
+### Reading Notes:
+
+Study the one-layer model. We will work through it in detail during class.
+
+Something many people misunderstand is the interaction of longwave
+(infrared) light with the atmosphere. When the layer model shows
+longwave heat going up from the ground to the atmosphere and also
+going down from the atmosphere to the ground, it's easy to think this 
+means the longwave light is reflected from the atmosphere back down
+to the ground. This is wrong.
+
+The light from the ground is completely absorbed by the atmosphere and
+stops existing as radiation. 
+
+Completely independently of the absorption, the atmosphere has a 
+temperature and emits longwave radiation both upward and 
+downward based on its temperature and emissivity. Thus, the
+brightness (intensity) of the longwave light going up and down
+from the atmosphere depends only on the temperature of the 
+atmospheric layer.
+
+Make sure you understand that the light going up and down from the
+atmosphere is neither _reflected_ by nor _transmitted_ through the
+atmosphere. It is _emitted_ by the atmosphere as blackbody 
+radiation, and its intensity and wavelength depend only on the 
+temperature and emissivity of the atmosphere (for the layer model,
+we assume that the atmosphere's emissivity is exactly 1, meaning it
+absorbs all longwave light that hits it).

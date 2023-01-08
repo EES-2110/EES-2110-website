@@ -1,0 +1,16 @@
+---
+title: Future Climate Change
+class_date: '2023-03-20'
+class_number: 27
+weight: 27
+slug: reading_27
+pubdate: '2022-12-31'
+date: '2023-03-20'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+pdf_url: /files/reading_asgts/reading_27.pdf
+---
+## Reading:
+
+No new reading for today.

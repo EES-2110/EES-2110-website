@@ -1,0 +1,16 @@
+---
+title: 'Geoengineering: Solar Radiation Management'
+class_date: '2023-04-05'
+class_number: 34
+weight: 34
+slug: reading_34
+pubdate: '2022-12-31'
+date: '2023-04-05'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+pdf_url: /files/reading_asgts/reading_34.pdf
+---
+## Reading:
+
+No new reading for today.

@@ -1,0 +1,76 @@
+---
+title: Atmospheric Convection
+class_date: '2023-01-27'
+class_number: 8
+weight: 8
+slug: reading_08
+pubdate: '2022-12-31'
+date: '2023-01-27'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+pdf_url: /files/reading_asgts/reading_08.pdf
+---
+## Reading:
+
+### Required Reading (everyone):
+
+* Understanding the Forecast, Ch. 5, pp. 50-55.
+
+### Reading Notes:
+
+### Water Vapor and Latent Heat
+
+Some key concepts from this section are:
+
+* **sensible heat** and **latent heat**. You should be sure to understand the
+  difference.
+* **equilibrium vapor pressure**, **relative humidity**, and **saturation** of 
+  water vapor. 
+  * When will a droplet of water in the atmosphere evaporate and dissapear?
+    When will it grow, or new droplets form?
+
+### Convection
+
+* If a parcel of air is warmer than its surroundings, it will rise, and if it
+  is cooler, it will sink. This is the basis of **convection**.
+* If a warm parcel of air begins to rise, what happens to its temperature?
+  (Look back to the section on "Expansion, Compression, and Heat" and look at
+  the definition of **dry adiabat**.)
+* What determines whether a warm parcel of air continues to rise for a long
+  distance, or if it stops close to where it started?
+  * This difference is the basis of the distinction between 
+    **statically stable** (or **convectively stable**) and 
+    **convectively unstable** conditions in the atmosphere. 
+* What does it mean to be **stratified**? Can you see a connection between 
+  **stratified** and the name of the **stratosphere** (look at Fig. 5-2).
+
+### Moist Convection
+
+* What makes **moist convection** different from **dry convection**?
+  For the same atmospheric temperature profile, will the atmosphere be
+  more stable for **dry** or **moist convection**?
+* Can you think of a way you could look at the atmosphere with your eyes and
+  tell whether convection around you would be dry or moist?
+
+### Radiative-Convective Equilibrium
+
+Figure 5-1 shows the role of convection in moving heat around the atmosphere.
+A layer model or purely radiative calculateion like we did with the 
+MODTRAN model will create a **convectively unstable** temperature profile
+in the troposphere (the rate of temperature change as you go up in altitude
+would be greater than the dry adiabat). 
+This is why the layer model's prediction of the surface temperature is a good
+deal higher than the actual surface temperature.
+Convection moves heat from the surface to higher altitudes, which reduces
+the surface temperature and also brings the atmosphere into a condition of
+**static stability**.
+
+To accurately predict the surface temperature, we need to account for 
+convection, so scientists make **radiative-convective** computer models, which
+predict temperatures much better than purely radiative models like 
+MODTRAN. 
+
+The author of the book provides a web-interface to a sophisticated 
+radiative-convective model at https://climatemodels.jgilligan.org/rrtm/ or http://climatemodels.uchicago.edu/rrtm/, which 
+you will use for homework for this chapter.
