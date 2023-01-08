@@ -137,8 +137,8 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "_scripts$", "_
 [params]
   profname = "Jonathan Gilligan"
   dateFormat = "January 2, 2006"
-  background = "img/stan-corrplot.png"
-  backgroundCredit = ""
+  background = "img/BoxcarPair.jpg"
+  backgroundCredit = "[NASA Terra/CERES](https://terra.nasa.gov/news/study-long-term-global-warming-needs-external-drivers \"NASA: CERES Clouds and the Earth's Radiant Energy System. Radiant longwave energy (left) and reflected sunlight (right)\")"
   math = "true"
   backgroundColor = "white"
   backgroundSize = "cover"

@@ -2,7 +2,7 @@
 title: "Course Description"
 date: "2021-08-26T00:00:00"
 ---
-#### <a href="/files/EES_5891-03_Syllabus.pdf" target="_blank"><i class="fa fa-file-pdf-o" style="margin-right:0.25em;"></i> **Printable syllabus**</a>
+#### <a href="/files/EES_2110_Syllabus.pdf" target="_blank"><i class="fa fa-file-pdf-o" style="margin-right:0.25em;"></i> **Printable syllabus**</a>
 
 # Contents
 
@@ -39,7 +39,7 @@ date: "2021-08-26T00:00:00"
 
 ## Catalog Description {#catalog-desc}
 
-**EES 5891-03 Bayesian Statistical Methods**
+**EES 2110 Introduction to Climate Change**
 The class will begin with an introduction to Bayesian statistics and then focus 
 on practical application of regression methods to data. We will use R together 
 with the 
@@ -258,7 +258,7 @@ for reading about these powerful methods and how to use them.
 
 In addition to {{% BRIGHTSPACE %}}, I have set up a companion web site for this
 course at
-<https://ees5891.jgilligan.org>,
+<https://ees2110.jgilligan.org>,
 where I post the reading and homework assignments,
 my slides from class, and other useful material. That web site will be the
 central place to keep up with material for the course during the semester.

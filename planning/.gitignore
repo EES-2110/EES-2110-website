@@ -8,3 +8,5 @@ foo.md
 db_checkpoints/
 old_databases/
 old_scripts/
+old_3310
+EES-5891.sqlite3

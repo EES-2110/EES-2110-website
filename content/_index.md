@@ -1,5 +1,5 @@
 ---
-title: "EES 5891-03: Bayesian Statistical Methods"
+title: "EES 2110: Introduction to Climate Change"
 description: "An introduction to Bayesian statistics, with a focus on both practical application of Bayesian regression methods to data as well as philosophical background on statistical inference and interpretation of statistical analyses. Bayes's theorem and tools for applying it, including quadratic approximations, Hamiltonian Monte Carlo sampling, and Integrated Nested Laplace Approximation (INLA). Advanced methods, including multilevel regression methods and geospatial analysis."
 ---
 
