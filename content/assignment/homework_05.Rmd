@@ -1,5 +1,5 @@
 ---
-title: Carbon-Cycle
+title: The Geochemical Carbon Cycle
 due_date: '2023-03-01'
 assignment_type: Homework
 short_assignment_type: HW

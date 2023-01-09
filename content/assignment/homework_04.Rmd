@@ -1,5 +1,5 @@
 ---
-title: Climate Feedback Exercises
+title: Climate Feedback
 due_date: '2023-02-22'
 assignment_type: Homework
 short_assignment_type: HW
