@@ -1,13 +1,13 @@
 ---
 title: Climate Feedback Exercises
-due_date: '2023-02-15'
+due_date: '2023-02-22'
 assignment_type: Homework
 short_assignment_type: HW
 assignment_number: 4
 weight: 4
 slug: homework_04
 pubdate: '2022-12-31'
-date: '2023-02-15'
+date: '2023-02-22'
 output:
   blogdown::html_page:
     md_extensions: +tex_math_single_backslash+compact_definition_lists

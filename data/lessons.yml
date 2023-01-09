@@ -12,7 +12,6 @@ lessons:
 - date: '2023-01-18'
   title: Greenhouse Effect
   reading: /reading/reading_04
-  assignment: homework_01
 - date: '2023-01-20'
   title: Greenhouse Gases
   reading: /reading/reading_05
@@ -22,7 +21,7 @@ lessons:
 - date: '2023-01-25'
   title: Vertical Structure of the Atmosphere
   reading: /reading/reading_07
-  assignment: homework_02
+  assignment: homework_01
 - date: '2023-01-27'
   title: Atmospheric Convection
   reading: /reading/reading_08
@@ -32,7 +31,7 @@ lessons:
 - date: '2023-02-01'
   title: Weather and Climate
   reading: /reading/reading_10
-  assignment: homework_03
+  assignment: homework_02
 - date: '2023-02-03'
   title: Feedbacks
   reading: /reading/reading_11
@@ -51,7 +50,7 @@ lessons:
 - date: '2023-02-15'
   title: Perturbing the Carbon Cycle
   reading: /reading/reading_16
-  assignment: homework_04
+  assignment: homework_03
 - date: '2023-02-17'
   title: Ocean Acidification
   reading: /reading/reading_17
@@ -61,7 +60,7 @@ lessons:
 - date: '2023-02-22'
   title: Climates of the Past
   reading: /reading/reading_19
-  assignment: homework_05
+  assignment: homework_04
 - date: '2023-02-24'
   title: The Pleistocene Ice Ages
   reading: /reading/reading_20
@@ -70,6 +69,7 @@ lessons:
   reading: /reading/reading_21
 - date: '2023-03-01'
   title: Review of Carbon Cycle and Paleoclimates
+  assignment: homework_05
 - date: '2023-03-03'
   title: Identifying Fallacies about Climate Change
   reading: /reading/reading_23
