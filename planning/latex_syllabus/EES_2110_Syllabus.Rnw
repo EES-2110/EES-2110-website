@@ -723,9 +723,11 @@ in the Brightspace assignment, which is usually at the start of class on the
 day they are due.
 
 Late homework will be penalized 5\% for each day, or part of a day, it is late
-until I post the solutions (a week after it is due). After I have posted the
-solutions, late homework will receive up to 50\% credit, so no matter how
-late it is, it will still be worth finishing.
+until I post the solutions (usually a week after it is due, but sooner if a
+test is coming up).
+After I have posted the solutions, late homework will receive up to 50\% credit,
+if it is turned in by April 21, so no matter how late it is, it will still
+be worth finishing.
 
 
 \subsection{Tests and Exams}
