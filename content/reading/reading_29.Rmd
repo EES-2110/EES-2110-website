@@ -1,5 +1,5 @@
 ---
-title: Future Emission Scenarios
+title: Policy Myths
 class_date: '2023-03-24'
 class_number: 29
 weight: 29
@@ -13,4 +13,15 @@ pdf_url: /files/reading_asgts/reading_29.pdf
 ---
 ## Reading:
 
-No new reading for today.
+### Required Reading (everyone):
+
+* The Climate Fix, 2.
+* Climate Casino, Ch. 25.
+
+### Reading Notes:
+
+In Chapter 25 of _Climate Casino_, Nordhaus discusses what we know about public opinion on climate change. Nordhaus shows that in the past decade, we have seen an increasing divide between what scientists think about the facts of climate change and what the public thinks, that this widening gap has proceeded together with a growing ideological divide between liberals and Democrats on one side and conservatives and Republicans on the other. He observes on p. 311 that "Climate change is an area where the political leaders have led public opinion."
+
+Nordhaus then proposes a way for small-government political conservatives, such as himself, to close the divide between the parties and between scientists and the public.
+
+As you read both Nordhaus's and Pielke's analyses and recommendations, ask yourself what you find it persuasive, what you agree with, and what you disagree with. This is a time to start thinking both about what kinds of climate policies you would want to pursue and how you would critically analyze them for their strengths and weaknesses.

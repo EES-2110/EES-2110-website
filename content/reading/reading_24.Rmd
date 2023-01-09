@@ -13,4 +13,12 @@ pdf_url: /files/reading_asgts/reading_24.pdf
 ---
 ## Reading:
 
-No new reading for today.
+### Required Reading (everyone):
+
+* Web Page: [John Cook, "A History of FLICC: The Five Techniques of Science Denial" (2020)](https://crankyuncle.com/a-history-of-flicc-the-5-techniques-of-science-denial/){target="_blank"}.
+
+### Reading Notes:
+
+We will play a game in class in which we try to spot the fallacies in common talking points by people who try to discredit climate science.
+
+Read this blog by John Cook about the FLICC framework for identifying types of misinformation.

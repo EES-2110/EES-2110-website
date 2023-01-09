@@ -137,6 +137,10 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "_scripts$", "_
 [params]
   profname = "Jonathan Gilligan"
   dateFormat = "January 2, 2006"
+  test1Date = "2023-02-08T09:05:00"
+  test2Date = "2023-03-08T09:05:00"
+  test3Date = "2023-04-12T09:05:00"
+  finalExamDate = "2023-05-04T09:17:00"
   background = "img/BoxcarPair.jpg"
   backgroundCredit = "[NASA Terra/CERES](https://terra.nasa.gov/news/study-long-term-global-warming-needs-external-drivers \"NASA: CERES Clouds and the Earth's Radiant Energy System. Radiant longwave energy (left) and reflected sunlight (right)\")"
   math = "true"
@@ -179,21 +183,54 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "_scripts$", "_
     extensions = [ "color.js", "mhchem.js" ]
     sansserif = false
 
-    [params.mathjax.macros]
-      permil = "\\unicode{x2030}"
-      pH = "p\\ce{H}"
-      CaSi = "\\ce{CaSiO3}"
-      silicate = "\\ce{SiO3^2-}"
-      Caplus = "\\ce{Ca^2+}"
-      calcite = "\\ce{CaCO3}"
-      silica = "\\ce{SiO2}"
-      OH = "\\ce{OH-}"
-      Hplus = "\\ce{H+}"
-      carbonic = "\\ce{H2CO3}"
-      bicarb = "\\ce{HCO3-}"
-      carb = "\\ce{CO3^2-}"
-      water = "\\mathrm{H_2O}"
-      degF = "^\\circ \\mathrm{F}"
-      degC = "^\\circ \\mathrm{C}"
-      methane = "\\ce{CH4}"
-      COO = "\\ce{CO2}"
+    [[params.mathjax.macros]]
+      key = "permil"
+      body = "\\unicode{x2030}"
+    [[params.mathjax.macros]]
+      key = "pH"
+      body = "p\\ce{H}"
+    [[params.mathjax.macros]]
+      key = "CaSi"
+      body = "\\ce{CaSiO3}"
+    [[params.mathjax.macros]]
+      key = "silicate"
+      body = "\\ce{SiO3^2-}"
+    [[params.mathjax.macros]]
+      key = "Caplus"
+      body = "\\ce{Ca^2+}"
+    [[params.mathjax.macros]]
+      key = "calcite"
+      body = "\\ce{CaCO3}"
+    [[params.mathjax.macros]]
+      key = "silica"
+      body = "\\ce{SiO2}"
+    [[params.mathjax.macros]]
+      key = "OH"
+      body = "\\ce{OH-}"
+    [[params.mathjax.macros]]
+      key = "Hplus"
+      body = "\\ce{H+}"
+    [[params.mathjax.macros]]
+      key = "carbonic"
+      body = "\\ce{H2CO3}"
+    [[params.mathjax.macros]]
+      key = "bicarb"
+      body = "\\ce{HCO3-}"
+    [[params.mathjax.macros]]
+      key = "carb"
+      body = "\\ce{CO3^2-}"
+    [[params.mathjax.macros]]
+      key = "water"
+      body = "\\mathrm{H_2O}"
+    [[params.mathjax.macros]]
+      key = "degF"
+      body = "^\\circ \\mathrm{F}"
+    [[params.mathjax.macros]]
+      key = "degC"
+      body = "^\\circ \\mathrm{C}"
+    [[params.mathjax.macros]]
+      key = "methane"
+      body = "\\ce{CH4}"
+    [[params.mathjax.macros]]
+      key = "COO"
+      body = "\\ce{CO2}"

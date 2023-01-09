@@ -12,6 +12,7 @@ lessons:
 - date: '2023-01-18'
   title: Greenhouse Effect
   reading: /reading/reading_04
+  assignment: homework_01
 - date: '2023-01-20'
   title: Greenhouse Gases
   reading: /reading/reading_05
@@ -21,6 +22,7 @@ lessons:
 - date: '2023-01-25'
   title: Vertical Structure of the Atmosphere
   reading: /reading/reading_07
+  assignment: homework_02
 - date: '2023-01-27'
   title: Atmospheric Convection
   reading: /reading/reading_08
@@ -30,6 +32,7 @@ lessons:
 - date: '2023-02-01'
   title: Weather and Climate
   reading: /reading/reading_10
+  assignment: homework_03
 - date: '2023-02-03'
   title: Feedbacks
   reading: /reading/reading_11
@@ -48,6 +51,7 @@ lessons:
 - date: '2023-02-15'
   title: Perturbing the Carbon Cycle
   reading: /reading/reading_16
+  assignment: homework_04
 - date: '2023-02-17'
   title: Ocean Acidification
   reading: /reading/reading_17
@@ -57,6 +61,7 @@ lessons:
 - date: '2023-02-22'
   title: Climates of the Past
   reading: /reading/reading_19
+  assignment: homework_05
 - date: '2023-02-24'
   title: The Pleistocene Ice Ages
   reading: /reading/reading_20
@@ -87,16 +92,16 @@ lessons:
   title: Future Climate Change
   reading: /reading/reading_27
 - date: '2023-03-22'
-  title: The Kaya Identity
+  title: Uncertainty about Future Climates
   reading: /reading/reading_28
 - date: '2023-03-24'
-  title: Future Emission Scenarios
+  title: Policy Myths
   reading: /reading/reading_29
 - date: '2023-03-27'
-  title: Uncertainty about Future Climates
+  title: The Kaya Identity
   reading: /reading/reading_30
 - date: '2023-03-29'
-  title: Policy Myths
+  title: Future Emission Scenarios
   reading: /reading/reading_31
 - date: '2023-03-31'
   title: Renewable Energy
@@ -122,10 +127,13 @@ lessons:
   title: 'Climate and Oceans: Hurricanes, Sea-level, etc.'
   reading: /reading/reading_39
 - date: '2023-04-19'
-  title: Assessing Climate Damage
+  title: Climate Justice
+  reading: /reading/reading_40
 - date: '2023-04-21'
   title: History of Climate Policy
+  reading: /reading/reading_41
 - date: '2023-04-24'
   title: Future Possibilities
+  reading: /reading/reading_42
 - date: '2023-05-04'
   title: Take-home final exam due

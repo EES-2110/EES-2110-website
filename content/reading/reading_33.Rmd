@@ -13,4 +13,15 @@ pdf_url: /files/reading_asgts/reading_33.pdf
 ---
 ## Reading:
 
-No new reading for today.
+### Required Reading (everyone):
+
+* Handout: [R.K. Lester, "A Roadmap for U.S. Nuclear Energy Innovation," _Issues in Science and Technology_ **32** (2) (Winter, 2016)
+  ](http://issues.org/32-2/a-roadmap-for-u-s-nuclear-energy-innovation/){target="_blank"}.
+* Handout: [D. Ropeik, "Clean Energy Mind Games," _Issues in Science and Technology_ **33** (4) (Summer, 2017)](http://issues.org/33-4/clean-energy-mind-games/){target="_blank"}.
+* Handout: [C. Tomlinson, "Nuclear Power as We Know it Is Finished," _Houston Chronicle_, Aug. 3, 2017](https://www.houstonchronicle.com/business/columnists/tomlinson/article/Nuclear-power-as-we-know-it-is-finished-11727465.php){target="_blank"}.
+
+### Reading Notes:
+
+Nuclear power has the potential to provide abundant clean energy with no greenhouse gas emissions. However, there are two separate problems that nuclear power must contend with: First, it is very expensive. Several years ago, the CEO of Excelon, the largest operator of nuclear power plants in the U.S., said that nuclear power was more expensive than any other source of energy except solar photovoltaic. Second, nuclear power is politically controversial because of public fears about safety, especially after the 2011 nuclear accident in Fukushima, Japan.
+
+In these readings, "Nuclear power as we know it is finished" and "A roadmap for U.S. nuclear energy innovation" discuss the economics and the prospects for whether nuclear power can become economically competitive. "Clean energy mind games" is written by an expert on risk and discusses the safety issues and public fears.

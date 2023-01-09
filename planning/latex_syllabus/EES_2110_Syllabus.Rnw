@@ -1,0 +1,1003 @@
+\documentclass[11pt]{jgsyllabus}
+\usepackage{booktabs}
+%\usepackage{tabularx}
+\usepackage{multirow}
+
+\setlength{\aboverulesep}{0.2ex}
+\setlength{\belowrulesep}{0.2ex}
+\setlength{\extrarowheight}{0.1ex}
+\setlength{\heavyrulewidth}{1pt}
+\setlength{\lightrulewidth}{0.05pt}
+
+\newif\ifreading
+\readingtrue
+
+\iffalse
+\include{CourseInfo}
+\fi
+<<r setup, include=F>>=
+library(knitr)
+library(tidyverse)
+library(lubridate)
+library(xtable)
+library(assertthat)
+library(semestr)
+@
+<<r import_schedule, include=F>>=
+chapterpages <- function(chapter, pages, textbook, handout) {
+  result = ""
+  if (handout) {
+    result = str_c(str_trim(result, "right"), "\\ (Handout)")
+  }
+  if (!is.na(chapter)) {
+    result = str_c(result, " ",
+                   str_replace_all(chapter, "\\bCh\\.[[:space:]]+", "Ch.~"))
+  }
+  if (!is.na(pages)) {
+    result = str_c(result, " ", str_replace_all(pages, "p\\.[[:space:]]+", "p.~"))
+  }
+  result
+}
+
+restrictions <- function(opt, undergrad_only, grad_only) {
+  ret <- ""
+  if (opt) {
+    ret <- "\\ (optional)"
+  } else if (grad_only) {
+    ret <- "\\ (grad students only)"
+  } else if (undergrad_only) {
+    ret <- "\\ (undergrads only)"
+  }
+  ret
+}
+
+format_reading_item <- function(df) {
+  df %>% rowwise() %>%
+    mutate(reading = str_c(
+      # ifelse(break_before, "\\\\",""),
+      ifelse(textbook, "\\emph{", ""),
+      title,
+      ifelse(textbook, "\\/}", ""),
+      chapterpages(chapter, pages, textbook, handout)
+    )) %>%
+    ungroup() %>%
+    mutate(reading = str_replace_all(reading, "(\\\\[a-zA-Z]+) +Ch\\.", "\\1\\\\ Ch."))
+}
+
+
+
+semester <- load_semester_db("../EES-2110.sqlite3", ignore_root = TRUE)
+
+is_fall_semester <- semester$calendar$date[[1]] %>% month() > 7
+
+collapse_handouts <- function(strings, handout) {
+  ret_val <- "Handouts (on Brightspace)"
+  if (! all(handout)) {
+    ret_val <- str_c(strings, collapse = ", ")
+  }
+  ret_val
+}
+
+reading <- semester$rd_items %>%
+  select(rd_item_id, rd_grp_key, title = short_latex_title, chapter, pages,
+         textbook, handout, optional, undergraduate_only, graduate_only,
+         rd_break_before) %>%
+  format_reading_item() %>% filter(! is.na(reading)) %>%
+  arrange(rd_grp_key, handout, optional, graduate_only, undergraduate_only) %>%
+  group_by(rd_grp_key, handout) %>%
+  summarize(reading = collapse_handouts(reading, handout), .groups = "drop") %>%
+  arrange(rd_grp_key, handout) %>% group_by(rd_grp_key) %>%
+  summarize(reading = str_c(reading, collapse = ", ")) %>%
+  ungroup()
+
+get_event <- function(class, exam, holiday) {
+  res <- ifelse(is.na(holiday),
+                ifelse(is.na(exam),
+                       NA,
+                       exam),
+                holiday)
+  res
+}
+
+schedule <- prepare_schedule(semester)
+if (! tibble::has_name(schedule, "key_holiday")) {
+  schedule <- schedule %>% mutate(key_holiday = NA_character_)
+}
+if (! tibble::has_name(schedule, "key_exam")) {
+  schedule <- schedule %>% mutate(key_exam = NA_character_)
+}
+
+calendar <- schedule %>%
+  filter(! is.na(id_class) || ! is.na(id_holiday) || ! is.na(id_exam)) %>%
+  left_join(select(semester$class_topics, id_class = cal_id, rd_grp_key,
+                   by = "cal_id")) %>%
+  left_join(reading, by = "rd_grp_key") %>%
+  arrange(date, id_class) %>%
+  mutate(cal_id = seq_along(date),
+         date = ymd(date), weekday = wday(date, label = TRUE),
+         month = month(date, label = TRUE), day = mday(date),
+         event = get_event(key_class, key_exam, key_holiday),
+         reading = replace_na(reading, "No reading")) %>%
+  select(cal_id, class_num, date, weekday, month, day, topic, reading, event)
+
+if (is_fall_semester) {
+  short_holiday_keys <- "FALL_BREAK" # one-day
+  long_holiday_keys <- "THANKSGIVING_BREAK" # multi-day
+} else {
+  short_holiday_keys <- "MLK_DAY" # one-day
+  long_holiday_keys <- "SPRING_BREAK" # multi-day
+}
+
+midterm <- calendar %>% filter(event %in% c("MIDTERM_TEST", "MIDTERM_EXAM"))
+short_holiday <- calendar %>% filter(event %in% short_holiday_keys)
+long_holiday <- calendar %>% filter(event %in% long_holiday_keys)
+final_exam <- calendar %>% filter(event == "FINAL_EXAM")
+alt_final_exam <- calendar %>% filter(event == "ALT_FINAL_EXAM")
+take_home_final_exam <- calendar %>% filter(event == "TAKE_HOME_FINAL_EXAM")
+
+select_class <- function(calendar, class_no) {
+  class <- calendar %>% filter(class_num == class_no) %>%
+    select(class_num, date, topic) %>%
+    mutate(weekday = wday(date, label = TRUE),
+           long.weekday = wday(date, label = TRUE, abbr = FALSE),
+           month = month(date, label = TRUE),
+           long.month = month(date, label = TRUE, abbr = FALSE),
+           day = day(date))
+  as.list(class)
+}
+
+this_sheet <- 1
+this_sheet_revision <- NA
+first_class <- 1
+last_class <- NA
+
+if(is.na(first_class)) first_class <- min(calendar$class_num, na.rm = T)
+if (is.na(last_class)) last_class <- max(calendar$class_num, na.rm = T)
+
+first_date <- calendar %>% filter(class_num == first_class) %>% select(date) %>%
+  unlist() %>% lubridate::as_date()
+last_date <- calendar %>% filter(class_num == last_class) %>% select(date) %>%
+  unlist() %>% lubridate::as_date()
+
+year_taught <- year(first_date)
+
+format_sheet_number <- function() {
+  ifelse(is.null(this_sheet_revision), this_sheet,
+         str_c(this_sheet, " (", this_sheet_revision, ")"))
+}
+
+format_month <- function(d, abbr = TRUE) {
+  m <- month(d, label = TRUE, abbr = abbr)
+  if (abbr) m <- str_c(m, ".")
+  m
+}
+
+format_wday <- function(d, abbr = TRUE) {
+  wd <- wday(d, label = TRUE, abbr = abbr)
+  if (abbr) wd <- str_c(wd, ".")
+  wd
+}
+
+format_class_date <- function(d, abbr = TRUE) {
+  str_c(format_month(d, abbr = abbr), "~", day(d))
+}
+
+format_class_day_date <- function(d, abbr_month = TRUE, abbr_wday = TRUE) {
+  str_c(format_wday(d, abbr_wday), ", ",
+         format_month(d, abbr_month), "~", day(d))
+}
+
+format_date_range_by_class_no <- function(calendar, classes, abbr = TRUE) {
+  dates <- calendar %>% filter(class_num %in% na.omit(classes)) %>%
+    summarize(start = min(date, na.rm = T), stop = max(date, na.rm = T))
+  with(dates, {
+    output <- format_class_date(start, abbr)
+    if(start != stop) {
+      output <- str_c(str_trim(output), "--",
+             ifelse(month(stop) == month(start), day(stop),
+                    format_class_date(stop, abbr)))
+    }
+  output
+  })
+}
+
+format_date_range_by_topic_id <- function(calendar, topics, abbr = TRUE) {
+  dates <- calendar %>% filter(topic_id %in% topics) %>%
+    summarize(start = min(date, na.rm = T), stop = max(date, na.rm = T))
+  with(dates, {
+    output <- format_class_date(start, abbr)
+    if(start != stop) {
+      output <- str_c(str_trim(output), "--",
+             ifelse(month(stop) == month(start), day(stop),
+                    format_class_date(stop, abbr)))
+    }
+  })
+  output
+}
+
+format_date_range_by_event_id <- function(calendar, event_ids, abbr = TRUE) {
+  dates <- calendar %>% filter(event %in% event_ids) %>%
+    select(date) %>%
+    summarize(start = min(date, na.rm = T), stop = max(date, na.rm = T))
+  with(dates, {
+    output <- format_class_date(start, abbr)
+    if(start != stop) {
+      output <- str_c(str_trim(output), "--",
+             ifelse(month(stop) == month(start), day(stop),
+                    format_class_date(stop, abbr)))
+    }
+  output
+  })
+}
+
+format_day_date_range_by_event_id <- function(calendar, event_ids,
+                                              abbr_month = TRUE, abbr_wday = TRUE) {
+  dates <- calendar %>% filter(event %in% event_ids) %>%
+    select(date) %>%
+    summarize(start = min(date, na.rm = T), stop = max(date, na.rm = T))
+  with(dates, {
+    output <- format_class_day_date(start, abbr_month, abbr_wday)
+    if (start != stop) {
+      output <- str_c(output, "--",
+                       format_class_day_date(stop, abbr_wday))
+    }
+  output})
+}
+
+
+fixup_nl <- function(txt) {
+  txt <- str_trim(txt)
+  txt[str_detect(txt, "[^\n]$")] <- str_c(txt, "\n")
+  txt
+}
+
+make_section <- function(cal_entry) {
+  d <- cal_entry$date
+  str_c("\\section[",
+         format_class_date(d, abbr = TRUE),
+         "]{",
+         format_class_day_date(d, TRUE, TRUE),
+         ": ",
+         cal_entry$topic,
+         "}\n")
+}
+
+make_reading_assignment <- function(reading_entry) {
+  output <- "\\subsection{Reading}"
+  if (is.na(reading_entry$reading)) {
+    output <- str_c(str_trim(output),
+                   "No new reading for today.",
+                   "", sep = "\n")
+  } else {
+    output <- str_c(str_trim(output),
+                   "\\begin{itemize}",
+                   str_trim(reading_entry$reading),
+                   "\\end{itemize}",
+                   "", sep = "\n")
+  }
+    if (! is.na(reading_entry$extra_reading)) {
+    output <- str_c(str_trim(output),
+                    "\\subsection{Optional Extra Reading}",
+                    "\\begin{itemize}",
+                    fixup_nl(reading_entry$extra_reading),
+                    "\\end{itemize}",
+                    "", sep = "\n"
+    )
+  }
+  if (! is.na(reading_entry$reading_notes)) {
+    output <- with(reading_entry,
+                   str_c(str_trim(output), "",
+                    ifelse(is.na(reading) & is.na(extra_reading),
+                           "\\subsection{Notes}",
+                           "\\subsection{Reading Notes}"),
+                    str_trim(reading_notes),
+                    "", sep = "\n"))
+  }
+  output
+}
+
+make_homework_assignment <- function(homework_entries) {
+  grad_hw <- homework_entries %>%
+    filter(graduate_only & ! is.na(homework))
+  ugrad_hw <- homework_entries %>%
+    filter(undergraduate_only & ! is.na(homework))
+  everyone_hw <- homework_entries %>%
+    filter(!graduate_only & ! undergraduate_only & ! is.na(homework))
+  grad_notes <- homework_entries %>%
+    filter(graduate_only & ! is.na(homework_notes))
+  ugrad_notes <- homework_entries %>%
+    filter(undergraduate_only & ! is.na(homework_notes))
+  everyone_notes <- homework_entries %>%
+    filter(!graduate_only & ! undergraduate_only & ! is.na(homework_notes))
+  output <- str_c("\\subsection{Homework}",
+         "A the beginning of class today, turn in the following homework:",
+         "\\begin{itemize}",
+         "", sep = "\n")
+    if (nrow(ugrad_hw) > 0) {
+      output <- str_c(str_trim(output),
+                       str_c("\\item \\textbf{Undergraduate Students:} ",
+                             str_trim(ugrad_hw$homework)),
+                      "", sep = "\n")
+    }
+    if (nrow(grad_hw) > 0) {
+      output <- str_c(str_trim(output),
+                       str_c("\\item \\textbf{Graduate Students:} ",
+                             str_trim(grad_hw$homework)),
+                      "", sep = "\n")
+    }
+    if (nrow(everyone_hw) > 0) {
+      output <- str_c(str_trim(output),
+                       str_c("\\item \\textbf{Everyone:} ",
+                             str_trim(everyone_hw$homework)),
+                       "", sep = "\n")
+    }
+    output <- str_c(str_trim(output),
+                    "\\end{itemize}",
+                    "", sep = "\n")
+
+    if (nrow(grad_notes) > 0 || nrow(ugrad_notes) > 0 || nrow(everyone_notes) > 0) {
+      output <- str_c(str_trim(output),
+                      "\\subsection{Notes on Homework}\n",
+                      "", sep = "\n")
+      if (nrow(everyone_notes) > 0) {
+        output <- str_c(str_trim(output),
+                        str_trim(everyone_notes$homework_notes),
+                        "", sep = "\n")
+      }
+      if (nrow(grad_notes) > 0 || nrow(ugrad_notes) > 0) {
+        output <- str_c(str_trim(output),
+                        "\\begin{itemize}",
+                        "", sep = "\n")
+        if (nrow(ugrad_notes) > 0) {
+          output <- str_c(str_trim(output),
+                          str_c("\\item \\textbf{Undergraduate Students:} ",
+                                str_trim(ugrad_notes$homework_notes)),
+                          "", sep = "\n")
+        }
+        if (nrow(grad_notes) > 0) {
+          output <- str_c(str_trim(output),
+                          str_c("\\item \\textbf{Graduate Students:} ",
+                                str_trim(grad_notes$homework_notes)),
+                          "", sep = "\n")
+        }
+
+        output <- str_c(str_trim(output),
+                        "\\end{itemize}",
+                        "", sep = "\n")
+      }
+    }
+    output
+}
+
+make_hw_section <- function(cal_entry) {
+  d <- cal_entry$date
+  str_c("\\section[",
+         format_class_date(d, abbr = TRUE),
+         "]{",
+         format_class_day_date(d, TRUE, TRUE),
+         ": ",
+         str_c("Homework \\#", cal_entry$homework_num, ": ", cal_entry$homework_topic),
+         "}\n")
+}
+
+make_short_hw_assignment <- function(cal_entry) {
+  d <- cal_entry$date
+  str_c( "\\subsection{Homework}",
+         str_c( "Homework \\#", cal_entry$homework_num, ": ", cal_entry$homework_topic,
+                " is due today.  See the homework assignment sheet for details."),
+         "", sep = "\n" )
+}
+
+
+make_notice <- function(notice_entries) {
+  if (length(notice_entries) > 1) {
+    output <- str_c("\\subsection{Notices:}",
+                    "\\begin{itemize}",
+                    str_c("\\item", notice_entries$notice,
+                          sep = " ", collapse = "\n"),
+                    "\\end{itemize}",
+                    "", sep = "\n")
+  } else {
+    output <- str_c("\\subsection{Notice:}",
+                    notice_entries$notice,
+                    "", sep = "\n")
+  }
+  output
+}
+
+format_assignment_entry <- function(class_no) {
+  cal_entry <- calendar %>% filter(class_num == class_no)
+  hw_entry <- homework_assignments %>% filter(class_num == class_no)
+
+  output <- make_hw_section(cal_entry)
+  if (cal_entry$has_homework) {
+    output <- str_c(str_trim(output),
+                    make_homework_assignment(hw_entry),
+                    "", sep = "\n")
+  }
+  knit_expand(text = output, this_class_no = class_no,
+              this_class_date = cal_entry$date,
+              calendar = calendar,
+              delim = c("<%","%>"))
+}
+
+
+format_class_entry <- function(class_no) {
+  cal_entry <- calendar %>% filter(class_num == class_no)
+  hw_entry <- homework_assignments %>% filter(class_num == class_no)
+  reading_entry <- reading_assignments %>% filter(class_num == class_no)
+  notice_entry <- notices %>% filter(class_num == class_no)
+
+  output <- make_section(cal_entry)
+  if (cal_entry$has_notice) {
+    output <- str_c(str_trim(output),
+                    make_notice(notice_entry),
+                    "", sep = "\n")
+  }
+  if (cal_entry$has_homework) {
+    if(FALSE) {
+      output <- str_c(str_trim(output),
+                      make_homework_assignment(hw_entry),
+                      "", sep = "\n")
+    } else {
+      output <- str_c(str_trim(output),
+                      make_short_hw_assignment(cal_entry),
+                      "", sep = "\n")
+    }
+  }
+  if (cal_entry$has_reading) {
+    output <-str_c(str_trim(output),
+                   make_reading_assignment(reading_entry),
+                   "", sep = "\n")
+  } else {
+    # output <- str_c(str_trim(output),
+    #                  "\\subsection{Reading}",
+    #                  "No new reading for today.",
+    #                  "", sep = "\n")
+  }
+  knit_expand(text = output, this_class_no = class_no,
+              this_class_date = cal_entry$date,
+              calendar = calendar,
+              delim = c("<%","%>"))
+}
+
+@
+
+\SetupHandout
+\isbntrue
+
+\renewcommand{\LongCourseName}{\ShortCourseName}%
+
+\title{Syllabus\\
+\ShortCourseNumber: \LongCourseName}
+
+\fancyhead[L]{\bfseries\scshape \ShortCourseNumber\ Syllabus}
+
+%
+%
+%
+\begin{document}
+\maketitle
+\section[Nuts \& Bolts]{Nuts and Bolts}
+\label{sec:NutsAndBolts}
+\subsection{Class Meetings}
+\ClassMeetings
+\subsection{Professor}
+\label{sec:Professor}
+\ProfName\\
+\ProfDescr\\
+\ProfOffice\\
+\ProfEmail\\
+\ProfOfficeHours
+%
+%To book time during my office hours, send me an email
+%or make an appointment on line via Google calendar at
+%\url{http://bit.ly/o9ka5e}
+
+\iffalse
+\subsection{Teaching Assistant}
+\label{sec:TA}
+\TaName\\
+\TaOfficeLoc\ifTaPhone , \TaPhone\fi\\
+\TaEmail\\
+\TaOfficeHours
+\medskip
+
+\noindent
+\TaTitle\ will be grading homework, so address questions about your homework grades
+to \TaAccusative.
+\fi
+
+\subsection{Email}
+If you want to communicate with Professor Gilligan
+\iffalse
+or \TaTitle\
+\fi
+be sure to begin the
+subject line of your email with ``{\scshape EES~2110}''. This helps assure
+that I will see your message quickly and respond to it.
+
+I have set my email reader to flag all messages like this as important, so I will read
+them first. This also assures that I do not mistake your email for spam. I typically
+receive over 100 emails per day, so if you do not follow these instructions I may not
+notice your email.
+
+\medskip
+\clearpage
+\section[Description]{Course Description}
+\subsection{Catalog Description}
+
+\textbf{EES 2110 Introduction to Climate Change}
+Science, policy, history, and causes of climate change on Earth in the last
+2 million years; evidence of human impacts on climate since 1850; future
+climate change and its economic, social, and ecological consequences; economic,
+technological, and public policy responses.
+Not open to students who have earned credit for EES 3310 without permission.
+[3] (MNS)
+
+\subsection{Narrative Description}
+
+This course will provide an introduction to the scientific principles of
+earth's climate, the causes of climate change, and scientific knowledge about
+the way climate has changed throughout our planet's history, with an emphasis
+on the last two million years, and especially on recent history. We will study:
+\begin{itemize}
+  \item Determinants of climate: What factors affect climate, how do we know
+    this, and how certain are we?
+  \item Scientific evidence about past climates: What do we know, how do we know
+    it, and how certain are we?
+  \item Natural climate change in earth's history.
+  \item Effects of human activity on global climate in the last 200 years.
+  \item What do we know about future climate change and how will it affect the
+    quality of people's lives?
+  \item What can we do to mitigate future global climate change or adapt to life
+    in a different climate?
+  \item What is happening politically, both in the U.S. and internationally, to
+    respond to climate change?
+\end{itemize}
+
+The course will make extensive use of algebra, but does not expect calculus or
+advanced math.
+
+\subsection{Goals for the Course}
+
+My goals for this course are that at the end of the semester:
+\begin{itemize}
+\item You will have a solid quantitative understanding of the basic physical and
+  chemical principles that control the system and be able to apply that
+  knowledge to reasoning about the climate system and its response to
+  disturbances.
+\item You will have a solid scientific understanding of what scientists know, what
+  they don't know, and how they know what they know about how climate works,
+  how and why it has changed in the past, and how it may change in the future.
+\item You will be able to evaluate the evidence for and against the idea that human
+  activity is warming the planet and assess for yourself whether the evidence
+  is persuasive.
+\item You will have the tools and knowledge to make informed decisions about what
+  climate policies you support or oppose.
+\end{itemize}
+
+When you leave this course, you will not be qualified to work as a climate
+scientist, but you will be able to follow and critically evaluate news
+reporting about climate change and climate policy, debate intelligently and
+knowledgeably, and be an informed voter.
+
+I do not care whether you agree with me politically. I respect people who think
+for themselves.
+\textbf{What counts is whether you can present your own position clearly and support
+it with solid evidence and reasoned argument.}
+%
+%
+%
+%\clearpage
+\section{Important Dates:}
+Many of you have athletic and other commitments during the term and may travel for
+personal reasons. As you plan for your semester, particularly if you are purchasing
+nonrefundable airplane tickets, consult the syllabus.
+
+If you have away games that require you to miss a scheduled test or in-class activity, let me know well in advance.
+\begin{itemize}
+\item There are in-class tests on
+\textbf{\Sexpr{format_day_date_range_by_event_id(calendar, c('MIDTERM_1', 'MIDTERM_1'), abbr_month = FALSE, abbr_wday = FALSE)}},
+\textbf{\Sexpr{format_day_date_range_by_event_id(calendar, c('MIDTERM_2', 'MIDTERM_2'), abbr_month = FALSE, abbr_wday = FALSE)}},
+and
+\textbf{\Sexpr{format_day_date_range_by_event_id(calendar, c('MIDTERM_3', 'MIDTERM_3'), abbr_month = FALSE, abbr_wday = FALSE)}},
+\item The take-home final exam is due at
+\ifAltFinal
+\textbf{\AltFinalExamEndTime~\AltFinalExamDay, \AltFinalExamMonth~\AltFinalExamDate}%
+\else
+\textbf{\FinalExamEndTime~\FinalExamDay, \FinalExamMonth~\FinalExamDate}%
+\fi
+.
+You will submit the final exam on Brightspace, so you do not need to be on
+campus for this.
+\end{itemize}
+%
+%
+%
+%
+%
+%\clearpage
+\section[Structure]{Structure of the Course:}
+I divide the semester into two parts:
+\begin{enumerate}
+    \item \textbf{Scientific Principles of Climate}: For the first half of the semester,
+    we will focus on the scientific principles of climate and natural climate change in earth's %'
+    past. This will be very mathematical, using basic algebra. We do not use calculus or
+    other advanced math in this class, but you should be comfortable with simple algebraic
+    equations.
+    We will then
+    look at climate change in the last two centuries and what might
+    happen over the next several centuries. We will emphasize examining the
+    scientific evidence to understand what it can and cannot tell us.
+    %
+    \item \textbf{Human Dimensions of Climate Change:}
+    For the
+    second half of the semester, we will focus on the ways that climate change
+    is likely to affect people's lives over the rest of this century and what
+    technological responses are being considered to reduce harmful impacts.
+    %'
+\end{enumerate}
+%
+%
+%
+\subsection{Reading Material}
+There are three required textbooks.
+Supplementary reading on the Internet or in handouts will also be assigned during the term and posted on Brightspace.
+
+
+\subsubsection[Required Reading]{Required Reading Materials}
+\begin{itemize}
+	%
+	\item \LongArcher. Be sure you get the second edition because it is significantly different from the first.
+	\item \LongNordhaus
+	\item \LongPielke
+\end{itemize}
+
+{\sloppy
+There is a companion web site to \MedArcher\ at \ArcherURL\
+which includes interactive online computer models that we will use for
+homework exercises.
+You can also access that site at
+\href{https://climatemodels.jgilligan.org}{\nolinkurl{climatemodels.jgilligan.org}}
+}
+
+\subsubsection{Overview of reading materials}
+\MedArcher\ is an excellent introduction to
+climte science, written by one of the leading climate scientists in the world
+for students who are not science majors, but want to understand what science
+knows about climate change.
+
+Science aims to give correct answers to scientific questions, but there are
+not right or wrong answers to questions of what is the best way to
+assess the economic costs of climate change or the best policy with which to
+respond to climate change, so I have chosen books and other reading material
+that present different points of view on the political and economic aspects.
+
+\subsection{Class Web Site}
+
+In addition to the Brightspace web site, I have set up a server at
+\href{https://ees2110.jgilligan.org}{\nolinkurl{ees2110.jgilligan.org}}
+where I post the detailed reading and homework assignments,
+slides from lectures, and other helpful material.
+
+
+%\clearpage
+\subsection{Graded Work}
+%
+%
+%
+\subsubsection[Grading]{Basis for Grading}
+<<r grading, include=FALSE>>=
+grade_weights <- c(participation = 5, homework = 30, midterms = 45, final = 20)
+assert_that(sum(grade_weights) == 100)
+@
+\begin{center}
+	\begin{tabular}[t]{cr}
+		Class participation \& in-class exercises & \Sexpr{grade_weights['participation']}\%\\
+		Homework & \Sexpr{grade_weights['homework']}\%\\
+		In-class tests & \Sexpr{grade_weights['midterms']}\%\\
+		Final exam   & \Sexpr{grade_weights['final']}\%\\
+	\end{tabular}
+\end{center}
+%
+%
+%
+%
+\subsection{Overview of reading assignments}
+
+I have posted detailed reading assignments on the course web site, which give
+specific pages to read for each class and notes on important things you should
+understand.
+\textbf{I expect you to complete the reading before you come to class on the day
+for which the reading is assigned},
+so you can participate in discussions of the
+assigned material and ask questions if there are things you don't understand.
+%'
+
+\subsection{Homework Assignments}
+
+I have posted homework assignments on the course web site. Turn in homework
+assignments on Brightspace. Homework assignments are due at the time specified
+in the Brightspace assignment, which is usually at the start of class on the
+day they are due.
+
+Late homework will be penalized 5\% for each day, or part of a day, it is late
+until I post the solutions (a week after it is due). After I have posted the
+solutions, late homework will receive up to 50\% credit, so no matter how
+late it is, it will still be worth finishing.
+
+
+\subsection{Tests and Exams}
+
+There will be three tests during the semester and a take-home final exam.
+The in-class tests will test you on the material we have studied. The first
+two will cover the science and the third will cover responses to climate change.
+
+I will provide you with a list of relevant physical constants and important
+equations. For the most part, I do not expect you to memorize equations and
+numbers, but there are a few numbers, such as the equilibrium climate
+sensitivity and the concentration of carbon dioxide in the atmosphere that
+I do expect you to know by heart. Reading assignments will clearly state what
+numbers I expect you to memorize.
+
+The final exam will be an open-book, open-notes take-home exam.
+It will be cumulative over all the material covered during the term.
+It will not ask you to solve scientific problems, but will
+ask open-ended questions about the big ideas we have covered during the semester.
+
+The in-class tests will take place on
+\textbf{\Sexpr{format_day_date_range_by_event_id(calendar, c('TEST_1', 'TEST_1'), abbr_month = FALSE, abbr_wday = FALSE)}},
+\textbf{\Sexpr{format_day_date_range_by_event_id(calendar, c('TEST_2', 'TEST_2'), abbr_month = FALSE, abbr_wday = FALSE)}},
+and
+\textbf{\Sexpr{format_day_date_range_by_event_id(calendar, c('TEST_3', 'TEST_3'), abbr_month = FALSE, abbr_wday = FALSE)}}.
+
+The take-home final exam is due at
+\ifAltFinal
+\textbf{\AltFinalExamEndTime~\AltFinalExamDay, \AltFinalExamMonth~\AltFinalExamDate}%
+\else
+\textbf{\FinalExamEndTime~\FinalExamDay, \FinalExamMonth~\FinalExamDate}%
+\fi
+.
+
+%\clearpage
+\section{Honor Code:}
+This course, like all courses at Vanderbilt, is conducted under the Honor Code.
+
+I encourage you to to seek help from me, from \TaTitle,
+or from other classmates or friends in your studying. I also encourage working together
+on homework assignments: you may talk with your friends and classmates about
+homework assignments, compare notes on how you are working a problem, and you
+may look at your classmates' work on homework assignments. %'
+But you must work through the problems yourself
+in the work you turn in: \textbf{Even if you have discussed the solution with others you must
+work through the steps yourself and express the answers in your own words. You may not
+simply copy someone else's answer.} %'
+
+Tests are different from homework: \textbf{%
+%all work you turn in and
+all work on tests and exams must be entirely your own}.
+\textbf{You may not work together with anyone or receive any help from anyone but me
+% or \TaTitle\
+on exams and tests (this includes take-home exams and tests)}.
+
+If you ever
+have questions about how the Honor Code applies to your work
+in this course, please ask me.
+\textbf{Uncertainty about the Honor Code does not excuse a violation.}
+
+\section{Final Note:}
+
+I have made every effort to plan a busy, exciting, and instructive semester.
+I may find during the term that I need to revise the syllabus to give more time
+to some subjects or to pass more quickly over others rather than covering them
+in depth. Many topics we will cover are frequently in the news. Breaking news
+may warrant a detour from the schedule presented on the following pages.
+Thus, while I will attempt to follow this syllabus as closely as I can,
+you should realize that it is subject to change during the semester.
+%
+%
+\iftrue
+% \pagebreak
+\section{Meet Your Professor}
+Jonathan Gilligan has worked in many areas of science and public policy.
+His past research includes work on laser physics, quantum optics,
+laser surgery, electrical properties of the heart, using modified spy planes to
+study the ozone layer in the stratosphere, and connections between religion and
+care for the environment.
+\iffalse
+
+Professor Gilligan joined the Vanderbilt Faculty in 1994 as a member of the
+Department of Physics and Astronomy. In 2003, when the Department of Geology
+became the Department of Earth and Environmental Science, Professor Gilligan
+joined the new department to focus on atmospheric science, global climate change,
+and the interactions of politics, ethics, religion, communication, and the
+environment.
+\fi
+
+Professor Gilligan is
+the Alexander Heard Distinguished Service Professor,
+Associate Professor of Earth \& Environmental Sciences,
+Associate Professor of Civil \& Environmental Engineering, and
+the director of the Vanderbilt Climate and Society Grand Challenge Initiative,
+which is working to integrate research, teaching, and public outreach about
+climate change across the natural sciences, social sciences, and humanities.
+He co-chaired the committee that designed the new Climate Studies major at
+Vanderbilt and he is currently serving on the faculty committee that is
+redesigning Vanderbilt's undergraduate Arts and Science curriculum.
+%'
+
+His current research investigates the role of individual and household behavior
+in greenhouse gas emissions in the United States;
+how ``smart cities'' can use technology to reduce environmental footprints and
+promote health and citizen empowerment;
+water conservation policies in American cities;
+vulnerability and resilience to environmental stress in South Asia;
+and developing new directions for climate policy in the US.
+
+Professor Gilligan and Professor Michael Vandenbergh won
+the 2017 Morrison Prize for the highest-impact paper of the year
+on sustainability law and policy.
+Gilligan and Vandenbergh's book, %'
+\emph{Beyond Politics: The Private Governance Approach to Climate Change\/}
+(Cambridge University Press, 2017),
+was named by \emph{Environmental Forum\/} as one of the most
+important books on the environment of the last 50 years.
+
+Apart from his academic work, Professor Gilligan dabbles in writing for the
+theater. His stage adaptation of Nathaniel Hawthorne's %'
+\emph{The Scarlet Letter},
+co-written with his mother Carol Gilligan, has been staged at The Culture
+Project in New York City, starring
+Marisa Tomei, Ron Cephas Jones, and Bobby Cannavale, and was later performed
+at Prime Stage Theatre, Pittsburgh and in a touring production by The National
+Players. Most recently, it was performed as the principal fall 2019 production
+of the Fullerton College Classic Dramatic Series in Fullerton CA,
+directed by Michael Mueller,
+and was also chosen by the Classic Repertory Company in Watertown, MA,
+for its 2019--2020 repertory season.
+
+Prof.\ Gilligan and Carol Gilligan also wrote the libretto for an opera,
+\emph{Pearl}, in collaboration composer Amy Scurria, and producer/conductor
+Sara Jobin, which was performed at Shakespeare \& Company in Lenox MA,
+starring Maureen O'Flynn, John Bellemer, Marnie Breckenridge, John Cheek, %'
+and Michael Corvino, and in Shanghai China,
+% as part of a cultural exchange,
+starring Li Xin, Wang Yang, John Bellemer, and Lin Shu.
+\fi
+%
+%
+%
+%
+%
+%
+%\end{document}
+
+%\cleardoublepage
+\clearpage
+\appendix
+\setcounter{secnumdepth}{0}
+\newcommand{\maybehline}{\hline}%
+\setlength\extrarowheight{4pt}
+\section[Class Schedule]{Schedule of Classes
+\ifrevised
+	(Revised \RevisionDate)%
+\else
+	(Subject to Change)%
+\fi}
+
+\textbf{\scshape Important Note:} This schedule gives a rough indication of the reading for each day. See the assignment sheets posted on Brightspace for the detailed daily assignments.
+
+\setlength{\aboverulesep}{0.2ex}
+\setlength{\belowrulesep}{0.2ex}
+\setlength{\extrarowheight}{0.1ex}
+\setlength{\heavyrulewidth}{0.5pt}
+\setlength{\lightrulewidth}{0.05pt}
+\begin{center}
+<<r class_schedule, echo=F, results="asis", message=FALSE, warning=FALSE>>=
+one_line_events <- c("MIDTERM_1", "MIDTERM_2", "MIDTERM_3",
+                     short_holiday_keys,
+                     "TAKE_HOME_FINAL_EXAM")
+# one_line_events <- c("Fall Break")
+
+schedule <- calendar %>% arrange(date) %>%
+  mutate(wday = str_c(wday(date, label = T, abbr=T), ".,"), month = str_c(month(date, label = T, abbr=T), "."),
+         day = day(date),
+         reading = str_replace_all(reading, "&", "\\\\&") %>% str_trim(),
+         event = ifelse(is.na(event), "", event), foo = NA) %>%
+  select(wday, month, day, topic, reading, event, foo)
+
+events <- schedule$event
+
+short_holiday_rows <- which(events %in% short_holiday_keys)
+long_holiday_rows <- which(events %in% long_holiday_keys)
+if (is_fall_semester) {
+  long_holiday_name <- "Thanksgiving Break"
+} else {
+  long_holiday_name <- "Spring Break"
+}
+
+special_rows <- which(events %in% one_line_events)
+
+# schedule_break_row <- fall_break_row
+#
+# schedule_break_row <- with(schedule, which(month == "Mar." & day == 15))
+# schedule_break_row <- max(short_holiday_rows)
+schedule_break_row <- nrow(calendar) %/% 2L
+message("Break row = ", schedule_break_row)
+# schedule_break_row <- 30
+
+special_rows_1 <- special_rows %>% keep(~.x <= schedule_break_row)
+special_rows_2 <- special_rows %>% discard(~.x %in% special_rows_1)
+special_rows_2 <- special_rows_2 - schedule_break_row
+
+has_long_holiday <- (length(long_holiday_rows) > 0)
+if (has_long_holiday) {
+  long_vac_on_first_page <- min(long_holiday_rows) < schedule_break_row
+} else {
+  long_vac_on_first_page <- FALSE
+}
+
+schedule_1 <- head(schedule, schedule_break_row)
+schedule_1[special_rows_1,] <- schedule_1[special_rows_1,] %>%
+  mutate(topic = str_c("\\multicolumn{2}{l}{\\bfseries\\scshape\\large ",
+                       topic, "} & \\\\%"))
+if (has_long_holiday && long_vac_on_first_page) {
+  schedule_1$topic[long_holiday_rows] <- ""
+  schedule_1$reading[long_holiday_rows] <- ""
+  schedule_1$topic[min(long_holiday_rows)] <-
+    str_c("\\multicolumn{2}{l}{\\multirow{3}{*}{\\bfseries\\scshape\\Large ",
+          long_holiday_name, "}} & \\\\%")
+}
+schedule_1 <- schedule_1 %>% select(-event)
+
+schedule_1 %>%
+  mutate(topic = str_replace_all(topic, "([^\\\\])([#%$])", "\\1\\\\\\2")) %>%
+  xtable(align = c("", "l@{~}", "c@{~}", "r", ">{\\raggedright}m{2.6in}",
+                   ">{\\centering}m{2in}", "c")) %>%
+  print(booktabs = TRUE, floating = FALSE, latex.environment="center",
+        sanitize.text.function = identity,
+        include.colnames = F, include.rownames = F,
+        hline.after = discard(seq(-1,nrow(schedule_1)),
+                              ~ long_vac_on_first_page &
+                                .x %in% head(long_holiday_rows,-1)),
+        add.to.row = list(pos = list(0),
+                          command = "\\multicolumn{3}{c}{\\bfseries Date} & \\multicolumn{1}{c}{\\bfseries Topic} &\\multicolumn{1}{c}{\\bfseries Reading} &\\\\\n"))
+@
+\end{center}
+
+\begin{center}
+<<r class_schedule_2, echo=F, results="asis", message=FALSE, warning=FALSE>>=
+schedule_2 <- tail(schedule, -schedule_break_row)
+schedule_2[special_rows_2,] <- schedule_2[special_rows_2,] %>%
+  mutate(topic = str_c("\\multicolumn{2}{l}{\\bfseries\\scshape\\large ",
+                       topic, "} & \\\\%"))
+in_class_ex_line <- which(schedule_2$event %in% c("IN_CLASS_EXERCISE"))
+schedule_2[in_class_ex_line,] <- schedule_2[in_class_ex_line,] %>%
+  mutate(topic = str_c("\\bfseries\\scshape ", topic))
+if ( has_long_holiday && ! long_vac_on_first_page) {
+  long_holiday_rows <- long_holiday_rows - schedule_break_row
+  schedule_2$topic[long_holiday_rows] <- ""
+  schedule_2$reading[long_holiday_rows] <- ""
+  schedule_2$topic[min(long_holiday_rows)] <-
+    str_c("\\multicolumn{2}{l}{\\multirow{3}{*}{\\bfseries\\scshape\\Large ",
+          long_holiday_name, "}} & \\\\%")
+}
+schedule_2 <- schedule_2 %>% select(-event)
+
+schedule_2 %>%
+  mutate(topic = str_replace_all(topic, "([^\\\\])([#%$])", "\\1\\\\\\2")) %>%
+  xtable(align = c("", "l@{~}", "c@{~}", "r", ">{\\raggedright}m{2.6in}",
+                   ">{\\centering}m{2in}", "c")) %>%
+  print(booktabs = TRUE, floating = FALSE,  latex.environment="center",
+        sanitize.text.function = identity,
+        include.colnames = F,  include.rownames = F,
+        hline.after = discard(seq(-1,nrow(schedule_2)),
+                              ~ ! long_vac_on_first_page &
+                                .x %in% head(long_holiday_rows,-1)),
+        add.to.row = list(pos = list(0),
+                          command = "\\multicolumn{3}{c}{\\bfseries Date} & \\multicolumn{1}{c}{\\bfseries Topic} &\\multicolumn{1}{c}{\\bfseries Reading} &\\\\\n"))
+@
+\end{center}
+%
+\end{document}

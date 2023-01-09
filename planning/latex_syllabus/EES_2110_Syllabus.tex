@@ -1,0 +1,614 @@
+\documentclass[11pt]{jgsyllabus}\usepackage[]{graphicx}\usepackage[]{xcolor}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage{booktabs}
+%\usepackage{tabularx}
+\usepackage{multirow}
+
+\setlength{\aboverulesep}{0.2ex}
+\setlength{\belowrulesep}{0.2ex}
+\setlength{\extrarowheight}{0.1ex}
+\setlength{\heavyrulewidth}{1pt}
+\setlength{\lightrulewidth}{0.05pt}
+
+\newif\ifreading
+\readingtrue
+
+\iffalse
+\include{CourseInfo}
+\fi
+
+
+
+\SetupHandout
+\isbntrue
+
+\renewcommand{\LongCourseName}{\ShortCourseName}%
+
+\title{Syllabus\\
+\ShortCourseNumber: \LongCourseName}
+
+\fancyhead[L]{\bfseries\scshape \ShortCourseNumber\ Syllabus}
+
+%
+%
+%
+
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+\maketitle
+\section[Nuts \& Bolts]{Nuts and Bolts}
+\label{sec:NutsAndBolts}
+\subsection{Class Meetings}
+\ClassMeetings
+\subsection{Professor}
+\label{sec:Professor}
+\ProfName\\
+\ProfDescr\\
+\ProfOffice\\
+\ProfEmail\\
+\ProfOfficeHours
+%
+%To book time during my office hours, send me an email
+%or make an appointment on line via Google calendar at
+%\url{http://bit.ly/o9ka5e}
+
+\iffalse
+\subsection{Teaching Assistant}
+\label{sec:TA}
+\TaName\\
+\TaOfficeLoc\ifTaPhone , \TaPhone\fi\\
+\TaEmail\\
+\TaOfficeHours
+\medskip
+
+\noindent
+\TaTitle\ will be grading homework, so address questions about your homework grades
+to \TaAccusative.
+\fi
+
+\subsection{Email}
+If you want to communicate with Professor Gilligan
+\iffalse
+or \TaTitle\
+\fi
+be sure to begin the
+subject line of your email with ``{\scshape EES~2110}''. This helps assure
+that I will see your message quickly and respond to it.
+
+I have set my email reader to flag all messages like this as important, so I will read
+them first. This also assures that I do not mistake your email for spam. I typically
+receive over 100 emails per day, so if you do not follow these instructions I may not
+notice your email.
+
+\medskip
+\clearpage
+\section[Description]{Course Description}
+\subsection{Catalog Description}
+
+\textbf{EES 2110 Introduction to Climate Change}
+Science, policy, history, and causes of climate change on Earth in the last
+2 million years; evidence of human impacts on climate since 1850; future
+climate change and its economic, social, and ecological consequences; economic,
+technological, and public policy responses.
+Not open to students who have earned credit for EES 3310 without permission.
+[3] (MNS)
+
+\subsection{Narrative Description}
+
+This course will provide an introduction to the scientific principles of
+earth's climate, the causes of climate change, and scientific knowledge about
+the way climate has changed throughout our planet's history, with an emphasis
+on the last two million years, and especially on recent history. We will study:
+\begin{itemize}
+  \item Determinants of climate: What factors affect climate, how do we know
+    this, and how certain are we?
+  \item Scientific evidence about past climates: What do we know, how do we know
+    it, and how certain are we?
+  \item Natural climate change in earth's history.
+  \item Effects of human activity on global climate in the last 200 years.
+  \item What do we know about future climate change and how will it affect the
+    quality of people's lives?
+  \item What can we do to mitigate future global climate change or adapt to life
+    in a different climate?
+  \item What is happening politically, both in the U.S. and internationally, to
+    respond to climate change?
+\end{itemize}
+
+The course will make extensive use of algebra, but does not expect calculus or
+advanced math.
+
+\subsection{Goals for the Course}
+
+My goals for this course are that at the end of the semester:
+\begin{itemize}
+\item You will have a solid quantitative understanding of the basic physical and
+  chemical principles that control the system and be able to apply that
+  knowledge to reasoning about the climate system and its response to
+  disturbances.
+\item You will have a solid scientific understanding of what scientists know, what
+  they don't know, and how they know what they know about how climate works,
+  how and why it has changed in the past, and how it may change in the future.
+\item You will be able to evaluate the evidence for and against the idea that human
+  activity is warming the planet and assess for yourself whether the evidence
+  is persuasive.
+\item You will have the tools and knowledge to make informed decisions about what
+  climate policies you support or oppose.
+\end{itemize}
+
+When you leave this course, you will not be qualified to work as a climate
+scientist, but you will be able to follow and critically evaluate news
+reporting about climate change and climate policy, debate intelligently and
+knowledgeably, and be an informed voter.
+
+I do not care whether you agree with me politically. I respect people who think
+for themselves.
+\textbf{What counts is whether you can present your own position clearly and support
+it with solid evidence and reasoned argument.}
+%
+%
+%
+%\clearpage
+\section{Important Dates:}
+Many of you have athletic and other commitments during the term and may travel for
+personal reasons. As you plan for your semester, particularly if you are purchasing
+nonrefundable airplane tickets, consult the syllabus.
+
+If you have away games that require you to miss a scheduled test or in-class activity, let me know well in advance.
+\begin{itemize}
+\item There are in-class tests on
+\textbf{Wednesday, February~8},
+\textbf{Wednesday, March~8},
+and
+\textbf{Wednesday, April~12},
+\item The take-home final exam is due at
+\ifAltFinal
+\textbf{\AltFinalExamEndTime~\AltFinalExamDay, \AltFinalExamMonth~\AltFinalExamDate}%
+\else
+\textbf{\FinalExamEndTime~\FinalExamDay, \FinalExamMonth~\FinalExamDate}%
+\fi
+.
+You will submit the final exam on Brightspace, so you do not need to be on
+campus for this.
+\end{itemize}
+%
+%
+%
+%
+%
+%\clearpage
+\section[Structure]{Structure of the Course:}
+I divide the semester into two parts:
+\begin{enumerate}
+    \item \textbf{Scientific Principles of Climate}: For the first half of the semester,
+    we will focus on the scientific principles of climate and natural climate change in earth's %'
+    past. This will be very mathematical, using basic algebra. We do not use calculus or
+    other advanced math in this class, but you should be comfortable with simple algebraic
+    equations.
+    We will then
+    look at climate change in the last two centuries and what might
+    happen over the next several centuries. We will emphasize examining the
+    scientific evidence to understand what it can and cannot tell us.
+    %
+    \item \textbf{Human Dimensions of Climate Change:}
+    For the
+    second half of the semester, we will focus on the ways that climate change
+    is likely to affect people's lives over the rest of this century and what
+    technological responses are being considered to reduce harmful impacts.
+    %'
+\end{enumerate}
+%
+%
+%
+\subsection{Reading Material}
+There are three required textbooks.
+Supplementary reading on the Internet or in handouts will also be assigned during the term and posted on Brightspace.
+
+
+\subsubsection[Required Reading]{Required Reading Materials}
+\begin{itemize}
+	%
+	\item \LongArcher. Be sure you get the second edition because it is significantly different from the first.
+	\item \LongNordhaus
+	\item \LongPielke
+\end{itemize}
+
+{\sloppy
+There is a companion web site to \MedArcher\ at \ArcherURL\
+which includes interactive online computer models that we will use for
+homework exercises.
+You can also access that site at
+\href{https://climatemodels.jgilligan.org}{\nolinkurl{climatemodels.jgilligan.org}}
+}
+
+\subsubsection{Overview of reading materials}
+\MedArcher\ is an excellent introduction to
+climte science, written by one of the leading climate scientists in the world
+for students who are not science majors, but want to understand what science
+knows about climate change.
+
+Science aims to give correct answers to scientific questions, but there are
+not right or wrong answers to questions of what is the best way to
+assess the economic costs of climate change or the best policy with which to
+respond to climate change, so I have chosen books and other reading material
+that present different points of view on the political and economic aspects.
+
+\subsection{Class Web Site}
+
+In addition to the Brightspace web site, I have set up a server at
+\href{https://ees2110.jgilligan.org}{\nolinkurl{ees2110.jgilligan.org}}
+where I post the detailed reading and homework assignments,
+slides from lectures, and other helpful material.
+
+
+%\clearpage
+\subsection{Graded Work}
+%
+%
+%
+\subsubsection[Grading]{Basis for Grading}
+
+\begin{center}
+	\begin{tabular}[t]{cr}
+		Class participation \& in-class exercises & 5\%\\
+		Homework & 30\%\\
+		In-class tests & 45\%\\
+		Final exam   & 20\%\\
+	\end{tabular}
+\end{center}
+%
+%
+%
+%
+\subsection{Overview of reading assignments}
+
+I have posted detailed reading assignments on the course web site, which give
+specific pages to read for each class and notes on important things you should
+understand.
+\textbf{I expect you to complete the reading before you come to class on the day
+for which the reading is assigned},
+so you can participate in discussions of the
+assigned material and ask questions if there are things you don't understand.
+%'
+
+\subsection{Homework Assignments}
+
+I have posted homework assignments on the course web site. Turn in homework
+assignments on Brightspace. Homework assignments are due at the time specified
+in the Brightspace assignment, which is usually at the start of class on the
+day they are due.
+
+Late homework will be penalized 5\% for each day, or part of a day, it is late
+until I post the solutions (a week after it is due). After I have posted the
+solutions, late homework will receive up to 50\% credit, so no matter how
+late it is, it will still be worth finishing.
+
+
+\subsection{Tests and Exams}
+
+There will be three tests during the semester and a take-home final exam.
+The in-class tests will test you on the material we have studied. The first
+two will cover the science and the third will cover responses to climate change.
+
+I will provide you with a list of relevant physical constants and important
+equations. For the most part, I do not expect you to memorize equations and
+numbers, but there are a few numbers, such as the equilibrium climate
+sensitivity and the concentration of carbon dioxide in the atmosphere that
+I do expect you to know by heart. Reading assignments will clearly state what
+numbers I expect you to memorize.
+
+The final exam will be an open-book, open-notes take-home exam.
+It will be cumulative over all the material covered during the term.
+It will not ask you to solve scientific problems, but will
+ask open-ended questions about the big ideas we have covered during the semester.
+
+The in-class tests will take place on
+\textbf{NA},
+\textbf{NA},
+and
+\textbf{NA}.
+
+The take-home final exam is due at
+\ifAltFinal
+\textbf{\AltFinalExamEndTime~\AltFinalExamDay, \AltFinalExamMonth~\AltFinalExamDate}%
+\else
+\textbf{\FinalExamEndTime~\FinalExamDay, \FinalExamMonth~\FinalExamDate}%
+\fi
+.
+
+%\clearpage
+\section{Honor Code:}
+This course, like all courses at Vanderbilt, is conducted under the Honor Code.
+
+I encourage you to to seek help from me, from \TaTitle,
+or from other classmates or friends in your studying. I also encourage working together
+on homework assignments: you may talk with your friends and classmates about
+homework assignments, compare notes on how you are working a problem, and you
+may look at your classmates' work on homework assignments. %'
+But you must work through the problems yourself
+in the work you turn in: \textbf{Even if you have discussed the solution with others you must
+work through the steps yourself and express the answers in your own words. You may not
+simply copy someone else's answer.} %'
+
+Tests are different from homework: \textbf{%
+%all work you turn in and
+all work on tests and exams must be entirely your own}.
+\textbf{You may not work together with anyone or receive any help from anyone but me
+% or \TaTitle\
+on exams and tests (this includes take-home exams and tests)}.
+
+If you ever
+have questions about how the Honor Code applies to your work
+in this course, please ask me.
+\textbf{Uncertainty about the Honor Code does not excuse a violation.}
+
+\section{Final Note:}
+
+I have made every effort to plan a busy, exciting, and instructive semester.
+I may find during the term that I need to revise the syllabus to give more time
+to some subjects or to pass more quickly over others rather than covering them
+in depth. Many topics we will cover are frequently in the news. Breaking news
+may warrant a detour from the schedule presented on the following pages.
+Thus, while I will attempt to follow this syllabus as closely as I can,
+you should realize that it is subject to change during the semester.
+%
+%
+\iftrue
+% \pagebreak
+\section{Meet Your Professor}
+Jonathan Gilligan has worked in many areas of science and public policy.
+His past research includes work on laser physics, quantum optics,
+laser surgery, electrical properties of the heart, using modified spy planes to
+study the ozone layer in the stratosphere, and connections between religion and
+care for the environment.
+\iffalse
+
+Professor Gilligan joined the Vanderbilt Faculty in 1994 as a member of the
+Department of Physics and Astronomy. In 2003, when the Department of Geology
+became the Department of Earth and Environmental Science, Professor Gilligan
+joined the new department to focus on atmospheric science, global climate change,
+and the interactions of politics, ethics, religion, communication, and the
+environment.
+\fi
+
+Professor Gilligan is
+the Alexander Heard Distinguished Service Professor,
+Associate Professor of Earth \& Environmental Sciences,
+Associate Professor of Civil \& Environmental Engineering, and
+the director of the Vanderbilt Climate and Society Grand Challenge Initiative,
+which is working to integrate research, teaching, and public outreach about
+climate change across the natural sciences, social sciences, and humanities.
+He co-chaired the committee that designed the new Climate Studies major at
+Vanderbilt and he is currently serving on the faculty committee that is
+redesigning Vanderbilt's undergraduate Arts and Science curriculum.
+%'
+
+His current research investigates the role of individual and household behavior
+in greenhouse gas emissions in the United States;
+how ``smart cities'' can use technology to reduce environmental footprints and
+promote health and citizen empowerment;
+water conservation policies in American cities;
+vulnerability and resilience to environmental stress in South Asia;
+and developing new directions for climate policy in the US.
+
+Professor Gilligan and Professor Michael Vandenbergh won
+the 2017 Morrison Prize for the highest-impact paper of the year
+on sustainability law and policy.
+Gilligan and Vandenbergh's book, %'
+\emph{Beyond Politics: The Private Governance Approach to Climate Change\/}
+(Cambridge University Press, 2017),
+was named by \emph{Environmental Forum\/} as one of the most
+important books on the environment of the last 50 years.
+
+Apart from his academic work, Professor Gilligan dabbles in writing for the
+theater. His stage adaptation of Nathaniel Hawthorne's %'
+\emph{The Scarlet Letter},
+co-written with his mother Carol Gilligan, has been staged at The Culture
+Project in New York City, starring
+Marisa Tomei, Ron Cephas Jones, and Bobby Cannavale, and was later performed
+at Prime Stage Theatre, Pittsburgh and in a touring production by The National
+Players. Most recently, it was performed as the principal fall 2019 production
+of the Fullerton College Classic Dramatic Series in Fullerton CA,
+directed by Michael Mueller,
+and was also chosen by the Classic Repertory Company in Watertown, MA,
+for its 2019--2020 repertory season.
+
+Prof.\ Gilligan and Carol Gilligan also wrote the libretto for an opera,
+\emph{Pearl}, in collaboration composer Amy Scurria, and producer/conductor
+Sara Jobin, which was performed at Shakespeare \& Company in Lenox MA,
+starring Maureen O'Flynn, John Bellemer, Marnie Breckenridge, John Cheek, %'
+and Michael Corvino, and in Shanghai China,
+% as part of a cultural exchange,
+starring Li Xin, Wang Yang, John Bellemer, and Lin Shu.
+\fi
+%
+%
+%
+%
+%
+%
+%\end{document}
+
+%\cleardoublepage
+\clearpage
+\appendix
+\setcounter{secnumdepth}{0}
+\newcommand{\maybehline}{\hline}%
+\setlength\extrarowheight{4pt}
+\section[Class Schedule]{Schedule of Classes
+\ifrevised
+	(Revised \RevisionDate)%
+\else
+	(Subject to Change)%
+\fi}
+
+\textbf{\scshape Important Note:} This schedule gives a rough indication of the reading for each day. See the assignment sheets posted on Brightspace for the detailed daily assignments.
+
+\setlength{\aboverulesep}{0.2ex}
+\setlength{\belowrulesep}{0.2ex}
+\setlength{\extrarowheight}{0.1ex}
+\setlength{\heavyrulewidth}{0.5pt}
+\setlength{\lightrulewidth}{0.05pt}
+\begin{center}
+% latex table generated in R 4.2.2 by xtable 1.8-4 package
+% Sun Jan  8 22:12:58 2023
+\begin{tabular}{l@{~}c@{~}r>{\raggedright}m{2.6in}>{\centering}m{2in}c}
+  \toprule
+  \multicolumn{3}{c}{\bfseries Date} & \multicolumn{1}{c}{\bfseries Topic} &\multicolumn{1}{c}{\bfseries Reading} &\\
+ \midrule
+Mon., & Jan. &   9 & Introduction & No reading &  \\ 
+   \midrule
+Wed., & Jan. &  11 & What is Climate Change? & \emph{\ShortArcher\/} Ch.~1, \emph{\ShortNordhaus\/} Ch.~1--2 &  \\ 
+   \midrule
+Fri., & Jan. &  13 & Energy Balance and Climate & \emph{\ShortArcher\/} Ch.~2--3 pp.~9--23 &  \\ 
+   \midrule
+Mon., & Jan. &  16 & \multicolumn{2}{l}{\bfseries\scshape\large Martin Luther King, Jr. Day} & \\% & No reading &  \\ 
+   \midrule
+Wed., & Jan. &  18 & Greenhouse Effect & \emph{\ShortArcher\/} Ch.~3 pp.~23--26 &  \\ 
+   \midrule
+Fri., & Jan. &  20 & Greenhouse Gases & \emph{\ShortArcher\/} Ch.~4 Read the whole chapter, but concentrate on pp.~29-34 &  \\ 
+   \midrule
+Mon., & Jan. &  23 & Spectrum of Atmospheric Radiation & \emph{\ShortArcher\/} Ch.~4 pp.~34-40 &  \\ 
+   \midrule
+Wed., & Jan. &  25 & Vertical Structure of the Atmosphere & \emph{\ShortArcher\/} Ch.~5 Read the whole chapter, but focus on pp.~43-50 &  \\ 
+   \midrule
+Fri., & Jan. &  27 & Atmospheric Convection & \emph{\ShortArcher\/} Ch.~5 pp.~50-55 &  \\ 
+   \midrule
+Mon., & Jan. &  30 & Review of Greenhouse Effect & No reading &  \\ 
+   \midrule
+Wed., & Feb. &   1 & Weather and Climate & \emph{\ShortArcher\/} 6 &  \\ 
+   \midrule
+Fri., & Feb. &   3 & Feedbacks & \emph{\ShortArcher\/} 7 pp.~73--81 &  \\ 
+   \midrule
+Mon., & Feb. &   6 & Ocean and Biosphere Feedbacks & \emph{\ShortArcher\/} 7 81--84 &  \\ 
+   \midrule
+Wed., & Feb. &   8 & \multicolumn{2}{l}{\bfseries\scshape\large Test \#1} & \\% & No reading &  \\ 
+   \midrule
+Fri., & Feb. &  10 & The Carbon Cycle: Ocean and Biosphere & \emph{\ShortArcher\/} 8 pp.~89--97 &  \\ 
+   \midrule
+Mon., & Feb. &  13 & The Carbon Cycle: Mineral Weathering & \emph{\ShortArcher\/} 8 pp.~95--101 &  \\ 
+   \midrule
+Wed., & Feb. &  15 & Perturbing the Carbon Cycle & \emph{\ShortArcher\/} 10 &  \\ 
+   \midrule
+Fri., & Feb. &  17 & Ocean Acidification & \emph{\ShortArcher\/} 10 &  \\ 
+   \midrule
+Mon., & Feb. &  20 & Isotopes & Handouts (on Brightspace) &  \\ 
+   \midrule
+Wed., & Feb. &  22 & Climates of the Past & \emph{\ShortArcher\/} 11 &  \\ 
+   \midrule
+Fri., & Feb. &  24 & The Pleistocene Ice Ages & \emph{\ShortArcher\/} 7, \emph{\ShortArcher\/} 8, \emph{\ShortArcher\/} 11 &  \\ 
+   \midrule
+Mon., & Feb. &  27 & Human Impact on Climate: The Evidence & \emph{\ShortArcher\/} 11 &  \\ 
+   \midrule
+Wed., & Mar. &   1 & Review of Carbon Cycle and Paleoclimates & No reading &  \\ 
+   \bottomrule
+\end{tabular}
+
+\end{center}
+
+\begin{center}
+% latex table generated in R 4.2.2 by xtable 1.8-4 package
+% Sun Jan  8 22:12:58 2023
+\begin{tabular}{l@{~}c@{~}r>{\raggedright}m{2.6in}>{\centering}m{2in}c}
+  \toprule
+  \multicolumn{3}{c}{\bfseries Date} & \multicolumn{1}{c}{\bfseries Topic} &\multicolumn{1}{c}{\bfseries Reading} &\\
+ \midrule
+Fri., & Mar. &   3 & Identifying Fallacies about Climate Change & ``23 Ways to Mislead'' &  \\ 
+   \midrule
+Mon., & Mar. &   6 & Climate Fallacies Game & ``A History of FLICC'' &  \\ 
+   \midrule
+Wed., & Mar. &   8 & \multicolumn{2}{l}{\bfseries\scshape\large Test \#2} & \\% & No reading &  \\ 
+   \midrule
+Fri., & Mar. &  10 & Climate Models & \emph{\ShortNordhaus\/} Ch.~3--4, \emph{\ShortNordhaus\/} 3--4 &  \\ 
+   \midrule
+Mon., & Mar. &  13 & \multicolumn{2}{l}{\multirow{3}{*}{\bfseries\scshape\Large Spring Break}} & \\% &  &  \\ 
+  Wed., & Mar. &  15 &  &  &  \\ 
+  Fri., & Mar. &  17 &  &  &  \\ 
+   \midrule
+Mon., & Mar. &  20 & Future Climate Change & \emph{\ShortArcher\/} Ch.~12 pp.~153--164, \emph{\ShortNordhaus\/} Ch.~5 &  \\ 
+   \midrule
+Wed., & Mar. &  22 & Uncertainty about Future Climates & \emph{\ShortArcher\/} Ch.~12 pp.~164--166, \emph{\ShortNordhaus\/} Ch.~24, \emph{\ShortPielke\/} Ch.~1 pp.~1--24 &  \\ 
+   \midrule
+Fri., & Mar. &  24 & Policy Myths & \emph{\ShortPielke\/} 2, \emph{\ShortNordhaus\/} Ch.~25 &  \\ 
+   \midrule
+Mon., & Mar. &  27 & The Kaya Identity & \emph{\ShortPielke\/} Ch.~3, \emph{\ShortNordhaus\/} Ch.~14 &  \\ 
+   \midrule
+Wed., & Mar. &  29 & Future Emission Scenarios & TBA &  \\ 
+   \midrule
+Fri., & Mar. &  31 & Renewable Energy & Handouts (on Brightspace) &  \\ 
+   \midrule
+Mon., & Apr. &   3 & Nuclear Energy & Handouts (on Brightspace) &  \\ 
+   \midrule
+Wed., & Apr. &   5 & Geoengineering: Solar Radiation Management & TBA &  \\ 
+   \midrule
+Fri., & Apr. &   7 & Geoengineering: Carbon Dioxide Management & TBA &  \\ 
+   \midrule
+Mon., & Apr. &  10 & Review of Impacts and Responses to Climate Change & No reading &  \\ 
+   \midrule
+Wed., & Apr. &  12 & \multicolumn{2}{l}{\bfseries\scshape\large Test \#3} & \\% & No reading &  \\ 
+   \midrule
+Fri., & Apr. &  14 & Climate Change, Agriculture, and Health & \emph{\ShortNordhaus\/} 6--8 &  \\ 
+   \midrule
+Mon., & Apr. &  17 & Climate and Oceans: Hurricanes, Sea-level, etc. & \emph{\ShortNordhaus\/} 9--10, 12 &  \\ 
+   \midrule
+Wed., & Apr. &  19 & Climate Justice & Handouts (on Brightspace) &  \\ 
+   \midrule
+Fri., & Apr. &  21 & History of Climate Policy & TBA &  \\ 
+   \midrule
+Mon., & Apr. &  24 & Future Possibilities & TBA &  \\ 
+   \midrule
+Thu., & May. &   4 & \multicolumn{2}{l}{\bfseries\scshape\large Take-home final exam due} & \\% & No reading &  \\ 
+   \bottomrule
+\end{tabular}
+
+\end{center}
+%
+\end{document}

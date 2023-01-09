@@ -1,0 +1,96 @@
+---
+title: Vertical Structure of the Atmosphere
+due_date: '2023-02-01'
+assignment_type: Homework
+short_assignment_type: HW
+assignment_number: 3
+weight: 3
+slug: homework_03
+pubdate: '2022-12-31'
+date: '2023-02-01'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+  pdf_document:
+    toc: yes
+    toc_depth: 3
+pdf_url: /files/homework_asgts/homework_03.pdf
+---
+
+
+
+<div id="homework" class="section level2">
+<h2>Homework</h2>
+<div id="homework-exercises" class="section level3">
+<h3>Homework Exercises:</h3>
+<ul>
+<li><em>Forecast</em>, Ch. 5, Ex. 1–2</li>
+</ul>
+</div>
+<div id="notes-on-homework" class="section level3">
+<h3>Notes on Homework:</h3>
+<ul>
+<li><p>These two exercises use two different models. In both models, you adjust
+parameters to achieve radiative balance (where the heat going out equals
+the heat coming in), but you adjust different parameters in each model,
+and each model has a different way for you to tell whether the earth is at
+radiative equilibrium.</p>
+<ul>
+<li><p>The RRTM full-spectrum model is a radiative-convective model that
+considers the impact of lapse rate on the radiative balance. You can adjust
+the amount of sunlight hitting the earth, the albedo, the surface
+temperature, the lapse rate, and other parameters including the amount of
+cloud cover at different altitudes. The model then divides the atmosphere
+into many layers and at each layer, it calculates the amount of heat going
+up and down in the form of shortwave radiation (sunlight) and longwave
+radiation emitted by the earth and the atmosphere. The model also reports
+about the balance of heat going up and down at the top of the atmosphere.</p>
+<p>Your goal is to adjust parameters until the model reports that
+“If the earth has these properties … then it loses as much energy as
+it gains.”</p>
+<p>You can also move your mouse over the yellow and purple arrows, which
+represent shortwave and longwave radiation, respectively, and the computer
+will show you the amount of heat flowing up or down (in watts per square
+meter) for that kind of radiation.</p></li>
+<li><p>The MODTRAN model ignores shortwave light and only considers longwave
+(infrared) light emitted by the earth’s surface and atmosphere. When you
+start it up, you pick a locality
+(for this exercise, use “Tropical Atmosphere” just as you did
+for the exercises in Chapter 4)
+and the model will initialize to conditions of radiative balance at that
+locality (for the tropical atmosphere, this is 298.52 W/m<sup>2</sup>).
+You can then adjust all sorts of parameters (the concentrations of different
+gases, the conditions of clouds or rain, and the temperature of the ground),
+and the model will calculate the new upward longwave heat flux at the
+altitude you specify. You want to make a note of the upward IR heat flux
+for the default conditions before you start changing things, and then when
+you change parameters, such as the amount of CO<sub>2</sub> in the atmosphere, you
+can adjust the ground temperature until the upward IR heat flux returns to
+its initial value.</p></li>
+</ul></li>
+<li><p>For Exercise 1, use the RRTM full-spectrum model, at
+<a href="https://climatemodels.jgilligan.org/rrtm/" class="uri">https://climatemodels.jgilligan.org/rrtm/</a> or <a href="http://climatemodels.uchicago.edu/rrtm/" class="uri">http://climatemodels.uchicago.edu/rrtm/</a>.
+For this model, you set the lapse rate, CO<sub>2</sub> concentration, etc., and the
+model automatically calculates the imbalance between <span class="math inline">\(I_{\text{in}}\)</span> and
+<span class="math inline">\(I_{\text{out}}\)</span>. You can then adjust the surface temperature until the model
+reports, “…then it loses as much energy as it gains.”</p>
+<p>I recommend trying lapse rates of 2, 4, 6, 8, and 10 K/km. After you change
+the lapse rate, I recommend setting the temperature to a round multiple of
+10 near 270 or 280 K, and adjusting up or down in steps of 10 K until you
+change from gaining to losing heat or vice versa, and then change in steps of
+5 K, then in steps of 1 K, and finally in steps of 0.5, 0.1, and 0.05 as
+necessary until RRTM reports energy balance.</p>
+<p>Make a table showing the temperature for each lapse rate, and also make
+a graph of temperature versus lapse rate.</p></li>
+<li><p><strong>There’s a typo in exercise 2(a):</strong>
+The Stefan-Boltzmann constant should be
+<span class="math inline">\(\sigma = 5.67 \times 10^{-8} \mathrm{W/m^2 K^4}\)</span> (<span class="math inline">\(10^{-8}\)</span>, not <span class="math inline">\(10^8\)</span>)</p></li>
+<li><p>For exercise 2, use the MODTRAN model.
+Choose “Tropical Atmosphere” for Location and keep the altitude at
+its default value of 70 km. How would you calculate the skin altitude
+from this model?</p></li>
+<li><p>When exercise 2(d) asks you to add cirrus clouds,
+use the “NOAA Cirrus model.”</p></li>
+</ul>
+</div>
+</div>

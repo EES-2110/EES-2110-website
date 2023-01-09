@@ -1,5 +1,5 @@
 ---
-title: Policy Myths
+title: Future Emission Scenarios
 class_date: '2023-03-29'
 class_number: 31
 weight: 31
@@ -13,8 +13,4 @@ pdf_url: /files/reading_asgts/reading_31.pdf
 ---
 ## Reading:
 
-### Required Reading (everyone):
-
-* The Climate Fix, 2.
-* Climate Casino, 25.
-
+No new reading for today.

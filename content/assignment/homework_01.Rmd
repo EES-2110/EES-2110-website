@@ -1,0 +1,56 @@
+---
+title: Energy-Balance and Layer Models
+due_date: '2023-01-18'
+assignment_type: Homework
+short_assignment_type: HW
+assignment_number: 1
+weight: 1
+slug: homework_01
+pubdate: '2022-12-31'
+date: '2023-01-18'
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+  pdf_document:
+    toc: yes
+    toc_depth: 3
+pdf_url: /files/homework_asgts/homework_01.pdf
+---
+## Homework
+
+### Homework Exercises:
+
+
+
+* _Forecast_, Ch. 2, Exercises 1, 2, 4, 5, & 7
+* _Forecast_, Ch. 3, Exercises 2 & 3.
+
+### Notes on Homework:
+
+
+There is a typo in the book. In Ch. 2, Ex. 2, in the part about corn oil. A dietary Calorie is 4200 Joules, not 4.2 Joules.
+
+To solve layer models, remember these principles:
+
+1. Start at the boundary to space and set $I_{\text{out}} = I_{\text{in}}$
+2. Use the value of $I_{\text{out}}$ to calculate the temperature of the
+   top layer of the atmosphere
+3. Calculate the heat emitted from the top layer of the atmosphere going
+   up and down.
+4. List all the sources of heat absorbed by and emitted by the top layer.
+   When shortwave light goes through a transparent atmosphere
+   (for example, the shortwave sunlight going through the atmosphere to the 
+   ground in the one-layer model), you don't count
+   that as emitted or absorbed, but you do count all the light that gets
+   emitted or absorbed.
+   After step 3, you will typically know all of these but one. Use the 
+   principle of energy balance (total heat out = total heat in) to calculate
+   the unknown heat flow.
+5. Calculate the temperature of the next layer down and use that to calculate
+   all of the heat flows out of that layer. (this is like steps 2 and 3, but 
+   for the next layer down)
+6. Repeat these steps one layer at a time until you get to the ground.
+
+For Ch. 3, exercise 3, the big difference to the one-layer model in the book
+is that the shortwave sunlight is absorbed by the atmosphere and doesn't reach
+the ground.

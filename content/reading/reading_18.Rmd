@@ -13,4 +13,7 @@ pdf_url: /files/reading_asgts/reading_18.pdf
 ---
 ## Reading:
 
-No new reading for today.
+### Required Reading (everyone):
+
+* Handout: [Jonathan Gilligan, "Handout on Isotopes,"](/files/reading_handouts/Isotope_Handout.pdf){target="_blank"}.
+

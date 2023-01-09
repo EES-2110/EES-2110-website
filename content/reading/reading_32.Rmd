@@ -13,4 +13,13 @@ pdf_url: /files/reading_asgts/reading_32.pdf
 ---
 ## Reading:
 
-No new reading for today.
+### Required Reading (everyone):
+
+* Handout: [Ren21, _Key Messages for Decision Makers: Takeaways from the Renewables 2021 Global Status Report_ (Ren21, 2021)](/files/reading_handouts/GSR2021_Key_Messages.pdf){target="_blank"}.
+* Handout: [Ren21, _Renewables 2021 Global Status Report_](/files/reading_handouts/GSR2021_Full_Report.pdf){target="_blank"}, Ch. 1.
+
+### Reading Notes:
+
+In the _Key Facts_, focus on the text on pp. 5--12. In the latter parts, after p. 12, most of the report is figures. Look carefully at the sections on transportation (16--17), electric power generation (18--19), and international comparisons on pp. 20-23. Read lightly the sections on technoloogies on pp. 24--30. There are short text summaries and figures that illustrate the progress that has been made for different technologies.
+
+In the _Global Status Report_, Focus on pp. 29--37 and 42--45, and 48-55
