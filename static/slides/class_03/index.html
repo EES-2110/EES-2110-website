@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<!-- JG Reveal.js Template --><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="pandoc">
+<meta name="author" content="Jonathan Gilligan">
+<title>Energy Balance and Climate</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui">
+<link rel="stylesheet" href="../../lecture_lib/library/reveal.js-3.8.0/css/reset.css">
+<link rel="stylesheet" href="../../lecture_lib/library/reveal.js-3.8.0/css/reveal.min.css">
+<style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+      .column{display: inline-block;}  </style>
+<style type="text/css">
+    div.qrbox,
+    aside.qrbox {
+     text-align: left;
+     vertical-align: bottom;
+     width: 95%;
+     position: fixed;
+     left: 2.5%;
+     bottom: 1rem;
+     display: block;
+    }
+  </style>
+<!-- theme = solarized_jg --><link rel="stylesheet" href="../../lecture_lib/library/assets/css/theme/solarized_jg.css" id="theme">
+<!-- Printing and PDF exports --><script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../../lecture_lib/library/reveal.js-3.8.0/css/print/pdf.css' : '../../lecture_lib/library/reveal.js-3.8.0/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script><!--[if lt IE 9]>
+  <script src="../../lecture_lib/library/reveal.js-3.8.0/lib/js/html5shiv.js"></script>
+  <![endif]--><script src="../../lecture_lib/library/header-attrs-2.19.2.9000/header-attrs.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+            <!-- start title slide -->
+<section class="center" id="title"><h1 class="title">Energy Balance and Climate</h1>
+    <h3 class="author">EES 2110</h3>
+        <h3 class="author">Introduction to Climate Change</h3>
+    <h3 class="author">Jonathan Gilligan</h3>
+    <h3 class="date">
+      Class #3:
+       Friday, January 13
+      2023
+    </h3>
+	<!-- end title slide -->
+</section><section id="goldilocks" class="slide level2 yellowtitle yellowtext" data-background="black"><h2 class="yellowtitle yellowtext" data-background="black">Looking for a
+Good Home</h2>
+<style>
+.reveal .planettable td{
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  color: white;
+}
+
+.reveal .planetdiv {
+  width:  600px;
+  height: 500px;
+}
+
+.reveal .planetdiv p {
+  height:100%;
+}
+
+.reveal .planetslug {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.reveal .planetimage {
+  border: none;
+  background: none;
+  max-width: 100%;
+  height: auto%;
+  -moz-transform: scale(1.6);
+  -ms-transform: scale(1.6);
+  -webkit-transform: scale(1.6);
+  transform: scale(1.6);
+  vertical-align: middle;
+}
+</style>
+<center style="position:relative;top:100px;">
+<table class="planettable" style="border:none;text-align:center;vertical-align:middle;">
+<tr>
+<td>
+<div class="planetdiv">
+<p><span class="planetslug"></span>
+<img class="planetimage" src="assets/images/planetmars.png"></p>
+</div>
+</td>
+<td>
+<div class="planetdiv">
+<p><span class="planetslug"></span>
+<img class="planetimage" src="assets/images/planetearth.png"></p>
+</div>
+</td>
+<td>
+<div class="planetdiv">
+<p><span class="planetslug"></span>
+<img class="planetimage" src="assets/images/planetvenus.png"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td class="fragment fade-in" data-fragment-index="2">
+<p>
+Bad
+</p>
+<p>
+<span class="math inline">\(-28^\circ\mathrm{F}\)</span>
+</p>
+</td>
+<td class="fragment fade-in" data-fragment-index="1">
+<p>
+Good
+</p>
+<p>
+<span class="math inline">\(59^\circ\mathrm{F}\)</span>
+</p>
+</td>
+<td class="fragment fade-in" data-fragment-index="3">
+<p>
+Worst
+</p>
+<p>
+<span class="math inline">\(800^\circ\mathrm{F}\)</span>
+</p>
+</td>
+</tr>
+</table>
+</center>
+</section><section><section id="basic_concepts" class="title-slide slide level1 center"><h1 class="center">Basic Concepts</h1>
+
+</section><section id="vocab" class="slide level2 leftslide"><h2 class="leftslide">Vocabulary</h2>
+<ul>
+<li class="fragment">
+<p><strong>Energy, Heat:</strong></p>
+<ul>
+<li class="fragment">Heat = energy flowing spontaneously from hot to cold</li>
+</ul>
+</li>
+<li class="fragment">
+<p><strong>Power:</strong> speed at which energy flows or
+transforms</p>
+<p><span class="math display">\[ \text{Power, Flux} = \text{Heat flow} /
+\text{Time} \]</span> <span class="math display">\[ \text{Heat, Energy}
+= \text{Power} \times \text{Time} \]</span></p>
+</li>
+<li class="fragment">
+<p><strong>Intensity:</strong> Concentration of power</p>
+<p><span class="math display">\[ \text{Intensity} = \text{Power} /
+\text{Area} \]</span> <span class="math display">\[ \text{Power} =
+\text{Intensity} \times \text{Area} \]</span></p>
+</li>
+</ul></section><section id="temperature-of-a-planet" class="slide level2"><h2>Temperature of a planet</h2>
+<ul>
+<li>
+<p><strong>Basic principle:</strong></p>
+<p>Steady temperature if and only if <span class="math display">\[
+\text{Heat Power}_{\text{in}} = \text{Heat Power}_{\text{out}}
+\]</span></p>
+</li>
+<li>
+<p><strong>How can heat get in or out?</strong></p>
+<ul>
+<li class="fragment">Electromagnetic radiation</li>
+</ul>
+</li>
+</ul></section><section id="em_waves" class="slide level2 center" data-transition="fade" data-background-transition="fade"><h2 class="center" data-transition="fade" data-background-transition="fade">Electromagnetic Waves</h2>
+<ul>
+<li>
+<strong>Color</strong> and <strong>brightness</strong>
+<ul>
+<li>
+<strong>Color:</strong>
+<ul>
+<li>Two ways to measure <strong>color</strong>:</li>
+<li>Wavelength (<span class="math inline">\(\lambda\)</span>)
+<ul>
+<li>Typically measured in microns (μm, or μ)
+<ul>
+<li>Red blood cell = 10 μm</li>
+<li>1 inch = 25,400 μm</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Wavenumber (<span class="math inline">\(n = 1/\lambda\)</span>)
+<ul>
+<li>Typically measured in cm<sup>-1</sup> (waves per centimeter)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="fragment">Archer mostly uses wavenumber
+<ul>
+<li>Math is simpler that way</li>
+</ul>
+</li>
+<li class="fragment"><strong>Brightness:</strong>
+<ul>
+<li>Intensity (power/area, Watts/square meter)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></section><section id="colors" class="slide level2 ninety"><h2 class="ninety">Colors</h2>
+<p><img data-src="assets/images/colortable.png" alt="color spectrum"></p>
+<h3 id="all-you-need-to-think-about-is-shortwave-vs.-longwave-radiation.">All
+you need to think about is <br><strong>shortwave</strong>
+vs. <strong>longwave</strong> radiation.</h3>
+</section><section id="shortwave_longwave" class="slide level2"><h2>
+<strong>Shortwave</strong> and <strong>longwave</strong>:</h2>
+<ul>
+<li>
+<strong>Shortwave</strong>:
+<ul>
+<li>Near-infrared, visible, ultraviolet</li>
+<li><span class="math inline">\(\lambda &lt; 3
+\mu\mathrm{m}\)</span></li>
+<li>
+<span class="math inline">\(n &gt; 3,300 \text{cm}^{-1}\)</span>
+(cycles per centimeter)</li>
+</ul>
+</li>
+<li>
+<strong>Longwave</strong>:
+<ul>
+<li>Mid-infrared, far-infrared</li>
+<li><span class="math inline">\(\lambda &gt; 3
+\mu\mathrm{m}\)</span></li>
+<li><span class="math inline">\(n &lt; 3,300
+\text{cm}^{-1}\)</span></li>
+</ul>
+</li>
+</ul>
+<p>More on this on Wednesday …</p>
+</section><section id="radiation" class="slide level2"><h2>Wavelength and Temperature</h2>
+<div class="columns">
+<div class="column ptop-1" style="width:1000px;">
+<div class="eighty">
+<ul>
+<li>
+<strong>Shortwave</strong>
+<ul>
+<li>Very hot things</li>
+<li>Sun is almost 10,000° F</li>
+<li>Light bulbs are about 5,000° F</li>
+</ul>
+</li>
+<li>
+<strong>Longwave</strong>
+<ul>
+<li>Cooler things</li>
+<li>Earth is about 60° F on average</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="bare">
+<p><img data-src="assets/images/forge-kateryna-babaieva-2760289.jpg" style="height:520px;" alt="Workers with red-hot metal ingot in a forge"></p>
+<div class="credit">
+<p>Photo credit: <a href="https://www.pexels.com/@kateryna-babaieva-1423213">Kateryna
+Babaieva</a> on <a href="https://www.pexels.com/photo/two-men-holding-two-gray-metal-tools-2760289/">Pexels</a></p>
+</div>
+</div>
+</div>
+<div class="column bare" style="width:710px;">
+<p><img data-src="assets/images/light-45072.jpg" style="height:440px;" alt="Photo of a light bulb"></p>
+<div class="credit">
+<p>Photo credit: <a href="https://www.pexels.com/@weekendplayer">Burak
+K</a>, <a href="https://www.pexels.com/photo/light-45072/">Pexels</a></p>
+</div>
+<p><img data-src="assets/images/ir-thermometer.jpg" style="height:440px;" alt="infrared thermometer"></p>
+<div class="credit">
+<p>Photo credit: Yongrow Medical</p>
+</div>
+</div>
+</div>
+</section><section id="radiation_laws" class="slide level2"><h2>4 Laws of Radiation</h2>
+<ol>
+<li class="fragment">All objects continually radiate energy</li>
+<li class="fragment">Hotter objects are brighter</li>
+<li class="fragment">Hotter objects radiate at shorter wavelengths</li>
+<li class="fragment">Objects that are good absorbers are also good emitters
+<ul>
+<li class="fragment">Black objects emit &amp; absorb the most</li>
+<li class="fragment">Transparent and white objects emit &amp; absorb the least</li>
+</ul>
+</li>
+</ol></section><section id="radiant-heat" class="slide level2"><h2>Example of Radiant Heat</h2>
+<div class="columns">
+<div class="column bare">
+<p><img data-src="assets/images/finley_vis.jpg" style="height:475px;" alt="Photo of my pet dog Finley"></p>
+<p><img data-src="assets/images/finley_ir.jpg" style="height:475px;" alt="Infrared photo of my pet dog Finley"></p>
+</div>
+<div class="column ptop-2">
+<ul>
+<li>Featuring my dog, Finley.</li>
+<li class="fragment">All objects emit electromagnetic radiation</li>
+<li class="fragment">Hotter objects emit
+<ul>
+<li>More intense the radiation</li>
+<li>Shorter wavelengths</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</section><section id="colors-and-temperature" class="slide level2"><h2>Colors and Temperature</h2>
+<p><img data-src="assets/images/color-temperature-chart.png" alt="Colors vs. Temperature"></p>
+<table>
+<thead><tr>
+<th style="text-align:left;">
+Kelvin
+</th>
+<th style="text-align:left;">
+Fahrenheit
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1000 K
+</td>
+<td style="text-align:left;">
+1,340 F
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3000 K
+</td>
+<td style="text-align:left;">
+4,940 F
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5000 K
+</td>
+<td style="text-align:left;">
+8,540 F
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+7000 K
+</td>
+<td style="text-align:left;">
+12,140 F
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9000 K
+</td>
+<td style="text-align:left;">
+15,740 F
+</td>
+</tr>
+</tbody>
+</table></section><section id="colors-and-temperature-1" class="slide level2"><h2>Colors and Temperature</h2>
+<p><img data-src="assets/images/big-color-temp.jpg" alt="Colors vs. Temperature"></p>
+</section></section><section><section id="blackbody_sec" class="title-slide slide level1 center"><h1 class="center">Blackbody Radiation</h1>
+
+</section><section id="blackbody" class="slide level2 leftslide" data-transition="fade" data-background-transition="fade"><h2 class="leftslide" data-transition="fade" data-background-transition="fade">Blackbody Radiation</h2>
+<p><strong>Emissivity</strong> (<span class="math inline">\(\varepsilon\)</span>) measures how black something
+is:</p>
+<ul>
+<li class="fragment"><span class="math inline">\(\varepsilon = 1\)</span> for
+perfectly black</li>
+<li class="fragment"><span class="math inline">\(\varepsilon = 0\)</span> for
+perfectly white or transparent</li>
+<li class="fragment">In between for gray.</li>
+<li class="fragment">Black, white, and gray: <span class="math inline">\(\varepsilon\)</span> is the same for all
+wavelengths.</li>
+<li class="fragment">Colored objects: <span class="math inline">\(\varepsilon\)</span> is different for different
+wavelengths.</li>
+<li class="fragment"><strong>For simplicity:</strong> start by assuming everything is
+black, white, or gray.</li>
+</ul>
+<div class="fragment">
+<p><strong>Remember:</strong> Good emitters are good absorbers</p>
+</div>
+<div class="fragment">
+<p><strong>Fundamental rule:</strong> Temperature and emissivity
+determine radiation.</p>
+</div>
+</section><section id="temperature_dependence" class="slide level2"><h2>Heating Up: What Changes??</h2>
+<p><img data-src="assets/fig/blackbody_spectrum-1.png"><!-- --></p>
+<div class="fragment fade-in" style="border:1px; border-color:darkblue; border-style:solid; background-color:yellow; text-align:left; position:relative; bottom:630px; width:600px; left:1310px;">
+<p>Colors of lines <strong>are not</strong> color of the light.</p>
+</div>
+</section><section id="blackbody_details" class="slide level2 leftslide"><h2 class="leftslide">Heating Up: What Changes?</h2>
+<ul>
+<li>Hotter temperature:
+<ul>
+<li>Brighter (greater intensity)</li>
+<li>Bluer (greater wavenumber, shorter wavelength)</li>
+</ul>
+</li>
+</ul>
+<div class="columns">
+<div class="column fragment fade-in ptop-2-em">
+<p>A curious thing:</p>
+<ul>
+<li>A hot black object glows with color!</li>
+</ul>
+<!-- --><div style="color:darkblue;border:5px;border-style:solid;border-color:darkblue;text-align:center;position:relative;top:25px;">
+<p><strong>Total intensity = <br>area under curve</strong></p>
+</div>
+</div>
+<div class="column">
+<p><img src="assets/fig/plot_small_blackbody-1.png"></p>
+</div>
+</div>
+</section><section id="spectrum-and-temperature" class="slide level2"><h2>Spectrum and Temperature</h2>
+<p><img data-src="assets/images/planck-spectrum.jpg" height="800" alt="Planck spectrum for different temperatures"></p>
+</section></section><section><section id="mathematical_description" class="title-slide slide level1 center"><h1 class="center">Mathematical Description</h1>
+
+</section><section id="blackbody_math" class="slide level2 leftslide eightyfive"><h2 class="leftslide eightyfive">Blackbody Radiation</h2>
+<div class="columns">
+<div class="column">
+<p>Intensity (brightness):</p>
+<p>Stefan-Boltzmann law <span class="math display">\[ I = \varepsilon
+\sigma T^4 \]</span> after Josef Stefan<br>and Ludwig Boltzmann</p>
+<ul>
+<li>
+<span class="math inline">\(\varepsilon\)</span> = emissivity
+<ul>
+<li>Different for different objects.</li>
+</ul>
+</li>
+<li>
+<span class="math inline">\(\sigma\)</span> = Stefan-Boltzmann
+constant.</li>
+<li>
+<span class="math inline">\(T\)</span> = absolute (Kelvin)
+temperature.</li>
+</ul>
+</div>
+<div class="column">
+<p><img src="assets/fig/plot_small_blackbody-1.png" width="1000px"></p>
+</div>
+</div>
+<p><strong>Color:</strong> Peak wavenumber proportional to (Kelvin)
+temperature.</p>
+<div class="fragment fade-in" style="border:1px; border-color:darkblue; border-style:solid; background-color:yellow; text-align:left; position:relative; bottom=10px;">
+<p><strong>Helpful Hint:</strong></p>
+<p>Fourth power on a calculator: press the <span class="math inline">\(x^2\)</span> button twice.</p>
+</div>
+</section><section id="SunAndEarth" class="slide level2 noborder ninety" data-background-image="assets/images/solar_earth_spectra.jpg" data-background-size="contain" data-transition="fade" data-background-transition="fade"><h2 class="noborder ninety" data-background-image="assets/images/solar_earth_spectra.jpg" data-background-size="contain" data-transition="fade" data-background-transition="fade">Sun and Earth</h2>
+<div style="position:absolute;top:150px;right:310px;background-color:#ECF7ED;font-weight:bold;border:2px;border-style:solid;border-color:black;">
+<table>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Longwave (<span class="math inline">\(\lambda &gt;
+3~\text{micron}\)</span>)</strong></td>
+<td style="text-align: right;"><strong>2%</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Visible &amp; Near-IR (<span class="math inline">\(0.4 &lt; \lambda &lt;
+3~\text{micron}\)</span>)</strong></td>
+<td style="text-align: right;"><strong>91%</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Ultraviolet (<span class="math inline">\(\lambda &lt;
+0.4~\text{micron}\)</span>)</strong></td>
+<td style="text-align: right;"><strong>7%</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Total Shortwave (UV + Vis +
+Near-IR)</strong></td>
+<td style="text-align: right;"><strong>98%</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section><section id="earth-and-radiation" class="slide level2"><h2>Earth and Radiation</h2>
+<p><span class="bare"><img data-src="assets/images/BoxcarPair720x404-1024x574.jpg" style="height:700px;" alt="Earth as seen from space by the NASA CERES experiment, showing longwave thermal radiation and shortwave reflected sunlight"></span></p>
+<p>False-color images of radiation from Earth, seen by NASA Terra
+satellite:</p>
+<ul>
+<li>Left: Thermal radiation (blue → red → yellow = dim → bright)</li>
+<li>Right: Reflected sunlight (blue → green → white = dim → bright)</li>
+</ul></section><section id="lightbulb" class="slide level2"><h2>Efficiency of Light Bulbs</h2>
+<table class="noborder ninety">
+<tr>
+<th>
+Type of Bulb
+</th>
+<th>
+Efficiency
+</th>
+</tr>
+<tr>
+<td>
+Standard 40W
+</td>
+<td>
+1.8%
+</td>
+</tr>
+<tr>
+<td>
+Standard 60W
+</td>
+<td>
+2.1%
+</td>
+</tr>
+<tr>
+<td>
+Standard 100W
+</td>
+<td>
+2.6%
+</td>
+</tr>
+<tr>
+<td>
+Quartz Halogen
+</td>
+<td>
+3.5%
+</td>
+</tr>
+<tr>
+<td>
+Ideal black body @ 7000K
+</td>
+<td>
+14.0%
+</td>
+</tr>
+<tr>
+<td>
+Compact Fluorescent
+</td>
+<td>
+8–12%
+</td>
+</tr>
+<tr>
+<td>
+LED
+</td>
+<td>
+20–44%
+</td>
+</tr>
+</table>
+<div class="eighty">
+<ul>
+<li>7000K (12,000°F) is the optimal temperature for a black body to emit
+visible light, but it’s hotter than the sun and it would vaporize every
+known substance.</li>
+<li>Standard light bulbs operate at around 2000–3300 K (3100–5500
+F).</li>
+</ul>
+</div>
+</section></section><section><section id="bare_rock_earth" class="title-slide slide level1 center"><h1 class="center">Calculating Earth’s Temperature: <br>Bare-Rock
+Model</h1>
+
+</section><section id="bare_rock_basics" class="slide level2 ninety leftslide"><h2 class="ninety leftslide">Basics</h2>
+<h3 id="steady-temperature">Steady Temperature</h3>
+<ul>
+<li>Heat in must balance heat out</li>
+<li>
+<span class="math inline">\(\text{Total Heat Flux (Power)} =
+\text{Area} \times \text{Intensity}\)</span>
+<ul>
+<li>Total heat flux in (<span class="math inline">\(F_{\text{in}}\)</span>):
+<ul>
+<li>Intensity depends on solar constant and albedo</li>
+<li>Does not depend on earth’s temperature</li>
+</ul>
+</li>
+<li>Total heat flux out (<span class="math inline">\(F_{\text{out}}\)</span>):
+<ul>
+<li>Intensity depends on earth’s temperature and emissivity</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Strategy:
+<ol type="1">
+<li>Figure out <span class="math inline">\(F_{\text{in}}\)</span>.</li>
+<li>Figure out temperature <span class="math inline">\(T\)</span> that
+makes <span class="math inline">\(F_{\text{out}} =
+F_{\text{in}}\)</span>.</li>
+</ol>
+</li>
+</ul></section><section id="solar_constant" class="slide level2 ninety yellowtitle" data-background="assets/images/inverse_square.png"><h2 class="ninety yellowtitle" data-background="assets/images/inverse_square.png">Solar Constant and
+<br>Inverse Square Law</h2>
+<div class="vbot eighty" style="position:fixed;bottom:30px;left:20%;color:yellow;background-color:rgba(33,70,39,0.5);">
+<ul>
+<li>Total flux (power) radiated from sun doesn’t change with
+distance.</li>
+<li>At a distance <span class="math inline">\(r\)</span> total flux
+spreads over sphere of radius <span class="math inline">\(r\)</span>
+</li>
+<li>Intensity = Total Flux / Area:
+<ul>
+<li>Proportional to <span class="math inline">\(1/r^2\)</span>.</li>
+</ul>
+</li>
+<li>At edge of Earth’s atmosphere, solar intensity = <span class="math inline">\(1350~\mathrm{W}/\mathrm{m}^2\)</span>.</li>
+</ul>
+</div>
+</section><section id="f_in" class="slide level2 ninety"><h2 class="ninety">What is <span class="math inline">\(F_{\text{in}}\)</span>?</h2>
+<ul>
+<li>
+<span class="math inline">\(F_{\text{in}} = \text{Area} \times
+\text{Intensity absorbed}\)</span>
+<ul>
+<li>
+<span class="math inline">\(\text{Intensity absorbed} = (1 - \alpha)
+\times I_{\text{in}}\)</span>
+<ul>
+<li><span class="math inline">\(I_{\text{in}} =
+1350~\mathrm{W}/\mathrm{m}^2\)</span></li>
+<li>Average albedo <span class="math inline">\(\alpha = 0.30\)</span>
+(30% of sunlight is reflected)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="columns mtop-3">
+<div class="column vmid fragment" data-fragment-index="1" style="font-size:130%;">
+<h3 id="what-is-area">What is area?</h3>
+<ul>
+<li class="fragment" data-fragment-index="2">Area = silhouette or shadow</li>
+<li class="fragment" data-fragment-index="3">Circle: <span class="math inline">\(\pi r^2\)</span>
+</li>
+</ul>
+</div>
+<div class="column fragment" data-fragment-index="2">
+<p><img data-src="assets/images/sunlight_on_earth.png" alt="silhouette"></p>
+</div>
+</div>
+<aside class="notes"><p>This is a good time to show a demo of the shadow cast by a ball</p>
+</aside></section><section id="f_in2" class="slide level2 ninety"><h2 class="ninety">What is <span class="math inline">\(F_{\text{in}}\)</span>?</h2>
+<ul>
+<li>
+<span class="math inline">\(F_{\text{in}} = \pi r_{\text{Earth}}^2
+\times (1 - \alpha) I_{\text{in}}\)</span>
+<ul>
+<li><span class="math inline">\(\pi r^2 = 1.3 \times 10^{14}
+\mathrm{m}^2\)</span></li>
+<li>
+<span class="math inline">\(\alpha = 0.30\)</span>
+<ul>
+<li><span class="math inline">\((1 - \alpha) = 0.70\)</span></li>
+</ul>
+</li>
+<li><span class="math inline">\(I_{\text{in}} =
+1350~\mathrm{W}/\mathrm{m}^2\)</span></li>
+</ul>
+</li>
+<li class="fragment"><span class="math inline">\(F_{\text{in}} = 1.3 \times
+10^{14}~\mathrm{m}^2 \times  0.70
+\times  1350~\mathrm{W}/\mathrm{m}^2\)</span> <br><span class="math inline">\(\phantom{F_{\text{in}}} = 1.2 \times 10^{17}
+\text{Watts}\)</span>
+<ul>
+<li class="fragment">11,000 times total human energy production.</li>
+</ul>
+</li>
+</ul></section><section id="f_out" class="slide level2 ninety"><h2 class="ninety">What is <span class="math inline">\(F_{\text{out}}\)</span>?</h2>
+<div class="columns">
+<div class="column" style="font-size:120%;">
+<ul>
+<li class="fragment" data-fragment-index="1"><span class="math inline">\(F_{\text{out}} = \text{Area}
+\times I_{\text{out}}\)</span>
+<ul>
+<li class="fragment" data-fragment-index="2"><span class="math inline">\(I_{\text{out}} = \varepsilon
+\sigma T^4\)</span>
+<ul>
+<li>
+<span class="math inline">\(\varepsilon = 1\)</span>
+(blackbody)</li>
+<li><span class="math inline">\(\sigma = 5.67 \times
+10^{-8}~\mathrm{W}/\mathrm{m}^2/\mathrm{K}^4\)</span></li>
+</ul>
+</li>
+<li class="fragment" data-fragment-index="3">What is area?
+<ul>
+<li class="fragment" data-fragment-index="4">Sphere: <span class="math inline">\(4 \pi r^2\)</span>
+</li>
+</ul>
+</li>
+<li class="fragment" data-fragment-index="5"><span class="math inline">\(F_{\text{out}} = 4 \pi
+r_{\text{earth}}^2 \times \varepsilon \sigma T^4\)</span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="column fragment" data-fragment-index="4">
+<p><img data-src="assets/images/earthglow.png" alt="area for emissions"></p>
+</div>
+</div>
+</section><section id="f_balance_earth" class="slide level2"><h2>Putting it all together</h2>
+<style>
+#f_balance_earth {
+line-height: 2;
+}
+</style>
+<div class="centertext">
+<div class="fragment">
+<p><span class="math display">\[F_{\text{out}} =
+F_{\text{in}}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[4 \pi r^2 \times \varepsilon \sigma T^4
+= \pi r^2 (1 - \alpha) I_{\text{in}}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[4 {\color{red}{\pi r^2}} \times
+\varepsilon \sigma T^4 = {\color{red}{\pi r^2}} (1 - \alpha)
+I_{\text{in}}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[4 \varepsilon \sigma T^4 = (1 - \alpha)
+I_{\text{in}}\\\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[T^4 = \frac{(1 - \alpha)
+I_{\text{in}}}{4 \varepsilon \sigma}\\\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[T = \sqrt[4]{\frac{(1 - \alpha)
+I_{\text{in}}}{4 \varepsilon \sigma}}\]</span></p>
+</div>
+</div>
+</section></section><section><section id="t-earth-sec" class="title-slide slide level1 center"><h1 class="center">Temperature of Earth</h1>
+
+</section><section id="t_earth" class="slide level2 ninety"><h2 class="ninety">Temperature of Earth</h2>
+<style>
+#t_earth {
+line-height:1.8;
+}
+</style>
+<ul>
+<li>Steady Temperature:
+<ul>
+<li>Heat flux in must balance heat flux out (<span class="math inline">\(F_{\text{out}} = F_{\text{in}}\)</span>).</li>
+<li>
+<span class="math inline">\(F_{\text{in}}\)</span>:
+<ul>
+<li>Does not depend on earth’s temperature.</li>
+<li>Depends on solar constant and earth’s albedo.</li>
+</ul>
+</li>
+<li>
+<span class="math inline">\(F_{\text{out}}\)</span>:
+<ul>
+<li>Depends on earth’s temperature.</li>
+</ul>
+</li>
+<li>
+<span class="math inline">\(T\)</span> adjusts until heat out = heat
+in. <span class="math display">\[ T = \sqrt[4]{\frac{(1 - \alpha)
+I_{\text{in}}}{4\varepsilon\sigma}} \]</span>
+</li>
+</ul>
+</li>
+</ul>
+<div class="fragment fade-in">
+<div class="fragment fade-out vbot" style="width:50%; border:5px; border-style:solid; border-color:darkblue; background-color:yellow; position:relative; left:650px; bottom:500px;">
+<p><strong>Helpful hint:</strong></p>
+<p>To take the fourth root on a calculator, press the square-root key
+(<span class="math inline">\(\scriptstyle\sqrt{}\)</span>) twice</p>
+</div>
+</div>
+</section><section id="t_earth2" class="slide level2 ninety"><h2 class="ninety">Temperature of Earth</h2>
+<p><span class="math display">\[ T = \sqrt[4]{\frac{(1 - \alpha)
+I_{\text{in}}}{4\varepsilon\sigma}} \]</span></p>
+<h3 style="margin-top:50px;" id="earth"><strong>Earth:</strong></h3>
+<p>(Note: My numbers are slightly different from Archer’s textbook)</p>
+<ul>
+<li><span class="math inline">\(I_{\text{in}} =
+1350~\mathrm{W}/\mathrm{m}^2\)</span></li>
+<li><span class="math inline">\(\alpha = 0.30\)</span></li>
+<li><span class="math inline">\(\varepsilon = 1\)</span></li>
+<li><span class="math inline">\(\sigma = 5.67 \times
+10^{-8}~\mathrm{W}/(\mathrm{m}^2\mathrm{K}^4)\)</span></li>
+<li>Calculate <span class="math inline">\(T\)</span>:</li>
+<li class="fragment"><span class="math inline">\(T = 254~\mathrm{K} =
+-19^\circ\mathrm{C} = -2^\circ\mathrm{F}\)</span>.</li>
+</ul>
+<div class="fragment fade-in" style="position:relative; top:50px; background-color:yellow; border:2px; border-style:solid; border-color:darkblue;">
+<p><strong>How does this compare to Earth’s actual
+temperature?</strong></p>
+</div>
+</section></section><section><section id="theory-vs-obs" class="title-slide slide level1 center"><h1 class="center">Comparing Theory and Observation</h1>
+
+</section><section id="rad_temp" class="slide level2 ninety"><h2 class="ninety">Radiative Temperature</h2>
+<ul>
+<li><p>Satellites orbiting in space can measure longwave radiation from
+earth</p></li>
+<li><p>To the satellites, the earth looks very much like a blackbody at
+the bare-rock temperature (254 K).</p></li>
+<li><p>Thus, scientists generally call the bare-rock temperature the
+<strong>radiative temperature</strong> because it describes the
+radiation coming off the earth.</p></li>
+<li class="fragment"><p>However, the surface temperature of the earth is around <span class="math inline">\(288~\mathrm{K} = 59^\circ\mathrm{F}\)</span>,
+which is significantly different from the radiative, or bare-rock,
+temperature.</p></li>
+</ul></section></section><section><section id="terrestrial-planet-sec" class="title-slide slide level1 yellowtitle center" data-background="black"><h1 class="yellowtitle center" data-background="black">Terrestrial
+Planets</h1>
+
+</section><section id="terrestrial_planets" class="slide level2 yellowtitle yellowtext" data-background="black"><h2 class="yellowtitle yellowtext" data-background="black">The
+Terrestrial Planets</h2>
+<center style="position:relative;top:100px;">
+<table class="planettable" style="border:none;text-align:center;vertical-align:middle;">
+<tr>
+<td>
+<div class="planetdiv">
+<p><span class="planetslug"></span>
+<img class="planetimage" src="assets/images/planetmars.png"></p>
+</div>
+</td>
+<td>
+<div class="planetdiv">
+<p><span class="planetslug"></span>
+<img class="planetimage" src="assets/images/planetearth.png"></p>
+</div>
+</td>
+<td>
+<div class="planetdiv">
+<p><span class="planetslug"></span>
+<img class="planetimage" src="assets/images/planetvenus.png"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+Mars
+</p>
+<p>
+<span class="math inline">\(240~\mathrm{K}\)</span>
+</p>
+</td>
+<td>
+<p>
+Earth
+</p>
+<p>
+<span class="math inline">\(288~\mathrm{K}\)</span>
+</p>
+</td>
+<td>
+<p>
+Venus
+</p>
+<p>
+<span class="math inline">\(700~\mathrm{K}\)</span>
+</p>
+</td>
+</tr>
+</table>
+</center>
+</section><section id="terrestrial_planet_temp" class="slide level2"><h2>Terrestrial Planets</h2>
+<table>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 24%">
+<col style="width: 25%">
+<col style="width: 27%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Earth</th>
+<th style="text-align: center;">Mars</th>
+<th style="text-align: center;">Venus</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Distance from sun</td>
+<td style="text-align: center;">1 AU</td>
+<td style="text-align: center;">1.5 AU</td>
+<td style="text-align: center;">0.72 AU</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(1 /
+\text{Distance}^2\)</span></td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">0.44</td>
+<td style="text-align: center;">1.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Solar constant</td>
+<td style="text-align: center;"><span class="math inline">\(1350~\mathrm{W}/\mathrm{m}^2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(600~\mathrm{W}/\mathrm{m}^2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2604~\mathrm{W}/\mathrm{m}^2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Albedo</td>
+<td style="text-align: center;">0.30</td>
+<td style="text-align: center;">0.17</td>
+<td style="text-align: center;">0.71</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(T_{\text{bare rock}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(254~\mathrm{K}~( -2^\circ\mathrm{F})\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(216~\mathrm{K}~(
+-70^\circ\mathrm{F})\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(240~\mathrm{K}~(
+-27^\circ\mathrm{F})\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(T_{\text{surface}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(288~\mathrm{K}~( 59^\circ\mathrm{F})\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(240~\mathrm{K}~(
+-28^\circ\mathrm{F})\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(700~\mathrm{K}~(
+800^\circ\mathrm{F})\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\Delta_T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(34~\mathrm{K}~( 61^\circ\mathrm{F})\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(24~\mathrm{K}~( 42^\circ\mathrm{F})\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(460~\mathrm{K}~(
+828^\circ\mathrm{F})\)</span></td>
+</tr>
+</tbody>
+</table></section></section>
+</div>
+  </div>
+  <!--
+  <script src="../../lecture_lib/library/reveal.js-3.8.0/js/reveal.js"></script>
+  <!-- -->
+  <script src="../../lecture_lib/library/reveal.js-3.8.0/js/reveal.min.js"></script><!-- --><script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: false,
+        // Display a presentation progress bar
+        progress: true,
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+        // Display the page number of the current slide
+        showSlideNumber: 'speaker',
+        // Push each slide change to the browser history
+        history: true,
+        //  Enable hashing slide content to URL
+        hash: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
+        // Vertical centering of slides
+        center: false,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Turns fragments on and off globally
+        fragments: true,
+        // Don't separate fragments in PDF rendering
+        pdfSeparateFragments: false,
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1920,
+        height: 1080,
+      
+        // Optional reveal.js plugins
+        dependencies: [
+                    { src: '../../lecture_lib/library/assets/plugin/chalkboard/chalkboard.js', async: true },
+                                        { src: '../../lecture_lib/library/assets/plugin/reveal-skip-fragments/skip-fragments.js', async: true },
+                    { src: '../../lecture_lib/library/reveal.js-3.8.0/plugin/zoom-js/zoom.js', async: true },
+          { src: '../../lecture_lib/library/reveal.js-3.8.0/plugin/notes/notes.js', async: true },
+          { src: '../../lecture_lib/library/reveal.js-3.8.0/plugin/math/math.js', async: true }
+        ],
+        shift_keyboard: {
+    	    67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'C' is pressed
+    	    66: function() { RevealChalkboard.toggleChalkboard() },	  // toggle chalkboard when 'B' is pressed
+    	    88: function() { RevealChalkboard.clear() },	            // clear chalkboard when 'X' is pressed
+    	    82: function() { RevealChalkboard.reset() },	            // reset chalkboard data on current slide when 'R' is pressed
+    	    68: function() { RevealChalkboard.download() },	          // downlad recorded chalkboard drawing when 'D' is pressed
+        },
+              	// Shortcut for showing all fragments
+      	skipFragmentsShowShortcut: 'S',
+
+      	// Shortcut for hiding all fragments
+      	skipFragmentsHideShortcut: 'H',
+      	      });
+    </script><script>
+  	function createSingletonNodejg( container, tagname, classname, innerHTML ) {
+
+		// Find all nodes matching the description
+		var nodes = container.querySelectorAll( '.' + classname );
+
+		// Check all matches to find one which is a direct child of
+		// the specified container
+		for( var i = 0; i < nodes.length; i++ ) {
+			var testNode = nodes[i];
+			if( testNode.parentNode === container ) {
+				return testNode;
+			}
+		}
+
+		// If no node was found, create it now
+		var node = document.createElement( tagname );
+		node.className = classname;
+		if( typeof innerHTML === 'string' ) {
+			node.innerHTML = innerHTML;
+		}
+		container.appendChild( node );
+
+		return node;
+
+	}
+
+  var dom_wrapper = document.querySelector('.reveal');
+  createSingletonNodejg(dom_wrapper, 'div', 'qrbox',
+  '<div class="qrbox" id="qrbox" style="font-size:90%;">' + '\n' +
+  '<div style="font-size:30%;width:100%;">' + '\n' +
+      '<a href="https://ees2110.jgilligan.org/slides/class_03">' +
+  	'<img src="qrcode.png" alt="https://ees2110.jgilligan.org/slides/class_03"/>' +
+  	'</a>' + '\n' +
+	  '</div>' + '\n' +
+  '<div style="font-size:30%;width:100%;vertical-align:top;">' + '\n' +
+    '<span style="display:inline-block;text-align:left;margin-left:0">' + '\n' +
+        'Live web page: <a href="https://ees2110.jgilligan.org/slides/class_03">https://ees2110.jgilligan.org/slides/class_03</a>' + '\n' +
+              '<br/>' + '\n' +
+        'PDF: <a href="https://ees2110.jgilligan.org/slides/class_03/ees_2110_class_03_slides.pdf" target="_blank">https://ees2110.jgilligan.org/slides/class_03/ees_2110_class_03_slides.pdf</a>' + '\n' +
+          	'</span>' + '\n' +
+  	'<span style="display:inline-block;text-align:right;vertical-align:top;position:absolute;right:0;bottom:0;">' + '\n' +
+  	  'Navigate slides: next: N or &lt;space&gt;; previous: P or &lt;backspace&gt;<br/>' + '\n' +
+  	  'Also: up, down, left, right arrows; overview: o; help: ?' + '\n' +
+  	'</span>' + '\n' +
+	'</div>' + '\n' +
+  '</div>' + '\n'
+  );
+</script><script>
+var MathJax = { jax: ["input/TeX", "output/HTML-CSS"],
+                TeX: {extensions: ["color.js", "mhchem.js"],
+                Macros: {
+                  COO: "\\ce{CO2}",
+                  methane: "\\ce{CH4}",
+                  degC: "^\\circ \\mathrm{C}",
+                  degF: "^\\circ \\mathrm{F}",
+                  water: "\\ce{H2O}",
+                  carb: "\\ce{CO3^2-}",
+                  bicarb: "\\ce{HCO3-}",
+                  carbonic: "\\ce{H2CO3}",
+                  Hplus: "\\ce{H+}",
+                  OH: "\\ce{OH-}",
+                  silica: "\\ce{SiO2}",
+                  calcite: "\\ce{CaCO3}",
+                  Caplus: "\\ce{Ca^2+}",
+                  silicate: "\\ce{SiO3^2-}",
+                  CaSi: "\\ce{CaSiO3}",
+                  pH: "p\\ce{H}",
+                  permil: "\\unicode{x2030}",
+                  pCOO: "\\ce{	ext{p}CO2}",
+                  pwater: "\\ce{	ext{p}H2O}"
+                },
+                  },
+                "HTML-CSS" : {scale: 100 }};
+</script><!-- dynamically load mathjax for compatibility with self-contained --><script type="text/x-mathjax-config">
+MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
+    var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
+    VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+	  VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+	  VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+	  VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+	});
+MathJax.Hub.Register.StartupHook("SVG Jax Ready",function () {
+    var VARIANT = MathJax.OutputJax["SVG"].FONTDATA.VARIANT;
+    VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+	  VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+	  VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+	  VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+	});
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+    displayMath: [ ['$$', '$$'], ['\\[', '\\]'] ],
+    processEscapes: true
+  }
+})
+  </script><script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script><script>
+  var qrbox = document.querySelector("#qrbox");
+  var advance_fragment = 0;
+
+	function isPrintingPDF() {
+	  let printing = ( /print-pdf/gi ).test( window.location.search );
+	  console.log("printing test: " + printing);
+	  return printing;
+	}
+
+
+  if ( qrbox.hasAttribute('qr-box-hide') || Reveal.isOverview() ||
+      ! Reveal.isFirstSlide() || isPrintingPDF()) {
+    console.log("Initializing");
+    console.log("Hiding QR box");
+    qrbox.style.visibility="hidden";
+    qrbox.style.display="none";
+  }
+
+  Reveal.addEventListener('overviewshown', function() {
+      console.log("Overview shown");
+    console.log("Hiding QR box");
+    qrbox.style.visibility="hidden";
+    qrbox.style.display="none";
+  }, false);
+
+  Reveal.addEventListener('overviewhidden', function() {
+    if (Reveal.isFirstSlide() && ! qrbox.hasAttribute('qr-box-hide') &&
+        ! isPrintingPDF()) {
+      console.log("Overview hidden");
+      console.log("Showing QR box");
+      qrbox.style.visibility="visible";
+      qrbox.style.display="block";
+    }
+  }, false);
+
+  Reveal.addEventListener('slidechanged', function() {
+    console.log("Slide changed...");
+    if (Reveal.isFirstSlide() && ! Reveal.isOverview() &&
+        ! qrbox.hasAttribute('qr-box-hide') &&
+        ! isPrintingPDF()) {
+      console.log("Showing QR box");
+      qrbox.style.visibility="visible";
+      qrbox.style.display="block";
+    } else {
+      console.log("Hiding QR box");
+      qrbox.style.visibility="hidden";
+      qrbox.style.display="none";
+    }
+  }, false);
+
+  Reveal.addEventListener('pdf-ready', function() {
+    console.log("hiding qrbox for printing");
+    qrbox.style.visibility="hidden";
+    qrbox.style.display="none";
+    qrbox.setAttribute('qr-box-hide', 'true');
+  });
+
+  </script><script>
+  Reveal.addEventListener('slidechanged', function() {
+    while (advance_fragment > 0) {
+      // console.log('advancing fragment');
+      Reveal.nextFragment();
+      advance_fragment--;
+    }
+  }, false);
+
+  Reveal.addEventListener('slidechanged', function() {
+    if ( Reveal.getCurrentSlide().hasAttribute('data-skip')) {
+      // console.log("going to next slide...");
+      Reveal.next();
+    }
+  }, false);
+
+  Reveal.addEventListener('skip_slide', function() {
+    Reveal.next();
+  }, false);
+
+  Reveal.addEventListener('advance_fragment', function() {
+    // console.log("setting advance fragment");
+    advance_fragment++;
+    }, false);
+  </script>
+</body>
+</html>
