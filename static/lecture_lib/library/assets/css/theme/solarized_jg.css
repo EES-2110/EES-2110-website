@@ -458,11 +458,13 @@ body {
   margin-bottom: 6in;
 }
 
-.reveal .whiteslide section {
+.reveal .whiteslide,
+.reveal section.whiteslide {
   background-color: white;
 }
 
-.reveal .blackslide section {
+.reveal .blackslide,
+.reveal section.blackslide {
   background-color: black;
 }
 
@@ -571,6 +573,11 @@ body {
 .reveal .slides > section,
 .reveal .slidex > section > section {
   padding: 0 0;
+}
+
+.reveal img,
+.reveal section img {
+  border: none;
 }
 
 .reveal table,
@@ -1809,6 +1816,16 @@ pre.mbot-3 > div.SourceCode,
 pre.mbot-3 > code.SourceCode,
 .reveal .mbot-3 pre.sourceCode {
   margin-bottom: 3rem;
+}
+
+.reveal div.left-eqn span.math.display > div.MathJax_Display {
+  display: flex !important;
+  justify-content: flex-start;
+}
+
+.reveal div.right-eqn span.math.display > div.MathJax_Display {
+  display: flex !important;
+  justify-content: flex-end;
 }
 
 /*# sourceMappingURL=solarized_jg.css.map */

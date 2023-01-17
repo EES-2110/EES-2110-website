@@ -206,17 +206,6 @@ body {
 /*********************************************
  * CONTROLS
  *********************************************/
-@-webkit-keyframes bounce-right {
-  0%, 10%, 25%, 40%, 50% {
-    transform: translateX(0);
-  }
-  20% {
-    transform: translateX(10px);
-  }
-  30% {
-    transform: translateX(-5px);
-  }
-}
 @keyframes bounce-right {
   0%, 10%, 25%, 40%, 50% {
     transform: translateX(0);
@@ -226,17 +215,6 @@ body {
   }
   30% {
     transform: translateX(-5px);
-  }
-}
-@-webkit-keyframes bounce-down {
-  0%, 10%, 25%, 40%, 50% {
-    transform: translateY(0);
-  }
-  20% {
-    transform: translateY(10px);
-  }
-  30% {
-    transform: translateY(-5px);
   }
 }
 @keyframes bounce-down {
@@ -331,8 +309,7 @@ body {
   transform: rotate(180deg);
 }
 .reveal .controls .navigate-right.highlight {
-  -webkit-animation: bounce-right 2s 50 both ease-out;
-          animation: bounce-right 2s 50 both ease-out;
+  animation: bounce-right 2s 50 both ease-out;
 }
 .reveal .controls .navigate-up {
   right: 3.2em;
@@ -351,8 +328,7 @@ body {
   transform: rotate(-90deg);
 }
 .reveal .controls .navigate-down.highlight {
-  -webkit-animation: bounce-down 2s 50 both ease-out;
-          animation: bounce-down 2s 50 both ease-out;
+  animation: bounce-down 2s 50 both ease-out;
 }
 .reveal .controls[data-controls-back-arrows=faded] .navigate-left.enabled, .reveal .controls[data-controls-back-arrows=faded] .navigate-up.enabled {
   opacity: 0.3;
@@ -430,9 +406,9 @@ body {
     left: 0;
   }
   .reveal .controls[data-controls-layout=edges] .navigate-left,
-.reveal .controls[data-controls-layout=edges] .navigate-right,
-.reveal .controls[data-controls-layout=edges] .navigate-up,
-.reveal .controls[data-controls-layout=edges] .navigate-down {
+  .reveal .controls[data-controls-layout=edges] .navigate-right,
+  .reveal .controls[data-controls-layout=edges] .navigate-up,
+  .reveal .controls[data-controls-layout=edges] .navigate-down {
     bottom: auto;
     right: auto;
   }
