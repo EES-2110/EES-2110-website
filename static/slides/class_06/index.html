@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<!-- JG Reveal.js Template --><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="pandoc">
+<meta name="author" content="Jonathan Gilligan">
+<title>Spectrum of Atmospheric Radiation</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui">
+<link rel="stylesheet" href="../../lecture_lib/library/reveal.js-3.8.0/css/reset.css">
+<link rel="stylesheet" href="../../lecture_lib/library/reveal.js-3.8.0/css/reveal.min.css">
+<style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+      .column{display: inline-block;}  </style>
+<style type="text/css">
+    div.qrbox,
+    aside.qrbox {
+     text-align: left;
+     vertical-align: bottom;
+     width: 95%;
+     position: fixed;
+     left: 2.5%;
+     bottom: 1rem;
+     display: block;
+    }
+  </style>
+<!-- theme = solarized_jg --><link rel="stylesheet" href="../../lecture_lib/library/assets/css/theme/solarized_jg.css" id="theme">
+<!-- Printing and PDF exports --><script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../../lecture_lib/library/reveal.js-3.8.0/css/print/pdf.css' : '../../lecture_lib/library/reveal.js-3.8.0/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script><!--[if lt IE 9]>
+  <script src="../../lecture_lib/library/reveal.js-3.8.0/lib/js/html5shiv.js"></script>
+  <![endif]--><script src="../../lecture_lib/library/header-attrs-2.19.2.9000/header-attrs.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+            <!-- start title slide -->
+<section class="center" id="title"><h1 class="title">Spectrum of Atmospheric Radiation</h1>
+    <h3 class="author">EES 2110</h3>
+        <h3 class="author">Introduction to Climate Change</h3>
+    <h3 class="author">Jonathan Gilligan</h3>
+    <h3 class="date">
+      Class #6:
+       Monday, January 23
+      2023
+    </h3>
+	<!-- end title slide -->
+</section><section><section id="ghg-review-question-sec" class="title-slide slide level1"><h1>Review Questions</h1>
+
+</section><section id="ghg-review-questions" class="slide level2"><h2>Review Question</h2>
+<h3 id="what-is-the-atmospheric-window">What is the “atmospheric
+window”?</h3>
+<ol type="1">
+<li>Regions where there are few clouds to block radiation.</li>
+<li>Desert regions with very little water vapor.</li>
+<li>Tropical regions with low CO<sub>2</sub> concentrations.</li>
+<li><span class="fragment highlight-blue">A range of wavelengths where
+no greenhouse gases absorb much.</span></li>
+</ol></section><section id="ghg-review-question-2" class="slide level2"><h2>Review Question</h2>
+<h3 id="what-is-a-greenhouse-gas">What Is A Greenhouse Gas?</h3>
+<div class="textleft">
+<p>If someone gives a chemist a flask of an unknown gas, what would be
+the simplest way for the chemist to figure out whether that gas is a
+greenhouse gas?</p>
+<div class="fragment medbluetext">
+<ul>
+<li>Test whether the gas transmits shortwave light.
+<ul>
+<li>Can you see through it?</li>
+</ul>
+</li>
+<li>Test whether the gas absorbs longwave light.</li>
+</ul>
+</div>
+</div>
+</section></section><section><section id="modtran-section" class="title-slide slide level1 center" data-transition="fade-out"><h1 class="center" data-transition="fade-out">MODTRAN Computer
+Model</h1>
+
+</section><section id="what-is-modtram" class="slide level2 eightyfive" data-transition="fade"><h2 class="eightyfive" data-transition="fade">What is MODTRAN?</h2>
+<ul>
+<li class="fragment">Pure radiative calculation
+<ul>
+<li>Air does not move:
+<ul>
+<li>No wind or convection</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="fragment">Only calculates infrared heat flux
+<ul>
+<li>Does not give equilibrium ground temperature</li>
+</ul>
+</li>
+<li class="fragment">Only calculates one spot
+<ul>
+<li>Does not give global averages</li>
+</ul>
+</li>
+<li class="fragment">You specify:
+<ul>
+<li>Ground temperature</li>
+<li>Composition of atmosphere</li>
+</ul>
+</li>
+<li class="fragment">Modtran computes:
+<ul>
+<li>Longwave radiation at different altitudes</li>
+<li>Total radiation to space</li>
+</ul>
+</li>
+</ul></section><section id="running-modtran" class="slide level2"><h2>Running MODTRAN</h2>
+<ul>
+<li>Go to <a href="http://climatemodels.uchicago.edu/modtran/" class="uri">http://climatemodels.uchicago.edu/modtran/</a>
+</li>
+<li><a href="#/double-co2">Next</a></li>
+</ul>
+<iframe src="https://climatemodels.jgilligan.org/modtran/" style="height:800px;width:1500px;">
+<a href="http://climatemodels.uchicago.edu/modtran">http://climatemodels.uchicago.edu/modtran/</a>
+</iframe>
+</section></section><section><section id="understanding-sec" class="title-slide slide level1 center"><h1 class="center">Understanding the Spectrum</h1>
+
+</section><section id="tropical-spectrum" class="slide level2 eighty" data-transition="fade-out"><h2 class="eighty" data-transition="fade-out">Earth’s Tropics, Seen from
+Space</h2>
+<p><img data-src="assets/fig/tropics-70km-1.png"><!-- --></p>
+</section><section id="tropical-1km-spectrum" class="slide level2 eighty" data-transition="fade"><h2 class="eighty" data-transition="fade">Seen from 1 km</h2>
+<p><img data-src="assets/fig/tropics-1km-1.png"><!-- --></p>
+</section><section id="tropical-2km-spectrum" class="slide level2 eighty" data-transition="fade"><h2 class="eighty" data-transition="fade">Seen from 2 km</h2>
+<p><img data-src="assets/fig/tropics-2km-1.png"><!-- --></p>
+</section><section id="tropical-3km-spectrum" class="slide level2 eighty" data-transition="fade"><h2 class="eighty" data-transition="fade">Seen from 3 km</h2>
+<p><img data-src="assets/fig/tropics-3km-1.png"><!-- --></p>
+</section><section id="tropical-4km-spectrum" class="slide level2 eighty" data-transition="fade"><h2 class="eighty" data-transition="fade">Seen from 4 km</h2>
+<p><img data-src="assets/fig/tropics-4km-1.png"><!-- --></p>
+</section><section id="tropical-5km-spectrum" class="slide level2 eighty" data-transition="fade"><h2 class="eighty" data-transition="fade">Seen from 5 km</h2>
+<p><img data-src="assets/fig/tropics-5km-1.png"><!-- --></p>
+</section><section id="tropical-6km-spectrum" class="slide level2 eighty" data-transition="fade"><h2 class="eighty" data-transition="fade">Seen from 6 km</h2>
+<p><img data-src="assets/fig/tropics-6km-1.png"><!-- --></p>
+</section><section id="tropical-7km-spectrum" class="slide level2 eighty" data-transition="fade"><h2 class="eighty" data-transition="fade">Seen from 7 km</h2>
+<p><img data-src="assets/fig/tropics-7km-1.png"><!-- --></p>
+</section><section id="tropical-8km-spectrum" class="slide level2 eighty" data-transition="fade"><h2 class="eighty" data-transition="fade">Seen from 8 km</h2>
+<p><img data-src="assets/fig/tropics-8km-1.png"><!-- --></p>
+</section><section id="tropical-9km-spectrum" class="slide level2 eighty" data-transition="fade"><h2 class="eighty" data-transition="fade">Seen from 9 km</h2>
+<p><img data-src="assets/fig/tropics-9km-1.png"><!-- --></p>
+</section><section id="tropical-10km-spectrum" class="slide level2 eighty" data-transition="fade"><h2 class="eighty" data-transition="fade">Seen from 10 km</h2>
+<p><img data-src="assets/fig/tropics-10km-1.png"><!-- --></p>
+</section><section id="tropical-15km-spectrum" class="slide level2 eighty" data-transition="fade"><h2 class="eighty" data-transition="fade">Seen from 15 km</h2>
+<p><img data-src="assets/fig/tropics-15km-1.png"><!-- --></p>
+</section><section id="tropical-20km-spectrum" class="slide level2 eighty" data-transition="fade-in"><h2 class="eighty" data-transition="fade-in">Seen from 20 km</h2>
+<p><img data-src="assets/fig/tropics-20km-1.png"><!-- --></p>
+</section></section><section><section id="double-co2-sec" class="title-slide slide level1 center"><h1 class="center">Effect of Doubling CO<sub>2</sub>
+</h1>
+
+</section><section id="double-co2" class="slide level2 eighty"><h2 class="eighty">Double CO<sub>2</sub>
+</h2>
+<div class="columns vtop">
+<div class="column vtop">
+<ul>
+<li>Set Locality to “Tropical Atmosphere”</li>
+<li>Click “Save This Run to Background”</li>
+<li>Note the Upward IR heat flux</li>
+<li>Double the amount of CO<sub>2</sub>
+</li>
+<li>Adjust T offset until new heat flux = background flux</li>
+<li>What is the new ground temperature?</li>
+</ul>
+</div>
+<div class="column">
+<iframe src="https://climatemodels.jgilligan.org/modtran/" style="height:750px;width:940px;">
+</iframe>
+</div>
+</div>
+</section><section id="double-co2-2" class="slide level2"><h2>Exercise: Double CO<sub>2</sub>
+</h2>
+<iframe src="https://climatemodels.jgilligan.org/modtran/" style="height:800px;width:1500px;">
+</iframe>
+</section></section><section><section id="different-gas-sec" class="title-slide slide level1 center"><h1 class="center">Different Gases</h1>
+
+</section><section id="different-gases" class="slide level2"><h2>Different Gases</h2>
+<iframe src="https://climatemodels.jgilligan.org/modtran/" style="height:800px;width:1500px;">
+</iframe>
+</section></section><section><section id="greenhouse-effect-sec" class="title-slide slide level1 center"><h1 class="center">Measuring Greenhouse Effect:</h1>
+
+</section><section id="greenhouse-effect" class="slide level2" data-transition="fade-out"><h2 data-transition="fade-out">Measuring Greenhouse Effect:</h2>
+<ul>
+<li>Go to MODTRAN, set CO<sub>2</sub> to 0 ppm, and set all other gases
+to zero.</li>
+<li class="fragment">Set altitude to 70 km and location to “Tropical
+Atmosphere”.</li>
+<li class="fragment">Press “Save this run to background”</li>
+<li class="fragment">Note <em>I</em><sub>out</sub>
+</li>
+<li class="fragment">Set CO<sub>2</sub> to 400 ppm and note the change in
+<em>I</em><sub>out</sub>
+</li>
+<li class="fragment">Adjust the temperature offset to make the difference in <br><span class="math inline">\(I_{\text{out}} (\text{New} -
+\text{BG})\)</span> equal zero.</li>
+</ul></section><section id="greenhouse-effect-00" class="slide level2" data-transition="fade"><h2 data-transition="fade">No Greenhouse Gases</h2>
+<p><img data-src="assets/fig/warming-000-1.png"><!-- --></p>
+</section><section id="greenhouse-effect-400" class="slide level2" data-transition="fade"><h2 data-transition="fade">400 ppm</h2>
+<p><img data-src="assets/fig/warming-400-1.png"><!-- --></p>
+</section><section id="greenhouse-effect-400-warm" class="slide level2" data-transition="fade"><h2 data-transition="fade">Adjust temperature</h2>
+<p><img data-src="assets/fig/warming-400-warm-1.png"><!-- --></p>
+</section></section><section><section id="band-saturation-intro-sec" class="title-slide slide level1 center"><h1 class="center">Band Saturation</h1>
+
+</section><section id="setup-modtran" class="slide level2 eighty"><h2 class="eighty">Set up MODTRAN:</h2>
+<ul>
+<li>Set “Location” to “Tropical Atmosphere”</li>
+<li>Set All greenhouse gases to zero</li>
+<li>Set altitude to 20 km</li>
+</ul>
+<iframe src="https://climatemodels.jgilligan.org/modtran/" style="height:800px;width:1500px;">
+</iframe>
+</section><section id="band-sat-co2-00000" class="slide level2" data-transition="fade-out"><h2 data-transition="fade-out">No CO<sub>2</sub>
+</h2>
+<p><img data-src="assets/fig/no-ghg-1.png"><!-- --></p>
+</section><section id="band-sat-co2-00000.125" class="slide level2" data-transition="fade"><h2 data-transition="fade">0.125 ppm CO<sub>2</sub>
+</h2>
+<p><img data-src="assets/fig/band-sat-co2-00000.125-1.png"><!-- --></p>
+</section><section id="band-sat-co2-00000.250" class="slide level2" data-transition="fade"><h2 data-transition="fade">0.25 ppm CO<sub>2</sub>
+</h2>
+<p><img data-src="assets/fig/band-sat-co2-00000.250-1.png"><!-- --></p>
+</section><section id="band-sat-co2-00000.500" class="slide level2" data-transition="fade"><h2 data-transition="fade">0.5 ppm CO<sub>2</sub>
+</h2>
+<p><img data-src="assets/fig/band-sat-co2-00000.500-1.png"><!-- --></p>
+</section><section id="band-sat-co2-00001" class="slide level2" data-transition="fade"><h2 data-transition="fade">1 ppm CO<sub>2</sub>
+</h2>
+<p><img data-src="assets/fig/band-sat-co2-00001-1.png"><!-- --></p>
+</section><section id="band-sat-co2-00002" class="slide level2" data-transition="fade"><h2 data-transition="fade">2 ppm CO<sub>2</sub>
+</h2>
+<p><img data-src="assets/fig/band-sat-co2-00002-1.png"><!-- --></p>
+</section><section id="band-sat-co2-00004" class="slide level2" data-transition="fade"><h2 data-transition="fade">4 ppm CO<sub>2</sub>
+</h2>
+<p><img data-src="assets/fig/band-sat-co2-00004-1.png"><!-- --></p>
+</section><section id="co2-00008" class="slide level2" data-transition="fade"><h2 data-transition="fade">8 ppm CO<sub>2</sub>
+</h2>
+<p><img data-src="assets/fig/band-sat-co2-00008-1.png"><!-- --></p>
+</section><section id="band-sat-co2-00016" class="slide level2" data-transition="fade"><h2 data-transition="fade">16 ppm CO<sub>2</sub>
+</h2>
+<p><img data-src="assets/fig/band-sat-co2-00016-1.png"><!-- --></p>
+</section><section id="band-sat-co2-00032" class="slide level2" data-transition="fade"><h2 data-transition="fade">32 ppm CO<sub>2</sub>
+</h2>
+<p><img data-src="assets/fig/band-sat-co2-00032-1.png"><!-- --></p>
+</section><section id="co2-00064" class="slide level2" data-transition="fade"><h2 data-transition="fade">64 ppm CO<sub>2</sub>
+</h2>
+<p><img data-src="assets/fig/band-sat-co2-00064-1.png"><!-- --></p>
+</section><section id="band-sat-co2-00128" class="slide level2" data-transition="fade"><h2 data-transition="fade">128 ppm CO<sub>2</sub>
+</h2>
+<p><img data-src="assets/fig/band-sat-co2-00128-1.png"><!-- --></p>
+</section><section id="band-sat-co2-00256" class="slide level2" data-transition="fade"><h2 data-transition="fade">256 ppm CO<sub>2</sub>
+</h2>
+<p><img data-src="assets/fig/band-sat-co2-00256-1.png"><!-- --></p>
+</section><section id="co2-00512" class="slide level2" data-transition="fade"><h2 data-transition="fade">512 ppm CO<sub>2</sub>
+</h2>
+<p><img data-src="assets/fig/band-sat-co2-00512-1.png"><!-- --></p>
+</section><section id="band-sat-co2-01024" class="slide level2" data-transition="fade"><h2 data-transition="fade">1024 ppm CO<sub>2</sub>
+</h2>
+<p><img data-src="assets/fig/band-sat-co2-01024-1.png"><!-- --></p>
+</section><section id="band-sat-co2-02048" class="slide level2" data-transition="fade-in"><h2 data-transition="fade-in">2048 ppm CO<sub>2</sub>
+</h2>
+<p><img data-src="assets/fig/band-sat-co2-02048-1.png"><!-- --></p>
+</section><section id="band-sat-i" class="slide level2" data-transition="fade-out"><h2 data-transition="fade-out">Band Saturation (I<sub>out</sub>)</h2>
+<p><img data-src="assets/fig/band-sat-i-out-1.png"><!-- --></p>
+<!---
+## I~out~ (CO~2~ on log scale) {#band-sat-i data-transition="fade"}
+
+:::
+
+## $\Delta I_{\text{out}}$  {#band-sat-delta-sat-delta data-transition="fade"}
+
+
+## Increments of _I_~out~  {#band-sat-inc data-transition="fade-in"}
+
+
+Change in _I_~out~ from previous _I_~out~
+
+<!-- --->
+</section></section><section><section id="colored-water-sec" class="title-slide slide level1 center"><h1 class="center">Visible Radiation in Colored Water</h1>
+
+</section><section id="colored-water-air" class="slide level2" data-transition="fade-out"><h2 data-transition="fade-out">Visible Radiation in Colored Water</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>To better understand the concept of how different parts of the
+atmosphere look to a satellite at different frequencies in the longwave
+spectrum,
+<ul>
+<li>Consider looking through colored water at different frequencies in
+the visible spectrum</li>
+</ul>
+</li>
+<li class="fragment" data-fragment-index="1">Here are three cups with black-on-white labels
+<ul>
+<li>The cups are in an empty tank</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="column fragment" data-fragment-index="1">
+<ul>
+<li>Full visible spectrum</li>
+</ul>
+<p><img data-src="assets/images/colored-water/cups-01-air.jpg" style="width:100%;" alt="Cups in air"></p>
+</div>
+</div>
+</section><section id="colored-water-vis" class="slide level2" data-transition="fade"><h2 data-transition="fade">Visible Radiation in Colored Water</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Here are three cups with black-on-white labels</li>
+<li>The tank is filled with water, colored green with food-coloring</li>
+</ul>
+</div>
+<div class="column">
+<ul>
+<li>Full visible spectrum</li>
+</ul>
+<p><img data-src="assets/images/colored-water/cups-01-water-all.jpg" style="width:100%;" alt="Cups in water"></p>
+</div>
+</div>
+</section><section id="colored-water-green" class="slide level2" data-transition="fade"><h2 data-transition="fade">Visible Radiation in Colored Water</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Here are three cups with black-on-white labels</li>
+<li>The tank is filled with water, colored green with food-coloring</li>
+</ul>
+</div>
+<div class="column">
+<ul>
+<li>Only the green frequencies</li>
+</ul>
+<p><img data-src="assets/images/colored-water/cups-01-water-green.jpg" style="width:100%;" alt="Cups in water: green"></p>
+</div>
+</div>
+</section><section id="colored-water-red" class="slide level2" data-transition="fade"><h2 data-transition="fade">Visible Radiation in Colored Water</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Here are three cups with black-on-white labels</li>
+<li>The tank is filled with water, colored green with food-coloring</li>
+</ul>
+</div>
+<div class="column">
+<ul>
+<li>Only the red frequencies</li>
+</ul>
+<p><img data-src="assets/images/colored-water/cups-01-water-red.jpg" style="width:100%;" alt="Cups in water: red"></p>
+</div>
+</div>
+</section><section id="colored-water-blue" class="slide level2" data-transition="fade-in"><h2 data-transition="fade-in">Visible Radiation in Colored Water</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Here are three cups with black-on-white labels</li>
+<li>The tank is filled with water, colored green with food-coloring</li>
+</ul>
+</div>
+<div class="column">
+<ul>
+<li>Only the blue frequencies</li>
+</ul>
+<p><img data-src="assets/images/colored-water/cups-01-water-blue.jpg" style="width:100%;" alt="Cups in water: red"></p>
+</div>
+</div>
+</section><section id="goes-atmosphere" class="slide level2"><h2>Compare to Longwave Radiation in Atmosphere</h2>
+<p><img data-src="assets/images/geall.14240.1900.png" height="900" alt="GOES satellite looking down at the atmosphere"></p>
+</section></section>
+</div>
+  </div>
+  <!--
+  <script src="../../lecture_lib/library/reveal.js-3.8.0/js/reveal.js"></script>
+  <!-- -->
+  <script src="../../lecture_lib/library/reveal.js-3.8.0/js/reveal.min.js"></script><!-- --><script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: false,
+        // Display a presentation progress bar
+        progress: true,
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+        // Display the page number of the current slide
+        showSlideNumber: 'speaker',
+        // Push each slide change to the browser history
+        history: true,
+        //  Enable hashing slide content to URL
+        hash: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
+        // Vertical centering of slides
+        center: false,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Turns fragments on and off globally
+        fragments: true,
+        // Don't separate fragments in PDF rendering
+        pdfSeparateFragments: false,
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1920,
+        height: 1080,
+      
+        // Optional reveal.js plugins
+        dependencies: [
+                    { src: '../../lecture_lib/library/assets/plugin/chalkboard/chalkboard.js', async: true },
+                                        { src: '../../lecture_lib/library/assets/plugin/reveal-skip-fragments/skip-fragments.js', async: true },
+                    { src: '../../lecture_lib/library/reveal.js-3.8.0/plugin/zoom-js/zoom.js', async: true },
+          { src: '../../lecture_lib/library/reveal.js-3.8.0/plugin/notes/notes.js', async: true },
+          { src: '../../lecture_lib/library/reveal.js-3.8.0/plugin/math/math.js', async: true }
+        ],
+        shift_keyboard: {
+    	    67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'C' is pressed
+    	    66: function() { RevealChalkboard.toggleChalkboard() },	  // toggle chalkboard when 'B' is pressed
+    	    88: function() { RevealChalkboard.clear() },	            // clear chalkboard when 'X' is pressed
+    	    82: function() { RevealChalkboard.reset() },	            // reset chalkboard data on current slide when 'R' is pressed
+    	    68: function() { RevealChalkboard.download() },	          // downlad recorded chalkboard drawing when 'D' is pressed
+        },
+              	// Shortcut for showing all fragments
+      	skipFragmentsShowShortcut: 'S',
+
+      	// Shortcut for hiding all fragments
+      	skipFragmentsHideShortcut: 'H',
+      	      });
+    </script><script>
+  	function createSingletonNodejg( container, tagname, classname, innerHTML ) {
+
+		// Find all nodes matching the description
+		var nodes = container.querySelectorAll( '.' + classname );
+
+		// Check all matches to find one which is a direct child of
+		// the specified container
+		for( var i = 0; i < nodes.length; i++ ) {
+			var testNode = nodes[i];
+			if( testNode.parentNode === container ) {
+				return testNode;
+			}
+		}
+
+		// If no node was found, create it now
+		var node = document.createElement( tagname );
+		node.className = classname;
+		if( typeof innerHTML === 'string' ) {
+			node.innerHTML = innerHTML;
+		}
+		container.appendChild( node );
+
+		return node;
+
+	}
+
+  var dom_wrapper = document.querySelector('.reveal');
+  createSingletonNodejg(dom_wrapper, 'div', 'qrbox',
+  '<div class="qrbox" id="qrbox" style="font-size:90%;">' + '\n' +
+  '<div style="font-size:30%;width:100%;">' + '\n' +
+      '<a href="https://ees2110.jgilligan.org/slides/class_06">' +
+  	'<img src="qrcode.png" alt="https://ees2110.jgilligan.org/slides/class_06"/>' +
+  	'</a>' + '\n' +
+	  '</div>' + '\n' +
+  '<div style="font-size:30%;width:100%;vertical-align:top;">' + '\n' +
+    '<span style="display:inline-block;text-align:left;margin-left:0">' + '\n' +
+        'Live web page: <a href="https://ees2110.jgilligan.org/slides/class_06">https://ees2110.jgilligan.org/slides/class_06</a>' + '\n' +
+              '<br/>' + '\n' +
+        'PDF: <a href="https://ees2110.jgilligan.org/slides/class_06/ees_2110_class_06_slides.pdf" target="_blank">https://ees2110.jgilligan.org/slides/class_06/ees_2110_class_06_slides.pdf</a>' + '\n' +
+          	'</span>' + '\n' +
+  	'<span style="display:inline-block;text-align:right;vertical-align:top;position:absolute;right:0;bottom:0;">' + '\n' +
+  	  'Navigate slides: next: N or &lt;space&gt;; previous: P or &lt;backspace&gt;<br/>' + '\n' +
+  	  'Also: up, down, left, right arrows; overview: o; help: ?' + '\n' +
+  	'</span>' + '\n' +
+	'</div>' + '\n' +
+  '</div>' + '\n'
+  );
+</script><script>
+var MathJax = { jax: ["input/TeX", "output/HTML-CSS"],
+                TeX: {extensions: ["color.js", "mhchem.js"],
+                Macros: {
+                  COO: "\\ce{CO2}",
+                  methane: "\\ce{CH4}",
+                  degC: "^\\circ \\mathrm{C}",
+                  degF: "^\\circ \\mathrm{F}",
+                  water: "\\ce{H2O}",
+                  carb: "\\ce{CO3^2-}",
+                  bicarb: "\\ce{HCO3-}",
+                  carbonic: "\\ce{H2CO3}",
+                  Hplus: "\\ce{H+}",
+                  OH: "\\ce{OH-}",
+                  silica: "\\ce{SiO2}",
+                  calcite: "\\ce{CaCO3}",
+                  Caplus: "\\ce{Ca^2+}",
+                  silicate: "\\ce{SiO3^2-}",
+                  CaSi: "\\ce{CaSiO3}",
+                  pH: "p\\ce{H}",
+                  permil: "\\unicode{x2030}",
+                  pCOO: "\\ce{	ext{p}CO2}",
+                  pwater: "\\ce{	ext{p}H2O}"
+                },
+                  },
+                "HTML-CSS" : {scale: 100 }};
+</script><!-- dynamically load mathjax for compatibility with self-contained --><script type="text/x-mathjax-config">
+MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
+    var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
+    VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+	  VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+	  VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+	  VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+	});
+MathJax.Hub.Register.StartupHook("SVG Jax Ready",function () {
+    var VARIANT = MathJax.OutputJax["SVG"].FONTDATA.VARIANT;
+    VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+	  VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+	  VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+	  VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+	});
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+    displayMath: [ ['$$', '$$'], ['\\[', '\\]'] ],
+    processEscapes: true
+  }
+})
+  </script><script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script><script>
+  var qrbox = document.querySelector("#qrbox");
+  var advance_fragment = 0;
+
+	function isPrintingPDF() {
+	  let printing = ( /print-pdf/gi ).test( window.location.search );
+	  console.log("printing test: " + printing);
+	  return printing;
+	}
+
+
+  if ( qrbox.hasAttribute('qr-box-hide') || Reveal.isOverview() ||
+      ! Reveal.isFirstSlide() || isPrintingPDF()) {
+    console.log("Initializing");
+    console.log("Hiding QR box");
+    qrbox.style.visibility="hidden";
+    qrbox.style.display="none";
+  }
+
+  Reveal.addEventListener('overviewshown', function() {
+      console.log("Overview shown");
+    console.log("Hiding QR box");
+    qrbox.style.visibility="hidden";
+    qrbox.style.display="none";
+  }, false);
+
+  Reveal.addEventListener('overviewhidden', function() {
+    if (Reveal.isFirstSlide() && ! qrbox.hasAttribute('qr-box-hide') &&
+        ! isPrintingPDF()) {
+      console.log("Overview hidden");
+      console.log("Showing QR box");
+      qrbox.style.visibility="visible";
+      qrbox.style.display="block";
+    }
+  }, false);
+
+  Reveal.addEventListener('slidechanged', function() {
+    console.log("Slide changed...");
+    if (Reveal.isFirstSlide() && ! Reveal.isOverview() &&
+        ! qrbox.hasAttribute('qr-box-hide') &&
+        ! isPrintingPDF()) {
+      console.log("Showing QR box");
+      qrbox.style.visibility="visible";
+      qrbox.style.display="block";
+    } else {
+      console.log("Hiding QR box");
+      qrbox.style.visibility="hidden";
+      qrbox.style.display="none";
+    }
+  }, false);
+
+  Reveal.addEventListener('pdf-ready', function() {
+    console.log("hiding qrbox for printing");
+    qrbox.style.visibility="hidden";
+    qrbox.style.display="none";
+    qrbox.setAttribute('qr-box-hide', 'true');
+  });
+
+  </script><script>
+  Reveal.addEventListener('slidechanged', function() {
+    while (advance_fragment > 0) {
+      // console.log('advancing fragment');
+      Reveal.nextFragment();
+      advance_fragment--;
+    }
+  }, false);
+
+  Reveal.addEventListener('slidechanged', function() {
+    if ( Reveal.getCurrentSlide().hasAttribute('data-skip')) {
+      // console.log("going to next slide...");
+      Reveal.next();
+    }
+  }, false);
+
+  Reveal.addEventListener('skip_slide', function() {
+    Reveal.next();
+  }, false);
+
+  Reveal.addEventListener('advance_fragment', function() {
+    // console.log("setting advance fragment");
+    advance_fragment++;
+    }, false);
+  </script>
+</body>
+</html>

@@ -23,6 +23,7 @@ lessons:
 - date: '2023-01-23'
   title: Spectrum of Atmospheric Radiation
   reading: /reading/reading_06
+  lecture: /slides/class_06
 - date: '2023-01-25'
   title: Vertical Structure of the Atmosphere
   reading: /reading/reading_07

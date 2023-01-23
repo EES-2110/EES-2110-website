@@ -458,13 +458,11 @@ body {
   margin-bottom: 6in;
 }
 
-.reveal .whiteslide,
-.reveal section.whiteslide {
+.reveal .whiteslide {
   background-color: white;
 }
 
-.reveal .blackslide,
-.reveal section.blackslide {
+.reveal .blackslide {
   background-color: black;
 }
 
@@ -515,7 +513,7 @@ body {
 }
 
 .reveal .slides section .fragment.highlight-dark-green.visible {
-  color: #008000;
+  color: #006000;
   font-weight: bold;
 }
 
@@ -530,7 +528,7 @@ body {
 }
 
 .reveal .slides section .fragment.highlight-current-dark-green.current-fragment {
-  color: #008000;
+  color: #006000;
   font-weight: bold;
 }
 
@@ -1507,7 +1505,20 @@ body {
 .reveal span.darkgreentext,
 .reveal .darkgreentext a:link,
 .reveal .darkgreentext a:visited {
-  color: darkgreen;
+  color: #006000;
+}
+
+.reveal .medbluetext section,
+.reveal .medbluetext div,
+.reveal .medbluetext span,
+.reveal .medbluetext p,
+.reveal .medbluetext li,
+.reveal .medbluetext ul,
+.reveal .medbluetext ol,
+.reveal span.medbluetext,
+.reveal .medbluetext a:link,
+.reveal .medbluetext a:visited {
+  color: #4080C0;
 }
 
 .reveal .t95 h1,
