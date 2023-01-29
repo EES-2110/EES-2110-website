@@ -27,7 +27,7 @@ pdf_url: /files/homework_asgts/homework_02.pdf
 ### Notes on Homework:
 
 
-* Exercise 2: 
+* Exercise 1: 
   * Start from the default settings of MODTRAN (400 ppm CO~2~ and 
     1.7 ppm CH~4~, with a tropical atmosphere
     
