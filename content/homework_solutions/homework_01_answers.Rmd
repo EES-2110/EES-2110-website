@@ -2,6 +2,7 @@
 title: Chapter 2--3 Homework Solutions
 hw_number: 1
 pubdate: '2023-02-01'
+date: '2023-01-25'
 pdf_url: /files/homework_solutions/hw_01/homework_01_answers.pdf
 slug: homework_01_answers
 output:
@@ -500,6 +501,7 @@ $$
 &= `r format_md(3E10 / 100E6, digits = 2, comma=TRUE, format="auto", output_format="bare-latex")`~\text{cm}
 \end{aligned}
 $$
+
 # Chapter 3: Layer Models
 
 For these exercises, use the following numbers:
