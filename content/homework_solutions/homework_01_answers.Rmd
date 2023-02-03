@@ -1,12 +1,21 @@
 ---
-title: "Homework 1 Solutions"
+title: "Homework 1 Answers"
 author: "Jonathan M. Gilligan"
 date: "2023-02-02"
+due_date: '2023-01-25'
+pubdate: '2023-02-01'
+assignment_type: Homework
+short_assignment_type: HW
+assignment_number: 1
+weight: 1
+slug: homework_01_answers
 output:
-  html_document: default
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
   pdf_document:
-    includes:
-      in_header: "ees2110.sty"
+    toc: yes
+    toc_depth: 3
+pdf_url: /files/homework_solutions/hw_01/homework_01_answers.pdf
 ---
 
 ```{r setup, include=FALSE}
@@ -34,7 +43,7 @@ I_solar = 1350
 
 # Chapter 2: Exercises on Units, Energy, and Power
 
-```{r inclue_cancel, include= knitr::is_html_output(), results="asis"}
+```{r inclue_cancel, include=FALSE && knitr::is_html_output(), results="asis"}
 cat("$\\require{cancel}$\n")
 ```
 
