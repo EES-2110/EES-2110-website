@@ -184,7 +184,7 @@ In a 1-layer model, the ground temperature was $\sqrt[4]{2}$ times the bare-rock
 temperature, and in a 2-layer model, the ground temperature is $\sqrt[4]{3}$ times
 the bare-rock temperature.
 
-## Exercise 3.3
+## Exercise 3
 
 ```{r nuclear_winter_diagram, fig.cap="An energy diagram for a planet with an opaque pane of glass for an atmosphere. The intensity of absorbed visible light is $(1 - \\alpha) I_{solar} / 4$."}
 make_nuclear_winter_diagram()
