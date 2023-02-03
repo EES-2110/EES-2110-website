@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<!-- JG Reveal.js Template --><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="pandoc">
+<meta name="author" content="Jonathan Gilligan">
+<title>Feedbacks</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui">
+<link rel="stylesheet" href="../../lecture_lib/library/reveal.js-3.8.0/css/reset.css">
+<link rel="stylesheet" href="../../lecture_lib/library/reveal.js-3.8.0/css/reveal.min.css">
+<style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+      .column{display: inline-block;}  </style>
+<style type="text/css">
+    div.qrbox,
+    aside.qrbox {
+     text-align: left;
+     vertical-align: bottom;
+     width: 95%;
+     position: fixed;
+     left: 2.5%;
+     bottom: 1rem;
+     display: block;
+    }
+  </style>
+<!-- theme = solarized_jg --><link rel="stylesheet" href="../../lecture_lib/library/assets/css/theme/solarized_jg.css" id="theme">
+<!-- Printing and PDF exports --><script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../../lecture_lib/library/reveal.js-3.8.0/css/print/pdf.css' : '../../lecture_lib/library/reveal.js-3.8.0/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script><!--[if lt IE 9]>
+  <script src="../../lecture_lib/library/reveal.js-3.8.0/lib/js/html5shiv.js"></script>
+  <![endif]--><script src="../../lecture_lib/library/header-attrs-2.19.2.9000/header-attrs.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+            <!-- start title slide -->
+<section class="center" id="title"><h1 class="title">Feedbacks</h1>
+    <h3 class="author">EES 2110</h3>
+        <h3 class="author">Introduction to Climate Change</h3>
+    <h3 class="author">Jonathan Gilligan</h3>
+    <h3 class="date">
+      Class #11:
+       Friday, February 03
+      2023
+    </h3>
+	<!-- end title slide -->
+</section><section><section id="feedback1-sec" class="title-slide slide level1 center"><h1 class="center">Feedback</h1>
+
+</section><section id="feedback1" class="slide level2"><h2>Feedback</h2>
+<ul>
+<li>
+<span class="math inline">\(Q\)</span> is net heat flow into the
+earth:
+<ul>
+<li>
+<span class="math inline">\(Q = I_{\text{in}} -
+I_{\text{out}}\)</span>,</li>
+</ul>
+</li>
+<li class="fragment"><strong>At Start:</strong> <span class="math inline">\(Q =
+I_{\text{in}} - I_{\text{out}} = 0\)</span>,
+<ul>
+<li>
+<span class="math inline">\(T_{\text{ground}} = T_0\)</span>.</li>
+</ul>
+</li>
+<li class="fragment"><strong>Forcing:</strong> change <span class="math inline">\(Q
+\rightarrow Q_{\text{forcing}} &gt; 0\)</span>
+<ul>
+<li class="fragment">What happens?</li>
+</ul>
+</li>
+<li class="fragment"><strong>Response:</strong> <span class="math inline">\(T_{\text{ground}} \rightarrow T_0 + \Delta
+T\)</span>
+<ul>
+<li class="fragment"><p><strong>Normally</strong>, <span class="math inline">\(\Delta
+T\)</span> brings <span class="math inline">\(I_{\text{out}}\)</span>
+back to balance with <span class="math inline">\(I_{\text{in}}\)</span>.</p></li>
+<li class="fragment">
+<p><strong>With feedback</strong>, <span class="math inline">\(\Delta T\)</span> causes a new forcing,</p>
+<p><span class="math inline">\(\Delta Q_{\text{feedback}} = f \Delta
+T\)</span></p>
+</li>
+<li class="fragment"><p><span class="math inline">\(\Delta
+Q_{\text{feedback}}\)</span> causes further change in <span class="math inline">\(T_{\text{ground}}\)</span>.</p></li>
+</ul>
+</li>
+</ul></section></section><section><section id="feedback-examples" class="title-slide slide level1 center"><h1 class="center">Examples of feedbacks</h1>
+
+</section><section id="ice-albedo" class="slide level2 blacktitle blacktext eighty" data-background="assets/images/icealbedo.png" data-background-size="100% 100%"><h2 class="blacktitle blacktext eighty" data-background="assets/images/icealbedo.png" data-background-size="100% 100%">Ice-Albedo</h2>
+<ul>
+<li class="fragment" data-fragment-index="1">Albedo of ice is around 0.95</li>
+<li class="fragment" data-fragment-index="1">Albedo of ocean water is around 0.05</li>
+</ul>
+<div class="columns fragment" data-fragment-index="2">
+<div class="column darkredtext">
+<ul>
+<li>Temperature rises (<span class="math inline">\(\Delta T &gt;
+0\)</span>)
+<ul>
+<li class="fragment" data-fragment-index="3">Ice recedes</li>
+<li class="fragment" data-fragment-index="4">Albedo gets smaller</li>
+<li class="fragment" data-fragment-index="5">More sunlight absorbed</li>
+<li class="fragment" data-fragment-index="6"><span class="math inline">\(\Delta Q &gt; 0\)</span>
+</li>
+<li class="fragment" data-fragment-index="7"><span class="math inline">\(\displaystyle\frac{\Delta
+Q}{\Delta T} &gt; 0\)</span>
+<ul>
+<li>Positive feedback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="column darkbluetext">
+<ul>
+<li>Temperature falls (<span class="math inline">\(\Delta T &lt;
+0\)</span>)
+<ul>
+<li class="fragment" data-fragment-index="3">Ice grows</li>
+<li class="fragment" data-fragment-index="4">Albedo gets larger</li>
+<li class="fragment" data-fragment-index="5">Less sunlight absorbed</li>
+<li class="fragment" data-fragment-index="6"><span class="math inline">\(\Delta Q &lt; 0\)</span>
+</li>
+<li class="fragment" data-fragment-index="7"><span class="math inline">\(\displaystyle\frac{\Delta
+Q}{\Delta T} &gt; 0\)</span>
+<ul>
+<li>Positive feedback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</section><section id="water-vapor" class="slide level2"><h2>Water-vapor</h2>
+<div style="margin-top:1rem;">
+<ul>
+<li>Temperature rises</li>
+<li class="fragment">What happens to humidity?
+<ul>
+<li class="fragment">Humidity rises: more water vapor</li>
+</ul>
+</li>
+<li class="fragment">How does this affect <span class="math inline">\(\Delta
+Q\)</span>?
+<ul>
+<li class="fragment">More water vapor <span class="math inline">\(\rightarrow\)</span> bigger greenhouse effect</li>
+<li class="fragment"><span class="math inline">\(I_{\text{out}}\)</span> gets
+smaller</li>
+<li class="fragment"><span class="math inline">\(\Delta Q = \Delta(I_{\text{in}} -
+I_{\text{out}}) &gt; 0\)</span>
+</li>
+<li class="fragment">Positive <span class="math inline">\(\Delta T \rightarrow
+\text{Positive}~\Delta Q\)</span>
+<ul>
+<li>
+<span class="math inline">\(f = \Delta Q / \Delta T &gt; 0\)</span>:
+positive feedback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section><section id="gw-baseline-2" class="slide level2 ninety" data-transition="fade"><h2 class="ninety" data-transition="fade">Greenhouse effect</h2>
+<p><img data-src="assets/fig/baseline.conv.gh-1.png"><!-- --></p>
+<ul>
+<li>Ground temp: <span class="math inline">\(T_{\text{ground}} =
+T_{\text{skin}} + h_{\text{skin}} \times \text{env. lapse}\)</span>
+</li>
+</ul></section><section id="gw-convect-2" class="slide level2 ninety" data-transition="fade"><h2 class="ninety" data-transition="fade">Global warming</h2>
+<p><img data-src="assets/fig/warm.conv.gh-1.png"><!-- --></p>
+<ul>
+<li>Greater CO<sub>2</sub><span class="math inline">\(\rightarrow\)</span> greater skin height.</li>
+<li>Warming: <span class="math inline">\(\Delta T_{\text{ground}} =
+\Delta h_{\text{skin}} \times \text{env. lapse}\)</span>
+</li>
+<li class="fragment">What does rising temperature do to water vapor?</li>
+</ul></section><section id="wv-feedback" class="slide level2 ninety" data-transition="fade"><h2 class="ninety" data-transition="fade">Water Vapor Feedback</h2>
+<p><img data-src="assets/fig/h2o.feedback.1-1.png"><!-- --></p>
+<ul>
+<li>Rising temperature <span class="math inline">\(\rightarrow\)</span>
+greater humidity</li>
+<li>Greater humidity <span class="math inline">\(\rightarrow\)</span>
+skin height rises even higher</li>
+<li><span class="math inline">\(\Delta T_{\text{ground}} = \Delta
+h_{\text{skin}} \times \text{Lapse}\)</span></li>
+</ul></section></section><section><section id="nuclear_winter_sec" class="title-slide slide level1 yellowtitle toptitle" data-transition="fade" data-background-transition="fade" data-background="assets/images/pinatubo_1.jpg" data-background-size="contain" data-background-color="black"><h1 class="yellowtitle toptitle" data-transition="fade" data-background-transition="fade" data-background="assets/images/pinatubo_1.jpg" data-background-size="contain" data-background-color="black"><strong>Interlude: Volcanic &amp; Nuclear
+Winter</strong></h1>
+
+</section><section id="nuclear_winter" class="slide level2 yellowtitle toptitle" data-transition="fade" data-background-transition="fade" data-background="assets/images/pinatubo_1.jpg" data-background-size="contain" data-background-color="black"><h2 class="yellowtitle toptitle" data-transition="fade" data-background-transition="fade" data-background="assets/images/pinatubo_1.jpg" data-background-size="contain" data-background-color="black"><strong>Mt.
+Pinatubo, Philippines, 1991</strong></h2>
+<aside class="notes"><ul>
+<li>Erupted June 12–15, 1991. (Dominant eruption on the 15th)</li>
+<li>10 km<sup>3</sup> of ash (10 billion tonnes)</li>
+<li>17 million tonnes (19 short tons) sulfate.</li>
+<li>Reduced the amount of sunlight by 10%</li>
+<li>Reduced global temperature by 0.5°C</li>
+</ul></aside></section><section id="cloud_spreads" class="slide level2 yellowtitle" data-background="assets/images/pinatubo_cloud_1.jpg" data-transition="fade" data-background-transition="fade" data-background-size="cover"><h2 class="yellowtitle" data-background="assets/images/pinatubo_cloud_1.jpg" data-transition="fade" data-background-transition="fade" data-background-size="cover">Cloud Spreads</h2>
+</section><section id="around-the-planet" class="slide level2"><h2>Around the planet</h2>
+<p><img data-src="assets/images/pinatubo_cloud2_1.jpg" style="height:900px;" alt="Pinatubo Cloud"></p>
+<aside class="notes"><ul>
+<li>Erupted June 12–15, 1991. (Dominant eruption on the 15th)</li>
+<li>10 km<sup>3</sup> of ash (10 billion tonnes)</li>
+<li>17 million tonnes (19 short tons) sulfate.</li>
+<li>Reduced the amount of sunlight by 10%</li>
+<li>Reduced global temperature by 0.5°C</li>
+</ul></aside></section><section id="cloud-blocks-sunlight" class="slide level2"><h2>Cloud blocks sunlight</h2>
+<p><img data-src="assets/images/volcano_solar_1.png" style="height:900px;" alt="Volcanic Solar Intensity"></p>
+<aside class="notes"><ul>
+<li>Pinatubo June 15 1991 (10% reduction in sunlight, 0.5^deg;C global
+cooling)</li>
+<li>El Chichon Mar/Apr 1982 (7 million tonnes sulfate, 20 million tonnes
+ash)</li>
+</ul></aside></section><section id="exercise-3-3" class="slide level2"><h2>Exercise 3-3</h2>
+<p><img data-src="assets/images/ar03f06.png" style="height:900px;" alt="Homework Problem"></p>
+</section><section id="temperature-drops" class="slide level2"><h2>Temperature drops</h2>
+<p><img data-src="assets/images/temp_pinatubo.jpg" style="height:900px;" alt="Pinatubo Temperature"></p>
+<aside class="notes"><ul>
+<li>Erupted June 12–15, 1991. (Dominant eruption on the 15th)</li>
+<li>10 km<sup>3</sup> of ash (10 billion tonnes)</li>
+<li>17 million tonnes (19 short tons) sulfate.</li>
+<li>Reduced the amount of sunlight by 10%</li>
+<li>Reduced global temperature by 0.5°C</li>
+</ul></aside></section><section id="volcanoes-and-temperature" class="slide level2"><h2>Volcanoes and Temperature</h2>
+<p><img data-src="assets/images/volcano_temperature_1.png" style="width:1900px;" alt="Volcanic eruptions and temperature"></p>
+<aside class="notes"><ul>
+<li>Erupted June 12–15, 1991. (Dominant eruption on the 15th)</li>
+<li>41 km<sup>3</sup> of ash (10 billion tonnes)</li>
+<li>17 million tonnes (19 short tons) sulfate.</li>
+<li>Reduced the amount of sunlight by 10%</li>
+<li>Reduced global temperature by 0.5°C</li>
+</ul></aside></section><section id="year_without_summer" class="slide level2 yellowtitle toptitle" data-background-color="black" data-background="assets/images/whitten_grave.jpg" data-background-size="contain" data-transition="fade" data-background-transition="fade"><h2 class="yellowtitle toptitle" data-background-color="black" data-background="assets/images/whitten_grave.jpg" data-background-size="contain" data-transition="fade" data-background-transition="fade"><span class="fragment"><strong>1816:
+<br>The Year Without a Summer</strong></span></h2>
+<aside class="notes"><ul>
+<li>Mt. Tambora</li>
+<li>Big eruption April 10 1815</li>
+<li>10 km<sup>3</sup> of ash (10 billion tonnes)</li>
+<li>10–100 million tonnes sulfate.</li>
+<li>Reduced global temperature by ~1°C (Berkeley Earth)</li>
+<li>Coldest summer on record in Europe from 1766 to the present</li>
+<li>Largest eruption in the last 1,500 years</li>
+<li>Floods and famine in Asia from China to India</li>
+<li>Crop failures throughout Europe</li>
+<li>Spectacular sunsets may have inspired painters such as J.M.W. Turner
+(see, e.g., C.S. Zerefos et al., Atmos. Chem. Phys. <strong>7</strong>,
+4027 (2007) https://doi.org/10.5194/acp-7-4027-2007)</li>
+</ul></aside></section><section id="testing-theory-of-water-vapor-feedback" class="slide level2 eighty"><h2 class="eighty">Testing Theory of Water-Vapor Feedback</h2>
+<p><img data-src="assets/images/pinatubo_wvfeedback.jpg" style="height:700px;" alt="Pinatubo Water Vapor Feedback"></p>
+<ul>
+<li class="fragment">Pinatubo erupts</li>
+<li class="fragment">Model calculations with water vapor feedback correctly predict
+cooling</li>
+<li class="fragment">Turn off water vapor feedback: incorrect predictions</li>
+</ul></section><section id="additional-tests" class="slide level2"><h2>Additional Tests</h2>
+<p><img data-src="assets/images/w_v_feedback_test.png" style="height:900px;" alt="Water Vapor Feedback"></p>
+</section></section><section><section id="runaway-sec" class="title-slide slide level1" data-background="assets/images/runaway_greenhouse_bg.png" data-transition="fade" data-background-transition="fade-out" data-background-size="100% 100%"><h1 data-background="assets/images/runaway_greenhouse_bg.png" data-transition="fade" data-background-transition="fade-out" data-background-size="100% 100%">Runaway Greenhouse</h1>
+
+</section><section id="Ingersoll_1" class="slide level2" data-transition="fade"><h2 data-transition="fade">Andrew Ingersoll &amp; Runaway
+Greenhouse</h2>
+<div class="columns">
+<div class="column" style="padding-top:1em;">
+<h3 id="first-class-he-ever-taught">1967: First class he ever
+taught</h3>
+<ul>
+<li class="fragment">Assigned homework:
+<ul>
+<li>Calculate water vapor feedback</li>
+</ul>
+</li>
+<li class="fragment">Students couldn’t solve problem</li>
+<li class="fragment">Fixed problem so students could solve it</li>
+<li class="fragment">It worked for Earth, but not Venus</li>
+<li class="fragment">Hmmmm …</li>
+<li class="fragment">It would work for Venus if all the oceans boiled dry.</li>
+</ul>
+</div>
+<div class="column">
+<p><img data-src="assets/images/Ingersoll.jpg" style="height:900px;" alt="Andrew Ingersoll"></p>
+</div>
+</div>
+</section><section id="Ingersoll_2" class="slide level2" data-transition="fade"><h2 data-transition="fade">Andrew Ingersoll &amp; Runaway
+Greenhouse</h2>
+<div class="columns">
+<div class="column" style="padding-top:1em;">
+<h3 id="wrote-up-results-for-publication">Wrote up results for
+publication</h3>
+<ul>
+<li class="fragment">Rejected by journal</li>
+<li class="fragment">Submitted to another journal
+<ul>
+<li class="fragment">Rejected again</li>
+</ul>
+</li>
+<li class="fragment">Submitted to a third journal
+<ul>
+<li class="fragment">Accepted</li>
+</ul>
+</li>
+<li class="fragment">Now a classic paper
+<ul>
+<li>Cited more than 200 times</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="column">
+<p><img data-src="assets/images/Ingersoll.jpg" style="height:900px;" alt="Andrew Ingersoll"></p>
+</div>
+</div>
+</section><section id="kombayashi-ingersoll-limit" class="slide level2"><h2>Kombayashi-Ingersoll Limit</h2>
+<ul>
+<li>Outgoing long-wave has to balance incoming sunlight</li>
+<li class="fragment">Brighter sun <span class="math inline">\(\rightarrow\)</span>
+hotter <span class="math inline">\(\rightarrow\)</span> more water
+vapor</li>
+<li class="fragment">Water vapor absorbs outgoing radiation</li>
+<li class="fragment">Absorption <span class="math inline">\(\rightarrow\)</span>
+hotter <span class="math inline">\(\rightarrow\)</span> more vapor</li>
+<li class="fragment">Kombayashi-Ingersoll limit:
+<ul>
+<li>Sunlight below limit, there is a stable equilibrium with liquid
+water</li>
+<li>Sunlight above limit, oceans boil dry</li>
+</ul>
+</li>
+</ul></section></section><section><section id="cloud-feedbacks-sec" class="title-slide slide level1 blacktitle" data-background="assets/images/clouds-001-1024x768.jpg" data-transition="fade" data-background-transition="fade" data-background-size="100% 100%"><h1 class="blacktitle" data-background="assets/images/clouds-001-1024x768.jpg" data-transition="fade" data-background-transition="fade" data-background-size="100% 100%">Cloud Feedbacks</h1>
+
+</section><section id="cloud-feedbacks-1" class="slide level2" data-transition="fade" data-background-transition="fade"><h2 data-transition="fade" data-background-transition="fade">Cloud
+Feedbacks</h2>
+<ul>
+<li>What effect do clouds have on climate?</li>
+<li class="fragment">What effects does climate have on clouds?</li>
+<li class="fragment">Warmer <span class="math inline">\(\rightarrow\)</span> more
+clouds</li>
+<li class="fragment">More clouds:
+<ul>
+<li class="fragment">Higher albedo
+<ul>
+<li>(cools earth: negative feedback)</li>
+</ul>
+</li>
+<li class="fragment">High emissivity: blocks longwave light
+<ul>
+<li>(warms earth: positive feedback)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="fragment">Which effect is bigger?</li>
+</ul></section><section id="cloud-feedbacks-2" class="slide level2 yellowtitle" data-background="assets/images/cirrus.jpg" data-transition="fade" data-background-transition="fade" data-background-size="100% 100%"><h2 class="yellowtitle" data-background="assets/images/cirrus.jpg" data-transition="fade" data-background-transition="fade" data-background-size="100% 100%">Cirrus Clouds (High)</h2>
+</section><section id="cloud-feedbacks-3" class="slide level2 blacktitle" data-background="assets/images/stratus.jpg" data-transition="fade" data-background-transition="fade" data-background-size="100% 100%"><h2 class="blacktitle" data-background="assets/images/stratus.jpg" data-transition="fade" data-background-transition="fade" data-background-size="100% 100%">Stratus Clouds (Low)</h2>
+</section><section id="cloud-feedbacks-4" class="slide level2" data-transition="fade" data-background-transition="fade"><h2 data-transition="fade" data-background-transition="fade">Cloud
+Feedbacks</h2>
+<p><img data-src="assets/images/cloud_feedback_2.png" style="height:900px;" alt="Cloud Feedbacks"></p>
+</section><section id="cloud-feedbacks-5" class="slide level2" data-transition="fade" data-background-transition="fade"><h2 data-transition="fade" data-background-transition="fade">Satellite
+Measurements</h2>
+<h3 id="radiative-forcing-by-clouds">Radiative forcing by clouds</h3>
+<p><img data-src="assets/images/satellite_clouds.jpg" style="height:750px;" alt="Satellite Measurement of radiative forcing by clouds"></p>
+<p>(negative = cooling, positive = warming)</p>
+</section></section><section><section id="indirect-aerosol-sec" class="title-slide slide level1 yellowtitle" data-transition="fade" data-background-transition="fade" data-background="assets/images/pacific_tmo_2009063_crop.jpg" data-background-size="100% 100%"><h1 class="yellowtitle" data-transition="fade" data-background-transition="fade" data-background="assets/images/pacific_tmo_2009063_crop.jpg" data-background-size="100% 100%">Indirect Aerosol Effect</h1>
+
+</section><section id="indirect-aerosol" class="slide level2 ninety" data-transition="fade" data-background-transition="fade"><h2 class="ninety" data-transition="fade" data-background-transition="fade">Indirect Aerosol Effect</h2>
+<ul>
+<li>Aerosol particles <span class="math inline">\(\rightarrow\)</span>
+more, smaller droplets</li>
+<li>Smaller droplets <span class="math inline">\(\rightarrow\)</span>
+greater albedo, longer lifetime</li>
+<li>More droplets <span class="math inline">\(\rightarrow\)</span>
+greater albedo, more absorption</li>
+</ul>
+<p><img data-src="assets/images/houghton3-9.jpg" style="height:730px;" alt="Indirect Aerosol Effect"></p>
+</section><section id="indirect-aerosol-2" class="slide level2"><h2>Indirect Aerosol Effect</h2>
+<p><img data-src="assets/images/indirect_aerosol_ships.jpg" style="height:900px;" alt="Ships and Clouds"></p>
+</section></section><section><section id="feedback-summary-sec" class="title-slide slide level1 center" data-transition="fade-out"><h1 class="center" data-transition="fade-out">Summary of Feedbacks</h1>
+
+</section><section id="feedback-summary" class="slide level2" data-transition="fade-in"><h2 data-transition="fade-in">Summary of Feedbacks</h2>
+<!--
+![Summary of feedbacks](assets/images/feedback_summary.png){style="height:900px;"}
+-->
+<ul>
+<li>Ice-Albedo has been extensively studied:
+<ul>
+<li>It’s known to be moderately positive.</li>
+</ul>
+</li>
+<li class="fragment">Water vapor has been studied:
+<ul>
+<li>It’s known to be strongly positive (factor of 2).</li>
+</ul>
+</li>
+<li class="fragment">There is some uncertainty about clouds:
+<ul>
+<li>Most likely they’re positive,</li>
+<li>Strength is very uncertain</li>
+</ul>
+</li>
+</ul></section><section id="stefan-boltzmann-feedback" class="slide level2"><h2>Stefan-Boltzmann Feedback</h2>
+<ul>
+<li>The biggest feedback in the climate system is the Stefan-Boltzmann
+feedback.</li>
+<li class="fragment">Stefan-Boltzmann equation: <span class="math inline">\(I =
+\varepsilon \sigma T^4\)</span>
+<ul>
+<li class="fragment"><span class="math inline">\(Q = Q_{\text{in}} -
+Q_{\text{out}}\)</span>
+</li>
+<li class="fragment">Higher temperature <span class="math inline">\(\rightarrow\)</span> more heat out to space
+<ul>
+<li>
+<span class="math inline">\(Q_{\text{out}}\)</span> gets larger, so
+<span class="math inline">\(\Delta Q &lt; 0\)</span>
+</li>
+</ul>
+</li>
+<li class="fragment"><span class="math inline">\(\Delta T &gt; 0 \rightarrow \Delta Q
+&lt; 0\)</span>
+</li>
+<li class="fragment"><span class="math inline">\(\displaystyle f = \frac{\Delta
+Q}{\Delta T} &lt; 0\)</span>: negative feedback</li>
+</ul>
+</li>
+<li class="fragment">Creates stable climate</li>
+</ul></section><section id="stability" class="slide level2 ninety"><h2 class="ninety">Stability of the Climate</h2>
+<ul>
+<li>Most feedbacks we’ve discussed are positive:
+<ul>
+<li>Ice-albedo</li>
+<li>Water vapor</li>
+<li>Clouds (mostly)</li>
+</ul>
+</li>
+<li class="fragment">Why don’t these positive feedbacks make the climate unstable?
+<ul>
+<li>(e.g., runaway greenhouse)</li>
+<li class="fragment">They are smaller than the negative Stefan-Boltzmann feedback
+<ul>
+<li>so the total feedback remains negative.</li>
+</ul>
+</li>
+<li class="fragment">Positive feedbacks amplify warming:
+<ul>
+<li>More than we’d get with just Stefan-Boltzmann feedback,</li>
+<li>But they are too small to destabilize the planet.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="fragment">Many scientists worry about a possible “tipping point”:
+<ul>
+<li class="fragment">Is there a temperature threshold where positive feedbacks become
+greater than Stefan-Boltzmann?
+<ul>
+<li>This would destabilize the climate.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></section></section>
+</div>
+  </div>
+  <!--
+  <script src="../../lecture_lib/library/reveal.js-3.8.0/js/reveal.js"></script>
+  <!-- -->
+  <script src="../../lecture_lib/library/reveal.js-3.8.0/js/reveal.min.js"></script><!-- --><script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: false,
+        // Display a presentation progress bar
+        progress: true,
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+        // Display the page number of the current slide
+        showSlideNumber: 'speaker',
+        // Push each slide change to the browser history
+        history: true,
+        //  Enable hashing slide content to URL
+        hash: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
+        // Vertical centering of slides
+        center: false,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Turns fragments on and off globally
+        fragments: true,
+        // Don't separate fragments in PDF rendering
+        pdfSeparateFragments: false,
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1920,
+        height: 1080,
+      
+        // Optional reveal.js plugins
+        dependencies: [
+                    { src: '../../lecture_lib/library/assets/plugin/chalkboard/chalkboard.js', async: true },
+                                        { src: '../../lecture_lib/library/assets/plugin/reveal-skip-fragments/skip-fragments.js', async: true },
+                    { src: '../../lecture_lib/library/reveal.js-3.8.0/plugin/zoom-js/zoom.js', async: true },
+          { src: '../../lecture_lib/library/reveal.js-3.8.0/plugin/notes/notes.js', async: true },
+          { src: '../../lecture_lib/library/reveal.js-3.8.0/plugin/math/math.js', async: true }
+        ],
+        shift_keyboard: {
+    	    67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'C' is pressed
+    	    66: function() { RevealChalkboard.toggleChalkboard() },	  // toggle chalkboard when 'B' is pressed
+    	    88: function() { RevealChalkboard.clear() },	            // clear chalkboard when 'X' is pressed
+    	    82: function() { RevealChalkboard.reset() },	            // reset chalkboard data on current slide when 'R' is pressed
+    	    68: function() { RevealChalkboard.download() },	          // downlad recorded chalkboard drawing when 'D' is pressed
+        },
+              	// Shortcut for showing all fragments
+      	skipFragmentsShowShortcut: 'S',
+
+      	// Shortcut for hiding all fragments
+      	skipFragmentsHideShortcut: 'H',
+      	      });
+    </script><script>
+  	function createSingletonNodejg( container, tagname, classname, innerHTML ) {
+
+		// Find all nodes matching the description
+		var nodes = container.querySelectorAll( '.' + classname );
+
+		// Check all matches to find one which is a direct child of
+		// the specified container
+		for( var i = 0; i < nodes.length; i++ ) {
+			var testNode = nodes[i];
+			if( testNode.parentNode === container ) {
+				return testNode;
+			}
+		}
+
+		// If no node was found, create it now
+		var node = document.createElement( tagname );
+		node.className = classname;
+		if( typeof innerHTML === 'string' ) {
+			node.innerHTML = innerHTML;
+		}
+		container.appendChild( node );
+
+		return node;
+
+	}
+
+  var dom_wrapper = document.querySelector('.reveal');
+  createSingletonNodejg(dom_wrapper, 'div', 'qrbox',
+  '<div class="qrbox" id="qrbox" style="font-size:90%;">' + '\n' +
+  '<div style="font-size:30%;width:100%;">' + '\n' +
+      '<a href="https://ees2110.jgilligan.org/slides/class_11">' +
+  	'<img src="qrcode.png" alt="https://ees2110.jgilligan.org/slides/class_11"/>' +
+  	'</a>' + '\n' +
+	  '</div>' + '\n' +
+  '<div style="font-size:30%;width:100%;vertical-align:top;">' + '\n' +
+    '<span style="display:inline-block;text-align:left;margin-left:0">' + '\n' +
+        'Live web page: <a href="https://ees2110.jgilligan.org/slides/class_11">https://ees2110.jgilligan.org/slides/class_11</a>' + '\n' +
+              '<br/>' + '\n' +
+        'PDF: <a href="https://ees2110.jgilligan.org/slides/class_11/ees_2110_class_11_slides.pdf" target="_blank">https://ees2110.jgilligan.org/slides/class_11/ees_2110_class_11_slides.pdf</a>' + '\n' +
+          	'</span>' + '\n' +
+  	'<span style="display:inline-block;text-align:right;vertical-align:top;position:absolute;right:0;bottom:0;">' + '\n' +
+  	  'Navigate slides: next: N or &lt;space&gt;; previous: P or &lt;backspace&gt;<br/>' + '\n' +
+  	  'Also: up, down, left, right arrows; overview: o; help: ?' + '\n' +
+  	'</span>' + '\n' +
+	'</div>' + '\n' +
+  '</div>' + '\n'
+  );
+</script><script>
+var MathJax = { jax: ["input/TeX", "output/HTML-CSS"],
+                TeX: {extensions: ["color.js", "mhchem.js"],
+                Macros: {
+                  COO: "\\ce{CO2}",
+                  methane: "\\ce{CH4}",
+                  degC: "^\\circ \\mathrm{C}",
+                  degF: "^\\circ \\mathrm{F}",
+                  water: "\\ce{H2O}",
+                  carb: "\\ce{CO3^2-}",
+                  bicarb: "\\ce{HCO3-}",
+                  carbonic: "\\ce{H2CO3}",
+                  Hplus: "\\ce{H+}",
+                  OH: "\\ce{OH-}",
+                  silica: "\\ce{SiO2}",
+                  calcite: "\\ce{CaCO3}",
+                  Caplus: "\\ce{Ca^2+}",
+                  silicate: "\\ce{SiO3^2-}",
+                  CaSi: "\\ce{CaSiO3}",
+                  pH: "p\\ce{H}",
+                  permil: "\\unicode{x2030}",
+                  pCOO: "\\ce{	ext{p}CO2}",
+                  pwater: "\\ce{	ext{p}H2O}"
+                },
+                  },
+                "HTML-CSS" : {scale: 100 }};
+</script><!-- dynamically load mathjax for compatibility with self-contained --><script type="text/x-mathjax-config">
+MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
+    var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
+    VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+	  VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+	  VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+	  VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+	});
+MathJax.Hub.Register.StartupHook("SVG Jax Ready",function () {
+    var VARIANT = MathJax.OutputJax["SVG"].FONTDATA.VARIANT;
+    VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+	  VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+	  VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+	  VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+	});
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+    displayMath: [ ['$$', '$$'], ['\\[', '\\]'] ],
+    processEscapes: true
+  }
+})
+  </script><script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script><script>
+  var qrbox = document.querySelector("#qrbox");
+  var advance_fragment = 0;
+
+	function isPrintingPDF() {
+	  let printing = ( /print-pdf/gi ).test( window.location.search );
+	  console.log("printing test: " + printing);
+	  return printing;
+	}
+
+
+  if ( qrbox.hasAttribute('qr-box-hide') || Reveal.isOverview() ||
+      ! Reveal.isFirstSlide() || isPrintingPDF()) {
+    console.log("Initializing");
+    console.log("Hiding QR box");
+    qrbox.style.visibility="hidden";
+    qrbox.style.display="none";
+  }
+
+  Reveal.addEventListener('overviewshown', function() {
+      console.log("Overview shown");
+    console.log("Hiding QR box");
+    qrbox.style.visibility="hidden";
+    qrbox.style.display="none";
+  }, false);
+
+  Reveal.addEventListener('overviewhidden', function() {
+    if (Reveal.isFirstSlide() && ! qrbox.hasAttribute('qr-box-hide') &&
+        ! isPrintingPDF()) {
+      console.log("Overview hidden");
+      console.log("Showing QR box");
+      qrbox.style.visibility="visible";
+      qrbox.style.display="block";
+    }
+  }, false);
+
+  Reveal.addEventListener('slidechanged', function() {
+    console.log("Slide changed...");
+    if (Reveal.isFirstSlide() && ! Reveal.isOverview() &&
+        ! qrbox.hasAttribute('qr-box-hide') &&
+        ! isPrintingPDF()) {
+      console.log("Showing QR box");
+      qrbox.style.visibility="visible";
+      qrbox.style.display="block";
+    } else {
+      console.log("Hiding QR box");
+      qrbox.style.visibility="hidden";
+      qrbox.style.display="none";
+    }
+  }, false);
+
+  Reveal.addEventListener('pdf-ready', function() {
+    console.log("hiding qrbox for printing");
+    qrbox.style.visibility="hidden";
+    qrbox.style.display="none";
+    qrbox.setAttribute('qr-box-hide', 'true');
+  });
+
+  </script><script>
+  Reveal.addEventListener('slidechanged', function() {
+    while (advance_fragment > 0) {
+      // console.log('advancing fragment');
+      Reveal.nextFragment();
+      advance_fragment--;
+    }
+  }, false);
+
+  Reveal.addEventListener('slidechanged', function() {
+    if ( Reveal.getCurrentSlide().hasAttribute('data-skip')) {
+      // console.log("going to next slide...");
+      Reveal.next();
+    }
+  }, false);
+
+  Reveal.addEventListener('skip_slide', function() {
+    Reveal.next();
+  }, false);
+
+  Reveal.addEventListener('advance_fragment', function() {
+    // console.log("setting advance fragment");
+    advance_fragment++;
+    }, false);
+  </script>
+</body>
+</html>
