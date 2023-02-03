@@ -18,7 +18,8 @@ pdf_url: /files/homework_asgts/homework_01.pdf
 ---
 ## Solutions:
 
-* [Chapter 2--3 Homework Solutions](/homework_solutions/homework_01_answers)
+* [Chapter 2 Homework Answers](/homework_solutions/homework_01_ch_2_answers)
+* [Chapter 3 Homework Answers](/homework_solutions/homework_01_ch_3_answers)
 
 
 

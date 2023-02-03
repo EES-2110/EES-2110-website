@@ -43,8 +43,8 @@ make_layer_diagram = function(n_layers, boundary = TRUE) {
 
   p <- ggplot() +
     geom_rect(data = layers, mapping = aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = class)) +
-    geom_segment(data = visible, mapping = aes(x = x, y = y, xend = xend, yend = yend), arrow = arrow(type = "closed"), size = 1) +
-    geom_segment(data = ir, mapping = aes(x = x, y = y, xend = xend, yend = yend), arrow = arrow(type = "closed"), size = 1, linetype = "dashed") +
+    geom_segment(data = visible, mapping = aes(x = x, y = y, xend = xend, yend = yend), arrow = arrow(type = "closed"), linewidth = 1) +
+    geom_segment(data = ir, mapping = aes(x = x, y = y, xend = xend, yend = yend), arrow = arrow(type = "closed"), linewidth = 1, linetype = "dashed") +
     geom_text(mapping = aes(x = x, y = y, color = class, label = name), data = layers, size = 7, hjust = 0.5, vjust = 0.5)  +
     geom_text(data = ir, mapping = aes(x = xlab, y = ylab, label = name, hjust = just), vjust = 0.5, size = 5, parse = TRUE) +
     annotate("text", x = visible$xlab, y = visible$ylab, label = visible$name, hjust = 0, vjust = 1, size = 5) +
@@ -58,7 +58,7 @@ make_layer_diagram = function(n_layers, boundary = TRUE) {
   if (boundary) {
     boundary_y <- 10 - 0.25 * layer_spacing
     p <- p +
-      geom_hline(yintercept = boundary_y, linetype = "dotted", size = 1) +
+      geom_hline(yintercept = boundary_y, linetype = "dotted", linewidth = 1) +
       annotate("text", x = 10, y =boundary_y + 0.1, hjust = 1, vjust = 0,
                label = "Boundary to space", color = "black", size = 5)
   }
@@ -106,8 +106,8 @@ make_nuclear_winter_diagram = function(boundary = TRUE) {
 
   p <- ggplot() +
     geom_rect(data = layers, mapping = aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = class)) +
-    geom_segment(data = visible, mapping = aes(x = x, y = y, xend = xend, yend = yend), arrow = arrow(type = "closed"), size = 1) +
-    geom_segment(data = ir, mapping = aes(x = x, y = y, xend = xend, yend = yend), arrow = arrow(type = "closed"), size = 1, linetype = "dashed") +
+    geom_segment(data = visible, mapping = aes(x = x, y = y, xend = xend, yend = yend), arrow = arrow(type = "closed"), linewidth = 1) +
+    geom_segment(data = ir, mapping = aes(x = x, y = y, xend = xend, yend = yend), arrow = arrow(type = "closed"), linewidth = 1, linetype = "dashed") +
     geom_text(mapping = aes(x = x, y = y, color = class, label = name), data = layers, size = 7, hjust = 0.5, vjust = 0.5)  +
     geom_text(data = ir, mapping = aes(x = xlab, y = ylab, label = name, hjust = just), vjust = 0.5, size = 5, parse = TRUE) +
     annotate("text", x = visible$xlab, y = visible$ylab, label = visible$name, hjust = 0, vjust = 1, size = 5) +
@@ -121,7 +121,7 @@ make_nuclear_winter_diagram = function(boundary = TRUE) {
   if (boundary) {
     boundary_y <- 10 - 0.25 * layer_spacing
     p <- p +
-      geom_hline(yintercept = boundary_y, linetype = "dotted", size = 1) +
+      geom_hline(yintercept = boundary_y, linetype = "dotted", linewidth = 1) +
       annotate("text", x = 10, y =boundary_y + 0.1, hjust = 1, vjust = 0,
                label = "Boundary to space", color = "black", size = 5)
   }

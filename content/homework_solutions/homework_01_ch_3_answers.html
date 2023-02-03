@@ -1,0 +1,202 @@
+---
+title: Chapter 3 Homework Answers
+hw_number: 1
+pubdate: '2023-02-01'
+date: '2023-01-25'
+pdf_url: /files/homework_solutions/hw_01/homework_01_ch_3_answers.pdf
+slug: homework_01_ch_3_answers
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+    toc: yes
+  pdf_document:
+    toc: yes
+    toc_depth: 3.0
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#chapter-3-layer-models" id="toc-chapter-3-layer-models">Chapter 3: Layer Models</a>
+<ul>
+<li><a href="#exercise-2" id="toc-exercise-2">Exercise 2</a></li>
+<li><a href="#exercise-3.3" id="toc-exercise-3.3">Exercise 3.3</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="chapter-3-layer-models" class="section level1">
+<h1>Chapter 3: Layer Models</h1>
+<p>For these exercises, use the following numbers:</p>
+<ul>
+<li>I<sub>solar</sub> = 1350 W/m<sup>2</sup></li>
+<li><span class="math inline">\(\sigma = 5.67 \times 10^{-8}\)</span></li>
+<li><span class="math inline">\(\alpha = 0.30\)</span></li>
+<li><span class="math inline">\(\varepsilon = 1.0\)</span></li>
+</ul>
+<div id="exercise-2" class="section level2">
+<h2>Exercise 2</h2>
+<blockquote>
+<p><strong>A Two-Layer Model.</strong> Insert another atmospheric layer into the model, just
+like the first one. The layer is transparent to visible light but a blackbody
+for infrared.</p>
+</blockquote>
+<div class="figure">
+<img src="/homework_solutions/homework_01_ch_3_answers_files/figure-html/two_layer_figure-1.png" alt="An energy diagram for a planet with two panes of glass for an atmosphere. The intensity of absorbed visible light is $(1 - \alpha) I_{solar} / 4$." width="672" />
+<p class="caption">
+(#fig:two_layer_figure)An energy diagram for a planet with two panes of glass for an atmosphere. The intensity of absorbed visible light is <span class="math inline">\((1 - \alpha) I_{solar} / 4\)</span>.
+</p>
+</div>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>Write the energy budgets for both atmospheric layers, for the ground, and
+for the Earth as a whole, like we did for the One-Layer Model.</li>
+</ol>
+</blockquote>
+<p><strong>Answer:</strong></p>
+<p>At each layer, calculate the heat in (in the diagram, this is the sum of
+all the intensities with arrows that end at the atmospheric layer) and the
+heat out (the sum of all the intensities that start at the atmospheric
+layer and have arrows pointing away from it).</p>
+<ul>
+<li>Top of the atmosphere:
+<span class="math inline">\(I_{2,\text{up}} = I_{\text{visible}} = (1 - \alpha) I_{\text{solar}} / 4\)</span></li>
+<li>Layer 2:
+<span class="math inline">\(I_{1,\text{up}} = I_{2,\text{up}} + I_{2,\text{down}}\)</span></li>
+<li>Layer 1:
+<span class="math inline">\(I_{\text{ground,up}} + I_{2,\text{down}} = I_{1,\text{up}} + I_{1,\text{down}}\)</span></li>
+<li>Ground:
+<span class="math inline">\(I_{\text{ground,up}} = I_{\text{visible}} + I_{1,\text{down}}\)</span></li>
+</ul>
+<blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Manipulate the budget for the Earth as a whole to obtain the temperature
+T<sub>2</sub> of the top atmospheric layer, labeled Atmospheric Layer 2 in the figure
+above. Does this part of the exercise seem familiar in any way? Does the term
+ring any bells?</li>
+</ol>
+</blockquote>
+<p>Top of the atmosphere:</p>
+<p><span class="math display">\[
+\begin{aligned}
+I_{2,\text{up}} &amp;= I_{\text{visible}} = \frac{(1 - \alpha) I_{\text{solar}}}{4}\\
+I_{2,\text{up}} &amp;= \varepsilon \sigma T_2^4\\
+T_2 &amp;= \sqrt[4]{\frac{I_{2,\text{up}}}{\varepsilon \sigma}} \\
+    &amp;= \sqrt[4]{\frac{(1 - \alpha) I_{\text{solar}}}{4 \varepsilon \sigma}} \\
+    &amp;= T_{\text{bare rock}}
+\end{aligned}
+\]</span></p>
+<p>This is the same as the bare-rock temperature.</p>
+<p><strong>Answer:</strong> The temperature of layer 2 is 254. K,
+which is the same as the bare-rock temperature. In layer models, the top layer
+of the atmosphere is <em>always</em> the bare-rock temperature.</p>
+<blockquote>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Insert the value you found for T<sub>2</sub> into the energy budget for layer 2, and
+solve for the temperature of layer 1 in terms of layer 2. How much bigger is
+T<sub>1</sub> than T<sub>2</sub>?</li>
+</ol>
+</blockquote>
+<p>From the energy budget for Layer 2,
+I<sub>1,up</sub> = I<sub>2,up</sub> + I<sub>2,down</sub>.
+The temperature of the bottom of the layer is the same as the temperature for
+the top of the layer, so I<sub>2,down</sub> = I<sub>2,up</sub></p>
+<p><span class="math display">\[
+\begin{aligned}
+I_{\text{2,down}} &amp;= I_{\text{2,up}} \\
+I_{\text{1,up}} &amp;= I_{\text{2,up}} + I_{\text{2,down}} \\
+&amp;= 2 I_{\text{2,up}} \\
+T_1 &amp;= \sqrt[4]{\frac{I_{\text{1,up}}}{\epsilon \sigma}} \\
+  &amp;= \sqrt[4]{\frac{2 I_{\text{2,up}}}{\epsilon \sigma}} \\
+  &amp;= \sqrt[4]{2} T_2 \\
+  &amp;= \sqrt[4]{2}\; T_{\text{bare rock}} \\
+\end{aligned}
+\]</span></p>
+<p><strong>Answer:</strong> The temperature of layer 1 is 302. K.
+This is the same as the ground temperature in a 1-layer model.</p>
+<blockquote>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Now insert the value you found for T<sub>1</sub> into the budget for atmospheric
+layer 1 to obtain the temperature of the ground, T<sub>ground</sub>. Is the greenhouse
+effect stronger or weaker because of the second layer?</li>
+</ol>
+</blockquote>
+<p>From the energy budget for layer 1,</p>
+<p><span class="math display">\[
+\begin{aligned}
+I_{\text{ground,up}} + I_{\text{2,down}} &amp;= I_{\text{1,up}} + I_{\text{1,down}} \\
+I_{\text{ground,up}} &amp;= I_{\text{1,up}} + I_{\text{1,down}} - I_{\text{2,down}} \\
+\text{we} &amp;\text{ know that} \\
+I_{\text{1,down}} &amp;= I_{\text{1,up}} \\
+&amp;\text{and} \\
+I_{\text{2,down}} &amp;= I_{\text{2,up}} \\
+&amp;\text{so} \\
+I_{\text{ground,up}} &amp;= 2 I_{\text{1,up}} - I_{\text{2,up}} \\
+\text{we} &amp;\text{ also know that} \\
+I_{\text{1,up}} &amp;= 2 I_{\text{2,up}} \\
+&amp;\text{so} \\
+I_{\text{ground,up}} &amp;= 4 I_{\text{2,up}} - I_{\text{2,up}} \\
+&amp;= 3 I_{\text{2,up}}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+T_{\text{ground}} &amp;=
+  \sqrt[4]{\frac{I_{\text{ground,up}}}{\varepsilon \sigma}} \\
+&amp;= \sqrt[4]{\frac{3 I_{\text{2,up}}}{\varepsilon \sigma}} \\
+  &amp;= \sqrt[4]{3}\; T_2 \\
+  &amp;= \sqrt[4]{3}\; T_{\text{bare rock}}
+\end{aligned}
+\]</span></p>
+<p><strong>Answer:</strong> T<sub>ground</sub> = 334. K = <span class="math inline">\(\displaystyle\sqrt[4]{3 T_{\text{bare rock}}}\)</span></p>
+<p>In a 1-layer model, the ground temperature was <span class="math inline">\(\sqrt[4]{2}\)</span> times the bare-rock
+temperature, and in a 2-layer model, the ground temperature is <span class="math inline">\(\sqrt[4]{3}\)</span> times
+the bare-rock temperature.</p>
+</div>
+<div id="exercise-3.3" class="section level2">
+<h2>Exercise 3.3</h2>
+<div class="figure">
+<img src="/homework_solutions/homework_01_ch_3_answers_files/figure-html/nuclear_winter_diagram-1.png" alt="An energy diagram for a planet with an opaque pane of glass for an atmosphere. The intensity of absorbed visible light is $(1 - \alpha) I_{solar} / 4$." width="672" />
+<p class="caption">
+(#fig:nuclear_winter_diagram)An energy diagram for a planet with an opaque pane of glass for an atmosphere. The intensity of absorbed visible light is <span class="math inline">\((1 - \alpha) I_{solar} / 4\)</span>.
+</p>
+</div>
+<blockquote>
+<p><strong>Nuclear Winter.</strong> Let us go back to the One-Layer Model but change it so
+that the atmospheric layer absorbs visible light rather than allowing it to
+pass through (See the figure above). This could happen if the upper atmosphere
+were filled with dust. For simplicity, assume that the albedo of the Earth
+remains the same, even though in the real world it might change with a dusty
+atmosphere.&gt; What is the temperature of the ground in this case?</p>
+</blockquote>
+<p><strong>Answer:</strong>
+Here, the key difference is that the heat from the sun is absorbed by the
+atmosphere instead of passing through the atmosphere to the ground.</p>
+<p>The equation for the atmosphere is the same as in the 1-layer model because
+we use the energy balance at the boundary to space:</p>
+<p><span class="math display">\[I_{\text{atm, up}} = I_{\text{visible}} = \frac{(1 - \alpha) I_{\text{solar}}}{4}\]</span></p>
+<p>and the temperature of the atmosphere is the bare-rock temperature, just as
+the top layer of the atmosphere is for every layer model.</p>
+<p>However, things are different at the ground. The energy balance at the
+dusty atmosphere is</p>
+<p><span class="math display">\[
+\begin{aligned}
+I_{\text{visible}} + I_{\text{ground,up}} &amp;= I_{\text{atm,up}} + I_{\text{atm,down}} \\
+I_{\text{ground,up}} &amp;= I_{\text{atm,up}} + I_{\text{atm,down}} - I_{\text{visible}} \\
+&amp; \text{But} \\
+I_{\text{atm,up}} &amp;= I_{\text{atm,down}} = I_{\text{visible}}. \\
+&amp; \text{So} \\
+I_{\text{ground,up}} &amp;= I_{\text{atm,up}}. \\
+\text{This} &amp; \text{ means that} \\
+T_{\text{ground}} &amp;= T_{\text{atmosphere}} = T_{\text{bare-rock}}
+\end{aligned}
+\]</span></p>
+<p>T_ground = 254. K. This is the same as the
+bare-rock temperature.</p>
+<p>The effect of the dust in the atmosphere is to cancel out the greenhouse effect
+and cool off the surface to the bare-rock temperature.
+The greenhouse effect works because the atmosphere is transparent to shortwave
+light and opaque to longwave light. If the atmosphere becomes opaque to
+shortwave light, then the greenhouse effect doesn’t work.</p>
+</div>
+</div>
