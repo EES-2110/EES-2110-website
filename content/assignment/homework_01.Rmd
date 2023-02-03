@@ -16,6 +16,12 @@ output:
     toc_depth: 3
 pdf_url: /files/homework_asgts/homework_01.pdf
 ---
+## Solutions:
+
+* [Chapter 2--3 Homework Solutions](/homework_solutions/homework_01_answers)
+
+
+
 ## Homework
 
 ### Homework Exercises:

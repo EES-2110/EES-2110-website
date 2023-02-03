@@ -1,9 +1,6 @@
 ---
-title: Chapter 2--3 Homework Solutions
 hw_number: 1
-pubdate: '2023-02-01'
-pdf_url: /files/homework_solutions/hw_01/homework_01_answers.pdf
-slug: homework_01_answers
+slug: homework_01_
 output:
   blogdown::html_page:
     md_extensions: +tex_math_single_backslash+compact_definition_lists
