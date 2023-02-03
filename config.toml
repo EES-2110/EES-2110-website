@@ -183,7 +183,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "_scripts$", "_
     licenseTitle = "Creative Commons Attribution License"
 
   [params.mathjax]
-    extensions = [ "color.js", "mhchem.js" ]
+    extensions = [ "color.js", "mhchem.js", "cancel.js" ]
     sansserif = false
 
     [[params.mathjax.macros]]
