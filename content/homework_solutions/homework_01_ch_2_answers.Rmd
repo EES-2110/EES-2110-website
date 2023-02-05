@@ -35,7 +35,6 @@ alpha = 0.30
 sigma = 5.67E-8
 I_solar = 1350
 ```
-
 # Chapter 2: Exercises on Units, Energy, and Power
 
 ## Exercise 1
@@ -60,6 +59,7 @@ bulb_coal = bulb_energy / (coal_efficiency * joules_per_kg_coal)
 
 A 100 W light bulb burns 100 Joules per second. There are 3600 seconds in an 
 hour and 24 hours in a day, so the light bulb will consume 
+
 $$
 \begin{aligned}
 `r bulb_power`~\text{Watt} \times 1~\text{day} &=
@@ -460,7 +460,7 @@ This is about `r ceiling(mead_solar / hoover_power_watts)` times more than the d
 > It takes approximately 2.0 &times; 10^9^ J of energy 
 > to manufacture 1 m^2^ of crystalline-silicon photovoltaic cell.
 > An average of 250 W/m^2^ falls on the Earth. 
-> Assume that the solar cell is 18% efficient (that is, it converts 18% of
+> Assume that the solar cell is 12% efficient (that is, it converts 12% of
 > the energy from sunlight into electricity). 
 > Calculate how long it would take for the solar cell to repay the 
 > energy it took to manufacture it.
@@ -468,7 +468,7 @@ This is about `r ceiling(mead_solar / hoover_power_watts)` times more than the d
 ```{r ex_5}
 joule_per_sq_m_pv = 2E9
 i_sun = 250
-efficiency = 0.18
+efficiency = 0.12
 pv_power_watts = i_sun * efficiency
 pv_payback_sec = joule_per_sq_m_pv / pv_power_watts
 pv_payback_days = pv_payback_sec / seconds_per_day
@@ -476,7 +476,34 @@ days_per_year = 365
 pv_payback_years = pv_payback_days / days_per_year
 ```
 
-**Answer:** It takes 
+**Answer:** 
+A photovoltaic cell with an area of 1 square meter would receive an average of
+`r i_sun` W of sunlight, and at an efficiency of 
+`r scales::label_percent(1)(efficiency)` it would produce
+$`r i_sun` \times `r format_md(efficiency, digits = 2)` = `r format_md(pv_power_watts, digits = 0)`$ 
+Watts of electricity.
+
+To pay back the
+`r format_md(joule_per_sq_m_pv, digits = 1, comma = TRUE, format = "auto")` 
+Joules it took to manufacture the photovoltaic cell would require
+
+$$
+\begin{aligned}
+\frac{`r format_md(joule_per_sq_m_pv, digits = 1, comma = TRUE, format = "auto", output_format = "bare-latex")`~\text{Joules}}
+{`r format_md(pv_power_watts, digits = 1, comma = TRUE, format = "auto", output_format = "bare-latex")`~\text{Watts}}
+&= 
+\frac{`r format_md(joule_per_sq_m_pv, digits = 1, comma = TRUE, format = "auto", output_format = "bare-latex")`~\cancel{\text{Joules}}}
+{`r format_md(pv_power_watts, digits = 1, comma = TRUE, format = "auto", output_format = "bare-latex")`~\cancel{\text{Joules}}/\text{second}} \\
+&=
+`r format_md(pv_payback_sec, digits = 1, format = "auto", comma=TRUE, output_format = "bare-latex")`~\text{seconds} \\
+&=
+`r format_md(pv_payback_days, digits = 1, format = "auto", comma=TRUE, output_format = "bare-latex")`~\text{days} \\
+&=
+`r format_md(pv_payback_years, digits = 1, format = "auto", comma=TRUE, output_format = "bare-latex")`~\text{years} \\
+\end{aligned}
+$$
+
+It takes 
 `r format_md(pv_payback_sec, digits = 1, format = "scientific")` seconds,
 or `r format_md(pv_payback_days, digits = 1)` days, or 
 `r format_md(pv_payback_years, digits = 2)` years.
@@ -556,17 +583,19 @@ $$
 
 ### Part 7(c)
 
-> FM radio operates at a frequency of about 100 MHz. 
+> FM radio operates at a frequency of about 40 kHz. 
 > What is its wavelength?
 
-Again, we use the equation from page 10, noting that 1 MHz is one million 
+Again, we use the equation from page 10, noting that kHz is 1,000
 cycles per second:
+
 $$
 \begin{aligned}
 \lambda \left[ \frac{\text{cm}}{\text{cycle}} \right] &=
   \frac{c \left[ \frac{\text{cm}}{\text{second}} \right]}{
   \nu \left[ \frac{\text{cycles}}{\text{second}} \right]} \\
-&= \frac{3\times10^{10} \text{cm}/\cancel{\text{second}}}{100 \times 10^6~\left[\frac{\text{cycles}}{\cancel{\text{second}}} \right]} \\
-&= `r format_md(3E10 / 100E6, digits = 2, comma=TRUE, format="auto", output_format="bare-latex")`~\text{cm}
+&= \frac{3\times10^{10} \text{cm}/\cancel{\text{second}}}{4.0 \times 10^4~\left[\frac{\text{cycles}}{\cancel{\text{second}}} \right]} \\
+&= `r format_md(3E10 / 4E4, digits = 2, comma=TRUE, format="auto", output_format="bare-latex")`~\text{cm} \\
+&= `r format_md(3E10 / 4E4 * 1E-2, digits = 2, comma=TRUE, format="auto", output_format="bare-latex")`~\text{meters}
 \end{aligned}
 $$
