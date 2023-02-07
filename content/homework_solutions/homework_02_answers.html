@@ -1,0 +1,223 @@
+---
+title: Chapter 4 Homework Answers
+hw_number: 2
+pubdate: '2023-02-06'
+date: '2023-02-01'
+pdf_url: /files/homework_solutions/hw_02/homework_02_answers.pdf
+slug: homework_02_answers
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+    toc: yes
+  pdf_document:
+    toc: yes
+    toc_depth: 3.0
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#chapter-4-longwave-radiation-spectrum" id="toc-chapter-4-longwave-radiation-spectrum">Chapter 4: Longwave Radiation Spectrum</a>
+<ul>
+<li><a href="#exercise-4.1-methane" id="toc-exercise-4.1-methane">Exercise 4.1: Methane</a>
+<ul>
+<li><a href="#part-a" id="toc-part-a">Part (a)</a></li>
+<li><a href="#part-b" id="toc-part-b">Part (b)</a></li>
+<li><a href="#part-c" id="toc-part-c">Part (c)</a></li>
+<li><a href="#part-d" id="toc-part-d">Part (d)</a></li>
+</ul></li>
+<li><a href="#exercise-4.3-water-vapor" id="toc-exercise-4.3-water-vapor">Exercise 4.3: Water vapor</a>
+<ul>
+<li><a href="#part-a-1" id="toc-part-a-1">Part (a)</a></li>
+<li><a href="#part-b-1" id="toc-part-b-1">Part (b)</a></li>
+<li><a href="#part-c-1" id="toc-part-c-1">Part (c)</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="chapter-4-longwave-radiation-spectrum" class="section level1">
+<h1>Chapter 4: Longwave Radiation Spectrum</h1>
+<div id="exercise-4.1-methane" class="section level2">
+<h2>Exercise 4.1: Methane</h2>
+<blockquote>
+<p>Methane has a current concentration of 1.7 ppm in the atmosphere and
+is doubling at a faster rate than CO<sub>2</sub>.</p>
+</blockquote>
+<div id="part-a" class="section level3">
+<h3>Part (a)</h3>
+<blockquote>
+<p><strong>Would an additional 10 ppm of methane in the atmosphere have a larger or
+smaller impact on the outgoing IR flux than an additional 10 ppm of CO<sub>2</sub>
+at current concentrations?</strong></p>
+</blockquote>
+<p><strong>Answer:</strong>
+I ran MODTRAN three times.</p>
+<ul>
+<li>One run was a baseline, which used the current concentrations of CO<sub>2</sub> and
+CH<sub>4</sub>.</li>
+<li>Then I ran MODTRAN with the CO<sub>2</sub> concentration increased by 10 ppm.</li>
+<li>Finally, I ran it a third time with the baseline value for CO<sub>2</sub>, but with
+CH<sub>4</sub> increased by 10 ppm.</li>
+</ul>
+<p>For the baseline run, the intensity of outgoing longwave light
+was 299. Watts per square meter.
+Increasing CO<sub>2</sub> by 10 ppm decreased the outgoing longwave light by
+0.1 W/m<sup>2</sup>, to
+298.
+and increasing CH<sub>4</sub> by
+10 ppm decreased the outgoing longwave light by
+3.1 W/m<sup>2</sup> to
+296..
+The change in I<sub>out</sub> for methane is is around
+25. times as much as for CO<sub>2</sub>.</p>
+<p>The difference is because absorption for CO<sub>2</sub> is strongly saturated, but the
+absorption for CH<sub>4</sub> is not saturated. Another way to think about this is that
+a 10 ppm increase in CO<sub>2</sub> increases the amount of CO<sub>2</sub> by
+2.% and a 10 ppm increase in
+CH<sub>4</sub> increases the amount of CH<sub>4</sub> by
+590.%.</p>
+</div>
+<div id="part-b" class="section level3">
+<h3>Part (b)</h3>
+<blockquote>
+<p><strong>Where in the spectrum does methane absorb? What concentration does it
+take to begin to saturate the absorption in this band? Explain what you are
+looking at to judge when the gas is saturated.</strong></p>
+</blockquote>
+<p><strong>Answer:</strong>
+The plots below show the MODTRAN spectrum with all gases set to zero except
+methane. Methane absorbs most strongly around 1300 wavenumbers.</p>
+<p><img src="/homework_solutions/homework_02_answers_files/figure-html/ex_4_1_b-1.png" width="480" /><img src="/homework_solutions/homework_02_answers_files/figure-html/ex_4_1_b-2.png" width="480" /><img src="/homework_solutions/homework_02_answers_files/figure-html/ex_4_1_b-3.png" width="480" /><img src="/homework_solutions/homework_02_answers_files/figure-html/ex_4_1_b-4.png" width="480" /><img src="/homework_solutions/homework_02_answers_files/figure-html/ex_4_1_b-5.png" width="480" /><img src="/homework_solutions/homework_02_answers_files/figure-html/ex_4_1_b-6.png" width="480" /><img src="/homework_solutions/homework_02_answers_files/figure-html/ex_4_1_b-7.png" width="480" /><img src="/homework_solutions/homework_02_answers_files/figure-html/ex_4_1_b-8.png" width="480" /><img src="/homework_solutions/homework_02_answers_files/figure-html/ex_4_1_b-9.png" width="480" /></p>
+<p>As we increase the methane concentration, the big spike around 1300 wavenumbers
+gets bigger until it bottoms out on the purple line. This happens somewhere
+around 8, 16, or 32 ppm, so any of those anwers would be correct. But the
+spectrum is complicated and so is its saturation, so other answers are plausible
+if they are supported by sound reasoning.</p>
+</div>
+<div id="part-c" class="section level3">
+<h3>Part (c)</h3>
+<blockquote>
+<p><strong>Would a doubling of methane have as great an impact on the heat balance as
+a doubling of CO<sub>2</sub>?</strong></p>
+</blockquote>
+<p><strong>Answer:</strong>
+The baseline value for I<sub>out</sub> is
+299. W/m<sup>2</sup>.
+If we double CO<sub>2</sub>, it drops to
+295. W/m<sup>2</sup>, a decrease of
+3. W/m<sup>2</sup>,
+and if we double CH<sub>4</sub>, it drops to
+298. W/m<sup>2</sup>, a decrease of
+0.9 W/m<sup>2</sup>.
+Doubling CO<sub>2</sub> has the larger effect because there is a lot more CO<sub>2</sub> in the
+atmosphere and that is more important than how saturated its absorption is.</p>
+<p>You can see this if you look at the plots below. Notice that the effect of
+doubling CO<sub>2</sub> isn’t to make the big CO<sub>2</sub> absorption feature get deeper, but
+to make it wider. You can see this if you compare the baseline to the doubled
+CO<sub>2</sub> spectrum where the spectrum crosses the 240 K blackbody curve
+near 600 cm<sup>-1</sup> and around 750 cm<sup>-1</sup>. Compare this to the very
+small change in the methane spike near 1300 cm<sup>-1</sup> (you have to look
+very carefully at the doubled methane spectrum to notice this).</p>
+<p><img src="/homework_solutions/homework_02_answers_files/figure-html/ex_4_1_c_baseline_spectrum-1.png" width="672" />
+<img src="/homework_solutions/homework_02_answers_files/figure-html/ex_4_1_c_double_co2_spectrum-1.png" width="672" />
+<img src="/homework_solutions/homework_02_answers_files/figure-html/ex_4_1_c_double_ch4_spectrum-1.png" width="672" /></p>
+</div>
+<div id="part-d" class="section level3">
+<h3>Part (d)</h3>
+<blockquote>
+<p><strong>What is the “equivalent CO<sub>2</sub>” of doubling atmospheric methane? That is to
+say, how many ppm of CO<sub>2</sub> would lead to the same change in outgoing IR
+radiation energy flux as doubling methane? What is the ratio of ppm CO<sub>2</sub>
+change to ppm methane change?</strong></p>
+</blockquote>
+<p><strong>Answer:</strong>
+When we double CO<sub>2</sub>, I<sub>out</sub> is
+295.3 W/m<sup>2</sup>.
+We need to adjust CH<sub>4</sub> to produce the same I<sub>out</sub> with the defailt value of
+400 ppm CO<sub>2</sub>. After some trial and error, this turns out to be about
+13 ppm,
+which has I<sub>out</sub> = 295.3.
+The ratio of <span class="math inline">\(\Delta\COO\)</span> to <span class="math inline">\(\Delta\methane\)</span> is
+<span class="math inline">\(400 / 13 = 31.\)</span></p>
+</div>
+</div>
+<div id="exercise-4.3-water-vapor" class="section level2">
+<h2>Exercise 4.3: Water vapor</h2>
+<blockquote>
+<p>Our theory of climate presumes that an increase in the temperature at ground
+level will lead to an increase in the outgoing IR energy flux at the top of
+the atmosphere.</p>
+</blockquote>
+<div id="part-a-1" class="section level3">
+<h3>Part (a)</h3>
+<blockquote>
+<p><strong>How much extra outgoing IR would you get by raising the temperature of the
+ground by 5°C? What effect does the ground temperature have on the
+shape of the outgoing IR spectrum and why?</strong></p>
+</blockquote>
+<p><img src="/homework_solutions/homework_02_answers_files/figure-html/ex_4_3_a-1.png" width="672" /><img src="/homework_solutions/homework_02_answers_files/figure-html/ex_4_3_a-2.png" width="672" /></p>
+<p><strong>Answer:</strong>
+Raising the ground temperature raises the entire spectrum.</p>
+</div>
+<div id="part-b-1" class="section level3">
+<h3>Part (b)</h3>
+<blockquote>
+<p><strong>More water can evaporate into warm air than into cool air. Change the
+model settings to hold the water vapor at constant relative humidity
+rather than constant vapor pressure (the default), calculate the change
+in outgoing IR energy flux for a 5°C temperature increase.
+Is it higher or lower? Does water vapor make the Earth more sensitive to
+CO<sub>2</sub> increases or less sensitive?</strong></p>
+</blockquote>
+<p><img src="/homework_solutions/homework_02_answers_files/figure-html/ex_4_3_b-1.png" width="672" /><img src="/homework_solutions/homework_02_answers_files/figure-html/ex_4_3_b-2.png" width="672" /></p>
+<p><strong>Answer:</strong>
+Raising the surface temperature has a bigger effect on I<sub>out</sub> when
+water vapor pressure is fixed than when relative humidity is fixed. This means
+that compensating for a change in CO<sub>2</sub> would require a bigger change in
+temperature with fixed relative humidity, so the climate is more sensitive to
+changes in CO<sub>2</sub> when relative humidity is fixed.</p>
+</div>
+<div id="part-c-1" class="section level3">
+<h3>Part (c)</h3>
+<blockquote>
+<p><strong>Now see this effect in another way.</strong></p>
+<ul>
+<li><p><strong>Starting from the default base case, record the total outgoing
+IR flux.</strong></p></li>
+<li><p><strong>Now double CO<sub>2</sub>. The temperature in the model stays the
+same (that’s how the model is written), but the outgoing IR flux
+goes down.</strong></p></li>
+<li><p><strong>Using constant water vapor pressure, adjust the temperature offset
+until you get the original IR flux back again. Record the change in
+temperature.</strong></p></li>
+<li><p><strong>Now repeat the exercise, but holding the relative humidity fixed
+instead of the water vapor pressure.</strong></p></li>
+<li><p><strong>The ratio of the warming when you hold relative humidity fixed
+to the warming when you hold water vapor pressure fixed is the
+feedback factor for water vapor. What is it?</strong></p></li>
+</ul>
+</blockquote>
+<p><strong>Answer:</strong>
+In the baseline case,
+I<sub>out</sub> = 298.7 W/m<sup>2</sup>.
+When we double CO<sub>2</sub> with constant water vapor pressure, I<sub>out</sub> drops to
+295.3 W/m<sup>2</sup>
+and we have to raise the ground temperature by
+0.76 K
+to bring I<sub>out</sub> back to
+298.7 W/m<sup>2</sup>.</p>
+<p>When we double CO<sub>2</sub> with constant water relative humidity, I<sub>out</sub> drops to
+295.3 W/m<sup>2</sup>
+and we have to raise the ground temperature by
+1.2 K
+to bring I<sub>out</sub> back to
+298.7 W/m<sup>2</sup>.</p>
+<p>The feedback factor is the ratio of the temperature change with relative
+humidity fixes to the temperature change with vapor pressure fixed:
+<span class="math inline">\(f = 1.2~\text{K} / 0.76~\text{K} = 1.6\)</span>.</p>
+<p>Notice that there is no difference between holding vapor pressure constant and
+holding relative humidity constant until the temperature changes.</p>
+</div>
+</div>
+</div>

@@ -1,0 +1,427 @@
+---
+title: Chapter 4 Homework Answers
+hw_number: 2
+pubdate: '2023-02-06'
+date: '2023-02-01'
+pdf_url: /files/homework_solutions/hw_02/homework_02_answers.pdf
+slug: homework_02_answers
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+    toc: yes
+  pdf_document:
+    toc: yes
+    toc_depth: 3.0
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
+
+library(tidyverse)
+library(lubridate)
+
+data_dir = "_data"
+script_dir = "_scripts"
+
+# Create a data directory if one does not exist.
+if (!dir.exists(data_dir)) dir.create(data_dir)
+if (!dir.exists(file.path(data_dir, "ch_04")))
+    dir.create(file.path(data_dir, "ch_04"))
+
+source(file.path(script_dir, 'utils.R'), chdir = T)
+source(file.path(script_dir, 'format_md.R'), chdir = T)
+source(file.path(script_dir, 'modtran.R'), chdir = T)
+
+epsilon = 1
+alpha = 0.30
+sigma = 5.67E-8
+I_solar = 1350
+```
+
+# Chapter 4: Longwave Radiation Spectrum
+
+## Exercise 4.1: Methane
+
+> Methane has a current concentration of 1.7 ppm in the atmosphere and
+> is doubling at a faster rate than CO~2~.
+
+### Part (a)
+
+> **Would an additional 10 ppm of methane in the atmosphere have a larger or
+> smaller impact on the outgoing IR flux than an additional 10 ppm of CO~2~
+> at current concentrations?**
+
+```{r ex_4_1_a, include=TRUE, message=FALSE, warning=FALSE}
+base_co2 = 400 # parts per million
+base_ch4 = 1.7 # parts per million
+
+baseline_file <- file.path(data_dir, "ch_04", "ex_4_1_baseline.txt")
+if (file.exists(baseline_file)) {
+  modtran_baseline = read_modtran(baseline_file)
+} else {
+  modtran_baseline = run_modtran(baseline_file,
+                                 co2_ppm = base_co2,
+                                 ch4_ppm = base_ch4)
+}
+
+co2_file <- file.path(data_dir, "ch_04", "ex_4_1_plus_10_co2.txt")
+if (file.exists(co2_file)) {
+  modtran_plus_10_co2 = read_modtran(co2_file)
+} else {
+  modtran_plus_10_co2 = run_modtran(co2_file,
+                                    co2_ppm = base_co2 + 10,
+                                    ch4_ppm = base_ch4)
+}
+
+ch4_file <- file.path(data_dir, "ch_04", "ex_4_1_plus_10_ch4.txt")
+if (file.exists(ch4_file)) {
+  modtran_plus_10_ch4 = read_modtran(ch4_file)
+} else {
+  modtran_plus_10_ch4 = run_modtran(ch4_file,
+                                    co2_ppm = base_co2,
+                                    ch4_ppm = base_ch4 + 10)
+}
+
+i_out_baseline = modtran_baseline$i_out
+i_out_co2 = modtran_plus_10_co2$i_out
+i_out_ch4 = modtran_plus_10_ch4$i_out
+delta_i_co2 = i_out_co2 - i_out_baseline
+delta_i_ch4 = i_out_ch4 - i_out_baseline
+```
+
+**Answer:**
+I ran MODTRAN three times.
+
+* One run was a baseline, which used the current concentrations of CO~2~ and
+  CH~4~.
+* Then I ran MODTRAN with the CO~2~ concentration increased by 10 ppm.
+* Finally, I ran it a third time with the baseline value for CO~2~, but with
+  CH~4~ increased by 10 ppm.
+
+For the baseline run, the intensity of outgoing longwave light
+was `r format_md(i_out_baseline, digits = 3)` Watts per square meter.
+Increasing CO~2~ by 10 ppm decreased the outgoing longwave light by
+`r format_md(-delta_i_co2, digits = 1)` W/m^2^, to
+`r format_md(i_out_co2, digits = 3)`
+and increasing CH~4~ by
+10 ppm decreased the outgoing longwave light by
+`r format_md(-delta_i_ch4, digits = 2)` W/m^2^ to
+`r format_md(i_out_ch4, digits = 3)`.
+The change in I~out~ for methane is is around
+`r format_md(delta_i_ch4 / delta_i_co2, digits = 1)` times as much as for CO~2~.
+
+The difference is because absorption for CO~2~ is strongly saturated, but the
+absorption for CH~4~ is not saturated. Another way to think about this is that
+a 10 ppm increase in CO~2~ increases the amount of CO~2~ by
+`r format_md(100 * 10 / base_co2, digits = 1)`% and a 10 ppm increase in
+CH~4~ increases the amount of CH~4~ by
+`r format_md(100 * 10 / base_ch4, digits = 1)`%.
+
+### Part (b)
+
+> **Where in the spectrum does methane absorb? What concentration does it
+> take to begin to saturate the absorption in this band? Explain what you are
+> looking at to judge when the gas is saturated.**
+
+**Answer:**
+The plots below show the MODTRAN spectrum with all gases set to zero except
+methane. Methane absorbs most strongly around 1300 wavenumbers.
+
+
+```{r ex_4_1_b, include=TRUE, message=FALSE, fig.height=4, fig.width=5}
+ch4_values = c(0, 2^seq(0,7))
+sat_data = tibble()
+for (ch4 in ch4_values) {
+   filename = file.path(data_dir, "ch_04", str_c("ex_4_1_ch4_", ch4, ".txt"))
+   if (file.exists(filename)) {
+      mod_data = read_modtran(filename)
+   } else {
+      mod_data = run_modtran(filename, co2_ppm = 0, ch4_ppm = ch4,
+                             trop_o3_ppb = 0, strat_o3_scale = 0,
+                             h2o_scale = 0, freon_scale = 0,
+                             atmosphere = "standard", altitude_km = 70)
+   }
+   p = plot_modtran(mod_data, descr = str_c(ch4, " ppm methane"))
+   plot(p)
+}
+```
+
+
+As we increase the methane concentration, the big spike around 1300 wavenumbers
+gets bigger until it bottoms out on the purple line. This happens somewhere
+around 8, 16, or 32 ppm, so any of those anwers would be correct. But the
+spectrum is complicated and so is its saturation, so other answers are plausible
+if they are supported by sound reasoning.
+
+### Part (c)
+
+> **Would a doubling of methane have as great an impact on the heat balance as
+> a doubling of CO~2~?**
+
+```{r ex_4_1_c, include=TRUE, message=FALSE}
+base_co2_ppm = 400
+base_methane_ppm = 1.7
+
+baseline =   read_modtran(file.path(data_dir, "ch_04", "ex_4_1_baseline.txt"))
+
+double_co2_file <- file.path(data_dir, "ch_04", "ex_4_1_2x_co2.txt")
+if (file.exists(double_co2_file)) {
+  double_co2 = read_modtran(double_co2_file)
+} else {
+  double_co2 = run_modtran(double_co2_file,
+                           co2_ppm = 2 * base_co2_ppm,
+                           ch4_ppm = base_methane_ppm)
+}
+
+double_ch4_file <- file.path(data_dir, "ch_04", "ex_4_1_2x_ch4.txt")
+if (file.exists(double_ch4_file)) {
+  double_ch4 = read_modtran(double_ch4_file)
+} else {
+  double_ch4 = run_modtran(double_ch4_file,
+                           co2_ppm = base_co2_ppm,
+                           ch4_ppm = 2 * base_methane_ppm)
+}
+
+i_out_baseline = baseline$i_out
+i_out_co2 = double_co2$i_out
+i_out_ch4 = double_ch4$i_out
+
+delta_i_out_co2 = i_out_co2 - i_out_baseline
+delta_i_out_ch4 = i_out_ch4 - i_out_baseline
+```
+
+**Answer:**
+The baseline value for I~out~ is
+`r format_md(i_out_baseline, digits = 3)` W/m^2^.
+If we double CO~2~, it drops to
+`r format_md(i_out_co2, digits = 3)` W/m^2^, a decrease of
+`r format_md(abs(delta_i_out_co2), digits = 1)` W/m^2^,
+and if we double CH~4~, it drops to
+`r format_md(i_out_ch4, digits = 3)` W/m^2^, a decrease of
+`r format_md(abs(delta_i_out_ch4), digits = 1)` W/m^2^.
+Doubling CO~2~ has the larger effect because there is a lot more CO~2~ in the
+atmosphere and that is more important than how saturated its absorption is.
+
+You can see this if you look at the plots below. Notice that the effect of
+doubling CO~2~ isn't to make the big CO~2~ absorption feature get deeper, but
+to make it wider. You can see this if you compare the baseline to the doubled
+CO~2~ spectrum where the spectrum crosses the 240 K blackbody curve
+near 600 cm^-1^ and around 750 cm^-1^.  Compare this to the very
+small change in the methane spike near 1300 cm^-1^ (you have to look
+very carefully at the doubled methane spectrum to notice this).
+
+```{r ex_4_1_c_baseline_spectrum}
+plot_modtran(baseline, descr = "Baseline spectrum")
+```
+```{r ex_4_1_c_double_co2_spectrum}
+plot_modtran(double_co2, descr = "Doubled CO2")
+```
+```{r ex_4_1_c_double_ch4_spectrum}
+plot_modtran(double_ch4, descr = "Doubled CH4")
+```
+
+### Part (d)
+
+> **What is the "equivalent CO~2~" of doubling atmospheric methane? That is to
+> say, how many ppm of CO~2~ would lead to the same change in outgoing IR
+> radiation energy flux as doubling methane? What is the ratio of ppm CO~2~
+> change to ppm methane change?**
+
+```{r ex_4_1_d, include=TRUE, message=FALSE}
+matching_methane = 13
+
+ch4_match_file <- file.path(data_dir, "ch_04", "ex_4_1_ch4_match.txt")
+modtran_match_ch4 = run_modtran(ch4_match_file, co2_ppm = 400,
+                                ch4_ppm = matching_methane)
+```
+
+**Answer:**
+When we double CO~2~, I~out~ is
+`r format_md(i_out_co2, digits = 4)` W/m^2^.
+We need to adjust CH~4~ to produce the same I~out~ with the defailt value of
+400 ppm CO~2~. After some trial and error, this turns out to be about
+`r format(matching_methane, digits = 1)` ppm,
+which has I~out~ = `r format_md(modtran_match_ch4$i_out, digits = 4)`.
+The ratio of $\Delta\COO$ to $\Delta\methane$ is
+$400 / 13 = `r format_md(400 / 13, digits = 2, output_format="bare-latex")`$
+
+
+## Exercise 4.3: Water vapor
+
+> Our theory of climate presumes that an increase in the temperature at ground
+> level will lead to an increase in the outgoing IR energy flux at the top of
+> the atmosphere.
+
+### Part (a)
+
+> **How much extra outgoing IR would you get by raising the temperature of the
+> ground by 5&deg;C? What effect does the ground temperature have on the
+> shape of the outgoing IR spectrum and why?**
+
+```{r ex_4_3_a, include=TRUE, message=FALSE}
+
+modtran_baseline_file <- file.path(data_dir, "ch_04", "ex_4_3_baseline.txt")
+if (file.exists(modtran_baseline_file)) {
+  modtran_baseline = read_modtran(modtran_baseline_file)
+} else {
+  modtran_baseline = run_modtran(modtran_baseline_file)
+}
+
+modtran_plus_5_file <- file.path(data_dir, "ch_04", "ex_4_3_t_plus_5")
+if (file.exists(modtran_plus_5_file)) {
+  modtran_plus_5 = read_modtran(modtran_plus_5_file)
+} else {
+  modtran_plus_5 = run_modtran(modtran_plus_5_file, delta_t = 5)
+}
+
+p_baseline = plot_modtran(modtran_baseline, descr = "Baseline spectrum")
+p_plus_5 = plot_modtran(modtran_plus_5,
+                        descr = "Ground temperature raised 5K")
+plot(p_baseline)
+plot(p_plus_5)
+```
+
+**Answer:**
+Raising the ground temperature raises the entire spectrum.
+
+### Part (b)
+
+> **More water can evaporate into warm air than into cool air. Change the
+> model settings to hold the water vapor at constant relative humidity
+> rather than constant vapor pressure (the default), calculate the change
+> in outgoing IR energy flux for a 5&deg;C temperature increase.
+> Is it higher or lower? Does water vapor make the Earth more sensitive to
+> CO~2~ increases or less sensitive?**
+
+```{r ex_4_3_b, include=TRUE, message=FALSE}
+modtran_vp_file <- file.path(data_dir, "ch_04", "ex_4_3_vap_press.txt")
+if (file.exists(modtran_vp_file)) {
+  modtran_vp = read_modtran(modtran_vp_file)
+} else {
+  modtran_vp = run_modtran(modtran_vp_file,
+                           delta_t = 5, h2o_fixed = "vapor pressure")
+}
+
+modtran_rh_file <- file.path(data_dir, "ch_04", "ex_4_3_rel_hum.txt")
+if (file.exists(modtran_rh_file)) {
+  modtran_rh = read_modtran(modtran_rh_file)
+} else {
+  modtran_rh = run_modtran(modtran_rh_file, delta_t = 5,
+                           h2o_fixed = "relative humidity")
+}
+
+i_out_baseline = modtran_baseline$i_out
+i_out_vp = modtran_vp$i_out
+i_out_rh = modtran_rh$i_out
+
+p_vp = plot_modtran(modtran_vp, descr = "Constant vapor pressure",
+                    i_out_ref = i_out_baseline)
+p_rh = plot_modtran(modtran_rh, descr = "Constant relative humidity",
+                    i_out_ref = i_out_baseline)
+plot(p_vp)
+plot(p_rh)
+```
+
+**Answer:**
+Raising the surface temperature has a bigger effect on I~out~ when
+water vapor pressure is fixed than when relative humidity is fixed. This means
+that compensating for a change in CO~2~ would require a bigger change in
+temperature with fixed relative humidity, so the climate is more sensitive to
+changes in CO~2~ when relative humidity is fixed.
+
+### Part (c)
+
+> **Now see this effect in another way.**
+>
+> * **Starting from the default base case, record the total outgoing
+>   IR flux.**
+>
+> * **Now double CO~2~. The temperature in the model stays the
+>   same (that's how the model is written), but the outgoing IR flux
+>   goes down.**
+>
+> * **Using constant water vapor pressure, adjust the temperature offset
+>   until you get the original IR flux back again. Record the change in
+>   temperature.**
+>
+> * **Now repeat the exercise, but holding the relative humidity fixed
+>   instead of the water vapor pressure.**
+>
+> * **The ratio of the warming when you hold relative humidity fixed
+>   to the warming when you hold water vapor pressure fixed is the
+>   feedback factor for water vapor. What is it?**
+
+```{r ex_4_3_c, include=TRUE, message=FALSE}
+modtran_baseline = read_modtran(file.path(data_dir, "ch_04", "ex_4_3_baseline.txt"))
+i_baseline = modtran_baseline$i_out
+
+modtran_2xco2_file <- file.path(data_dir, "ch_04", "ex_4_3_2x_co2_vp.txt")
+if (file.exists(modtran_2xco2_file)) {
+  modtran_2xco2 = read_modtran(modtran_2xco2_file)
+} else {
+  modtran_2xco2 = run_modtran(modtran_2xco2_file, co2_ppm = 800)
+}
+
+i_2x_vp = modtran_2xco2$i_out
+
+dt_vp = 0.76
+
+modtran_vp_dt_file <- file.path(data_dir, "ch_04", "ex_4_3_vp_dt.txt")
+if (file.exists(modtran_vp_dt_file)) {
+  modtran_vp_dt = read_modtran(modtran_vp_dt_file)
+} else {
+  modtran_vp_dt = run_modtran(modtran_vp_dt_file, co2_ppm = 800,
+                              delta_t = dt_vp)
+}
+
+i_vp_dt = modtran_vp_dt$i_out
+
+modtran_2x_rh_file <- file.path(data_dir, "ch_04", "ex_4_3_2x_co2_rh_.txt")
+if (file.exists(modtran_2x_rh_file)) {
+  modtran_2x_rh = read_modtran(modtran_2x_rh_file)
+} else {
+  modtran_2x_rh = run_modtran(modtran_2x_rh_file, co2_ppm = 800,
+                              h2o_fixed = "relative humidity")
+}
+i_2x_rh = modtran_2x_rh$i_out
+
+dt_rh = 1.21
+
+modtran_rh_dt_file <- file.path(data_dir, "ch_04", "ex_4_3_rh_dt.txt")
+if (file.exists(modtran_rh_dt_file)) {
+  modtran_rh_dt = read_modtran(modtran_rh_dt_file)
+} else {
+  modtran_rh_dt = run_modtran(modtran_rh_dt_file, co2_ppm = 800,
+                              delta_t = dt_rh, h2o_fixed = "relative humidity")
+}
+
+i_rh_dt = modtran_rh_dt$i_out
+
+feedback_factor = dt_rh / dt_vp
+```
+
+**Answer:**
+In the baseline case,
+I~out~ = `r format_md(i_baseline, digits = 4)` W/m^2^.
+When we double CO~2~ with constant water vapor pressure, I~out~ drops to
+`r format_md(i_2x_vp, digits = 4)` W/m^2^
+and we have to raise the ground temperature by
+`r format_md(dt_vp, digits = 2)` K
+to bring I~out~ back to
+`r format_md(i_vp_dt, digits = 4)` W/m^2^.
+
+When we double CO~2~ with constant water relative humidity, I~out~ drops to
+`r format_md(i_2x_rh, digits = 4)` W/m^2^
+and we have to raise the ground temperature by
+`r format_md(dt_rh, digits = 2)` K
+to bring I~out~ back to
+`r format_md(i_rh_dt, digits = 4)` W/m^2^.
+
+The feedback factor is the ratio of the temperature change with relative
+humidity fixes to the temperature change with vapor pressure fixed:
+$f = `r format_md(dt_rh, digits = 2)`~\text{K} /
+`r format_md(dt_vp, digits = 2)`~\text{K} =
+`r format_md(feedback_factor, digits = 2)`$.
+
+Notice that there is no difference between holding vapor pressure constant and
+holding relative humidity constant until the temperature changes.
+
