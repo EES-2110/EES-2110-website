@@ -227,23 +227,22 @@ plot_modtran(double_ch4, descr = "Doubled CH4")
 > change to ppm methane change?**
 
 ```{r ex_4_1_d, include=TRUE, message=FALSE}
-matching_methane = 13
+delta_co2 = 80
+delta_ch4 = 1.7
 
-ch4_match_file <- file.path(data_dir, "ch_04", "ex_4_1_ch4_match.txt")
-modtran_match_ch4 = run_modtran(ch4_match_file, co2_ppm = 400,
-                                ch4_ppm = matching_methane)
+co2_match_file <- file.path(data_dir, "ch_04", "ex_4_1_co2_match.txt")
+modtran_match_co2 = run_modtran(co2_match_file, co2_ppm = 400 + delta_co2)
 ```
 
 **Answer:**
-When we double CO~2~, I~out~ is
-`r format_md(i_out_co2, digits = 4)` W/m^2^.
-We need to adjust CH~4~ to produce the same I~out~ with the defailt value of
-400 ppm CO~2~. After some trial and error, this turns out to be about
-`r format(matching_methane, digits = 1)` ppm,
-which has I~out~ = `r format_md(modtran_match_ch4$i_out, digits = 4)`.
+When we double CH~4~, I~out~ is
+`r format_md(i_out_ch4, digits = 4)` W/m^2^.
+We need to adjust CO~2~ to produce the same I~out~ with the defailt value of
+1.7 ppm CH~4~. After some trial and error, this turns out to be about
+`r format(400 + delta_co2, digits = 1)` ppm,
+which has I~out~ = `r format_md(modtran_match_co2$i_out, digits = 4)`.
 The ratio of $\Delta\COO$ to $\Delta\methane$ is
-$400 / 13 = `r format_md(400 / 13, digits = 2, output_format="bare-latex")`$
-
+$`r delta_co2`/`r delta_ch4` = `r format_md(delta_co2/delta_ch4, digits = 2, output_format="bare-latex")`$
 
 ## Exercise 4.3: Water vapor
 
