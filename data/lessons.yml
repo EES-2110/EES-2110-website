@@ -53,10 +53,10 @@ lessons:
 - date: '2023-02-08'
   title: 'Test #1'
   reading: /reading/reading_13
-  lecture: /slides/class_13
 - date: '2023-02-10'
   title: 'The Carbon Cycle: Ocean and Biosphere'
   reading: /reading/reading_14
+  lecture: /slides/class_14
 - date: '2023-02-13'
   title: 'The Carbon Cycle: Mineral Weathering'
   reading: /reading/reading_15
