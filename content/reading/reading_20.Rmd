@@ -15,9 +15,9 @@ pdf_url: /files/reading_asgts/reading_20.pdf
 
 ### Required Reading (everyone):
 
-* Understanding the Forecast, 7, pp. 73--75, 81--84.
-* Understanding the Forecast, 8, pp 93--97.
-* Understanding the Forecast, 11, pp. 145--149.
+* Understanding the Forecast, Ch. 7, pp. 73--75, 81--84.
+* Understanding the Forecast, Ch. 8, pp 93--97.
+* Understanding the Forecast, Ch. 11, pp. 145--149.
 
 ### Reading Notes:
 

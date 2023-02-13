@@ -15,5 +15,5 @@ pdf_url: /files/reading_asgts/reading_19.pdf
 
 ### Required Reading (everyone):
 
-* Understanding the Forecast, 11.
+* Understanding the Forecast, Ch. 11.
 
