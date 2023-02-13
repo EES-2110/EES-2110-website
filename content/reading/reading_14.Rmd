@@ -21,8 +21,7 @@ pdf_url: /files/reading_asgts/reading_14.pdf
 
 * Know the different forms carbon takes in the earth system: CO~2~ and 
   organic gases in the atmosphere; dissolved inorganic carbon in the 
-  hydrosphere (carbonic acid and related ions: H~2~CO~3~, 
-  HCO~3~^-^, CO~3~^-2^); solid organic and inorganic matter in the 
+  hydrosphere; solid organic and inorganic matter in the 
   lithosphere (what's the difference between organic and inorganic? What are 
   dominant forms that each takes in the lithosphere?); and living organic 
   carbon in the biosphere.

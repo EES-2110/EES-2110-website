@@ -15,7 +15,16 @@ pdf_url: /files/reading_asgts/reading_20.pdf
 
 ### Required Reading (everyone):
 
-* Understanding the Forecast, 7.
-* Understanding the Forecast, 8.
-* Understanding the Forecast, 11.
+* Understanding the Forecast, 7, pp. 73--75, 81--84.
+* Understanding the Forecast, 8, pp 93--97.
+* Understanding the Forecast, 11, pp. 145--149.
 
+### Reading Notes:
+
+Review chapters 7, 8, and 11, focusing on how we know about the Pleistocene Ice-Ages
+
+Focus on feedbacks involving ice-albedo, ocean currents, terrestrial biosphere, and carbon cycle, and the section on paleoclimate records.
+
+Focus on orbital forcing and its connection to the carbon cycle ("The Oceans Breathe")
+
+Focus on how we know about what climates were like long before people had thermomenters and other ways to measure climate.
