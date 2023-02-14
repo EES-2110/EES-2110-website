@@ -292,9 +292,9 @@ plot(p_plus_5)
 **Answer:**
 Raising the ground temperature raises the entire spectrum, and the intensity of
 outgoing longwave radiation increases from 
-`r format_md(i_out_baseline, digits = 2)` W/m^2^ to
-`r format_md(i_out_plus_5, digits = 2)` W/m^2^: a change of 
-`r format_md(i_out_plus_5 - i_out_baseline, digits = 2)` W/m^2^.
+`r format_md(i_out_baseline, digits = 4)` W/m^2^ to
+`r format_md(i_out_plus_5, digits = 4)` W/m^2^: a change of 
+`r format_md(i_out_plus_5 - i_out_baseline, digits = 3)` W/m^2^.
 
 ### Part (b)
 
@@ -337,9 +337,9 @@ plot(p_rh)
 **Answer:**
 Raising the ground temperature with constant relative humidity 
 raises the intensity of outgoing longwave radiation from 
-`r format_md(i_out_baseline, digits = 2)` W/m^2^ to
-`r format_md(i_out_rh, digits = 2)` W/m^2^: a change of 
-`r format_md(i_out_rh - i_out_baseline, digits = 2)` W/m^2^.
+`r format_md(i_out_baseline, digits = 4)` W/m^2^ to
+`r format_md(i_out_rh, digits = 4)` W/m^2^: a change of 
+`r format_md(i_out_rh - i_out_baseline, digits = 3)` W/m^2^.
 
 This is a smaller change than when we raised the surface temperature with
 constant vapor pressure. 
@@ -350,69 +350,83 @@ change in temperature with fixed relative humidity, so the climate is
 
 ### Part (c)
 
+```{r ex_4_3_c_setup, eval=TRUE, results="hide"}
+modtran_baseline = read_modtran(file.path(data_dir, "ch_04", "ex_4_3_baseline.txt"))
+i_baseline = modtran_baseline$i_out
+
+doubled_co2 <- FALSE
+if (doubled_co2) {
+  new_co2 <- 800
+  dt_vp = 0.76
+  dt_rh = 1.21
+  file_tag <- "2x_co2"
+} else {
+  new_co2 <- 550
+  dt_vp = 0.345
+  dt_rh = 0.55
+  file_tag <- "550_co2"
+}
+```
+
 > **Now see this effect in another way.**
 >
 > * **Starting from the default base case, record the total outgoing
 >   IR flux.**
 >
-> * **Now double CO~2~. The temperature in the model stays the
->   same (that's how the model is written), but the outgoing IR flux
->   goes down.**
+> * **`r ifelse(doubled_co2, "Double CO~2~", "Increase CO~2~ to 550 ppm")`. 
+>   The temperature in the model stays the same 
+>   (that's how the model is written), but the outgoing IR flux goes down.**
 >
 > * **Using constant water vapor pressure, adjust the temperature offset
 >   until you get the original IR flux back again. Record the change in
 >   temperature.**
 >
-> * **Now repeat the exercise, but holding the relative humidity fixed
+> * **Now repeat the calculation, but holding the relative humidity fixed
 >   instead of the water vapor pressure.**
->
-> * **The ratio of the warming when you hold relative humidity fixed
->   to the warming when you hold water vapor pressure fixed is the
->   feedback factor for water vapor. What is it?**
+>   Does the increase in CO~2~ drive a bigger or smaller teemperature change?
+> 
 
 ```{r ex_4_3_c, include=TRUE, message=FALSE}
-modtran_baseline = read_modtran(file.path(data_dir, "ch_04", "ex_4_3_baseline.txt"))
-i_baseline = modtran_baseline$i_out
-
-modtran_2xco2_file <- file.path(data_dir, "ch_04", "ex_4_3_2x_co2_vp.txt")
-if (file.exists(modtran_2xco2_file)) {
-  modtran_2xco2 = read_modtran(modtran_2xco2_file)
+modtran_vp_file <- file.path(data_dir, "ch_04", 
+                             str_c("ex_4_3", file_tag, "vp.txt"))
+if (file.exists(modtran_vp_file)) {
+  modtran_vp = read_modtran(modtran_vp_file)
 } else {
-  modtran_2xco2 = run_modtran(modtran_2xco2_file, atmosphere = "tropical",
-                              co2_ppm = 800)
+  modtran_vp = run_modtran(modtran_vp_file, atmosphere = "tropical",
+                           co2_ppm = new_co2)
 }
 
-i_2x_vp = modtran_2xco2$i_out
+i_vp = modtran_vp$i_out
 
-dt_vp = 0.76
-
-modtran_vp_dt_file <- file.path(data_dir, "ch_04", "ex_4_3_vp_dt.txt")
+modtran_vp_dt_file <- file.path(data_dir, "ch_04",
+                                str_c("ex_4_3", file_tag, "vp_dt.txt"))
 if (file.exists(modtran_vp_dt_file)) {
   modtran_vp_dt = read_modtran(modtran_vp_dt_file)
 } else {
   modtran_vp_dt = run_modtran(modtran_vp_dt_file, atmosphere = "tropical",
-                              co2_ppm = 800, delta_t = dt_vp)
+                              co2_ppm = new_co2, delta_t = dt_vp)
 }
 
 i_vp_dt = modtran_vp_dt$i_out
 
-modtran_2x_rh_file <- file.path(data_dir, "ch_04", "ex_4_3_2x_co2_rh_.txt")
-if (file.exists(modtran_2x_rh_file)) {
-  modtran_2x_rh = read_modtran(modtran_2x_rh_file)
+modtran_rh_file <- file.path(data_dir, "ch_04", 
+                             str_c("ex_4_3", file_tag, "rh.txt"))
+if (file.exists(modtran_rh_file)) {
+  modtran_rh = read_modtran(modtran_rh_file)
 } else {
-  modtran_2x_rh = run_modtran(modtran_2x_rh_file, atmosphere = "tropical",
-                              co2_ppm = 800, h2o_fixed = "relative humidity")
+  modtran_rh = run_modtran(modtran_rh_file, atmosphere = "tropical",
+                           co2_ppm = new_co2, h2o_fixed = "relative humidity")
 }
-i_2x_rh = modtran_2x_rh$i_out
 
-dt_rh = 1.21
+i_rh = modtran_rh$i_out
 
-modtran_rh_dt_file <- file.path(data_dir, "ch_04", "ex_4_3_rh_dt.txt")
+modtran_rh_dt_file <- file.path(data_dir, "ch_04",
+                                str_c("ex_4_3", file_tag, "rh_dt.txt"))
 if (file.exists(modtran_rh_dt_file)) {
   modtran_rh_dt = read_modtran(modtran_rh_dt_file)
 } else {
   modtran_rh_dt = run_modtran(modtran_rh_dt_file, atmosphere = "tropical",
-                              co2_ppm = 800, delta_t = dt_rh, 
+                              co2_ppm = new_co2, delta_t = dt_rh, 
                               h2o_fixed = "relative humidity")
 }
 
@@ -425,24 +439,29 @@ feedback_factor = dt_rh / dt_vp
 In the baseline case,
 I~out~ = `r format_md(i_baseline, digits = 4)` W/m^2^.
 When we double CO~2~ with constant water vapor pressure, I~out~ drops to
-`r format_md(i_2x_vp, digits = 4)` W/m^2^
+`r format_md(i_vp, digits = 4)` W/m^2^
 and we have to raise the ground temperature by
-`r format_md(dt_vp, digits = 2)` K
+`r format_md(dt_vp, digits = 3)` K
 to bring I~out~ back to
 `r format_md(i_vp_dt, digits = 4)` W/m^2^.
 
 When we double CO~2~ with constant water relative humidity, I~out~ drops to
-`r format_md(i_2x_rh, digits = 4)` W/m^2^
+`r format_md(i_rh, digits = 4)` W/m^2^
 and we have to raise the ground temperature by
-`r format_md(dt_rh, digits = 2)` K
+`r format_md(dt_rh, digits = 3)` K
 to bring I~out~ back to
 `r format_md(i_rh_dt, digits = 4)` W/m^2^.
 
+Allowing water vapor to respond to changes in temperature means that CO~2~
+causes more warming. 
+
+<!--
 The feedback factor is the ratio of the temperature change with relative
 humidity fixes to the temperature change with vapor pressure fixed:
-$f = `r format_md(dt_rh, digits = 2)`~\text{K} /
-`r format_md(dt_vp, digits = 2)`~\text{K} =
+$f = `r format_md(dt_rh, digits = 3)`~\text{K} /
+`r format_md(dt_vp, digits = 3)`~\text{K} =
 `r format_md(feedback_factor, digits = 2)`$.
+-->
 
 Notice that there is no difference between holding vapor pressure constant and
 holding relative humidity constant until the temperature changes.

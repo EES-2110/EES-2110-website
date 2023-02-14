@@ -160,9 +160,9 @@ shape of the outgoing IR spectrum and why?</strong></p>
 <p><strong>Answer:</strong>
 Raising the ground temperature raises the entire spectrum, and the intensity of
 outgoing longwave radiation increases from
-299. W/m<sup>2</sup> to
-321. W/m<sup>2</sup>: a change of
-23. W/m<sup>2</sup>.</p>
+298.7 W/m<sup>2</sup> to
+321.4 W/m<sup>2</sup>: a change of
+22.7 W/m<sup>2</sup>.</p>
 </div>
 <div id="part-b-1" class="section level3">
 <h3>Part (b)</h3>
@@ -178,9 +178,9 @@ CO<sub>2</sub> increases or less sensitive?</strong></p>
 <p><strong>Answer:</strong>
 Raising the ground temperature with constant relative humidity
 raises the intensity of outgoing longwave radiation from
-299. W/m<sup>2</sup> to
-313. W/m<sup>2</sup>: a change of
-14. W/m<sup>2</sup>.</p>
+298.7 W/m<sup>2</sup> to
+312.6 W/m<sup>2</sup>: a change of
+13.9 W/m<sup>2</sup>.</p>
 <p>This is a smaller change than when we raised the surface temperature with
 constant vapor pressure.</p>
 <p>This means that compensating for a change in CO<sub>2</sub> would require a bigger
@@ -194,37 +194,41 @@ change in temperature with fixed relative humidity, so the climate is
 <ul>
 <li><p><strong>Starting from the default base case, record the total outgoing
 IR flux.</strong></p></li>
-<li><p><strong>Now double CO<sub>2</sub>. The temperature in the model stays the
-same (that’s how the model is written), but the outgoing IR flux
-goes down.</strong></p></li>
+<li><p><strong>Increase CO<sub>2</sub> to 550 ppm.
+The temperature in the model stays the same
+(that’s how the model is written), but the outgoing IR flux goes down.</strong></p></li>
 <li><p><strong>Using constant water vapor pressure, adjust the temperature offset
 until you get the original IR flux back again. Record the change in
 temperature.</strong></p></li>
-<li><p><strong>Now repeat the exercise, but holding the relative humidity fixed
-instead of the water vapor pressure.</strong></p></li>
-<li><p><strong>The ratio of the warming when you hold relative humidity fixed
-to the warming when you hold water vapor pressure fixed is the
-feedback factor for water vapor. What is it?</strong></p></li>
+<li><p><strong>Now repeat the calculation, but holding the relative humidity fixed
+instead of the water vapor pressure.</strong>
+Does the increase in CO<sub>2</sub> drive a bigger or smaller teemperature change?</p></li>
 </ul>
 </blockquote>
 <p><strong>Answer:</strong>
 In the baseline case,
 I<sub>out</sub> = 298.7 W/m<sup>2</sup>.
 When we double CO<sub>2</sub> with constant water vapor pressure, I<sub>out</sub> drops to
-295.3 W/m<sup>2</sup>
+297.2 W/m<sup>2</sup>
 and we have to raise the ground temperature by
-0.76 K
+0.345 K
 to bring I<sub>out</sub> back to
 298.7 W/m<sup>2</sup>.</p>
 <p>When we double CO<sub>2</sub> with constant water relative humidity, I<sub>out</sub> drops to
-295.3 W/m<sup>2</sup>
+297.2 W/m<sup>2</sup>
 and we have to raise the ground temperature by
-1.2 K
+0.550 K
 to bring I<sub>out</sub> back to
 298.7 W/m<sup>2</sup>.</p>
-<p>The feedback factor is the ratio of the temperature change with relative
+<p>Allowing water vapor to respond to changes in temperature means that CO<sub>2</sub>
+causes more warming.</p>
+<!--
+The feedback factor is the ratio of the temperature change with relative
 humidity fixes to the temperature change with vapor pressure fixed:
-<span class="math inline">\(f = 1.2~\text{K} / 0.76~\text{K} = 1.6\)</span>.</p>
+$f = 0.550~\text{K} /
+0.345~\text{K} =
+1.6$.
+-->
 <p>Notice that there is no difference between holding vapor pressure constant and
 holding relative humidity constant until the temperature changes.</p>
 </div>
