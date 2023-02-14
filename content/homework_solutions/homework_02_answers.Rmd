@@ -58,7 +58,7 @@ baseline_file <- file.path(data_dir, "ch_04", "ex_4_1_baseline.txt")
 if (file.exists(baseline_file)) {
   modtran_baseline = read_modtran(baseline_file)
 } else {
-  modtran_baseline = run_modtran(baseline_file,
+  modtran_baseline = run_modtran(baseline_file, atmosphere = "tropical",
                                  co2_ppm = base_co2,
                                  ch4_ppm = base_ch4)
 }
@@ -67,7 +67,7 @@ co2_file <- file.path(data_dir, "ch_04", "ex_4_1_plus_10_co2.txt")
 if (file.exists(co2_file)) {
   modtran_plus_10_co2 = read_modtran(co2_file)
 } else {
-  modtran_plus_10_co2 = run_modtran(co2_file,
+  modtran_plus_10_co2 = run_modtran(co2_file, atmosphere = "tropical",
                                     co2_ppm = base_co2 + 10,
                                     ch4_ppm = base_ch4)
 }
@@ -76,7 +76,7 @@ ch4_file <- file.path(data_dir, "ch_04", "ex_4_1_plus_10_ch4.txt")
 if (file.exists(ch4_file)) {
   modtran_plus_10_ch4 = read_modtran(ch4_file)
 } else {
-  modtran_plus_10_ch4 = run_modtran(ch4_file,
+  modtran_plus_10_ch4 = run_modtran(ch4_file, atmosphere = "tropical",
                                     co2_ppm = base_co2,
                                     ch4_ppm = base_ch4 + 10)
 }
@@ -135,13 +135,17 @@ for (ch4 in ch4_values) {
    if (file.exists(filename)) {
       mod_data = read_modtran(filename)
    } else {
-      mod_data = run_modtran(filename, co2_ppm = 0, ch4_ppm = ch4,
+      mod_data = run_modtran(filename, atmosphere = "tropical",
+                             co2_ppm = 0, ch4_ppm = ch4,
                              trop_o3_ppb = 0, strat_o3_scale = 0,
                              h2o_scale = 0, freon_scale = 0,
-                             atmosphere = "standard", altitude_km = 70)
+                             altitude_km = 70)
    }
    p = plot_modtran(mod_data, descr = str_c(ch4, " ppm methane"))
    plot(p)
+   if (knitr::is_latex_output()) {
+     cat("\n\n")
+   }
 }
 ```
 
@@ -167,7 +171,7 @@ double_co2_file <- file.path(data_dir, "ch_04", "ex_4_1_2x_co2.txt")
 if (file.exists(double_co2_file)) {
   double_co2 = read_modtran(double_co2_file)
 } else {
-  double_co2 = run_modtran(double_co2_file,
+  double_co2 = run_modtran(double_co2_file, atmosphere = "tropical",
                            co2_ppm = 2 * base_co2_ppm,
                            ch4_ppm = base_methane_ppm)
 }
@@ -176,7 +180,7 @@ double_ch4_file <- file.path(data_dir, "ch_04", "ex_4_1_2x_ch4.txt")
 if (file.exists(double_ch4_file)) {
   double_ch4 = read_modtran(double_ch4_file)
 } else {
-  double_ch4 = run_modtran(double_ch4_file,
+  double_ch4 = run_modtran(double_ch4_file, atmosphere = "tropical",
                            co2_ppm = base_co2_ppm,
                            ch4_ppm = 2 * base_methane_ppm)
 }
@@ -231,7 +235,8 @@ delta_co2 = 80
 delta_ch4 = 1.7
 
 co2_match_file <- file.path(data_dir, "ch_04", "ex_4_1_co2_match.txt")
-modtran_match_co2 = run_modtran(co2_match_file, co2_ppm = 400 + delta_co2)
+modtran_match_co2 = run_modtran(co2_match_file, atmosphere = "tropical",
+                                co2_ppm = 400 + delta_co2)
 ```
 
 **Answer:**
@@ -262,15 +267,20 @@ modtran_baseline_file <- file.path(data_dir, "ch_04", "ex_4_3_baseline.txt")
 if (file.exists(modtran_baseline_file)) {
   modtran_baseline = read_modtran(modtran_baseline_file)
 } else {
-  modtran_baseline = run_modtran(modtran_baseline_file)
+  modtran_baseline = run_modtran(modtran_baseline_file, 
+                                 atmosphere = "tropical")
 }
 
 modtran_plus_5_file <- file.path(data_dir, "ch_04", "ex_4_3_t_plus_5")
 if (file.exists(modtran_plus_5_file)) {
   modtran_plus_5 = read_modtran(modtran_plus_5_file)
 } else {
-  modtran_plus_5 = run_modtran(modtran_plus_5_file, delta_t = 5)
+  modtran_plus_5 = run_modtran(modtran_plus_5_file, atmosphere = "tropical",
+                               delta_t = 5)
 }
+
+i_out_baseline = modtran_baseline$i_out
+i_out_plus_5 = modtran_plus_5$i_out
 
 p_baseline = plot_modtran(modtran_baseline, descr = "Baseline spectrum")
 p_plus_5 = plot_modtran(modtran_plus_5,
@@ -280,7 +290,11 @@ plot(p_plus_5)
 ```
 
 **Answer:**
-Raising the ground temperature raises the entire spectrum.
+Raising the ground temperature raises the entire spectrum, and the intensity of
+outgoing longwave radiation increases from 
+`r format_md(i_out_baseline, digits = 2)` W/m^2^ to
+`r format_md(i_out_plus_5, digits = 2)` W/m^2^: a change of 
+`r format_md(i_out_plus_5 - i_out_baseline, digits = 2)` W/m^2^.
 
 ### Part (b)
 
@@ -296,7 +310,7 @@ modtran_vp_file <- file.path(data_dir, "ch_04", "ex_4_3_vap_press.txt")
 if (file.exists(modtran_vp_file)) {
   modtran_vp = read_modtran(modtran_vp_file)
 } else {
-  modtran_vp = run_modtran(modtran_vp_file,
+  modtran_vp = run_modtran(modtran_vp_file, atmosphere = "tropical",
                            delta_t = 5, h2o_fixed = "vapor pressure")
 }
 
@@ -304,11 +318,11 @@ modtran_rh_file <- file.path(data_dir, "ch_04", "ex_4_3_rel_hum.txt")
 if (file.exists(modtran_rh_file)) {
   modtran_rh = read_modtran(modtran_rh_file)
 } else {
-  modtran_rh = run_modtran(modtran_rh_file, delta_t = 5,
-                           h2o_fixed = "relative humidity")
+  modtran_rh = run_modtran(modtran_rh_file, atmosphere = "tropical",
+                           delta_t = 5, h2o_fixed = "relative humidity")
 }
 
-i_out_baseline = modtran_baseline$i_out
+# i_out_baseline = modtran_baseline$i_out
 i_out_vp = modtran_vp$i_out
 i_out_rh = modtran_rh$i_out
 
@@ -321,11 +335,18 @@ plot(p_rh)
 ```
 
 **Answer:**
-Raising the surface temperature has a bigger effect on I~out~ when
-water vapor pressure is fixed than when relative humidity is fixed. This means
-that compensating for a change in CO~2~ would require a bigger change in
-temperature with fixed relative humidity, so the climate is more sensitive to
-changes in CO~2~ when relative humidity is fixed.
+Raising the ground temperature with constant relative humidity 
+raises the intensity of outgoing longwave radiation from 
+`r format_md(i_out_baseline, digits = 2)` W/m^2^ to
+`r format_md(i_out_rh, digits = 2)` W/m^2^: a change of 
+`r format_md(i_out_rh - i_out_baseline, digits = 2)` W/m^2^.
+
+This is a smaller change than when we raised the surface temperature with
+constant vapor pressure. 
+
+This means that compensating for a change in CO~2~ would require a bigger 
+change in temperature with fixed relative humidity, so the climate is 
+**more sensitive** to changes in CO~2~ when relative humidity is fixed.
 
 ### Part (c)
 
@@ -357,7 +378,8 @@ modtran_2xco2_file <- file.path(data_dir, "ch_04", "ex_4_3_2x_co2_vp.txt")
 if (file.exists(modtran_2xco2_file)) {
   modtran_2xco2 = read_modtran(modtran_2xco2_file)
 } else {
-  modtran_2xco2 = run_modtran(modtran_2xco2_file, co2_ppm = 800)
+  modtran_2xco2 = run_modtran(modtran_2xco2_file, atmosphere = "tropical",
+                              co2_ppm = 800)
 }
 
 i_2x_vp = modtran_2xco2$i_out
@@ -368,8 +390,8 @@ modtran_vp_dt_file <- file.path(data_dir, "ch_04", "ex_4_3_vp_dt.txt")
 if (file.exists(modtran_vp_dt_file)) {
   modtran_vp_dt = read_modtran(modtran_vp_dt_file)
 } else {
-  modtran_vp_dt = run_modtran(modtran_vp_dt_file, co2_ppm = 800,
-                              delta_t = dt_vp)
+  modtran_vp_dt = run_modtran(modtran_vp_dt_file, atmosphere = "tropical",
+                              co2_ppm = 800, delta_t = dt_vp)
 }
 
 i_vp_dt = modtran_vp_dt$i_out
@@ -378,8 +400,8 @@ modtran_2x_rh_file <- file.path(data_dir, "ch_04", "ex_4_3_2x_co2_rh_.txt")
 if (file.exists(modtran_2x_rh_file)) {
   modtran_2x_rh = read_modtran(modtran_2x_rh_file)
 } else {
-  modtran_2x_rh = run_modtran(modtran_2x_rh_file, co2_ppm = 800,
-                              h2o_fixed = "relative humidity")
+  modtran_2x_rh = run_modtran(modtran_2x_rh_file, atmosphere = "tropical",
+                              co2_ppm = 800, h2o_fixed = "relative humidity")
 }
 i_2x_rh = modtran_2x_rh$i_out
 
@@ -389,8 +411,9 @@ modtran_rh_dt_file <- file.path(data_dir, "ch_04", "ex_4_3_rh_dt.txt")
 if (file.exists(modtran_rh_dt_file)) {
   modtran_rh_dt = read_modtran(modtran_rh_dt_file)
 } else {
-  modtran_rh_dt = run_modtran(modtran_rh_dt_file, co2_ppm = 800,
-                              delta_t = dt_rh, h2o_fixed = "relative humidity")
+  modtran_rh_dt = run_modtran(modtran_rh_dt_file, atmosphere = "tropical",
+                              co2_ppm = 800, delta_t = dt_rh, 
+                              h2o_fixed = "relative humidity")
 }
 
 i_rh_dt = modtran_rh_dt$i_out

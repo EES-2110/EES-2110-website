@@ -37,3 +37,6 @@ tmp*.tex
 /planning/EES-4760.sqlite3
 * - Copy.*
 .hugo_build.lock
+content/**/draft-*
+content/**/draft-*_files/
+static/**/draft-*_files/
