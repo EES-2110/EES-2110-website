@@ -1,0 +1,314 @@
+---
+title: Chapter 5 Homework Answers
+hw_number: 3
+pubdate: '2023-02-22'
+date: '2023-02-15'
+pdf_url: /files/homework_solutions/hw_03/homework_03_answers.pdf
+slug: homework_03_answers
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+    toc: yes
+  pdf_document:
+    toc: yes
+    toc_depth: 3.0
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#exercise-1-lapse-rate" id="toc-exercise-1-lapse-rate">Exercise 1: Lapse Rate</a>
+<ul>
+<li><a href="#exercise-1-answer" id="toc-exercise-1-answer">Exercise 1 Answer:</a></li>
+</ul></li>
+<li><a href="#exercise-2-skin-altitude" id="toc-exercise-2-skin-altitude">Exercise 2: Skin Altitude</a>
+<ul>
+<li><a href="#exercise-2a-answer" id="toc-exercise-2a-answer"><strong>Exercise 2a Answer</strong></a></li>
+<li><a href="#exercise-2b-answer" id="toc-exercise-2b-answer"><strong>Exercise 2b Answer</strong></a></li>
+<li><a href="#exercise-2c-answer" id="toc-exercise-2c-answer"><strong>Exercise 2c Answer</strong></a></li>
+<li><a href="#exercise-2d-answer" id="toc-exercise-2d-answer"><strong>Exercise 2d Answer</strong></a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="exercise-1-lapse-rate" class="section level2">
+<h2>Exercise 1: Lapse Rate</h2>
+<blockquote>
+<p>Use the online full-spectrum radiation model at
+<a href="https://climatemodels.jgilligan.org/rrtm/" class="uri">https://climatemodels.jgilligan.org/rrtm/</a> or <a href="http://climatemodels.uchicago.edu/rrtm/" class="uri">http://climatemodels.uchicago.edu/rrtm/</a>.
+Adjust the lapse rate in the model and document its impact on the
+equilibrium temperature of the ground.</p>
+</blockquote>
+<p>And from the notes in the assignment:</p>
+<blockquote>
+<p>The RRTM full-spectrum model is a radiative-convective model that
+considers the impact of lapse rate on the radiative balance. You can adjust
+the amount of sunlight hitting the earth, the albedo, the surface
+temperature, the lapse rate, and other parameters including the amount of
+cloud cover at different altitudes. The model then divides the atmosphere
+into many layers and at each layer, it calculates the amount of heat going
+up and down in the form of shortwave radiation (sunlight) and longwave
+radiation emitted by the earth and the atmosphere. The model also reports
+about the balance of heat going up and down at the top of the atmosphere.</p>
+<p>Your goal is to adjust parameters until the model reports that
+“If the earth has these properties … then it loses as much energy as
+it gains.”<br />
+…
+For Exercise 1, use the RRTM full-spectrum model, at
+<a href="https://climatemodels.jgilligan.org/rrtm/" class="uri">https://climatemodels.jgilligan.org/rrtm/</a> or <a href="http://climatemodels.uchicago.edu/rrtm/" class="uri">http://climatemodels.uchicago.edu/rrtm/</a>.
+For this model, you set the lapse rate, CO<sub>2</sub> concentration, etc., and the
+model automatically calculates the imbalance between <span class="math inline">\(I_{\text{in}}\)</span> and
+<span class="math inline">\(I_{\text{out}}\)</span>. You can then adjust the surface temperature until the model
+reports, “…then it loses as much energy as it gains.”</p>
+<p>I recommend trying lapse rates of 2, 4, 6, 8, and 10 K/km. After you change
+the lapse rate, I recommend setting the temperature to a round multiple of
+10 near 270 or 280 K, and adjusting up or down in steps of 10 K until you
+change from gaining to losing heat or vice versa, and then change in steps of
+5 K, then in steps of 1 K, and finally in steps of 0.5, 0.1, and 0.05 as
+necessary until RRTM reports energy balance.</p>
+<p>Make a table showing the temperature for each lapse rate, and also make
+a graph of temperature versus lapse rate.</p>
+</blockquote>
+<div id="exercise-1-answer" class="section level3">
+<h3>Exercise 1 Answer:</h3>
+<p>I varied the lapse rate from 0 to 10 Kelvin/km in steps of 1 K/km.
+At each value of the lapse rate, I manually adjusted the surface temperature in
+the interactive RRTM model until the heat budget was balanced (the model
+reported that “If the Earth has these properties … then it loses as much
+energy as it gains.”).</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Lapse rate</th>
+<th align="right">Surface temperature</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">256.05</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">264.66</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">271.65</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">276.95</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">280.75</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">283.15</td>
+</tr>
+<tr class="odd">
+<td align="right">6</td>
+<td align="right">284.40</td>
+</tr>
+<tr class="even">
+<td align="right">7</td>
+<td align="right">285.00</td>
+</tr>
+<tr class="odd">
+<td align="right">8</td>
+<td align="right">285.25</td>
+</tr>
+<tr class="even">
+<td align="right">9</td>
+<td align="right">285.30</td>
+</tr>
+<tr class="odd">
+<td align="right">10</td>
+<td align="right">285.30</td>
+</tr>
+</tbody>
+</table>
+<p>The figure below shows the results. As the lapse rate increases, the change in
+surface temperature becomes smaller and smaller. At the last step,
+from 9 to 10 K/km, the surface temperature did not change at all.</p>
+<div class="figure"><span style="display:block;" id="fig:ex-1-a-plot"></span>
+<img src="/homework_solutions/homework_03_answers_files/figure-html/ex-1-a-plot-1.png" alt="Equilibrium surface temperature versus lapse rate." width="672" />
+<p class="caption">
+Figure 1: Equilibrium surface temperature versus lapse rate.
+</p>
+</div>
+<div id="explanation" class="section level4">
+<h4><strong>Explanation:</strong></h4>
+<p>You don’t need to have as much detail in your answer as I put in this
+explanation.</p>
+<p>The reason this is happening is that the closer the basic environmental lapse
+rate gets to the dry adiabatic lapse rate, the less stable the atmosphere is
+and the easier it is for solar heating of the surface to set off convection
+that redistributes heat (basically bringing heat from the surface to the upper
+troposphere).</p>
+<p>When the environmental lapse rate (ELR) is less than the moist adiabatic lapse
+rate, the surface temperature is close to
+<span class="math inline">\(T_{\text{surface}} = T_{\text{skin}} + h_{\text{skin}} \text{ELR}\)</span>,
+but when the ELR becomes greater than the moist adiabatic lapse rate, there
+is so much convection that it disrupts the simple picture I presented in class.</p>
+<p>The picture I presented in class works well for an atmosphere like ours, which
+is marginally stable (i.e., the environmental lapse rate is roughly equal to the
+average moist adiabatic lapse rate).
+When the atmosphere is undergoing a large amount of constant convection, then
+heat flow behaves differently.</p>
+<p>All of that convection transports lots of heat from the surface to the upper
+troposphere and brings lots of cold air down from the upper troposphere to the
+surface, which makes it hard for the surface to get warmer. This is why the
+ground temperature flattens out and stops changing very much after the lapse
+rate reaches about 6 K/km.</p>
+</div>
+</div>
+</div>
+<div id="exercise-2-skin-altitude" class="section level2">
+<h2>Exercise 2: Skin Altitude</h2>
+<blockquote>
+<p>Answer this question using the online MODTRAN IR radiation model
+at <a href="https://climatemodels.jgilligan.org/modtran/" class="uri">https://climatemodels.jgilligan.org/modtran/</a> or <a href="http://climatemodels.uchicago.edu/modtran/" class="uri">http://climatemodels.uchicago.edu/modtran/</a>.</p>
+</blockquote>
+<p>From the notes in the assignment:</p>
+<blockquote>
+<p>The MODTRAN model ignores shortwave light and only considers longwave
+(infrared) light emitted by the earth’s surface and atmosphere. When you
+start it up, you pick a locality
+(for this exercise, use “Tropical Atmosphere” just as you did
+for the exercises in Chapter 4)
+and the model will initialize to conditions of radiative balance at that
+locality (for the tropical atmosphere, this is 298.52 W/m<sup>2</sup>).
+You can then adjust all sorts of parameters (the concentrations of different
+gases, the conditions of clouds or rain, and the temperature of the ground),
+and the model will calculate the new upward longwave heat flux at the
+altitude you specify. You want to make a note of the upward IR heat flux
+for the default conditions before you start changing things, and then when
+you change parameters, such as the amount of CO<sub>2</sub> in the atmosphere, you
+can adjust the ground temperature until the upward IR heat flux returns to
+its initial value.</p>
+</blockquote>
+<p>and</p>
+<blockquote>
+<p>For exercise 2, use the MODTRAN model.
+Choose “Tropical Atmosphere” for Location and keep the altitude at
+its default value of 70 km. How would you calculate the skin altitude
+from this model?</p>
+</blockquote>
+<p>Now, back to the exercise from the textbook:</p>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>Run the model in some configuration without clouds and with present-day
+<span class="math inline">\(p\ce{CO2}\)</span>. Compute <span class="math inline">\(\sigma T^4\)</span> using the ground temperature to estimate
+the heat flux that you would get if there were no atmosphere.
+The value of
+<span class="math inline">\(\sigma\)</span> is <span class="math inline">\(5.67 \times 10^{-8}~\mathrm{W}/(\mathrm{m}^2 \mathrm{K}^4)\)</span>.
+Is the model heat flux at the top of the atmosphere higher or lower than
+the heat flux you calculated at the ground?</li>
+</ol>
+</blockquote>
+<p>From the notes in the assignment:</p>
+<blockquote>
+<p><strong>There’s a typo in exercise 2(a):</strong>
+The Stefan-Boltzmann constant should be
+<span class="math inline">\(\sigma = 5.67 \times 10^{-8} \mathrm{W/m^2 K^4}\)</span> (<span class="math inline">\(10^{-8}\)</span>, not <span class="math inline">\(10^8\)</span>)</p>
+</blockquote>
+<div id="exercise-2a-answer" class="section level3">
+<h3><strong>Exercise 2a Answer</strong></h3>
+<p>The ground temperature is 299.7 K,
+and the intensity of longwave light from a blackbody at this temperature is
+<span class="math inline">\(\sigma T^4 = 457.47~\mathrm{W}/\mathrm{m}^2\)</span>.</p>
+<p>The actual intensity of longwave radiation from the top of the atmosphere is
+<span class="math inline">\(298.67~\mathrm{W}/\mathrm{m}^2\)</span>,
+which is much lower.`</p>
+<blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Now calculate the “apparent” temperature at the top of the atmosphere by
+taking the heat flux from the model and computing a temperature from it
+using <span class="math inline">\(\sigma T^4\)</span>. What is that temperature, and how does it compare with
+the temperatures at the ground and at the tropopause? Assuming a lapse rate
+of <span class="math inline">\(6~\mathrm{K}/\text{km}\)</span> and using the ground temperature from the
+model, what altitude would this be?</li>
+</ol>
+</blockquote>
+</div>
+<div id="exercise-2b-answer" class="section level3">
+<h3><strong>Exercise 2b Answer</strong></h3>
+<p>The apparent temperature is the temperature of a blackbody that would emit the
+intensity that we observe,
+<span class="math inline">\(298.67~\mathrm{W}/\mathrm{m}^2\)</span>.
+<span class="math inline">\(I_{\text{out}} = \sigma T^4\)</span>, so
+<span class="math display">\[T_{\text{skin}} = \sqrt[4]{\frac{I_{\text{out}}}{\sigma}} =
+269.4~\mathrm{K}\]</span>.</p>
+<p>This is colder than the ground temperature (299.7 K)
+and warmer than the tropopause temperature (194.8 K).</p>
+<p>The atmosphere gets colder at the lapse rate, 6 K/km:
+<span class="math inline">\(T_{\text{skin}} = T_{\text{ground}} - \text{lapse rate} \times h_{\text{skin}}\)</span>,
+so
+<span class="math display">\[
+h_{\text{skin}} = (T_{\text{ground}} - T_{\text{skin}}) / \text{lapse rate}
+= (299.7 - 269.4)~\mathrm{K} /
+(6~\mathrm{K}/\text{km}) =
+5.0~\text{km}
+\]</span></p>
+<blockquote>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Double <span class="math inline">\(\ce{CO2}\)</span> and repeat the calculation. How much higher is the skin
+altitude with doubled <span class="math inline">\(\ce{CO2}\)</span>?</li>
+</ol>
+</blockquote>
+</div>
+<div id="exercise-2c-answer" class="section level3">
+<h3><strong>Exercise 2c Answer</strong></h3>
+<p>With doubled
+<span class="math inline">\(\ce{CO2}\)</span>, <span class="math inline">\(I_{\text{out}} = 295.34~\mathrm{W}/\mathrm{m}^2\)</span>.
+The apparent temperature is the temperature of a blackbody that would emit the
+intensity that we observe,
+<span class="math inline">\(295.34~\mathrm{W}/\mathrm{m}^2\)</span>.
+<span class="math inline">\(I_{\text{out}} = \sigma T^4\)</span>, so
+<span class="math display">\[T_{\text{skin}} = \sqrt[4]{\frac{I_{\text{out}}}{\sigma}} =
+268.6~\mathrm{K}\]</span>.</p>
+<p>The skin altitude for this temperature is
+<span class="math display">\[h_{\text{skin}} = (T_{\text{ground}} - T_{\text{skin}}) / \text{lapse rate}
+= (299.7 - 268.6)~\mathrm{K} /
+(6~\mathrm{K}/\text{km}) =
+5.2~\text{km}
+\]</span>
+This is 0.13 km higher than in part (a).</p>
+<blockquote>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Put <span class="math inline">\(\ce{CO2}\)</span> back at today’s value, and add cirrus clouds.
+Repeat the calculation again. Does the cloud or the CO2 have the greatest
+effect on the “skin altitude”?</li>
+</ol>
+</blockquote>
+<p>The notes to the assignment say</p>
+<blockquote>
+<p>When exercise 2(d) asks you to add cirrus clouds,
+use the “NOAA Cirrus model”.</p>
+</blockquote>
+</div>
+<div id="exercise-2d-answer" class="section level3">
+<h3><strong>Exercise 2d Answer</strong></h3>
+<p>With cirrus clouds,
+<span class="math inline">\(\ce{CO2}\)</span>, <span class="math inline">\(I_{\text{out}} = 279.82~\mathrm{W}/\mathrm{m}^2\)</span>.
+The apparent temperature is the temperature of a blackbody that would emit the
+intensity that we observe,
+<span class="math inline">\(279.82~\mathrm{W}/\mathrm{m}^2\)</span>.
+<span class="math inline">\(I_{\text{out}} = \sigma T^4\)</span>, so
+<span class="math display">\[T_{\text{skin}} = \sqrt[4]{\frac{I_{\text{out}}}{\sigma}} =
+265.0~\mathrm{K}\]</span>.</p>
+<p>The skin altitude for this temperature is
+<span class="math display">\[h_{\text{skin}} = (T_{\text{ground}} - T_{\text{skin}}) / \text{lapse rate}
+= (299.7 - 265.0)~\mathrm{K} /
+(6~\mathrm{K}/\text{km}) =
+5.8~\text{km}
+\]</span>
+This is 0.73 km higher than in part (a)
+and 0.60 km higher than in part (b).</p>
+<p>Cirrus clouds have a much bigger effect on skin altitude than doubling <span class="math inline">\(\ce{CO2}\)</span>
+.</p>
+</div>
+</div>

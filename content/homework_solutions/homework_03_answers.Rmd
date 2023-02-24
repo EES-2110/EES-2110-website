@@ -1,0 +1,339 @@
+---
+title: Chapter 5 Homework Answers
+hw_number: 3
+pubdate: '2023-02-22'
+date: '2023-02-15'
+pdf_url: /files/homework_solutions/hw_03/homework_03_answers.pdf
+slug: homework_03_answers
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+    toc: yes
+  pdf_document:
+    toc: yes
+    toc_depth: 3.0
+---
+```{r setup, include=FALSE}
+knitr::knit_hooks$set(inline = function(x) { knitr:::format_sci(x, 'md')})
+knitr::opts_chunk$set(echo = FALSE, include = TRUE, cache = FALSE)
+
+if (knitr::is_latex_output()) {
+  message("Setting PDF plot hook.")
+  new_plot_hook <- function(x, options)
+    paste("\n", knitr::hook_plot_tex(x, options), "\n")
+
+  knitr::knit_hooks$set(plot = new_plot_hook)
+} else {
+  message("Not using PDF output.")
+}
+
+
+options(dplyr.summarise.inform = FALSE)
+
+# This section loads necessary R libraries and sources scripts that define
+# useful functions format_md.
+#
+data_dir = "_data"
+script_dir = "_scripts"
+
+library(pacman)
+p_load(tidyverse, jsonlite, httr, magrittr, scales, xml2, knitr)
+
+theme_set(theme_bw(base_size = 10))
+
+# Create a data directory if one does not exist.
+if (!dir.exists(data_dir)) dir.create(data_dir)
+if (!dir.exists(file.path(data_dir, "ch_05")))
+    dir.create(file.path(data_dir, "ch_05"))
+
+
+source(file.path(script_dir, "utils.R"), chdir = T)
+source(file.path(script_dir, "format_md.R"), chdir = T)
+source(file.path(script_dir, "modtran.R"), chdir = T)
+source(file.path(script_dir, "rrtm.R"), chdir = T)
+```
+## Exercise 1: Lapse Rate
+
+> Use the online full-spectrum radiation model at 
+> <https://climatemodels.jgilligan.org/rrtm/> or <http://climatemodels.uchicago.edu/rrtm/>.
+> Adjust the lapse rate in the model and document its impact on the 
+> equilibrium temperature of the ground.
+
+And from the notes in the assignment:
+
+> The RRTM full-spectrum model is a radiative-convective model that 
+> considers the impact of lapse rate on the radiative balance. You can adjust 
+> the amount of sunlight hitting the earth, the albedo, the surface 
+> temperature, the lapse rate, and other parameters including the amount of 
+> cloud cover at different altitudes. The model then divides the atmosphere 
+> into many layers and at each layer, it calculates the amount of heat going 
+> up and down in the form of shortwave radiation (sunlight) and longwave 
+> radiation emitted by the earth and the atmosphere. The model also reports 
+> about the balance of heat going up and down at the top of the atmosphere. 
+>     
+> Your goal is to adjust parameters until the model reports that 
+> "If the earth has these properties ... then it loses as much energy as 
+> it gains."  
+> ...
+> For Exercise 1, use the RRTM full-spectrum model, at 
+> <https://climatemodels.jgilligan.org/rrtm/> or <http://climatemodels.uchicago.edu/rrtm/>.
+> For this model, you set the lapse rate, CO~2~ concentration, etc., and the 
+> model automatically calculates the imbalance between $I_{\text{in}}$ and 
+> $I_{\text{out}}$. You can then adjust the surface temperature until the model 
+> reports, "...then it loses as much energy as it gains."
+>   
+> I recommend trying lapse rates of 2, 4, 6, 8, and 10 K/km. After you change
+> the lapse rate, I recommend setting the temperature to a round multiple of
+> 10 near 270 or 280 K, and adjusting up or down in steps of 10 K until you 
+> change from gaining to losing heat or vice versa, and then change in steps of 
+> 5 K, then in steps of 1 K, and finally in steps of 0.5, 0.1, and 0.05 as 
+> necessary until RRTM reports energy balance.
+>   
+> Make a table showing the temperature for each lapse rate, and also make
+> a graph of temperature versus lapse rate.
+
+
+### Exercise 1 Answer:
+
+I varied the lapse rate from 0 to 10 Kelvin/km in steps of 1 K/km.
+At each value of the lapse rate, I manually adjusted the surface temperature in
+the interactive RRTM model until the heat budget was balanced (the model 
+reported that "If the Earth has these properties ... then it loses as much
+energy as it gains."). 
+
+```{r ex-1-a, include=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
+lapse_vs_t = tibble( lapse = seq(0, 10),
+                     t_surf = c(256.05, 264.66, 271.65, 276.95, 280.75, 283.15,
+                                284.40, 285.00, 285.25, 285.30, 285.30))
+kable(lapse_vs_t, col.names = c("Lapse rate", "Surface temperature"))
+```
+
+The figure below shows the results. As the lapse rate increases, the change in 
+surface temperature becomes smaller and smaller. At the last step,
+from 9 to 10 K/km, the surface temperature did not change at all.
+
+```{r ex-1-a-plot, include=TRUE, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Equilibrium surface temperature versus lapse rate."}
+ggplot(lapse_vs_t, aes(x = lapse, y = t_surf)) +
+   geom_line(size = 1, color = "darkblue") +
+   geom_point(size = 3, color = "darkblue") +
+   labs(x = "Lapse rate (K/km)", y = "Ground temperature (K)")
+```
+
+#### **Explanation:**
+
+You don't need to have as much detail in your answer as I put in this 
+explanation.
+
+The reason this is happening is that the closer the basic environmental lapse 
+rate gets to the dry adiabatic lapse rate, the less stable the atmosphere is 
+and the easier it is for solar heating of the surface to set off convection 
+that redistributes heat (basically bringing heat from the surface to the upper 
+troposphere).
+
+When the environmental lapse rate (ELR) is less than the moist adiabatic lapse 
+rate, the surface temperature is close to 
+$T_{\text{surface}} = T_{\text{skin}} + h_{\text{skin}} \text{ELR}$,
+but when the ELR becomes greater than the moist adiabatic lapse rate, there
+is so much convection that it disrupts the simple picture I presented in class.
+
+The picture I presented in class works well for an atmosphere like ours, which 
+is marginally stable (i.e., the environmental lapse rate is roughly equal to the
+average moist adiabatic lapse rate).
+When the atmosphere is undergoing a large amount of constant convection, then 
+heat flow behaves differently.
+
+All of that convection transports lots of heat from the surface to the upper
+troposphere and brings lots of cold air down from the upper troposphere to the
+surface, which makes it hard for the surface to get warmer. This is why the
+ground temperature flattens out and stops changing very much after the lapse
+rate reaches about 6 K/km.
+
+## Exercise 2: Skin Altitude
+
+> Answer this question using the online MODTRAN IR radiation model
+> at <https://climatemodels.jgilligan.org/modtran/> or <http://climatemodels.uchicago.edu/modtran/>.
+
+From the notes in the assignment:
+
+> The MODTRAN model ignores shortwave light and only considers longwave 
+> (infrared) light emitted by the earth's surface and atmosphere. When you 
+> start it up, you pick a locality 
+> (for this exercise, use "Tropical Atmosphere" just as you did 
+> for the exercises in Chapter 4) 
+> and the model will initialize to conditions of radiative balance at that 
+> locality (for the tropical atmosphere, this is 298.52 W/m^2^). 
+> You can then adjust all sorts of parameters (the concentrations of different 
+> gases, the conditions of clouds or rain, and the temperature of the ground), 
+> and the model will calculate the new upward longwave heat flux at the 
+> altitude you specify.  You want to make a note of the upward IR heat flux 
+> for the default conditions before you start changing things, and then when 
+> you change parameters, such as the amount of CO~2~ in the atmosphere, you 
+> can adjust the ground temperature until the upward IR heat flux returns to 
+> its initial value.
+
+and
+
+> For exercise 2, use the MODTRAN model. 
+> Choose "Tropical Atmosphere" for Location and keep the altitude at 
+> its default value of 70 km. How would you calculate the skin altitude 
+> from this model?
+
+Now, back to the exercise from the textbook:
+
+> a) Run the model in some configuration without clouds and with present-day 
+>    $p\ce{CO2}$. Compute $\sigma T^4$ using the ground temperature to estimate 
+>    the heat flux that you would get if there were no atmosphere. 
+>    The value of 
+>    $\sigma$ is $5.67 \times 10^{-8}~\mathrm{W}/(\mathrm{m}^2 \mathrm{K}^4)$. 
+>    Is the model heat flux at the top of the atmosphere higher or lower than 
+>    the heat flux you calculated at the ground?
+
+From the notes in the assignment:
+
+> **There's a typo in exercise 2(a):**
+> The Stefan-Boltzmann constant should be
+> $\sigma = 5.67 \times 10^{-8} \mathrm{W/m^2 K^4}$ ($10^{-8}$, not $10^8$)
+
+### **Exercise 2a Answer**
+
+```{r ex-2-a, include=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
+base_co2 <- 400
+lapse <- 6
+
+baseline_file <- file.path(data_dir, "ch_05", "ex_5_2_baseline.txt")
+if (file.exists(baseline_file)) {
+  modtran_baseline = read_modtran(baseline_file)
+} else {
+  modtran_baseline = run_modtran(baseline_file, atmosphere = "tropical",
+                                 co2_ppm = base_co2)
+}
+
+t_ground <- modtran_baseline$t_ground
+t_tropo <- modtran_baseline$t_tropo
+i_out_baseline <- modtran_baseline$i_out
+i_ground <- sigma_sb * t_ground^4
+t_skin <- (i_out_baseline / sigma_sb)^(0.25)
+h_skin <- (t_ground - t_skin) / lapse
+```
+
+The ground temperature is `r format_md(t_ground, digits = 4)` K,
+and the intensity of longwave light from a blackbody at this temperature is
+$\sigma T^4 = `r format_md(i_ground, digits = 5)`~\mathrm{W}/\mathrm{m}^2$.
+
+The actual intensity of longwave radiation from the top of the atmosphere is
+$`r format_md(i_out_baseline, digits = 5)`~\mathrm{W}/\mathrm{m}^2$,
+which is much lower.`
+
+> b) Now calculate the "apparent" temperature at the top of the atmosphere by 
+>    taking the heat flux from the model and computing a temperature from it 
+>    using $\sigma T^4$. What is that temperature, and how does it compare with 
+>    the temperatures at the ground and at the tropopause? Assuming a lapse rate 
+>    of $6~\mathrm{K}/\text{km}$ and using the ground temperature from the 
+>    model, what altitude would this be?
+
+### **Exercise 2b Answer**
+
+The apparent temperature is the temperature of a blackbody that would emit the
+intensity that we observe, 
+$`r format_md(i_out_baseline, digits = 5)`~\mathrm{W}/\mathrm{m}^2$.
+$I_{\text{out}} = \sigma T^4$, so
+$$T_{\text{skin}} = \sqrt[4]{\frac{I_{\text{out}}}{\sigma}} = 
+`r format_md(t_skin, digits = 4)`~\mathrm{K}$$.
+
+This is colder than the ground temperature (`r format_md(t_ground, digits = 4)` K)
+and warmer than the tropopause temperature (`r format_md(t_tropo, digits = 4)` K).
+
+
+The atmosphere gets colder at the lapse rate, `r lapse` K/km:
+$T_{\text{skin}} = T_{\text{ground}} - \text{lapse rate} \times h_{\text{skin}}$,
+so 
+$$
+h_{\text{skin}} = (T_{\text{ground}} - T_{\text{skin}}) / \text{lapse rate}
+= (`r format_md(t_ground, digits = 4)` - `r format_md(t_skin, digits = 4)`)~\mathrm{K} /
+(`r lapse`~\mathrm{K}/\text{km}) = 
+`r format_md(h_skin, digits = 2)`~\text{km}
+$$
+
+> c) Double $\ce{CO2}$ and repeat the calculation. How much higher is the skin 
+>    altitude with doubled $\ce{CO2}$?
+
+### **Exercise 2c Answer**
+```{r ex-2-c, include=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
+double_file <- file.path(data_dir, "ch_05", "ex_5_2_2x_co2.txt")
+if (file.exists(double_file)) {
+  modtran_double = read_modtran(double_file)
+} else {
+  modtran_double = run_modtran(double_file, atmosphere = "tropical",
+                               co2_ppm = base_co2 * 2)
+}
+
+i_out_2x <- modtran_double$i_out
+t_skin_2x <- (i_out_2x / sigma_sb)^(0.25)
+h_skin_2x <- (t_ground - t_skin_2x) / lapse
+```
+
+With doubled 
+$\ce{CO2}$, $I_{\text{out}} = `r format_md(i_out_2x, digits = 5)`~\mathrm{W}/\mathrm{m}^2$.
+The apparent temperature is the temperature of a blackbody that would emit the
+intensity that we observe, 
+$`r format_md(i_out_2x, digits = 5)`~\mathrm{W}/\mathrm{m}^2$.
+$I_{\text{out}} = \sigma T^4$, so
+$$T_{\text{skin}} = \sqrt[4]{\frac{I_{\text{out}}}{\sigma}} = 
+`r format_md(t_skin_2x, digits = 4)`~\mathrm{K}$$.
+
+
+The skin altitude for this temperature is 
+$$h_{\text{skin}} = (T_{\text{ground}} - T_{\text{skin}}) / \text{lapse rate}
+= (`r format_md(t_ground, digits = 4)` - `r format_md(t_skin_2x, digits = 4)`)~\mathrm{K} /
+(`r lapse`~\mathrm{K}/\text{km}) = 
+`r format_md(h_skin_2x, digits = 2)`~\text{km}
+$$
+This is `r format_md(h_skin_2x - h_skin, digits = 2)` km higher than in part (a).
+
+
+> d) Put $\ce{CO2}$ back at today’s value, and add cirrus clouds. 
+>    Repeat the calculation again. Does the cloud or the CO2 have the greatest 
+>    effect on the "skin altitude"?
+
+The notes to the assignment say
+
+> When exercise 2(d) asks you to add cirrus clouds, 
+> use the "NOAA Cirrus model".
+
+### **Exercise 2d Answer**
+```{r ex-2-d, include=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
+cloud_file <- file.path(data_dir, "ch_05", "ex_5_2_cirrus.txt")
+if (file.exists(cloud_file)) {
+  modtran_cirrus = read_modtran(cloud_file)
+} else {
+  modtran_cirrus = run_modtran(cloud_file, atmosphere = "tropical",
+                               co2_ppm = base_co2,
+                               clouds = "NOAA cirrus")
+}
+
+i_out_cirrus <- modtran_cirrus$i_out
+t_skin_cirrus <- (i_out_cirrus / sigma_sb)^(0.25)
+h_skin_cirrus <- (t_ground - t_skin_cirrus) / lapse
+```
+
+With cirrus clouds,
+$\ce{CO2}$, $I_{\text{out}} = `r format_md(i_out_cirrus, digits = 5)`~\mathrm{W}/\mathrm{m}^2$.
+The apparent temperature is the temperature of a blackbody that would emit the
+intensity that we observe, 
+$`r format_md(i_out_cirrus, digits = 5)`~\mathrm{W}/\mathrm{m}^2$.
+$I_{\text{out}} = \sigma T^4$, so
+$$T_{\text{skin}} = \sqrt[4]{\frac{I_{\text{out}}}{\sigma}} = 
+`r format_md(t_skin_cirrus, digits = 4)`~\mathrm{K}$$.
+
+
+The skin altitude for this temperature is 
+$$h_{\text{skin}} = (T_{\text{ground}} - T_{\text{skin}}) / \text{lapse rate}
+= (`r format_md(t_ground, digits = 4)` - `r format_md(t_skin_cirrus, digits = 4)`)~\mathrm{K} /
+(`r lapse`~\mathrm{K}/\text{km}) = 
+`r format_md(h_skin_cirrus, digits = 2)`~\text{km}
+$$
+This is `r format_md(h_skin_cirrus - h_skin, digits = 2)` km higher than in part (a)
+and `r format_md(h_skin_cirrus - h_skin_2x, digits = 2)` km higher than in part (b).
+
+Cirrus clouds have a much bigger effect on skin altitude than doubling $\ce{CO2}$
+.
