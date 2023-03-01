@@ -291,7 +291,7 @@ $$
 This is `r format_md(h_skin_2x - h_skin, digits = 2)` km higher than in part (a).
 
 
-> d) Put $\ce{CO2}$ back at today’s value, and add cirrus clouds. 
+> d) Put $\ce{CO2}$ back at today's value, and add cirrus clouds. 
 >    Repeat the calculation again. Does the cloud or the CO2 have the greatest 
 >    effect on the "skin altitude"?
 
