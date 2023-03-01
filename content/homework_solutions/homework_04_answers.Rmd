@@ -536,7 +536,7 @@ Then I double CO~2~ to 800 ppm and the Earth gains energy at a rate of
 3.8 W/m^2^. Again, I adjust the surface temperature by trial and error until
 I find that at `r t_2x_rh`, the Earth loses as much energy as it gains.
 
-The climate sensitivity for 0% relative humidity is `r delta_2x_rh`.
+The climate sensitivity for 0% relative humidity is `r delta_2x_rh` K.
 
 > c) Compare the climate sensitivity with zero relative humidity to the
 >    sensitivity with the default value of 80% relative humidity. The
