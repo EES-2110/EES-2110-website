@@ -8,3 +8,4 @@ date: "2017-04-13T00:00:00"
 
 * [Practice questions for Test #1](/files/tests/test_01/EES_2110_Practice_Test_1.pdf) ({{% TEST_1_DATE %}})
 
+* Answers for Test #1 have been posted to Brightspace.
