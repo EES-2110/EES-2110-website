@@ -54,24 +54,24 @@ source(file.path(script_dir, "rrtm.R"), chdir = T)
 ```
 ## **Exercise #1: Cloud Effects**
 
-> Use the MODTRAN model with the "Tropical Atmosphere" and vary the 
-> clouds. 
-> Note that this model does not consider incoming shortwave light, and 
-> therefore it ignores the albedo effect of clouds. It only calculates the 
-> effect of the clouds on outgoing longwave light for a given surface 
-> temperature. One way to think about this is that it looks at the effect the 
+> Use the MODTRAN model with the "Tropical Atmosphere" and vary the
+> clouds.
+> Note that this model does not consider incoming shortwave light, and
+> therefore it ignores the albedo effect of clouds. It only calculates the
+> effect of the clouds on outgoing longwave light for a given surface
+> temperature. One way to think about this is that it looks at the effect the
 > clouds have at night.
->     
-> a) Run the model three times: First with clear skies, then with 
->    "Altostratus: Cloud Base 2.4 km, Top 3.0 km," 
+>
+> a) Run the model three times: First with clear skies, then with
+>    "Altostratus: Cloud Base 2.4 km, Top 3.0 km,"
 >    and finally with "Stratus: Cloud Base .33 km, Top 1.0 km."
 >    Describe the change in \(I_{\text{out}}\) for each type of clouds:
 >
 >    * Is the effect warming or cooling?
 >    * Which type of cloud has the bigger effect on $I_{\text{out}}$?
 >    * Why do you see the difference between the two types of clouds?
-       
-### Answer 1(a) 
+
+### Answer 1(a)
 
 ```{r answer_1a}
 #| echo=FALSE, message=FALSE, warning=FALSE
@@ -106,9 +106,9 @@ alto_effect <- i_out_alto - i_out_clear
 stratus_effect <- i_out_stratus - i_out_clear
 ```
 
-With clear skies, 
+With clear skies,
 $I_{\text{out}} = `r format_md(i_out_clear, digits = 2)`~\text{W}/\text{m}^2$.
-With altostratus clouds, 
+With altostratus clouds,
 $I_{\text{out}} = `r format_md(i_out_alto, digits = 2)`~\text{W}/\text{m}^2$,
 which is $`r format_md(abs(alto_effect), digits = 2)`~~\text{W}/\text{m}^2$
 `r ifelse(alto_effect >= 0, "greater", "less")`, so altostratus clouds
@@ -121,31 +121,31 @@ which is $`r format_md(abs(stratus_effect), digits = 2)`~~\text{W}/\text{m}^2$
 have a `r ifelse(stratus_effect >= 0, "cooling", "warming")` effect.
 
 `r ifelse(abs(alto_effect) > abs(stratus_effect), "Altostratus", "Stratus")`
-clouds have a bigger effect on $I_{\text{out}}$. This is because 
+clouds have a bigger effect on $I_{\text{out}}$. This is because
 altostratus clouds are higher in the atmosphere
 (the tops are at 3 km, compared to 1 km for stratus), so the tops of
-altostratus clouds are cooler than the tops of stratus clouds, and thus 
+altostratus clouds are cooler than the tops of stratus clouds, and thus
 emits less longwave radiation.
 
-> b) Starting set the altitude to zero and select "Looking up." When you 
->    are looking up, the model reports the longwave radiation coming down to 
->    the surface from the atmosphere and hitting the earth's surface. This 
->    heat is in addition to whatever heat the earth gets from shortwave solar 
+> b) Starting set the altitude to zero and select "Looking up." When you
+>    are looking up, the model reports the longwave radiation coming down to
+>    the surface from the atmosphere and hitting the earth's surface. This
+>    heat is in addition to whatever heat the earth gets from shortwave solar
 >    radiation.
 >
->    For simplicity, think of this as the conditions at night, when the sun 
->    is not shining: without sunlight, the temperature of the ground will be 
->    determined by balancing the outgoing heat with the heat radiated downward 
+>    For simplicity, think of this as the conditions at night, when the sun
+>    is not shining: without sunlight, the temperature of the ground will be
+>    determined by balancing the outgoing heat with the heat radiated downward
 >    by the warm atmosphere and clouds.
 >
->    * First, note the downward longwave heat flux ($I_{\text{down}}$) with 
->      clear sky (no clouds or rain). 
->    * Then turn on altostratus clouds and note the change in 
->      $I_{\text{down}}$. 
+>    * First, note the downward longwave heat flux ($I_{\text{down}}$) with
+>      clear sky (no clouds or rain).
+>    * Then turn on altostratus clouds and note the change in
+>      $I_{\text{down}}$.
 >    * Next, turn on stratus clouds and note the change in $I_{\text{down}}$.
 >
 >    Answer the following questions:
->       
+>
 >    * How does \(I_{\text{down}}\) change when you add clouds?
 >    * Do the clouds have a heating or cooling effect? Why?
 >    * Which clouds have a greater heating or cooling effect? Why?
@@ -189,9 +189,9 @@ stratus_effect <- i_down_stratus - i_down_clear
 
 ```
 
-With clear skies, 
+With clear skies,
 $I_{\text{down}} = `r format_md(i_down_clear, digits = 2)`~\text{W}/\text{m}^2$.
-With altostratus clouds, 
+With altostratus clouds,
 $I_{\text{down}} = `r format_md(i_down_alto, digits = 2)`~\text{W}/\text{m}^2$,
 which is $`r format_md(abs(alto_effect), digits = 2)`~~\text{W}/\text{m}^2$
 `r ifelse(alto_effect >= 0, "greater", "less")`, so altostratus clouds
@@ -204,25 +204,25 @@ which is $`r format_md(abs(stratus_effect), digits = 2)`~~\text{W}/\text{m}^2$
 have a `r ifelse(stratus_effect >= 0, "warming", "cooling")` effect.
 
 `r ifelse(abs(alto_effect) > abs(stratus_effect), "Altostratus", "Stratus")`
-clouds have a bigger effect on $I_{\text{down}}$. This is because 
+clouds have a bigger effect on $I_{\text{down}}$. This is because
 altostratus clouds are higher in the atmosphere
 (the bottoms are at 2.4 km, compared to 0.33 km for stratus), so the bottoms of
-altostratus clouds are cooler than the bottoms of stratus clouds, and thus 
+altostratus clouds are cooler than the bottoms of stratus clouds, and thus
 emits less longwave radiation.
 
 
 ## **Exercise #2: Cloud Effects with RRTM**
 
 > Use the RRTM model.
->     
+>
 > a) First set the model to its default parameters. It should report,
->    "If the earth has these properties ... then it loses as much energy as 
+>    "If the earth has these properties ... then it loses as much energy as
 >    it gains."
->    Move your mouse over the arrows at the top and bottom of the graph. 
->    The orange arrows are shortwave (mostly visible) light, and the purple 
->    arrows are longwave (far-infrared) radiation. How much shortwave and 
->    longwave light is absorbed by the ground (the downward arrows at the 
->    bottom) and how much of each is emitted to space (the upward arrows at 
+>    Move your mouse over the arrows at the top and bottom of the graph.
+>    The orange arrows are shortwave (mostly visible) light, and the purple
+>    arrows are longwave (far-infrared) radiation. How much shortwave and
+>    longwave light is absorbed by the ground (the downward arrows at the
+>    bottom) and how much of each is emitted to space (the upward arrows at
 >    the top)?
 
 ### Answer for 2(a)
@@ -248,15 +248,17 @@ sw_up <- top$sw_up
 At the bottom, the intensity of longwave radiation is `r lw_down` W/m^2^
 and the intensity of shortwave radiation is `r sw_down` W/m^2^.
 
-At the top of the atmosphere, the intensity of longwave radiation is 
+At the top of the atmosphere, the intensity of longwave radiation is
 `r lw_up` W/m^2^
 and the intensity of shortwave radiation is `r sw_up` W/m^2^.
 
-> b) Next, add 100% high clouds (set "High cloud (fraction)" to 1.0). 
->    Record the total gain or loss of of heat, and the amount of shortwave 
->    and longwave radiation absorbed by the surface and emitted to space. 
->    Clouds affect both longwave and shortwave heat fluxes. Which kind of 
+> b) Next, add 100% high clouds (set "High cloud (fraction)" to 1.0).
+>    Record the total gain or loss of of heat, and the amount of shortwave
+>    and longwave radiation absorbed by the surface and emitted to space.
+>    Clouds affect both longwave and shortwave heat fluxes. Which kind of
 >    radiation changed more?
+
+### Answer for 2(b)
 
 ```{r answer_2b}
 #| echo=FALSE, warning=FALSE, message=FALSE
@@ -294,12 +296,14 @@ knitr::kable(df, col.names = c("Altitude", "Wavelength", "Direction",
                                "Clear Sky", "High Clouds", "Difference"))
 ```
 
-The biggest change was in outgoing longwave radiation from the top of the 
+The biggest change was in outgoing longwave radiation from the top of the
 atmosphere, which dropped by `r abs(delta_lw_up_hc)` W/m^2^.
 
-> c) Now do the same thing for low clouds: set "High cloud (fraction)" to 
->    zero and "Low cloud (fraction)" to 1.0. Which kind of radiation changed 
+> c) Now do the same thing for low clouds: set "High cloud (fraction)" to
+>    zero and "Low cloud (fraction)" to 1.0. Which kind of radiation changed
 >    more, compared to the no-cloud condition?
+
+### Answer for 2(c)
 
 ```{r answer_2c}
 #| echo=FALSE, warning=FALSE, message=FALSE
@@ -341,8 +345,10 @@ The biggest change was in the longwave coming down to the ground, which
 increased by `r delta_lw_down_lc` W/m^2^.
 
 
-> d) With the low cloud fraction still set to 1.0 (100%), change the drop 
+> d) With the low cloud fraction still set to 1.0 (100%), change the drop
 >    radius from 10 to 8 $\mu$m. How does this change the heat flux?
+
+### Answer for 2(d)
 
 ```{r answer_2d}
 #| echo=FALSE, warning=FALSE, message=FALSE
@@ -350,7 +356,7 @@ rrtm_low_cloud_small_drop_file <- file.path(data_dir, "ch_07", "ex_7_2_d.txt")
 if (file.exists(rrtm_low_cloud_small_drop_file)) {
   rrtm_low_cloud_small_drop <- read_rrtm(rrtm_low_cloud_small_drop_file)
 } else {
-  rrtm_low_cloud_small_drop <- run_rrtm(rrtm_low_cloud_small_drop_file, 
+  rrtm_low_cloud_small_drop <- run_rrtm(rrtm_low_cloud_small_drop_file,
                                         low_cloud_frac = 1.0,
                                         cloud_drop_radius = 8)
 }
@@ -392,15 +398,18 @@ reaching the ground and a big increase in shortwave reflected back to space.
 
 In terms of total heat fluxes, with the 10 $\mu$m drops, we had
 $I_{\text{in}} = `r i_in_large`$ and $I_{\text{out}} = `r i_out_large`$.
+
 For the 8 $\mu$m drops, we had
 $I_{\text{in}} = `r i_in_small`$ and $I_{\text{out}} = `r i_out_small`$.
 
 
-> e) Now set the cloud fraction to zero and double the CO~2~. How does this 
->    change the heat flux? How does the effect of doubling CO~2~ compare to 
->    the effect of changing the droplet size for the low clouds? You can see 
->    how important it is to get the cloud droplet size right in climate 
+> e) Now set the cloud fraction to zero and double the CO~2~. How does this
+>    change the heat flux? How does the effect of doubling CO~2~ compare to
+>    the effect of changing the droplet size for the low clouds? You can see
+>    how important it is to get the cloud droplet size right in climate
 >    models!
+
+### Answer for 2(e)
 
 ```{r answer_2e}
 #| echo=FALSE, warning=FALSE, message=FALSE
@@ -450,44 +459,46 @@ $I_{\text{in}} = `r i_in`$ and $I_{\text{out}} = `r i_out`$.
 For the 800 ppm CO~2~, we had
 $I_{\text{in}} = `r i_in_co2`$ and $I_{\text{out}} = `r i_out_co2`$.
 
-Changing the size of cloud drops has a comparably sized effect to doubling 
-CO~2~.
+Changing the size of cloud drops affects the heat balance about half as much
+as doubling CO~2~,
+but CO~2~ mostly affects $I_{\text{out}}$ and droplet size mostly
+affect $I_{\text{in}}$
 
 
-**Exercise #3:** 
-  ~ The "climate sensitivity" ($\Delta T_{\text{2x}}$) refers to the change in 
-    temperature when you double the amount of CO~2~ in the atmosphere. Here, 
+**Exercise #3:**
+  ~ The "climate sensitivity" ($\Delta T_{\text{2x}}$) refers to the change in
+    temperature when you double the amount of CO~2~ in the atmosphere. Here,
     we will examine how the water vapor feedback affects climate sensitivity.
-    
-    a) Run the RRTM model with the default parameters. Write down the ground 
+
+    a) Run the RRTM model with the default parameters. Write down the ground
        temperature.
-       
-       Next, double CO~2~ and note the change in energy balance. 
-       At the beginning of the exercise, the earth was in radiative equilibrium. 
-       Changing CO~2~ disturbed this equilibrium and produced a radiative 
+
+       Next, double CO~2~ and note the change in energy balance.
+       At the beginning of the exercise, the earth was in radiative equilibrium.
+       Changing CO~2~ disturbed this equilibrium and produced a radiative
        imbalance where $I_{\text{out}} \neq I_{\text{in}}$.
        Adjust the surface temperature to bring the earth back into balance.
-       
+
        * What is the new temperature?
-       * How much did the earth warm or cool? This temperature change for 
+       * How much did the earth warm or cool? This temperature change for
          doubling CO~2~ is what we call the **climate sensitivity**,
          or $\Delta T_{2\times\COO}$.
 
-    b) Set CO~2~ back to the default value (400 ppm) and set relative humidity 
+    b) Set CO~2~ back to the default value (400 ppm) and set relative humidity
        to zero. This turns off the water vapor feedback.
-       Adjust the surface temperature offset until the earth loses as much 
+       Adjust the surface temperature offset until the earth loses as much
        energy as it gains.
        Write down this temperature.
-       
-       Now double the CO~2~ and adjust the surface temperature to bring the 
+
+       Now double the CO~2~ and adjust the surface temperature to bring the
        heat back into balance.
-       
+
        * How much did the temperature change?
 
-    c) Compare the climate sensitivity with zero relative humidity to the 
-       sensitivity with the default value of 80% relative humidity. The 
+    c) Compare the climate sensitivity with zero relative humidity to the
+       sensitivity with the default value of 80% relative humidity. The
        difference is the effect of water vapor feedback.
-       
+
        * What was the amplification factor of the water vapor feedback
-         (the ratio of the climate sensitivity $\Delta T_{2\times\COO}$ with 
+         (the ratio of the climate sensitivity $\Delta T_{2\times\COO}$ with
          water vapor feedback to $\Delta T_{2\times\COO}$ without it)?
