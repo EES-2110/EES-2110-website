@@ -1,0 +1,451 @@
+---
+title: Chapter 7 Homework Answers
+hw_number: 4
+pubdate: '2023-02-28'
+date: '2023-02-22'
+pdf_url: /files/homework_solutions/hw_04/homework_04_answers.pdf
+slug: homework_04_answers
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+    toc: yes
+  pdf_document:
+    toc: yes
+    toc_depth: 3.0
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#exercise-1-cloud-effects" id="toc-exercise-1-cloud-effects"><strong>Exercise #1: Cloud Effects</strong></a>
+<ul>
+<li><a href="#answer-1a" id="toc-answer-1a">Answer 1(a)</a></li>
+<li><a href="#answer-1b" id="toc-answer-1b">Answer 1(b)</a></li>
+</ul></li>
+<li><a href="#exercise-2-cloud-effects-with-rrtm" id="toc-exercise-2-cloud-effects-with-rrtm"><strong>Exercise #2: Cloud Effects with RRTM</strong></a>
+<ul>
+<li><a href="#answer-for-2a" id="toc-answer-for-2a">Answer for 2(a)</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="exercise-1-cloud-effects" class="section level2">
+<h2><strong>Exercise #1: Cloud Effects</strong></h2>
+<blockquote>
+<p>Use the MODTRAN model with the “Tropical Atmosphere” and vary the
+clouds.
+Note that this model does not consider incoming shortwave light, and
+therefore it ignores the albedo effect of clouds. It only calculates the
+effect of the clouds on outgoing longwave light for a given surface
+temperature. One way to think about this is that it looks at the effect the
+clouds have at night.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Run the model three times: First with clear skies, then with
+“Altostratus: Cloud Base 2.4 km, Top 3.0 km,”
+and finally with “Stratus: Cloud Base .33 km, Top 1.0 km.”
+Describe the change in <span class="math inline">\(I_{\text{out}}\)</span> for each type of clouds:</p>
+<ul>
+<li>Is the effect warming or cooling?</li>
+<li>Which type of cloud has the bigger effect on <span class="math inline">\(I_{\text{out}}\)</span>?</li>
+<li>Why do you see the difference between the two types of clouds?</li>
+</ul></li>
+</ol>
+</blockquote>
+<div id="answer-1a" class="section level3">
+<h3>Answer 1(a)</h3>
+<p>With clear skies,
+<span class="math inline">\(I_{\text{out}} = 299.~\text{W}/\text{m}^2\)</span>.
+With altostratus clouds,
+<span class="math inline">\(I_{\text{out}} = 269.~\text{W}/\text{m}^2\)</span>,
+which is $ 30.~~/^2$
+less, so altostratus clouds
+have a warming effect.</p>
+<p>With stratus clouds, which are closer to the ground,
+<span class="math inline">\(I_{\text{out}} = 289.~\text{W}/\text{m}^2\)</span>,
+which is <span class="math inline">\(10.~~\text{W}/\text{m}^2\)</span>
+less, so stratus clouds
+have a warming effect.</p>
+<p>Altostratus
+clouds have a bigger effect on <span class="math inline">\(I_{\text{out}}\)</span>. This is because
+altostratus clouds are higher in the atmosphere
+(the tops are at 3 km, compared to 1 km for stratus), so the tops of
+altostratus clouds are cooler than the tops of stratus clouds, and thus
+emits less longwave radiation.</p>
+<blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p>Starting set the altitude to zero and select “Looking up.” When you
+are looking up, the model reports the longwave radiation coming down to
+the surface from the atmosphere and hitting the earth’s surface. This
+heat is in addition to whatever heat the earth gets from shortwave solar
+radiation.</p>
+<p>For simplicity, think of this as the conditions at night, when the sun
+is not shining: without sunlight, the temperature of the ground will be
+determined by balancing the outgoing heat with the heat radiated downward
+by the warm atmosphere and clouds.</p>
+<ul>
+<li>First, note the downward longwave heat flux (<span class="math inline">\(I_{\text{down}}\)</span>) with
+clear sky (no clouds or rain).</li>
+<li>Then turn on altostratus clouds and note the change in
+<span class="math inline">\(I_{\text{down}}\)</span>.</li>
+<li>Next, turn on stratus clouds and note the change in <span class="math inline">\(I_{\text{down}}\)</span>.</li>
+</ul>
+<p>Answer the following questions:</p>
+<ul>
+<li>How does <span class="math inline">\(I_{\text{down}}\)</span> change when you add clouds?</li>
+<li>Do the clouds have a heating or cooling effect? Why?</li>
+<li>Which clouds have a greater heating or cooling effect? Why?</li>
+</ul></li>
+</ol>
+</blockquote>
+</div>
+<div id="answer-1b" class="section level3">
+<h3>Answer 1(b)</h3>
+<p>With clear skies,
+<span class="math inline">\(I_{\text{down}} = 447.~\text{W}/\text{m}^2\)</span>.
+With altostratus clouds,
+<span class="math inline">\(I_{\text{down}} = 447.~\text{W}/\text{m}^2\)</span>,
+which is <span class="math inline">\(0~~\text{W}/\text{m}^2\)</span>
+greater, so altostratus clouds
+have a warming effect.</p>
+<p>With stratus clouds, which are closer to the ground,
+<span class="math inline">\(I_{\text{down}} = 447.~\text{W}/\text{m}^2\)</span>,
+which is <span class="math inline">\(0~~\text{W}/\text{m}^2\)</span>
+greater, so stratus clouds
+have a warming effect.</p>
+<p>Stratus
+clouds have a bigger effect on <span class="math inline">\(I_{\text{down}}\)</span>. This is because
+altostratus clouds are higher in the atmosphere
+(the bottoms are at 2.4 km, compared to 0.33 km for stratus), so the bottoms of
+altostratus clouds are cooler than the bottoms of stratus clouds, and thus
+emits less longwave radiation.</p>
+</div>
+</div>
+<div id="exercise-2-cloud-effects-with-rrtm" class="section level2">
+<h2><strong>Exercise #2: Cloud Effects with RRTM</strong></h2>
+<blockquote>
+<p>Use the RRTM model.</p>
+<ol style="list-style-type: lower-alpha">
+<li>First set the model to its default parameters. It should report,
+“If the earth has these properties … then it loses as much energy as
+it gains.”
+Move your mouse over the arrows at the top and bottom of the graph.
+The orange arrows are shortwave (mostly visible) light, and the purple
+arrows are longwave (far-infrared) radiation. How much shortwave and
+longwave light is absorbed by the ground (the downward arrows at the
+bottom) and how much of each is emitted to space (the upward arrows at
+the top)?</li>
+</ol>
+</blockquote>
+<div id="answer-for-2a" class="section level3">
+<h3>Answer for 2(a)</h3>
+<p>At the bottom, the intensity of longwave radiation is 280.9 W/m<sup>2</sup>
+and the intensity of shortwave radiation is 266.3 W/m<sup>2</sup>.</p>
+<p>At the top of the atmosphere, the intensity of longwave radiation is
+244.8 W/m<sup>2</sup>
+and the intensity of shortwave radiation is 95.2 W/m<sup>2</sup>.</p>
+<blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Next, add 100% high clouds (set “High cloud (fraction)” to 1.0).
+Record the total gain or loss of of heat, and the amount of shortwave
+and longwave radiation absorbed by the surface and emitted to space.
+Clouds affect both longwave and shortwave heat fluxes. Which kind of
+radiation changed more?</li>
+</ol>
+</blockquote>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="15%" />
+<col width="13%" />
+<col width="13%" />
+<col width="16%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Altitude</th>
+<th align="left">Wavelength</th>
+<th align="left">Direction</th>
+<th align="right">Clear Sky</th>
+<th align="right">High Clouds</th>
+<th align="right">Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Ground</td>
+<td align="left">Shortwave</td>
+<td align="left">Down</td>
+<td align="right">266.3</td>
+<td align="right">222.3</td>
+<td align="right">-44.0</td>
+</tr>
+<tr class="even">
+<td align="left">Ground</td>
+<td align="left">Longwave</td>
+<td align="left">Down</td>
+<td align="right">280.9</td>
+<td align="right">288.3</td>
+<td align="right">7.4</td>
+</tr>
+<tr class="odd">
+<td align="left">Top of atmosphere</td>
+<td align="left">Shortwave</td>
+<td align="left">Up</td>
+<td align="right">95.2</td>
+<td align="right">131.5</td>
+<td align="right">36.3</td>
+</tr>
+<tr class="even">
+<td align="left">Top of atmosphere</td>
+<td align="left">Longwave</td>
+<td align="left">Up</td>
+<td align="right">244.8</td>
+<td align="right">130.2</td>
+<td align="right">-114.6</td>
+</tr>
+</tbody>
+</table>
+<p>The biggest change was in outgoing longwave radiation from the top of the
+atmosphere, which dropped by 114.6 W/m<sup>2</sup>.</p>
+<blockquote>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Now do the same thing for low clouds: set “High cloud (fraction)” to
+zero and “Low cloud (fraction)” to 1.0. Which kind of radiation changed
+more, compared to the no-cloud condition?</li>
+</ol>
+</blockquote>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="15%" />
+<col width="14%" />
+<col width="14%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Altitude</th>
+<th align="left">Wavelength</th>
+<th align="left">Direction</th>
+<th align="right">Clear Sky</th>
+<th align="right">Low Clouds</th>
+<th align="right">Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Ground</td>
+<td align="left">Shortwave</td>
+<td align="left">Down</td>
+<td align="right">266.3</td>
+<td align="right">223.1</td>
+<td align="right">-43.2</td>
+</tr>
+<tr class="even">
+<td align="left">Ground</td>
+<td align="left">Longwave</td>
+<td align="left">Down</td>
+<td align="right">280.9</td>
+<td align="right">336.0</td>
+<td align="right">55.1</td>
+</tr>
+<tr class="odd">
+<td align="left">Top of atmosphere</td>
+<td align="left">Shortwave</td>
+<td align="left">Up</td>
+<td align="right">95.2</td>
+<td align="right">121.2</td>
+<td align="right">26.0</td>
+</tr>
+<tr class="even">
+<td align="left">Top of atmosphere</td>
+<td align="left">Longwave</td>
+<td align="left">Up</td>
+<td align="right">244.8</td>
+<td align="right">238.4</td>
+<td align="right">-6.4</td>
+</tr>
+</tbody>
+</table>
+<p>The biggest change was in the longwave coming down to the ground, which
+increased by 55.1 W/m<sup>2</sup>.</p>
+<blockquote>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>With the low cloud fraction still set to 1.0 (100%), change the drop
+radius from 10 to 8 <span class="math inline">\(\mu\)</span>m. How does this change the heat flux?</li>
+</ol>
+</blockquote>
+<table>
+<colgroup>
+<col width="24%" />
+<col width="14%" />
+<col width="13%" />
+<col width="16%" />
+<col width="16%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Altitude</th>
+<th align="left">Wavelength</th>
+<th align="left">Direction</th>
+<th align="right">Large drops</th>
+<th align="right">Small drops</th>
+<th align="right">Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Ground</td>
+<td align="left">Shortwave</td>
+<td align="left">Down</td>
+<td align="right">223.1</td>
+<td align="right">219.9</td>
+<td align="right">-3.2</td>
+</tr>
+<tr class="even">
+<td align="left">Ground</td>
+<td align="left">Longwave</td>
+<td align="left">Down</td>
+<td align="right">336.0</td>
+<td align="right">337.4</td>
+<td align="right">1.4</td>
+</tr>
+<tr class="odd">
+<td align="left">Top of atmosphere</td>
+<td align="left">Shortwave</td>
+<td align="left">Up</td>
+<td align="right">121.2</td>
+<td align="right">123.3</td>
+<td align="right">2.1</td>
+</tr>
+<tr class="even">
+<td align="left">Top of atmosphere</td>
+<td align="left">Longwave</td>
+<td align="left">Up</td>
+<td align="right">238.4</td>
+<td align="right">238.3</td>
+<td align="right">-0.1</td>
+</tr>
+</tbody>
+</table>
+<p>There is very little change in the longwave, but big reduction in shortwave
+reaching the ground and a big increase in shortwave reflected back to space.</p>
+<p>In terms of total heat fluxes, with the 10 <span class="math inline">\(\mu\)</span>m drops, we had
+<span class="math inline">\(I_{\text{in}} = 218.8\)</span> and <span class="math inline">\(I_{\text{out}} = 238.4\)</span>.
+For the 8 <span class="math inline">\(\mu\)</span>m drops, we had
+<span class="math inline">\(I_{\text{in}} = 216.7\)</span> and <span class="math inline">\(I_{\text{out}} = 238.3\)</span>.</p>
+<blockquote>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>Now set the cloud fraction to zero and double the CO<sub>2</sub>. How does this
+change the heat flux? How does the effect of doubling CO<sub>2</sub> compare to
+the effect of changing the droplet size for the low clouds? You can see
+how important it is to get the cloud droplet size right in climate
+models!</li>
+</ol>
+</blockquote>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="15%" />
+<col width="13%" />
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Altitude</th>
+<th align="left">Wavelength</th>
+<th align="left">Direction</th>
+<th align="right">Normal CO2</th>
+<th align="right">Double CO2</th>
+<th align="right">Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Ground</td>
+<td align="left">Shortwave</td>
+<td align="left">Down</td>
+<td align="right">266.3</td>
+<td align="right">265.9</td>
+<td align="right">-0.4</td>
+</tr>
+<tr class="even">
+<td align="left">Ground</td>
+<td align="left">Longwave</td>
+<td align="left">Down</td>
+<td align="right">280.9</td>
+<td align="right">283.5</td>
+<td align="right">2.6</td>
+</tr>
+<tr class="odd">
+<td align="left">Top of atmosphere</td>
+<td align="left">Shortwave</td>
+<td align="left">Up</td>
+<td align="right">95.2</td>
+<td align="right">95.1</td>
+<td align="right">-0.1</td>
+</tr>
+<tr class="even">
+<td align="left">Top of atmosphere</td>
+<td align="left">Longwave</td>
+<td align="left">Up</td>
+<td align="right">244.8</td>
+<td align="right">240.7</td>
+<td align="right">-4.1</td>
+</tr>
+</tbody>
+</table>
+<p>In terms of total heat fluxes, with 400 ppm CO<sub>2</sub>, we had
+<span class="math inline">\(I_{\text{in}} = 244.8\)</span> and <span class="math inline">\(I_{\text{out}} = 244.8\)</span>.</p>
+<p>For the 800 ppm CO<sub>2</sub>, we had
+<span class="math inline">\(I_{\text{in}} = 244.9\)</span> and <span class="math inline">\(I_{\text{out}} = 240.7\)</span>.</p>
+<p>Changing the size of cloud drops has a comparably sized effect to doubling
+CO<sub>2</sub>.</p>
+<dl>
+<dt><strong>Exercise #3:</strong></dt>
+<dd>
+<p>The “climate sensitivity” (<span class="math inline">\(\Delta T_{\text{2x}}\)</span>) refers to the change in
+temperature when you double the amount of CO<sub>2</sub> in the atmosphere. Here,
+we will examine how the water vapor feedback affects climate sensitivity.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Run the RRTM model with the default parameters. Write down the ground
+temperature.</p>
+<p>Next, double CO<sub>2</sub> and note the change in energy balance.
+At the beginning of the exercise, the earth was in radiative equilibrium.
+Changing CO<sub>2</sub> disturbed this equilibrium and produced a radiative
+imbalance where <span class="math inline">\(I_{\text{out}} \neq I_{\text{in}}\)</span>.
+Adjust the surface temperature to bring the earth back into balance.</p>
+<ul>
+<li>What is the new temperature?</li>
+<li>How much did the earth warm or cool? This temperature change for
+doubling CO<sub>2</sub> is what we call the <strong>climate sensitivity</strong>,
+or <span class="math inline">\(\Delta T_{2\times\COO}\)</span>.</li>
+</ul></li>
+<li><p>Set CO<sub>2</sub> back to the default value (400 ppm) and set relative humidity
+to zero. This turns off the water vapor feedback.
+Adjust the surface temperature offset until the earth loses as much
+energy as it gains.
+Write down this temperature.</p>
+<p>Now double the CO<sub>2</sub> and adjust the surface temperature to bring the
+heat back into balance.</p>
+<ul>
+<li>How much did the temperature change?</li>
+</ul></li>
+<li><p>Compare the climate sensitivity with zero relative humidity to the
+sensitivity with the default value of 80% relative humidity. The
+difference is the effect of water vapor feedback.</p>
+<ul>
+<li>What was the amplification factor of the water vapor feedback
+(the ratio of the climate sensitivity <span class="math inline">\(\Delta T_{2\times\COO}\)</span> with
+water vapor feedback to <span class="math inline">\(\Delta T_{2\times\COO}\)</span> without it)?</li>
+</ul></li>
+</ol>
+</dd>
+</dl>
+</div>
+</div>
