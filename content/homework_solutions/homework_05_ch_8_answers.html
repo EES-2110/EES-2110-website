@@ -1,0 +1,145 @@
+---
+title: Chapter 8 Homework Answers
+hw_number: 5
+pubdate: '2023-03-02'
+date: '2023-03-01'
+pdf_url: /files/homework_solutions/hw_05/homework_05_ch_8_answers.pdf
+slug: homework_05_ch_8_answers
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+    toc: yes
+  pdf_document:
+    toc: yes
+    toc_depth: 3.0
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#exercise-8.1-weathering" id="toc-exercise-8.1-weathering">Exercise 8.1: Weathering</a>
+<ul>
+<li><a href="#answer-to-8.1a" id="toc-answer-to-8.1a">Answer to 8.1(a)</a></li>
+<li><a href="#answer-to-8.1b" id="toc-answer-to-8.1b">Answer to 8.1(b)</a></li>
+<li><a href="#answer-to-8.1c" id="toc-answer-to-8.1c">Answer to 8.1(c)</a></li>
+<li><a href="#answer-to-8.1d" id="toc-answer-to-8.1d">Answer to 8.1(d)</a></li>
+</ul></li>
+<li><a href="#exercise-8.2-weathering-as-a-feedback" id="toc-exercise-8.2-weathering-as-a-feedback">Exercise 8.2: Weathering as a Feedback</a>
+<ul>
+<li><a href="#answer-to-8.2" id="toc-answer-to-8.2">Answer to 8.2</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="exercise-8.1-weathering" class="section level2">
+<h2>Exercise 8.1: Weathering</h2>
+<blockquote>
+<p>Weathering as a function of CO<sub>2</sub>. In steady state, the rate of weathering
+must balance the rate of CO<sub>2</sub> degassing from the Earth, from volcanoes and
+deep sea vents. Run a simulation with a higher CO<sub>2</sub> degassing rate at the
+transition time.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Does an increase in CO<sub>2</sub> degassing drive atmospheric CO<sub>2</sub> up or down?
+How long does this take?</li>
+</ol>
+</blockquote>
+<div id="answer-to-8.1a" class="section level3">
+<h3>Answer to 8.1(a)</h3>
+<p>It takes about 1 million years for CO<sub>2</sub> to come to equilibrium after the
+volcanic degassing rate changes.</p>
+<p><img src="/homework_solutions/homework_05_ch_8_answers_files/figure-html/answer-1a-1.png" width="672" /></p>
+<blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>How can you see that the model balances weathering against CO<sub>2</sub>
+degassing?</li>
+</ol>
+</blockquote>
+</div>
+<div id="answer-to-8.1b" class="section level3">
+<h3>Answer to 8.1(b)</h3>
+<p>Look at the “Silicate Thermostat” graph: Watch how the weathering rate
+gradually rises until it meets the degassing rate.</p>
+<p><img src="/homework_solutions/homework_05_ch_8_answers_files/figure-html/answer-1b-1.png" width="672" /></p>
+<blockquote>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Repeat this run with a range of degassing rates, and make a table of the
+equilibrium CO<sub>2</sub> concentration as a function of the CO<sub>2</sub> degassing
+rate.
+The CO<sub>2</sub> degassing rate is supposed to balance the CO<sub>2</sub> consumption
+rate by silicate weathering.</li>
+</ol>
+</blockquote>
+</div>
+<div id="answer-to-8.1c" class="section level3">
+<h3>Answer to 8.1(c)</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Degassing rate</th>
+<th align="right">CO2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">2.5</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">90</td>
+</tr>
+<tr class="odd">
+<td align="right">7.5</td>
+<td align="right">273</td>
+</tr>
+<tr class="even">
+<td align="right">10.0</td>
+<td align="right">609</td>
+</tr>
+<tr class="odd">
+<td align="right">12.5</td>
+<td align="right">1139</td>
+</tr>
+<tr class="even">
+<td align="right">15.0</td>
+<td align="right">1893</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/homework_solutions/homework_05_ch_8_answers_files/figure-html/answer-1c-plot-1.png" width="672" /></p>
+<blockquote>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Make a plot of weathering as a function of atmospheric <span class="math inline">\(p \COO\)</span> using your
+model runs.</li>
+</ol>
+</blockquote>
+</div>
+<div id="answer-to-8.1d" class="section level3">
+<h3>Answer to 8.1(d)</h3>
+<p><img src="/homework_solutions/homework_05_ch_8_answers_files/figure-html/answer-1d-plot-1.png" width="672" /></p>
+</div>
+</div>
+<div id="exercise-8.2-weathering-as-a-feedback" class="section level2">
+<h2>Exercise 8.2: Weathering as a Feedback</h2>
+<blockquote>
+<p>Effect of solar intensity on steady state CO<sub>2</sub> concentration. The rate of
+weathering is a function of CO<sub>2</sub> and sunlight, a positive function of both
+variables. By this I mean that an increase in CO<sub>2</sub> will drive an increase
+in weathering, as will an increase in sunlight. The sun used to be less
+intense than it is now. Turn back the clock 500 million years to when the sun
+was cooler than today. What do you get for the steady-state CO<sub>2</sub>, and how
+does this compare with what you get for today’s solar intensity? Explain why.</p>
+</blockquote>
+<div id="answer-to-8.2" class="section level3">
+<h3>Answer to 8.2</h3>
+<p>Using today’s solar intensity, the CO<sub>2</sub> concentration is 272.6 parts per
+million.</p>
+<p>Using the solar intensity from 500 million years ago, we find a CO<sub>2</sub>
+concentration of 2,372 parter per million, almost 10 times greater.</p>
+<p>This is because, with less sunlight and the same CO<sub>2</sub> concentration we
+have today, the temperature would be much lower. The reduced temperature would
+slow down weathering and with less weathering the CO<sub>2</sub> would build up in the
+atmosphere and increase the temperature until the weathering matches the
+degassing rate.</p>
+</div>
+</div>

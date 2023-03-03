@@ -22,3 +22,11 @@ pdf_url: /files/reading_asgts/reading_24.pdf
 We will play a game in class in which we try to spot the fallacies in common talking points by people who try to discredit climate science.
 
 Read this blog by John Cook about the FLICC framework for identifying types of misinformation.
+
+Before you come to class, install the "Cranky Uncle" game on your smartphone or tablet, or connect to it on your browser.
+
+* iPhone: https://sks.to/crankyiphone
+* Android: https://sks.to/crankyandroid
+* Browser: https://app.crankyuncle.info
+
+and sign in using our class's code: "`VUCLIM`" (this is case-sensitive so it needs to be in all capitals)

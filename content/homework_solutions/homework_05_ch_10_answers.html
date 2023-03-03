@@ -1,0 +1,235 @@
+---
+title: Chapter 10 Homework Answers
+hw_number: 5
+pubdate: '2023-03-02'
+date: '2023-03-01'
+pdf_url: /files/homework_solutions/hw_05/homework_05_ch_10_answers.pdf
+slug: homework_05_ch_10_answers
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+    toc: yes
+  pdf_document:
+    toc: yes
+    toc_depth: 3.0
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#exercise-10.1-long-term-fate-of-fossil-fuel-co2" id="toc-exercise-10.1-long-term-fate-of-fossil-fuel-co2">Exercise 10.1: Long-term fate of fossil-fuel CO<sub>2</sub></a>
+<ul>
+<li><a href="#answer-to-10.1" id="toc-answer-to-10.1">Answer to 10.1</a></li>
+</ul></li>
+<li><a href="#exercise-10.4" id="toc-exercise-10.4">Exercise 10.4:</a>
+<ul>
+<li><a href="#answer-to-10.4a" id="toc-answer-to-10.4a">Answer to 10.4(a)</a></li>
+<li><a href="#answer-to-10.4b" id="toc-answer-to-10.4b">Answer to 10.4(b)</a></li>
+<li><a href="#answer-to-10.4c" id="toc-answer-to-10.4c">Answer to 10.4(c)</a></li>
+<li><a href="#answer-to-10.4d" id="toc-answer-to-10.4d">Answer to 10.4(d)</a></li>
+<li><a href="#answer-to-10.4e" id="toc-answer-to-10.4e">Answer to 10.4(e)</a></li>
+<li><a href="#answer-to-10.4f" id="toc-answer-to-10.4f">Answer to 10.4(f)</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="exercise-10.1-long-term-fate-of-fossil-fuel-co2" class="section level2">
+<h2>Exercise 10.1: Long-term fate of fossil-fuel CO<sub>2</sub></h2>
+<blockquote>
+<p>Use the online geologic carbon cycle model at
+<a href="https://climatemodels.jgilligan.org/geocarb/" class="uri">https://climatemodels.jgilligan.org/geocarb/</a>.
+Use the default setup of the model, and notice that the CO<sub>2</sub> weathering
+rates, etc., for the transient state are the same as for the spin-up state.
+So, if there were no CO<sub>2</sub> spike at all, there would be no change in
+anything at year 0. (Go ahead, make sure I am not lying about this.)
+Release some CO<sub>2</sub> in a transition spike, 1000 Gton or more or less,
+and see how long it takes for the CO<sub>2</sub> to decrease to a plateau.
+There are two CO<sub>2</sub> plots in the output, one covering 100,000 years and one
+covering 2.5 million years. How long does it take for CO<sub>2</sub> to level out
+after the spike, according to both plots?</p>
+</blockquote>
+<div id="answer-to-10.1" class="section level3">
+<h3>Answer to 10.1</h3>
+<p>Even after 1 million years (the longest we can plot with the new version of
+the Geocarb model), CO<sub>2</sub> hasn’t quite returned to its original value.</p>
+<p>At the end of spinup, CO<sub>2</sub> was 272.6 parts per million, and 1 million years
+after the spike, it’s 273.1 ppm.</p>
+</div>
+</div>
+<div id="exercise-10.4" class="section level2">
+<h2>Exercise 10.4:</h2>
+<blockquote>
+<p>Using the SLUGULATOR model at <a href="https://climatemodels.jgilligan.org/slugulator/" class="uri">https://climatemodels.jgilligan.org/slugulator/</a> or
+<a href="http://climatemodels.uchicago.edu/slugulator/" class="uri">http://climatemodels.uchicago.edu/slugulator/</a>,
+compare the impact of methane and CO<sub>2</sub> on timescales of 1, 10, 25, 50, 100,
+500, and 1000 years.</p>
+<p>The SLUGULATOR model simulates releasing a large amount of CO<sub>2</sub> and
+methane and then calculates what happens over time. At time zero, the
+concentration of each gas is the natural level from shortly before the
+industrial revolution: 280 ppm of CO<sub>2</sub> and 1.6 ppm of methane. At one year,
+a large amount of each gas is released instantly (after this, there are no
+further emissions of either gas).</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Run the model using the default model input parameters, setting the left
+graph to “Concentrations” and the right graph to “Surface T Anomaly”.
+Set the time scale on the bottom to show 10 years.</p>
+<p>Move your mouse over the graphs to measure the exact values (a “tooltip”
+will pop up next to the cursor telling the time in years and the value of
+the line on the graph: concentration of CO<sub>2</sub> or methane, or the warming
+due to that gas). Be aware that on the concentration graph, the
+concentration of CO<sub>2</sub> is plotted against the left axis while methane is
+plotted against the right axis.</p>
+<p>What happens to the concentrations of methane and carbon dioxide? Why does
+the concentration of CO<sub>2</sub> continue to rise after the first year, when
+methane is falling?</p></li>
+</ol>
+</blockquote>
+<div id="answer-to-10.4a" class="section level3">
+<h3>Answer to 10.4(a)</h3>
+<p>After the spike, methane immediately begins to drop, and by about 35 or 40 years
+later, it’s pretty much back to where it was before the spike.</p>
+<p>After the spike, CO<sub>2</sub> continues to rise for 35–40 years, and then gradually
+falls over the next million years.</p>
+<p>When methane falls during the first 50 years or so, it is removed from the
+atmosphere by chemical reactions that oxidize it and convert it to CO<sub>2</sub>
+and water vapor. CO<sub>2</sub> continues to rise after the initial spike because
+the initial spike of methane is being converted to CO<sub>2</sub>.</p>
+<blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>What is the warming due to methane at 1 year and at 10 years? What is the
+warming due to CO<sub>2</sub> at 1 and 10 years? (Use the mouse to examine the
+time-dependent temperature plotted on the graphs, not the “Time-integrated
+temperature” in the table at the top of the page). Calculate the ratio of
+methane-warming to CO<sub>2</sub>-warming at each time.</li>
+</ol>
+</blockquote>
+</div>
+<div id="answer-to-10.4b" class="section level3">
+<h3>Answer to 10.4(b)</h3>
+<p>After 1 year, the warming due to methane is 0.029 degrees C. After 10 years,
+it’s 0.09 degrees.</p>
+<p>After 1 year, the warming due to CO<sub>2</sub> is 0.001 degree, and after 10 years,
+it’s 0.006 degrees.</p>
+<p>At 1 year, the ratio of methane warming to CO<sub>2</sub> warming is
+<span class="math inline">\(0.029 / 0.001 = 29\)</span>.
+At 10 years, the ratio is<br />
+<span class="math inline">\(0.09 / 0.006 = 15\)</span>.</p>
+<blockquote>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Change the time scale to show 25, 50, 100, 500, and 1000 years. Make a
+table showing the warming due to each gas and the ratio of methane-warming
+to CO<sub>2</sub>-warming at 1, 10, 25, 50, 100, 500, and 1000 years.</li>
+</ol>
+</blockquote>
+</div>
+<div id="answer-to-10.4c" class="section level3">
+<h3>Answer to 10.4(c)</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Year</th>
+<th align="right">Methane warming</th>
+<th align="right">CO2 warming</th>
+<th align="right">Ratio CH4/CO2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">0.029</td>
+<td align="right">0.001</td>
+<td align="right">29.0</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">0.090</td>
+<td align="right">0.006</td>
+<td align="right">15.0</td>
+</tr>
+<tr class="odd">
+<td align="right">25</td>
+<td align="right">0.030</td>
+<td align="right">0.010</td>
+<td align="right">3.0</td>
+</tr>
+<tr class="even">
+<td align="right">50</td>
+<td align="right">0.002</td>
+<td align="right">0.010</td>
+<td align="right">0.2</td>
+</tr>
+<tr class="odd">
+<td align="right">100</td>
+<td align="right">0.001</td>
+<td align="right">0.010</td>
+<td align="right">0.1</td>
+</tr>
+<tr class="even">
+<td align="right">500</td>
+<td align="right">0.000</td>
+<td align="right">0.009</td>
+<td align="right">0.0</td>
+</tr>
+<tr class="odd">
+<td align="right">1000</td>
+<td align="right">0.000</td>
+<td align="right">0.007</td>
+<td align="right">0.0</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Plot the ratio of methane-warming to CO<sub>2</sub>-warming over time.</li>
+</ol>
+</blockquote>
+</div>
+<div id="answer-to-10.4d" class="section level3">
+<h3>Answer to 10.4(d)</h3>
+<p><img src="/homework_solutions/homework_05_ch_10_answers_files/figure-html/answer-4d-1.png" width="672" /></p>
+<blockquote>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>Why does the ratio change with time?</li>
+</ol>
+</blockquote>
+<p>Because methane is a much more powerful greenhouse gas than CO<sub>2</sub>, but
+it has a much shorter lifetime in the atmosphere, so over time, the methane
+goes away while the CO<sub>2</sub> remains for thousands of years.</p>
+</div>
+<div id="answer-to-10.4e" class="section level3">
+<h3>Answer to 10.4(e)</h3>
+<p>Because methane is a much more powerful greenhouse gas than CO<sub>2</sub>, but
+it has a much shorter lifetime in the atmosphere, so over time, the methane
+goes away while the CO<sub>2</sub> remains for thousands of years.</p>
+<blockquote>
+<ol start="6" style="list-style-type: lower-alpha">
+<li><p>Generating electricity by burning natural gas (methane) releases less than
+half as much CO<sub>2</sub> than generating the same amount of electricity by
+burning coal.</p>
+<p>“Fracking” has dramatically lowered the cost of natural gas, and this has
+made coal-fired electrical generation uneconomical, so about half of the
+coal generation plants in the United States have shut down in the last 10
+years.</p>
+<p>Many people think replacing coal generation with natural gas generation
+will reduce CO<sub>2</sub> emissions significantly,
+but gas wells that use fracking also leak a lot of methane directly into
+the atmosphere.</p>
+<p>Comment on the significance of this homework exercise to the debate
+over whether fracking is helping or hurting the problem of global warming.</p></li>
+</ol>
+</blockquote>
+</div>
+<div id="answer-to-10.4f" class="section level3">
+<h3>Answer to 10.4(f)</h3>
+<p>In terms of long-term warming, the move from burning coal to burning methane
+is a big improvement because less than half as much CO<sub>2</sub> will be
+released into the atmosphere.</p>
+<p>However, in the short term (the next 50 years or so), the leaking methane from
+the gas wells will produce a lot of warming. It’s possible that enough
+methane could leak out of the wells to create more warming in the short-term
+than the coal would have done.</p>
+<p>However, this methane will disappear from the atmosphere in the next several
+decades, whereas the CO<sub>2</sub> from burning coal would remain in the atmosphere
+for many thousands of years.</p>
+</div>
+</div>

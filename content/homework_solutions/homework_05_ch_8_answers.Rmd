@@ -1,0 +1,197 @@
+---
+title: Chapter 8 Homework Answers
+hw_number: 5
+pubdate: '2023-03-02'
+date: '2023-03-01'
+pdf_url: /files/homework_solutions/hw_05/homework_05_ch_8_answers.pdf
+slug: homework_05_ch_8_answers
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+    toc: yes
+  pdf_document:
+    toc: yes
+    toc_depth: 3.0
+---
+```{r setup, include=FALSE}
+knitr::knit_hooks$set(inline = function(x) { knitr:::format_sci(x, 'md')})
+knitr::opts_chunk$set(echo = FALSE, include = TRUE, cache = FALSE)
+
+if (knitr::is_latex_output()) {
+  message("Setting PDF plot hook.")
+  new_plot_hook <- function(x, options)
+    paste("\n", knitr::hook_plot_tex(x, options), "\n")
+
+  knitr::knit_hooks$set(plot = new_plot_hook)
+} else {
+  message("Not using PDF output.")
+}
+
+
+options(dplyr.summarise.inform = FALSE)
+
+# This section loads necessary R libraries and sources scripts that define
+# useful functions format_md.
+#
+data_dir = "_data"
+script_dir = "_scripts"
+
+library(pacman)
+p_load(tidyverse, jsonlite, httr, magrittr, scales, xml2, knitr)
+
+theme_set(theme_bw(base_size = 10))
+
+# Create a data directory if one does not exist.
+if (!dir.exists(data_dir)) dir.create(data_dir)
+if (!dir.exists(file.path(data_dir, "ch_08")))
+    dir.create(file.path(data_dir, "ch_08"))
+
+
+source(file.path(script_dir, "utils.R"), chdir = T)
+source(file.path(script_dir, "format_md.R"), chdir = T)
+source(file.path(script_dir, "geocarb.R"), chdir = T)
+```
+## Exercise 8.1: Weathering
+
+> Weathering as a function of CO~2~. In steady state, the rate of weathering
+> must balance the rate of CO~2~ degassing from the Earth, from volcanoes and
+> deep sea vents. Run a simulation with a higher CO~2~ degassing rate at the
+> transition time.
+>
+> a) Does an increase in CO~2~ degassing drive atmospheric CO~2~ up or down?
+>    How long does this take?
+
+### Answer to 8.1(a)
+
+It takes about 1 million years for CO~2~ to come to equilibrium after the
+volcanic degassing rate changes.
+
+```{r answer-1a}
+#| echo=FALSE, warning=FALSE, message=FALSE
+ans_1a_file <- file.path(data_dir, "ch_08", "ex_1a.txt")
+if (file.exists(ans_1a_file)) {
+  ex_1a_data <- read_geocarb(ans_1a_file)
+} else {
+  ex_1a_data <- run_geocarb(filename = ans_1a_file, co2_spike = 0, 
+                            degas_sim = 10)
+}
+
+ex_1a_data %>% filter(year <= 1E6) %>%
+  ggplot(aes(x = year, y = co2_atmos)) +
+  geom_line(size = 1, color = "darkblue") +
+  scale_y_continuous(limits = c(0, 800), expand = c(0,0)) +
+  scale_x_continuous(expand = c(0,0), labels = label_comma(1)) +
+  labs(x = "Year", y = expression(paste(CO[2], " (ppm)"))) +
+  theme(plot.margin = margin(7, 25, 5, 5, unit = "pt"))
+```
+
+> b) How can you see that the model balances weathering against CO~2~
+>    degassing?
+
+### Answer to 8.1(b)
+
+Look at the "Silicate Thermostat" graph: Watch how the weathering rate 
+gradually rises until it meets the degassing rate.
+
+```{r answer-1b}
+#| echo=FALSE, warning=FALSE, message=FALSE
+ex_1a_data %>% select(year, silicate_weathering, degassing_rate) %>%
+  filter(year <= 1E6) %>%
+  pivot_longer(-year, names_to = "var", values_to = "value") %>%
+  ggplot(aes(x = year, y = value, color = var)) +
+  geom_line(size = 1) +
+  scale_color_manual(values = c(silicate_weathering = "darkblue",
+                                degassing_rate = "darkred"),
+                     labels = c(silicate_weathering = "Silicate Weathering",
+                                degassing_rate = "Degassing Rate"),
+                     name = NULL) +
+  scale_x_continuous(expand = c(0,0),
+                     labels = label_comma(1)) +
+  scale_y_continuous(limits = c(0, 10.05), expand = c(0,0)) +
+  labs(x = "Year", y = NULL) +
+  theme(legend.position = c(0.99, 0.9),
+        legend.justification = c(1, 1),
+        legend.key.size = unit(2, "lines"),
+        legend.background = element_rect(fill = "white", color = "black",
+                                         linewidth = 0.2),
+        plot.margin = margin(7, 25, 5, 5, unit = "pt"))
+```
+
+> c) Repeat this run with a range of degassing rates, and make a table of the
+>    equilibrium CO~2~ concentration as a function of the CO~2~ degassing
+>    rate.
+>    The CO~2~ degassing rate is supposed to balance the CO~2~ consumption
+>    rate by silicate weathering.
+
+### Answer to 8.1(c)
+
+```{r answer-1c}
+#| echo=FALSE, warning=FALSE, message=FALSE
+runs <- list()
+for (degas in c(2.5, 5.0, 7.5, 10.0, 12.5, 15.0)) {
+  file <- file.path(data_dir, "ch_08", 
+                    str_c("ex_1c_", sprintf("%.1f", degas) %>% 
+                            str_replace(fixed("."), "_"),
+                          ".txt")
+  )
+  if (file.exists(file)) {
+    df <- read_geocarb(file)
+  } else {
+    df <- run_geocarb(filename = file, co2_spike = 0, degas_sim = degas)
+  }
+  runs <- c(runs, list(df))
+}
+
+equil <- runs %>% map_df(~.x %>% filter(year == 1E6) %>% 
+                           select(year, degas = degassing_rate,
+                                  co2 = co2_atmos,
+                                  weathering = silicate_weathering))
+```
+```{r answer-1c-table}
+equil %>% select(degas, co2) %>% 
+  knitr::kable(col.names = c(degas = "Degassing rate",
+                                    co2 = "CO2"),
+               digits = c(1,0))
+```
+```{r answer-1c-plot}
+ggplot(equil, aes(x = degas, y = co2)) +
+  geom_point(size = 3, color = "darkblue") + 
+  geom_line(size = 1, color = "darkblue") +
+  labs(x = "Degassing rate", y = expression(paste(CO[2], " (ppm)")))
+```
+
+> d) Make a plot of weathering as a function of atmospheric $p \COO$ using your
+>    model runs.
+
+### Answer to 8.1(d)
+
+```{r answer-1d-plot}
+ggplot(equil, aes(x = degas, y = weathering)) +
+  geom_point(size = 3, color = "darkblue") + 
+  geom_line(size = 1, color = "darkblue") +
+  labs(x = "Degassing rate", y = "Silicate weathering rate")
+```
+
+## Exercise 8.2: Weathering as a Feedback
+
+> Effect of solar intensity on steady state CO~2~ concentration. The rate of
+> weathering is a function of CO~2~ and sunlight, a positive function of both
+> variables. By this I mean that an increase in CO~2~ will drive an increase
+> in weathering, as will an increase in sunlight. The sun used to be less
+> intense than it is now. Turn back the clock 500 million years to when the sun
+> was cooler than today. What do you get for the steady-state CO~2~, and how
+> does this compare with what you get for today’s solar intensity? Explain why.
+
+### Answer to 8.2
+
+Using today's solar intensity, the CO~2~ concentration is 272.6 parts per 
+million.
+
+Using the solar intensity from 500 million years ago, we find a CO~2~
+concentration of 2,372 parter per million, almost 10 times greater.
+
+This is because, with less sunlight and the same CO~2~ concentration we
+have today, the temperature would be much lower. The reduced temperature would 
+slow down weathering and with less weathering the CO~2~ would build up in the 
+atmosphere and increase the temperature until the weathering matches the 
+degassing rate.
