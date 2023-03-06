@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Uncle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 850 480" style="enable-background:new 0 0 850 480;" xml:space="preserve">
+<style type="text/css">
+
+.rb1 {
+	animation-name: b1animation;
+	animation-duration: 6s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+.lb1 {
+	animation-name: b1animation;
+	animation-duration: 6s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+@keyframes b1animation {
+    0%   { opacity: 0; }
+    49.5%  { opacity: 0; }
+    50%  { opacity: 1; }
+    53%  { opacity: 1; }
+    53.5%  { opacity: 0; }
+    100% { opacity: 0; }
+}
+.rb2 {
+	animation-name: b2animation;
+	animation-duration: 6s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+.lb2 {
+	animation-name: b2animation;
+	animation-duration: 6s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+@keyframes b2animation {
+    0%   { opacity: 0; }
+    50%  { opacity: 0; }
+    50.5%  { opacity: 1; }
+    52.5%  { opacity: 1; }
+    53%  { opacity: 0; }
+    100% { opacity: 0; }
+}
+.rb3 {
+	animation-name: b3animation;
+	animation-duration: 6s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+.lb3 {
+	animation-name: b3animation;
+	animation-duration: 6s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+@keyframes b3animation {
+    0%   { opacity: 0; }
+    50.5%  { opacity: 0; }
+    51%  { opacity: 1; }
+    52%  { opacity: 1; }
+    52.5%  { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+	.lb1{fill:#F2BD8C;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.lb2{fill:#F2BD8C;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.lb3{fill:#F2BD8C;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.rb1{fill:#F2BD8C;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.rb2{fill:#F2BD8C;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.rb3{fill:#F2BD8C;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+
+	.st0{fill:#F2BD8C;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:#82765B;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{fill:#FFFFFF;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st3{fill:#F2BD8C;}
+	.st4{fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;}
+	.st5{fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-miterlimit:10;}
+	.st6{fill:#282726;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st7{fill:#174559;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st8{fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st9{fill:#75BBE7;}
+	.st10{fill:#3158A6;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st11{fill:#75BBE7;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st12{fill:#F2BD8C;stroke:#000000;stroke-width:1.9999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:9.9997;}
+</style>
+<path id="Head_2_" class="st0" d="M381.5,104.6c-3.7,15.9,0,56.4,1.5,62.7c1.2,9.9,14.3,23.9,23.3,23.9c4.9,0,27.1-16.7,30-28.9
+	c4.3-15.6,9.1-51.1,8.5-59c-2.7-35.5-2.3-65-28-65.3c-16.2-0.2-25.4,10-28.5,24.4C385.9,74.3,385.1,89.3,381.5,104.6z"/>
+<path id="Moustache_1_" class="st1" d="M385.1,124c-0.4,4.7-1.1,17.1,2.3,23.2c1.8-1.1,2.9-4.4,4.6-5.4c1.7,1,3.3,4.5,5,5.8
+	c1.8-1.3,2.4-4.9,3.9-6.2c1.5,1.6,2,3.9,4.1,5.6c1.8-1.5,2.9-4.2,4.4-6.1c1.4,1.5,1.5,5.5,3.5,7.3c1.8-1.5,3.2-4.6,5-6.4
+	c1.9,1.9,1.4,5.4,3.8,7.1c2.3-1.8,2.9-4.6,5.2-6.3c1.9,1.8,2.8,4.4,4.8,6.1c1.7-1.7,4.7-15.1,4.1-23.6c-0.3-4.4-4.3-7.3-7.4-8
+	c-7.4-1.6-24.8-2.1-34.6-1.2C390.6,116.1,385.6,117.3,385.1,124z"/>
+<path id="Eyebrow_Left_1_" class="st1" d="M392.5,70.2c5.1,1,4.2,2.3,7.2,7.8c5.4,9.9,11.9,6.2,10.6-1.8c-2.4,6.2-6.2,2.1-7.8-1.7
+	C400.1,68.9,396.7,68.2,392.5,70.2z"/>
+<path id="Eyebrow_Right_1_" class="st1" d="M436,66.3c-5.1,1.1-5.6,4.3-8.7,10.3c-4.8,9.5-13,8.1-11.7-1c2.4,7,7,2.3,8.6-2
+	C426.6,67.2,429.9,65.8,436,66.3z"/>
+<ellipse id="Eye_Right_1_" class="st2" cx="425" cy="96.2" rx="9" ry="6"/>
+<ellipse id="Eye_Left_1_" class="st2" cx="398.9" cy="96.2" rx="9" ry="6"/>
+<ellipse id="Pupil_Left_1_" cx="398.8" cy="96.3" rx="2" ry="2.5"/>
+<ellipse id="Pupil_Right_1_" cx="426.9" cy="96.2" rx="2" ry="2.5"/>
+<path id="Left_Blink1" class="lb1" d="M425,90.2c5,0,9,2.7,9,6c-2.5-0.5-5.5-1.4-9.2-1.4c-3.6,0-6.1,0.8-8.8,1.4
+	C416,92.9,420,90.2,425,90.2z"/>
+<path id="Left_Blink2" class="lb2" d="M425,90.2c5,0,9,2.7,9,6c-3.6,1.5-5.4,2.1-9.1,2.1c-3.6,0-5.5-0.7-8.9-2.1
+	C416,92.9,420,90.2,425,90.2z"/>
+<ellipse id="Left_Blink3" class="lb3" cx="425" cy="96.2" rx="9" ry="6"/>
+<path id="Right_Blink1_1_" class="rb1" d="M398.9,90.2c5,0,9,2.7,9,6c-2.5-0.5-5.5-1.4-9.2-1.4c-3.6,0-6.1,0.8-8.8,1.4
+	C389.9,92.9,393.9,90.2,398.9,90.2z"/>
+<path id="Right_Blink2_1_" class="rb2" d="M398.9,90.2c5,0,9,2.7,9,6c-3.6,1.5-5.4,2.1-9.1,2.1c-3.6,0-5.5-0.7-8.9-2.1
+	C389.9,92.9,393.9,90.2,398.9,90.2z"/>
+<ellipse id="Right_Blink3_1_" class="rb3" cx="398.9" cy="96.2" rx="9" ry="6"/>
+<path id="Hair_Left_1_" class="st1" d="M379.7,90.7c1.3,3,4.3,4.4,7.7,0.2c4.4-5.5,5.7-17.5,0.9-15.8c0.8-3.3,4.5-13.2,0.3-13.6
+	c-3.2-0.3-4.9,7.1-5.4,11.9C378.1,68.7,377.3,85.2,379.7,90.7z"/>
+<path id="Ear_Left_1_" class="st3" d="M386.5,93.2c0,0.2-0.1,7.2-0.1,7.4c-0.9,2.7-2.6,4.6-4.5,4.5c-2.6-0.1-4.5-3.8-4.2-8.2
+	s2.5-7.9,5.1-7.7C384.5,89.3,385.8,90.9,386.5,93.2"/>
+<path id="Ear_Left_Outline" class="st4" d="M386.5,100.1c-0.8,3-2.6,5-4.6,4.9c-2.6-0.1-4.5-3.8-4.2-8.2s2.5-7.9,5.1-7.7
+	c1.7,0.1,3,1.7,3.7,4"/>
+<path id="Hair_Right_1_" class="st1" d="M449.5,90.2c-1.4,3.6-4.3,6.7-7.6,1.9c-4.3-6.2-7.1-24.5-1.4-20.1
+	c-0.7-3.8-3.4-12.8,0.8-13.4c3.2-0.5,5.1,6.7,5.6,12.4C453.1,64.7,452.1,83.6,449.5,90.2z"/>
+<path id="Ear_Right" class="st3" d="M441.9,93.3c0,0.2-0.7,7.6-0.7,7.8c0.7,3,2.3,5.1,4.4,5.3c2.8,0.1,5.4-3.5,5.6-8.2
+	s-1.9-8.6-4.7-8.8C444.7,89.3,443,90.8,441.9,93.3"/>
+<path id="Ear_Right_Outline" class="st4" d="M441.1,100.6c0.6,3.2,2.3,5.6,4.5,5.7c2.8,0.1,5.4-3.5,5.6-8.2s-1.9-8.6-4.7-8.8
+	c-1.8-0.1-3.5,1.4-4.6,3.8"/>
+<path id="Nose_8_" class="st3" d="M419.3,108.4c1.6,4.8,2.9,14.6,3,20.2c0.3,16-5.6,27.1-14.2,27c-10.3-0.1-13.3-10.8-13-30.8
+	c0.2-11.4,8.2-29.5,12-36l0,0c1.5,2.4,12.3,20.3,12.4,20.6c1.5,5,2.6,14,2.8,19.3"/>
+<path id="Nose_Outline" class="st4" d="M419.3,108.4c1.6,4.8,2.9,14.6,3,20.2c0.3,16-5.6,27.1-14.2,27c-10.3-0.1-13.3-10.8-13-30.8
+	c0.2-11.4,8.2-29.5,12-36"/>
+<path id="Wrinkle_Left" class="st5" d="M395.9,58.7c2.4-0.5,3.3,1.2,6.8,0.4c2.2-0.5,3.7,1.9,6.9,0.6"/>
+<path id="Wrinkle_Right" class="st5" d="M431,59.1c-4.2-1.1-3.8,1.4-7.2,0.3c-2.6-0.9-4.4,1.6-6.9,0.1"/>
+<path id="Wrinkle_Middle" class="st5" d="M404.1,51.4c2.9-1,4.7,1.4,7.2,0.4c2.8-1.1,4.7,1.4,6.7,0.5c3.1-1.3,5.2,1.4,7.9,0.2"/>
+<path id="Wrinkle_Top" class="st5" d="M410.1,44.3c2.8-1,3.5,1.6,6.2,0.4c2.2-1,3,1,6.2,0.2"/>
+<path id="Foot_left" class="st6" d="M342.2,433.5c0.5,9.3,34.5,18.3,52.5,6.2c11.7,5.3,27.7,2.8,18.1-27.4
+	c-14.1,1.2-22.2,3.4-35.3,2.2C365.1,419.7,341.7,424.2,342.2,433.5z"/>
+<path id="Foot_right" class="st6" d="M383.4,442.1c0.5,9.3,34.5,18.3,52.5,6.2c11.7,5.3,27.7,2.8,18.1-27.4
+	c-14.1,1.2-22.2,3.4-35.3,2.2C406.3,428.3,383,432.8,383.4,442.1z"/>
+<path id="Legs_2_" class="st7" d="M442.4,272.2c-9.9,2.7-61.5,1.8-71.5-0.9c-4.9,37.8,0.8,105.7,5.6,143.1
+	c7.4,6.1,26.5,8.4,34.6,1.7c0.9,3.2,1.5,6,1.8,8.1c18.3,6.4,33.3,3.5,44.1-3.8C449.5,382.9,443.1,307.3,442.4,272.2z"/>
+<path id="Leg_Outline" class="st8" d="M403.9,306.4c-1.5,18.5,2.7,75.4,7.2,109.1"/>
+<path id="Torso_1_" class="st9" d="M445.5,195.9c-0.2-2.1-2.6-20.6-4.9-26.7c0,0-4.1-7-4.1-7.1c-3.5,4.8-10.4,13.4-24.1,16.2
+	c-2.4,2-3.6,3.9-5.5,7.6c-1.9-3.1-3.8-5.8-5.8-8.4c-13.9-6.5-14.7-5.7-18.2-10.4c-4.9,7.8-9.4,24.8-9.8,26.6
+	c-2.5,11-7.2,65.1-5.6,77.2c2.7,20.3,79.2,15.6,77.8-1.7C444.1,254.8,446.8,211.1,445.5,195.9z"/>
+<path id="Torso_Outline" class="st8" d="M373,193.7c-2.5,11-7.2,65.1-5.6,77.2c2.7,20.3,79.2,15.6,77.8-1.7
+	c-1.1-14.5,1.6-58.2,0.2-73.4"/>
+<path id="Arm_left" class="st0" d="M376.5,232.5c4.8,4.5,12,9.8,20.4,14c-14.8,5.8-52.5,4.8-56.4-3.6c-3.6-7.6-0.4-16.5-0.4-16.5
+	S366.8,232.4,376.5,232.5z"/>
+<path id="Tie1" class="st10" d="M419,187.4c4.2-2.2,1.6-8.5-2.5-6.2s-8.2,7.3-10.1,12.9c-1.3,3.7,1.2,10.7,3.2,5.8
+	C411.6,194.9,414,189.9,419,187.4z"/>
+<path id="Tie2" class="st10" d="M393.7,185c-4-2.5-1.1-8.2,3-5.9s8.5,10.7,8.6,14.8c0.1,3.9-3.3,11.8-4,6.5
+	C400.5,194.4,397.8,187.5,393.7,185z"/>
+<path id="Tie3" class="st10" d="M413.5,267.8c-3.5,1.6-7.5,4.8-10.2,8.1c-3.2-3.1-6.3-5.3-10.2-7.5c0.7-14.2,3.5-51.9,7.6-65.5
+	c2.3,0.4,4.9,0.2,8.1,0.2C406.8,219,411.1,254.9,413.5,267.8z"/>
+<path id="Tie4" class="st10" d="M400.8,199.1c-0.4,4.5,1.4,7.4,4,7.7c2.6,0.2,4.9-2.3,5.3-6.8s-1.4-7.4-4-7.7
+	S401.2,194.5,400.8,199.1z"/>
+<path id="Arm_Left" class="st11" d="M370.6,209.3c-5.6,7.4-4.5,6.9-10.4,12.1c-6.6-0.6-16.6-3.3-17.7-11.1
+	c4.1-7.5,25.4-30.5,36.7-36"/>
+<path id="Sleeve_left" class="st11" d="M363.2,233.1c-13.7,0-24.7-4.2-27-10.2c-1.7-6.7,4.6-18.6,8.7-15
+	c-2.6,6.6,9.5,10.6,19.9,13.3C371.4,222.9,370.8,233.1,363.2,233.1z"/>
+<path id="Torso_Outline_1_" class="st8" d="M373,193.7c-0.8,3.7-1.9,12.4-3,22.7"/>
+<path id="Arm_right" class="st0" d="M378.8,222.2c0.5-4.8-1.1-19.6-7-13.4c-5.3-10.7-14.9-3.8-11.3,4.7c-4.5-0.8-6.3,8.7-1.2,11.2
+	c-5.3,6,6.2,13.4,13.5,11.6c11.4,7.9,28.1,15.6,40.4,19.9c8.6,3,14.2,2.5,18.6,0.1c-6.9-4.7-18.9-15.7-20.9-22.4
+	C398.8,233,387.8,229.7,378.8,222.2z"/>
+<path id="Arm_Right" class="st11" d="M437.7,199.3c-1.9,4.9-9.5,21.5-18.4,25.4c-7.7,3.2,7.4,30.7,17.9,21.2
+	c15.6-16.5,35.5-60.5,3.7-77"/>
+<path id="Sleeve_Right" class="st11" d="M408.5,233.3c0.4,7.2,8.2,23,23,23.4c6.6,0.2,9.7-9.3,5.4-10.4c-14.8-0.3-18.4-15.1-18-21.4
+	C415.6,222.1,408,223.1,408.5,233.3z"/>
+<ellipse id="Finger_1" transform="matrix(0.6428 -0.766 0.766 0.6428 -6.8495 406.9768)" class="st12" cx="433" cy="210.8" rx="4.9" ry="7"/>
+<ellipse id="Finger_2" transform="matrix(0.6428 -0.766 0.766 0.6428 -13.967 404.9755)" class="st12" cx="427.3" cy="217.5" rx="4.9" ry="7"/>
+<ellipse id="Finger_3" transform="matrix(0.6428 -0.766 0.766 0.6428 -20.278 403.1976)" class="st12" cx="422.2" cy="223.3" rx="4.9" ry="7"/>
+<path id="Collar_Left" class="st11" d="M395.6,190.5c-0.1-5.6,0.2-9.7,5.5-12.8c-13.9-6.5-14.5-5.8-18-10.6
+	c-1.1,2.1-6.8,5.1-3.7,10.3C382.1,182,393.1,183.7,395.6,190.5z"/>
+<path id="Collar_Right" class="st11" d="M419,191.4c-0.7-5.8-3.5-10.2-6.8-12.9c9.9-1.4,21.2-10.3,24-16.5c3.4,2.4,5.5,8.1,3.1,11.5
+	C433.8,181.3,422.8,181.8,419,191.4z"/>
+<path id="Neckline" class="st8" d="M412.1,178.5c-2.5,1.5-4,4.8-5.3,7.8c-1.4-3.2-3.5-6-5.8-8.5"/>
+</svg>
