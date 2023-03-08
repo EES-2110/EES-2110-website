@@ -264,7 +264,7 @@ read_modtran <- function(filename = NULL, text = NULL, scale_factor = 3.14E+4) {
   im <- str_detect(lines, "^0INTEGRATED RADIANCE") %>% which()
   target <- lines[im[1]]
   x <- str_extract(target, "[0-9]\\.[0-9]*E[+-][0-9]+")
-  integrated_radiance <- pi * 1E+4 * as.numeric(x)
+  integrated_radiance <- scale_factor * as.numeric(x)
   radiance_lines <- str_detect(lines, "^1\\s+RADIANCE") %>% which()
   im <- str_detect(lines, fixed(" co2mx co2rat ch4rat h2orat t_o3rat s_o3rat")) %>%
     which()
