@@ -58,12 +58,12 @@
 
 [[redirects]]
   from = "/decarbonization/*"
-  to = "https://shiny.jgilligan.org/ees-3310/kaya-tool/:splat"
+  to = "https://shiny.jgilligan.org/ees-2110/kaya-tool/:splat"
   status = 302
 
 [[redirects]]
   from = "/emissions_trading/*"
-  to = "https://shiny.jgilligan.org/ees-3310/emissions_trading/:splat"
+  to = "https://shiny.jgilligan.org/ees-2110/emissions_trading/:splat"
   status = 302
 
 [[redirects]]
