@@ -16,3 +16,5 @@ date: "2017-04-13T00:00:00"
 
 * [Practice questions for Test #2](/files/tests/test_02/EES_2110_Practice_Test_2.pdf) 
 
+* Answers for Test #2 have been posted to Brightspace.
+
