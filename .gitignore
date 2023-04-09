@@ -40,3 +40,5 @@ tmp*.tex
 content/**/draft-*
 content/**/draft-*_files/
 static/**/draft-*_files/
+static/slides/pdf_slides/
+
