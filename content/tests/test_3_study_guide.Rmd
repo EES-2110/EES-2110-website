@@ -1,0 +1,221 @@
+---
+title: "Notes for Test 3"
+author: "Jonathan Gilligan"
+pubdate: '2023-04-09'
+date: "2023-04-09"
+weight: 1
+slug: test_3_notes
+output:
+  blogdown::html_page:
+    md_extensions: +tex_math_single_backslash+compact_definition_lists
+  pdf_document:
+    toc: yes
+    toc_depth: 3
+pdf_url: /files/tests/test_3_notes.pdf
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Major concepts in studying for Test #3:
+
+1. Computer models of climate:
+   a. Different purposes for models:
+      * For pure science (model the climate system in detail)
+        * If these are the emissions, this is what climate will do
+      * For guiding policy (Integrated assessment models: integrate climate system with economy and energy use)
+        * Under these policies,
+          and these scenarios of population and technological innovation,
+          this is what emissions will be produced by economic activity,
+          this is how climate would change,
+          and this is how it would affect the economy.
+   b. Understand the difference between _transient climate response_ and _equilibrium climate response_.
+      * Transient climate response is the temperature at the time you reach a certain amount of greenhouse gases in the
+        atmosphere
+      * Equilibrium response is the final temperature, after you hold greenhouse gases constant at some level for a long time.
+      * The equilibrium response is greater (hotter) than the transient response because the planet continues to warm up for hundreds of
+        years after the amount of greenhouse gases stops changing. This is because it takes time for the ocean to fully warm up, just
+        like it takes time for a pot of water to boil after you put it on the stove.
+   b. Kaya identity
+      * You won't have to do calculations with the Kaya identity, but I want
+        you to understand the variables in it and how they relate to emissions:
+        $$F = P \times g \times e \times f,$$
+        where
+        * $F$ is greenhouse gas emissions (e.g., millions of tons of CO~2~ per year),
+        * $P$ is the population (billions of people),
+        * $g$ is the per-capita gross domestic product (e.g., thousands of dollars per person per year),
+
+          $g$ represents the amount of economic activity per person. It's a rough measure of how much
+          value (in dollars) the economy generates per person, and therefore the amount of stuff the
+          average person can consume (food, shelter, energy, health care, other services)
+        * $e$ is the energy-intensity of the economy (e.g., quads of energy per trillion dollars GDP),
+
+          Reducing $e$ means making the economy more energy efficient because the economy generates
+          more value for the same amount of energy.
+        * and $f$ is the emissions-intensity of the energy supply (e.g., millions of tons of CO~2~ per quad of energy)
+
+          Reducing $f$ means reducing the fossil-fuel intensity of the economy (moving from fossil fuels to nuclear or
+          renewable energy) or switching from carbon-rich fossil fuels, such as coal, to less carbon-rich ones, such as natural gas.
+      * Understand why policies to reduce greenhouse gases quickly tend to focus on reducing $e$ and $f$, rather than
+        reducing $P$ and $g$.
+   c. Understand what it means for CO~2~ to be a _stock pollutant_.
+      * What does this imply for what has to happen to _emissions_ to stabilize CO~2~ concentration in the atmosphere?
+        * Emissions must drop until they're equal to the amount of CO~2~ removed by nature (e.g., photosynthesis, weathering, and dissolving into the oceans).
+2. Understanding future climate change
+   a. Understand the kinds of uncertainty in predicting future climates:
+      * Uncertainty about climate sensitivity (if these are the emissions, what will climate do?)
+      * Uncertainty about emissions.
+   b. Understand about tipping points:
+      * What are they?
+      * What are some exampless?
+      * Why are we so unsure about tipping points?
+      * If we are so uncertain about tipping points,
+        why do scientists and policymakers worry so much about them?
+      * Understand what made the "hole" in the stratospheric ozone layer a tipping point?
+   c. Why is studying past climate history important to understanding the future of climate change?
+      * Lessons from the pleistocene ice ages:
+        * The pleistocene ice ages prove that CO~2~ is a powerful cause of natural climate change
+        * The Younger Dryas:
+          * What is it?
+          * What does it tell us about tipping points and abrupt climate change?
+   d. What do we know about how future climate change is likely to affect
+      the economies of different countries?
+      * Which types of countries are likely to be hurt the most?
+      * Which types of countries are likely to be hurt the least (or even benefit)?
+      * How can countries try to reduce the economic damages they will suffer from climate change?
+3. Principles of Policy Analysis
+   a. Compare _The Climate Fix_ with _The Climate Casino_
+   b. How is climate policy like buying insurance (_Climate Casino_)?
+   c. Roger Pielke's Three Myths:
+      * What are the three myths?
+        1. We lack political will
+        2. We must trade off the economy for the environment
+           * Understand Pielke's "Iron Law"
+        3. We have all the technology we need.
+      * Understand the arguments Pielke makes about why these are myths
+      * Understand the rebuttals from people like Nordhaus, who think Pielke
+        overstates the case (refer to slides from class too)
+      * Big question: Most of the public in the US believes climate change is
+        an importand danger, that it's really happening, and that it's caused
+        by human activity. Most people want the government to act to prevent
+        dangerous climate change.f
+
+        Why, then, has the US government done so little about climate change in
+        the past 30 years?
+
+        Pielke points to the "Iron Law": people think it's a problem, but are
+        unwilling to spend much money.
+
+        Nordhaus and others point to political polarization, which prevents
+        government from taking action.
+      * About whether we have the technology we need, Pielke gets into an
+        analysis of the Kaya Equation variables and says that $e$ and $f$
+        were not dropping as fast as they need to.
+
+        How was his analysis biased by the time when he wrote the book (around
+        2008)? How have things changed since then?
+
+   d. What are Pielke's criteria for good climate policy?
+      1. Policies should flow with public opinion
+      2. The public will not tolerate significant short-term costs, even for
+         big long-term benefits
+      3. Policy must center on clean-energy innovation
+   e. What is "energy poverty" and why is it important for climate policy?
+      * Roughly how many people around the world don't have access to any electricity?
+      * Why does this matter?
+4. Energy Efficiency and Clean Energy
+   a. What is the difference between _primnary_ and _secondary_ energy consumption.
+      * When you use your computer or charge your phone, are you using _primary_ or
+        _secondary_ energy?
+   b. How have the energy efficiency and the greenhouse gas emissions intensity of the
+      world economy been changing over the last 40 years or so?
+      * Except for a brief period around 2000--2007,
+        * Energy efficiency has been getting better ($e$, the energy intensity of the economy has been dropping) very steadily.
+        * Emissions intensity has been getting better ($f$, the emissions intensity of the energy supply) has been dropping very steadily.
+      * This is good news, but we need for both $e$ and $f$ to drop much faster over the next several decades if we're going to hit
+        our goals to limit global warming.
+   c. Renewable Energy
+      i. How have solar and wind energy been changing over the last several decades?
+         * Wind and solar are the fastest-growing sources of new electricity generation in the US and in the world
+         * China leads the world in installing solar and wind energy.
+           It also leads the world in selling wind and solar technology to other countries.
+         * Wind and solar have become much cheaper in the last decade and are now the cheapest ways to generate electricity.
+      ii. WHat are the obstacles to running our economy on renewable energy instead of fossil fuels?
+          * Only about 10% of the world's electricity comes from wind and solar energy and other modern renewables.
+          * Wind and solar are intermittent: They only work when the sun is shining and the wind is blowing.
+            * We need storage for when the sun is down or the sky is cloudy, and the wind is not blowing.
+              * Batteries have become much cheaper in the last decade, but the cost needs to come down a lot before we can use them to
+                store all the energy we'd need.
+   d. Nuclear power:
+      i. Understand what nuclear power is.
+      ii. Nuclear power uses much less fuel than fossil fuels (3 kg uranium instead of 10,000 tons of coal)
+      iii. People are afraid of nuclear power because radioactive waste is scary and accidents (like Chermobyl in the Soviet Union) can be
+           dramatic and deadly.
+
+           However, coal kills many more people. Air pollution from coal power plants kills
+           around 50,000 people people every month in the US alone. This is more than
+           all the nuclear power accidents in history, all around the world.
+
+           However, air pollution deaths occur one at a time and don't get
+           reported much in the press, so people are not as aware of them.
+      iv. The biggest challenge to expanding nuclear power is the cost.
+          While solar and wind power have become much cheaper over the last
+          decade, nuclear power has become more expensive because power plants
+          are taking longer to build and are costing many times more than the
+          original budgets estimated.
+
+          New nuclear technologies promise to be much cheaper and faster to build,
+          but they have not been proven to work.
+5. What can we do if we don't reduce emissions quickly?
+   a. **Adaptation:** We can convert unmanaged systems to managed ones so climate change
+      won't affect them as much
+
+      However, some systems are unmanageable, and the worse climate change gets, the
+      harder and more expensive it becomes to convert unmanaged systems to managed ones.
+   b. **Geoengineering:** Deliberately altering the climate to counteract or
+      cancel-out the effects of increased greenhouse gas concentrations.
+      i. Understand Daniel Sarewitz's criteria for a _technological fix_,
+         which Pielke explains in _The Climate Fix_:
+         1. Must work on a direct cause and effect relationship
+         2. We must be able to assess the effects.
+         3. It must build upon an established technological base
+            * Steady progress by incremental improvements rather than hoping
+              for big breakthroughs
+      i. **Albedo engineering** (**Solar Radiation Management**):
+         Spray liquid droplets of sulfate chemicals into the strateosphere to
+         mimic the colling that happens after big volcanic eruptions.
+         * Pros:
+           * Cheap, easy to do with current technology.
+         * Cons:
+           * We can't completely cancel out changes in temperature and
+             precipitation simultaneously.
+           * Effects will be different in different places around the world
+           * It won't address some other effects of climate change, such as
+             ocean acidification.
+           * Once we start it, if we stop abruptly it might be worse than if we
+             never did it (**termination shock**)
+           * There could be bad consequences that we don't know about.
+         * Mixed:
+           * While we can't **exactly cancel out** both temperature change and
+             precipitation at the same time, we _can_ significantly **reduce**
+             changes in both temperature and precipitation.
+         * Policy challenges:
+           * Getting governments around the world to agree on where to
+             "set the thermostat" (what temperature to aim for)
+           * Who is responsible for unintended consequences
+           * Who is responsible for maintaining it, decade after decade?
+             * The US is not even maintaining our existing infrastructure:
+               bridges, roads, electrical distribution, water treatment, etc.
+      2. **Carbon dioxide removal**:
+         * Natural methods (plant trees, improve agriculture and soil management, promote coastal carbon capture)
+         * Artificial methods: Bioenergy with carbon capture and storage (BECCS) and direct air capture
+      3. Policy considerations:
+         * What does Pielke think?
+           * How do albedo engineering and direct air capture meet the criteria for a technological fix?
+         * What does Nordhaus think?
+           * Salvage therapy: fire truck vs. fire insurance
+           * Concerns about moral hazard and the illusion of safety
+         * What role should geoengineering have in climate policy according to
+           Nordhaus and Pielke?
+

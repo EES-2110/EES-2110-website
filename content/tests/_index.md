@@ -18,3 +18,6 @@ date: "2017-04-13T00:00:00"
 
 * Answers for Test #2 have been posted to Brightspace.
 
+### Test #3 ({{% TEST_3_DATE %}})
+
+* [Study guide](test_3_notes)

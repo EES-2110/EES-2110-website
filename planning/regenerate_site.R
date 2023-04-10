@@ -32,6 +32,65 @@ new_update_site <- function(root = NULL, force = FALSE, keep_tex = FALSE) {
   update_pdfs(force_dest = TRUE, force = force, output_options = out_opts)
 }
 
+find_local_rmd_files <- function(dir) {
+  list.files(dir, pattern = "[^_].*\\.Rmd", full.names = TRUE) %>%
+    normalizePath()
+}
+
+update_extra_files <- function(root = NULL, dirs = NULL, force = FALSE,
+                               keep_tex = FALSE, quiet = TRUE,
+                               static_path = "static", content_path = "content") {
+  if (is.null(root)) {
+    root = find_root(criterion = has_file(".semestr.here"))
+  }
+  oldwd = setwd(root)
+  on.exit(setwd(oldwd))
+  message("Setting working directory to ", getwd())
+
+  cd <-  paste0(normalizePath(getwd(), winslash = "/"), "/")
+  dir <- normalizePath(dir, winslash = "/")
+  dir <- stringr::str_replace(dir, stringr::fixed(cd), "")
+
+  if (! is.null(dirs)) {
+    dirs <- map_chr(dirs, function(d) {
+      if (! dir.exists(d)) {
+        d <- file.path(content_path, d)
+        if (! dir.exists(d)) {
+          d <- NULL
+        }
+      }
+      d
+    })
+    files <- map_chr(dirs, find_local_rmd_files)
+    if (force) {
+      to_build <- files
+    } else {
+      to_build <- semestr:::pdfs_to_rebuild(files, root, static_path, content_path)
+    }
+    to_build <- normalizePath(to_build, winslash = "/") %>%
+      str_replace(fixed(cd), "")
+
+    if (! quiet) {
+      message("Building ", length(to_build), " out of date ",
+              ifelse(length(to_build) == 1, "file", "files"),
+              "; candidate list has ", length(files), " ",
+              ifelse(length(files) == 1, "file", "files"),
+              " in total.")
+    }
+
+    for (f in to_build) {
+      semestr:::build_pdf_from_rmd(f, root, static_path, force_dest = force_dest,
+                         output_options = output_options)
+      semestr:::update_pdf_file_digests(f, root_dir, static_path, content_path,
+                              partial = TRUE)
+    }
+
+    # message("On exit stack: ", deparse(sys.on.exit()))
+    invisible(to_build)
+    }
+  }
+
+
 init_git_tokens <- function(keyring = "git_access") {
   if (keyring::keyring_is_locked(keyring)) {
     try(keyring::keyring_unlock(keyring), silent = TRUE)
