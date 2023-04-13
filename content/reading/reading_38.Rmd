@@ -52,6 +52,6 @@ What I am looking for you to get out of this is a sense of the different kinds o
     1. What kinds of mitigating factors might reduce the impact of climate change?
     1. What kinds of adaptations might make it easier to live with climate change?
 
-* In the chapter on farming, pay attention to the discussion of productivity growth in the worlds' economies (basically this is the growth of $g$, the per-capita GDP, in the Kaya identity, which we read about on p. 30 of Ch. 3, and which we'll study in greater detail when we look at decarbonizing the world's energy supply on Oct. 15--22.). How does growing productivity affect the way we look at climate change?
+* In the chapter on farming, pay attention to the discussion of productivity growth in the worlds' economies (basically this is the growth of $g$, the per-capita GDP, in the Kaya identity, which we read about on p. 30 of Ch. 3). How does growing productivity affect the way we look at climate change?
 * In the chapter on farming, why is figure 15 important to the discussion of adaptation and mitigation?
 * In the chapter on health impacts, don't try to get every detail but do try to get a sense of what the biggest climate related threats to health are likely to be and what kinds of adaptive things people could do to fight them as temperatures rise.
