@@ -13,4 +13,65 @@ pdf_url: /files/reading_asgts/reading_41.pdf
 ---
 ## Reading:
 
-No new reading for today.
+### Required Reading (everyone):
+
+* Climate Casino, Ch. 17--18.
+* The Climate Fix, Ch. 6.
+* Web Page: [M. Maslin, "A Short History of International Climate Change Negotiations – from Rio to Glasgow," (University College, London, 2021)](https://www.ucl.ac.uk/global-governance/news/2021/jan/short-history-international-climate-change-negotiations-rio-glasgow){target="_blank"}.
+
+### Reading Notes:
+
+There are three readings. Start with the blog by Mark Maslin that gives a short 
+history of international climate negotiations. Then read the chapters from 
+_Climate Casino_, and finally read the chapter from 
+_The Climate Fix_.
+
+
+* Pielke (_The Climate Fix_) and Nordhaus (_Climate Casino_) offer 
+  different accounts of the history of international treaties and policies to 
+  manage climate change. Pay attention to what each author says.
+* Much of the focus is on the United Nations Framework Convention on Climate 
+  Change (UNFCCC), signed in 1992 and ratified by all 193 member states of the 
+  United Nations. Maslin's short history of climate negotiations gives the 
+  history of this.
+  * Four important milestones in this process were:
+    1. Establishing the international treaty (UNFCCC) that laid out the basic
+       principles of responsibility to protect the world from dangerous 
+       climate change. The treaty was signed in 1991 and came into force
+       in 1994.
+    2. The Kyoto Treaty, which spelled out in detail what each country's 
+       responsibilities were under the UNFCCC. The Kyoto treaty was signed
+       in 1997. It became legally binding once 55 countries had ratified it,
+       which didn't happen until 2005. The US never ratified it, and the treaty 
+       expired in 2012.
+    3. The Copenhagen Agreement, signed in 2009, which replaced the Kyoto Treaty.
+       The nations knew that the US Congress would not ratify a new treaty, so
+       they developed an Agreement instead, which was not legally binding.
+    4. The 2015 Paris Agreement, which established a schedule for each 
+       country to reduce emissions in order to try to limit warming to 
+       no more than 2&deg;C, and preferably 
+       less than 1.5&deg;C.
+  * The UNFCCC is legally binding on its signatories, and requires them to 
+    "stabiliz[e] greenhouse gases concentrations in the atmosphere at a level 
+    that would avoid dangerous anthropogenic interference with the climate 
+    system." 
+    A problem is that the Framework did not define what constituted 
+    "dangerous anthropogenic interference," or spell out any specific actions 
+    that the signatories would have to take under the treaty.
+  * In subsequent years, much of the world's scientific and climate policy 
+    elites arrived at a rough consensus that raising the average temperature
+    of the earth by more than 2&deg;C relative to preindustrial 
+    temperatures would constitute dangerous interference. Both Nordhaus and 
+    Pielke present critical examinations of this judgment.
+  * The details of implementing the pledge under UNFCCC (both defining 
+    "dangerous interference" and deciding on specific actions) was left to 
+    subsequent negotiations, and the signatory nations have met every year at 
+    "conferences of parties" (COPs) to hammer out details. The most important 
+    implementation agreement was a treaty signed in Kyoto in 1998, but never 
+    ratified by the United States, and it expired in 2012, but was superseded 
+    by the Copenhagen Treaty in 2009. Both Nordhaus and Pielke discuss the 
+    Kyoto treaty and its pros and cons.
+* As you read this history and the discussion of the goal of limiting warming 
+  to no more than 2&deg;C above pre-industrial temperatures, try 
+  to become familiar with the history and think critically about the kinds of 
+  policies that were pursued and those that were not given serious consideration.
