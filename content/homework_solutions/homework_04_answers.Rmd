@@ -110,13 +110,15 @@ With clear skies,
 $I_{\text{out}} = `r format_md(i_out_clear, digits = 2)`~\text{W}/\text{m}^2$.
 With altostratus clouds,
 $I_{\text{out}} = `r format_md(i_out_alto, digits = 2)`~\text{W}/\text{m}^2$,
-which is $`r format_md(abs(alto_effect), digits = 2)`~~\text{W}/\text{m}^2$
+which is 
+$`r str_trim(format_md(abs(alto_effect), digits = 2))`~\text{W}/\text{m}^2$
 `r ifelse(alto_effect >= 0, "greater", "less")`, so altostratus clouds
 have a `r ifelse(alto_effect >= 0, "cooling", "warming")` effect.
 
 With stratus clouds, which are closer to the ground,
 $I_{\text{out}} = `r format_md(i_out_stratus, digits = 2)`~\text{W}/\text{m}^2$,
-which is $`r format_md(abs(stratus_effect), digits = 2)`~~\text{W}/\text{m}^2$
+which is 
+$`r str_trim(format_md(abs(stratus_effect), digits = 2))`~\text{W}/\text{m}^2$
 `r ifelse(stratus_effect >= 0, "greater", "less")`, so stratus clouds
 have a `r ifelse(stratus_effect >= 0, "cooling", "warming")` effect.
 
@@ -159,7 +161,7 @@ if (file.exists(clear_sky_down_file)) {
   modtran_clear_down <- read_modtran(clear_sky_down_file)
 } else {
   modtran_clear_down <- run_modtran(clear_sky_down_file, atmosphere = "tropical",
-                               altitude_km = 0, looking = "down")
+                               altitude_km = 0, looking = "up")
 }
 
 alto_down_file <- file.path(data_dir, "ch_07", "ex_7_1_b_alto.txt")
@@ -168,7 +170,7 @@ if (file.exists(alto_down_file)) {
 } else {
   modtran_alto_down <- run_modtran(alto_down_file, atmosphere = "tropical",
                                    clouds = "altostratus",
-                                   altitude_km = 0, looking = "down")
+                                   altitude_km = 0, looking = "up")
 }
 
 stratus_down_file <- file.path(data_dir, "ch_07", "ex_7_1_b_stratus.txt")
@@ -177,7 +179,7 @@ if (file.exists(stratus_down_file)) {
 } else {
   modtran_stratus_down <- run_modtran(stratus_down_file, atmosphere = "tropical",
                               clouds = "stratus",
-                                   altitude_km = 0, looking = "down")
+                                   altitude_km = 0, looking = "up")
 }
 
 i_down_clear <- modtran_clear_down$i_out
@@ -193,13 +195,15 @@ With clear skies,
 $I_{\text{down}} = `r format_md(i_down_clear, digits = 2)`~\text{W}/\text{m}^2$.
 With altostratus clouds,
 $I_{\text{down}} = `r format_md(i_down_alto, digits = 2)`~\text{W}/\text{m}^2$,
-which is $`r format_md(abs(alto_effect), digits = 2)`~~\text{W}/\text{m}^2$
+which is 
+$`r str_trim(format_md(abs(alto_effect), digits = 2))`~\text{W}/\text{m}^2$
 `r ifelse(alto_effect >= 0, "greater", "less")`, so altostratus clouds
 have a `r ifelse(alto_effect >= 0, "warming", "cooling")` effect.
 
 With stratus clouds, which are closer to the ground,
 $I_{\text{down}} = `r format_md(i_down_stratus, digits = 2)`~\text{W}/\text{m}^2$,
-which is $`r format_md(abs(stratus_effect), digits = 2)`~~\text{W}/\text{m}^2$
+which is 
+$`r str_trim(format_md(abs(stratus_effect), digits = 2))`~\text{W}/\text{m}^2$
 `r ifelse(stratus_effect >= 0, "greater", "less")`, so stratus clouds
 have a `r ifelse(stratus_effect >= 0, "warming", "cooling")` effect.
 
@@ -376,8 +380,13 @@ delta_sw_up_lc_8 <- sw_up_lc_8 - sw_up_lc
 
 i_out_large <- rrtm_low_cloud$i_out
 i_in_large <- rrtm_low_cloud$i_in
+
+delta_i_large <- i_in_large - i_out_large
+
 i_out_small <- rrtm_low_cloud_small_drop$i_out
 i_in_small <- rrtm_low_cloud_small_drop$i_in
+
+delta_i_small <- i_in_small - i_out_small
 
 df <- tibble(
   altitude = c("Ground", "Ground", "Top of atmosphere", "Top of atmosphere"),
@@ -397,11 +406,17 @@ There is very little change in the longwave, but big reduction in shortwave
 reaching the ground and a big increase in shortwave reflected back to space.
 
 In terms of total heat fluxes, with the 10 $\mu$m drops, we had
-$I_{\text{in}} = `r i_in_large`$ and $I_{\text{out}} = `r i_out_large`$.
+$I_{\text{in}} = `r i_in_large`$ and $I_{\text{out}} = `r i_out_large`$,
+so the earth `r ifelse(delta_i_large > 0, "gains", "loses")`
+$`r str_trim(format_md(abs(delta_i_large), digits = 3))`~\mathrm{W}/\mathrm{m}^2$.
 
 For the 8 $\mu$m drops, we had
-$I_{\text{in}} = `r i_in_small`$ and $I_{\text{out}} = `r i_out_small`$.
+$I_{\text{in}} = `r i_in_small`$ and $I_{\text{out}} = `r i_out_small`$,
+so the earth `r ifelse(delta_i_small > 0, "gains", "loses")`
+$`r str_trim(format_md(abs(delta_i_small), digits = 3))`~\mathrm{W}/\mathrm{m}^2$.
 
+The difference between large and small drops is 
+$`r str_trim(format_md(abs(delta_i_large - delta_i_small), digits = 2))`~\mathrm{W}/\mathrm{m}^2$
 
 > e) Now set the cloud fraction to zero and double the CO~2~. How does this
 >    change the heat flux? How does the effect of doubling CO~2~ compare to
@@ -435,9 +450,13 @@ delta_sw_up_co2 <- sw_up_co2 - sw_up
 
 i_out <- rrtm_clear$i_out
 i_in <- rrtm_clear$i_in
+
+delta_i <- i_in - i_out
+
 i_out_co2 <- rrtm_co2$i_out
 i_in_co2 <- rrtm_co2$i_in
 
+delta_i_co2 <- i_in_co2 - i_out_co2
 
 df <- tibble(
   altitude = c("Ground", "Ground", "Top of atmosphere", "Top of atmosphere"),
@@ -454,10 +473,24 @@ knitr::kable(df, col.names = c("Altitude", "Wavelength", "Direction",
 ```
 
 In terms of total heat fluxes, with 400 ppm CO~2~, we had
-$I_{\text{in}} = `r i_in`$ and $I_{\text{out}} = `r i_out`$.
+$I_{\text{in}} = `r i_in`$ and $I_{\text{out}} = `r i_out`$,
+so the earth 
+`r ifelse(delta_i == 0, "gains as much heat as it loses",
+          str_c(ifelse(delta_i > 0, "gains", "loses"), "$",
+                str_trim(format_md(abs(delta_i), digits = 2)),
+                "~\\mathrm{W}/\\mathrm{m}^2$"
+               )
+         )`.
+
 
 For the 800 ppm CO~2~, we had
-$I_{\text{in}} = `r i_in_co2`$ and $I_{\text{out}} = `r i_out_co2`$.
+$I_{\text{in}} = `r i_in_co2`$ and $I_{\text{out}} = `r i_out_co2`$,
+so the earth `r ifelse(delta_i_co2 > 0, "gains", "loses")`
+$`r str_trim(format_md(abs(delta_i_co2), digits = 2))`~\mathrm{W}/\mathrm{m}^2$.
+
+
+Doubling CO~2~ changes the heat balance by 
+$`r str_trim(format_md(abs(delta_i - delta_i_co2), digits = 2))`~\mathrm{W}/\mathrm{m}^2$.
 
 Changing the size of cloud drops affects the heat balance about half as much
 as doubling CO~2~,
