@@ -152,7 +152,9 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "_scripts$", "_
   fullCourseName = "EES 2110: Introduction to Climate Change"
   semester = "Spring 2023"
   courseCatalogEntry = "Science, policy, history, and causes of climate change on Earth in the last 2 million years; evidence of human impacts on climate since 1850; future climate change and its economic, social, and ecological consequences; economic, technological, and public policy responses. Not open to students who have earned credit for EES 3310 without permission. [3] (MNS)"
-  fontAwesomePro = "sha384-POYwD7xcktv3gUeZO5s/9nUbRJG/WOmV6jfEGikMJu77LGYO8Rfs2X7URG822aum"
+  [params.fontAwesomePro]
+    key = "sha384-POYwD7xcktv3gUeZO5s/9nUbRJG/WOmV6jfEGikMJu77LGYO8Rfs2X7URG822aum"
+    kit = "536cbb4daa"
   siteGitHub = "https://github.com/gilligan-EES-2110/EES-2110-website.git"
 
   [params.lectures]
